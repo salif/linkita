@@ -1,14 +1,14 @@
 +++
 title = "Shortcodes"
 date = "2022-10-20"
-description = "The Kita theme shortcodes."
+description = "The Linkita theme shortcodes."
 [taxonomies]
 tags = ["markdown", "css", "html"]
 [extra]
 mermaid = true
 +++
 
-The Kita theme providers multiple shortcodes.
+The Linkita theme providers multiple shortcodes.
 
 Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/documentation/content/shortcodes/) for more information.
 

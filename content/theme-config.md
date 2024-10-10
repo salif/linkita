@@ -1,17 +1,17 @@
 +++
 title = "Theme Config Guide"
 date = "2022-10-20"
-description = "The config fo Kita theme."
+description = "The config fo Linkita theme."
 [taxonomies]
 tags = ["theme", "markdown"]
 +++
 
-You can customize Kita theme by editing `config.toml`.
+You can customize Linkita theme by editing `config.toml`.
 
-Here are all the kita theme options:
+Here are all the Linkita theme options:
 
 ```toml
-# The Kita theme style config.
+# The Linkita theme style config.
 [extra]
 # Enable KaTex math formula support globally.
 math = false
@@ -38,8 +38,8 @@ comment = false
 
 # The profile on home page.
 [extra.profile]
-name = "Kita - Zola Theme"
-bio = "Kita is a clean, elegant and simple blog theme for Zola."
+name = "Linkita - Zola Theme"
+bio = "Linkita is a Zola theme based on Kita."
 # The URL of avatar.
 avatar_url = "icons/github.svg"
 # Invert color in dark mode.
@@ -48,11 +48,11 @@ avatar_invert = true
 # The social icons below the profile on the home page.
 [[extra.profile.social]]
 name = "github"
-url = "https://github.com/st1020/kita"
+url = "https://github.com/salif/linkita"
 
 [[extra.profile.social]]
 name = "twitter"
-url = "https://github.com/st1020/kita"
+url = "https://github.com/salif/linkita"
 
 [[extra.profile.social]]
 name = "rss"

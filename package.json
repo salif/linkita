@@ -1,13 +1,13 @@
 {
-  "name": "kita",
+  "name": "linkita",
   "version": "0.1.0",
-  "description": "Kita is a clean, elegant and simple blog theme for Zola.",
-  "homepage": "https://github.com/st1020/kita",
+  "description": "Linkita is a Zola theme based on Kita.",
+  "homepage": "https://github.com/salif/linkita",
   "license": "MIT",
-  "author": "st1020 <me@st1020.com>",
+  "author": "Salif Mehmed <mail@salif.eu>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/st1020/kita.git"
+    "url": "https://github.com/salif/linkita.git"
   },
   "scripts": {
     "dev": "pnpm tailwindcss -i ./static/app.css -o ./static/main.css --watch",

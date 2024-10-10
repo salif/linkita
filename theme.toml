@@ -1,15 +1,15 @@
-name = "Kita"
-description = "Kita is a clean, elegant and simple blog theme for Zola."
+name = "Linkita"
+description = "Linkita is a Zola theme based on Kita."
 license = "MIT"
-homepage = "https://github.com/st1020/kita"
+homepage = "https://github.com/salif/linkita"
 min_version = "0.17.0"
-demo = "https://st1020.github.io/kita/"
+demo = "https://salif.github.io/linkita/"
 
 [author]
-name = "st1020"
-homepage = "https://st1020.com"
+name = "Salif Mehmed"
+homepage = "https://salif.eu"
 
 [original]
-author = "nanxiaobei"
-homepage = "https://lee.so/"
-repo = "https://github.com/nanxiaobei/hugo-paper"
+author = "st1020"
+homepage = "https://st1020.com"
+repo = "https://github.com/st1020/kita"

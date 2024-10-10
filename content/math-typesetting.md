@@ -5,7 +5,7 @@ description = "A brief guide to setup KaTeX"
 extra.math = true
 +++
 
-Kita theme support $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).
+Linkita theme support $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).
 
 <!--more-->
 
