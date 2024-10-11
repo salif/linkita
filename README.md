@@ -10,6 +10,8 @@ Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-pape
 
 ![Screenshot](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.png)
 
+![Screenshot - Dark mode](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.dark.png)
+
 ## Features
 
 - Easy to use and modify

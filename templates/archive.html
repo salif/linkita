@@ -14,7 +14,7 @@
     <li>
       <div class="my-2 flex items-center justify-between">
         <a class="secondary-link" href="{{ post.permalink }}">{{ post.title }}</a>
-        <time class="font-mono text-sm opacity-60">{{ post.date | date(format="%m-%d") }}</time>
+        <time class="font-mono text-sm opacity-80">{{ post.date | date(format="%d.%m") }}</time>
       </div>
     </li>
     {% endfor %}
