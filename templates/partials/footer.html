@@ -26,6 +26,13 @@
       rel="noopener" target="_blank">Линкита</a>
     </span>
   </div>
+  {% if config.base_url == 'https://salif.github.io/linkita' %}<!---->
+  <script async data-goatcounter="https://sgi.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+  {% else %}<!---->
+  {% if config.extra.goatcounter %}<!---->
+  <script async data-goatcounter="{{ config.extra.goatcounter_endpoint }}" src="//gc.zgo.at/count.js"></script>
+  {% endif %}<!---->
+  {% endif %}
   <!-- Footer inject -->
   {% include "injects/footer.html" ignore missing %}
 </footer>

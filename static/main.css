@@ -1680,11 +1680,6 @@ pre table td:nth-of-type(1) {
   line-height: 1.75rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .font-bold {
   font-weight: 700;
 }

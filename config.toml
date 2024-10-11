@@ -60,6 +60,11 @@ comment = false
 # The URL of social image.
 social_image = "icons/github.svg"
 
+# Enable web analytics
+goatcounter = false
+# https://MYCODE.goatcounter.com/count
+goatcounter_endpoint = ""
+
 [extra.style]
 # The custom background color.
 # bg_color = ""

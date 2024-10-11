@@ -2,7 +2,7 @@
   {% if page.date %}
   <time>{{ page.date | date(format="%d.%m.%Y") }}</time>
   <span class="mx-1">&middot;</span>
-  <span>{{ page.reading_time }}мин</span>
+  <span>{{ page.reading_time }} мин</span>
   {% endif %}<!---->
   {% if page.authors | length > 0 %}<!---->
   {% set author = page.authors | join(sep=", ") %}<!---->
