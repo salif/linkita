@@ -25,7 +25,9 @@
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
         style="--url: url({{ macros::get_social_icon(icon=social.name) }})"
-        href="{{ social.url | replace(from=`$BASE_URL`, to=config.base_url) | safe  }}"
+        href="{% if lang == config.default_language
+          %}{{ social.url | replace(from=`$BASE_URL`, to=config.base_url) | safe  }}{% else
+          %}{{ social.url | replace(from=`$BASE_URL`, to=config.base_url ~ '/' ~ lang) | safe  }}{% endif %}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
       >

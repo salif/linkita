@@ -3,7 +3,7 @@ description = "Linkita is a Zola theme based on Kita."
 license = "MIT"
 homepage = "https://github.com/salif/linkita"
 min_version = "0.17.0"
-demo = "https://salif.github.io/linkita/"
+demo = "https://salif.github.io/linkita/en/"
 
 [author]
 name = "Salif Mehmed"

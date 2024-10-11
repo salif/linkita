@@ -6,7 +6,7 @@ This theme is based on [Kita](https://github.com/st1020/kita) with some features
 
 Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-paper) with some features added.
 
-[Demo](https://salif.github.io/linkita/)
+[Demo](https://salif.github.io/linkita/en/)
 
 ![Screenshot](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.png)
 

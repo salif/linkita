@@ -73,7 +73,9 @@
         <li>
           <a
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
-            href="{{ menu.url | replace(from=`$BASE_URL`, to=config.base_url) | safe }}"
+            href="{% if lang == config.default_language
+              %}{{ menu.url | replace(from=`$BASE_URL`, to=config.base_url) | safe }}{% else
+              %}{{ menu.url | replace(from=`$BASE_URL`, to=config.base_url ~ '/' ~ lang) | safe }}{% endif %}"
             >{{ menu.name }}</a
           >
         </li>
