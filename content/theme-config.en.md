@@ -1,14 +1,14 @@
 +++
-title = "Ръководство за конфигуриране на темата"
+title = "Theme Config Guide"
 date = "2022-10-20"
-description = "Конфигуриране на темата Линкита."
+description = "The config fo Linkita theme."
 [taxonomies]
 tags = ["theme", "markdown"]
 +++
 
-Можете да персонализирате темата Линкита, като редактирате `config.toml`.
+You can customize Linkita theme by editing `config.toml`.
 
-Ето всички опции за темата:
+Here are all the Linkita theme options:
 
 ```toml
 # The Linkita theme style config.

@@ -60,7 +60,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{{ config.title }}" />
   <meta property="og:description" content="{{ description }}" />
-  <meta property="og:url" content="{{ get_url(path=``) }}" />
+  <meta property="og:url" content="{{ get_url(path=``, lang=lang) }}" />
   {% if config.extra.social_image %}
   <meta property="og:image" content="{{ get_url(path=config.extra.social_image) }}" />
   {% endif %}
@@ -126,21 +126,21 @@
     rel="alternate"
     type="application/atom+xml"
     title="Atom"
-    href="{{ get_url(path=`atom.xml`) }}"
+    href="{{ get_url(path=`atom.xml`, lang=lang) }}"
   />
   {% endif %} {% if "rss.xml" in config.feed_filenames %}
   <link
     rel="alternate"
     type="application/rss+xml"
     title="RSS"
-    href="{{ get_url(path=`rss.xml`) }}"
+    href="{{ get_url(path=`rss.xml`, lang=lang) }}"
   />
   {% endif %}
   <!---->
   {% endif %}
 
   <!-- Canonical -->
-  <link rel="canonical" href="{{ page.permalink | default(value=get_url(path=``)) }}" />
+  <link rel="canonical" href="{{ page.permalink | default(value=get_url(path=``, lang=lang)) }}" />
 
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}

@@ -1,12 +1,12 @@
 +++
-title = "Ръководство за синтаксиса на Маркдаун"
+title = "Markdown Syntax Guide"
 date = "2022-10-20"
-description = "Примерна статия, показваща основния синтаксис и форматиране на Маркдаун."
+description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 [taxonomies]
 tags = ["markdown", "css", "html"]
 [extra]
 cover.image = "images/markdown-syntax.png"
-cover.alt = "Лого на Маркдаун"
+cover.alt = "A Markdown logo"
 +++
 
 This article offers a sample of basic Markdown syntax that can be used in Zola content files, also it shows whether basic HTML elements are decorated with CSS in a Linkita theme.

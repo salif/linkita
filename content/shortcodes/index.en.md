@@ -1,7 +1,7 @@
 +++
-title = "Шорткодове"
+title = "Shortcodes"
 date = "2022-10-20"
-description = "Шорткодове за темата Линкита."
+description = "The Linkita theme shortcodes."
 [taxonomies]
 tags = ["markdown", "css", "html"]
 [extra]

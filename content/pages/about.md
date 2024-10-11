@@ -1,6 +1,6 @@
 +++
-title = "About"
+title = "Относно"
 path = "about"
 +++
 
-## Hello World
+## Здравей, свят!

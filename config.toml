@@ -2,14 +2,14 @@
 base_url = "https://salif.github.io/linkita"
 
 # The site title and description; used in feeds by default.
-title = "Linkita"
-description = "Linkita is a Zola theme based on Kita."
+title = "Линкита"
+description = "Линкита е тема за Зола, основана на Кита."
 
 # The default site author.
-author = "salif"
+author = "Салиф Мехмед"
 
 # The default language; used in feeds.
-default_language = "en"
+default_language = "bg"
 
 # When set to "true", a feed is automatically generated.
 generate_feeds = true
@@ -42,6 +42,13 @@ extra_syntaxes_and_themes = []
 # See below for list of allowed values.
 highlight_theme = "base16-ocean-dark"
 
+[languages.en]
+title = "Linkita"
+description = "Linkita is a Zola theme based on Kita."
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+taxonomies = [{ name = "tags", rss = true, paginate_by = 5 }]
+
 # The Linkita theme style config.
 [extra]
 # Enable KaTex math formula support globally.
@@ -71,8 +78,8 @@ social_image = "icons/github.svg"
 
 # The profile on home page.
 [extra.profile]
-name = "Linkita - Zola Theme"
-bio = "Linkita is a Zola theme based on Kita."
+name = "Линкита - Тема за Зола"
+bio = "Линкита е тема за Зола, основана на Кита."
 # The URL of avatar.
 avatar_url = "icons/github.svg"
 # Invert color in dark mode.
@@ -85,7 +92,7 @@ name = "github"
 url = "https://github.com/salif/linkita"
 
 [[extra.profile.social]]
-name = "twitter"
+name = "bluesky"
 url = "https://github.com/salif/linkita"
 
 [[extra.profile.social]]
@@ -94,19 +101,19 @@ url = "$BASE_URL/atom.xml"
 
 # The top menu.
 [[extra.menu]]
-name = "Projects"
+name = "Проекти"
 url = "$BASE_URL/projects"
 
 [[extra.menu]]
-name = "Archive"
+name = "Архив"
 url = "$BASE_URL/archive"
 
 [[extra.menu]]
-name = "Tags"
+name = "Етикети"
 url = "$BASE_URL/tags"
 
 [[extra.menu]]
-name = "About"
+name = "Относно"
 url = "$BASE_URL/about"
 
 # The page footer options.
@@ -127,5 +134,5 @@ reactions_enabled = 0
 emit_metadata = 0
 input_position = "top"
 theme = "light"
-lang = "en"
+lang = "bg"
 loading = "lazy"

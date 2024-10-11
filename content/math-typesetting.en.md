@@ -1,7 +1,7 @@
 +++
-title = "Математика"
+title = "Math Typesetting"
 date = "2022-10-20"
-description = "Кратко ръководство за настройка на KaTeX"
+description = "A brief guide to setup KaTeX"
 extra.math = true
 +++
 
