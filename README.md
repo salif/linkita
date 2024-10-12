@@ -1,6 +1,6 @@
 # Linkita
 
-Linkita is a clean, elegant and simple blog theme for Zola.
+Linkita is a clean and elegant blog theme for Zola.
 
 This theme is based on [Kita](https://github.com/st1020/kita) with some features added.
 
@@ -73,4 +73,4 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 [MIT License](https://github.com/salif/linkita/blob/linkita/LICENSE)
 
 Copyright (c) 2023-present, st1020
-Copyright (c) 2024-present, Salif Mehmed
+Copyright (c) 2024-present, salif

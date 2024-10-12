@@ -3,7 +3,7 @@ title = "Ръководство за синтаксиса на Маркдаун"
 date = "2022-10-20"
 description = "Примерна статия, показваща основния синтаксис и форматиране на Маркдаун."
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["маркдаун", "css", "html"]
 [extra]
 cover.image = "images/markdown-syntax.png"
 cover.alt = "Лого на Маркдаун"

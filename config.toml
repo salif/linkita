@@ -3,7 +3,7 @@ base_url = "https://salif.github.io/linkita"
 
 # The site title and description; used in feeds by default.
 title = "Линкита"
-description = "Линкита е тема за Зола, основана на Кита."
+description = "Линкита е чиста и елегантна блог тема за Зола."
 
 # The default site author.
 author = "Авторът"
@@ -42,12 +42,75 @@ extra_syntaxes_and_themes = []
 # See below for list of allowed values.
 highlight_theme = "base16-ocean-dark"
 
+[translations]
+footer_powered_by = "Осъществено чрез"
+footer_zola = "Зола"
+footer_linkita = "Линкита"
+word_prev_page = "Предишна страница"
+word_next_page = "Следваща страница"
+word_and = "и"
+word_tags = "етикети"
+word_categories = "категории"
+word_toc = "Съдържание"
+word_minutes = "мин"
+word_more = "Още >>"
+error_404 = "Грешка 404: Страницата не е намерена!"
+date_format = "%d.%m.%Y"
+date_format_archive = "%d.%m"
+
 [languages.en]
+# The site title and description; used in feeds by default.
 title = "Linkita"
-description = "Linkita is a Zola theme based on Kita."
+description = "Linkita is a clean and elegant blog theme for Zola."
+# When set to "true", a feed is automatically generated.
 generate_feeds = true
+# The filenames to use for the feeds.
 feed_filenames = ["atom.xml"]
+# The taxonomies to be rendered for the site and their configuration of the default languages.
 taxonomies = [{ name = "tags", rss = true, paginate_by = 5 }]
+
+[languages.en.translations]
+footer_powered_by = "Powered by"
+footer_zola = "Zola"
+footer_linkita = "Linkita"
+word_prev_page = "Prev Page"
+word_next_page = "Next Page"
+word_and = "and"
+word_tags = "tags"
+word_categories = "categories"
+word_toc = "Table of Contents"
+word_minutes = "min"
+word_more = "More >>"
+error_404 = "404"
+date_format = "%Y-%m-%d"
+date_format_archive = "%m-%d"
+
+[languages.eo]
+# The site title and description; used in feeds by default.
+title = "Linkita"
+description = "Linkita estas pura kaj eleganta bloga temo por Zola."
+# When set to "true", a feed is automatically generated.
+generate_feeds = true
+# The filenames to use for the feeds.
+feed_filenames = ["atom.xml"]
+# The taxonomies to be rendered for the site and their configuration of the default languages.
+taxonomies = [{ name = "tags", rss = true, paginate_by = 5 }]
+
+[languages.eo.translations]
+footer_powered_by = "Funkciigita de"
+footer_zola = "Zola"
+footer_linkita = "Linkita"
+word_prev_page = "Antaŭa Paĝo"
+word_next_page = "Sekva Paĝo"
+word_and = "kaj"
+word_tags = "etikedoj"
+word_categories = "kategorioj"
+word_toc = "Enhavtabelo"
+word_minutes = "min"
+word_more = "Pli >>"
+error_404 = "404"
+date_format = "%Y-%m-%d"
+date_format_archive = "%m-%d"
 
 # The Linkita theme style config.
 [extra]
@@ -84,7 +147,11 @@ goatcounter_endpoint = ""
 # The profile on home page.
 [extra.profile]
 name = "Линкита - Тема за Зола"
-bio = "Линкита е тема за Зола, основана на Кита."
+name_en = "Linkita - Zola Theme"
+name_eo = "Linkita - Temo por Zola"
+bio = "Линкита е чиста и елегантна блог тема за Зола."
+bio_en = "Linkita is a clean and elegant blog theme for Zola."
+bio_eo = "Linkita estas pura kaj eleganta bloga temo por Zola."
 # The URL of avatar.
 avatar_url = "icons/github.svg"
 # Invert color in dark mode.
@@ -106,20 +173,28 @@ url = "$BASE_URL/atom.xml"
 
 # The top menu.
 [[extra.menu]]
-name = "Проекти"
 url = "$BASE_URL/projects"
+name = "Проекти"
+name_en = "Projects"
+name_eo = "Projektoj"
 
 [[extra.menu]]
-name = "Архив"
 url = "$BASE_URL/archive"
+name = "Архив"
+name_en = "Archive"
+name_eo = "Arkivo"
 
 [[extra.menu]]
-name = "Етикети"
 url = "$BASE_URL/tags"
+name = "Етикети"
+name_en = "Tags"
+name_eo = "Etikedoj"
 
 [[extra.menu]]
-name = "Относно"
 url = "$BASE_URL/about"
+name = "Относно"
+name_en = "About"
+name_eo = "Pri"
 
 # The page footer options.
 [extra.footer]
@@ -139,5 +214,5 @@ reactions_enabled = 0
 emit_metadata = 0
 input_position = "top"
 theme = "light"
-lang = "bg"
+lang = "en"
 loading = "lazy"

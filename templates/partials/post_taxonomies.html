@@ -6,11 +6,13 @@
   {% endfor %}<!---->
   {% for term_name in term_names | sort %}
   <div class="mb-2 flex flex-wrap">
-    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{{ term_name | title }} </span>
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{% if term_name == "tags"
+      %}{{ trans(key="word_tags", lang=lang) | title }}{% elif term_name == "categories"
+      %}{{ trans(key="word_categories", lang=lang) | title }}{% else %}{{ term_name | title }}{% endif %} </span>
     {% for term in page.taxonomies[term_name] %}
     <a
       class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
-      href="{{ get_taxonomy_url(kind=term_name, name=term) | safe }}"
+      href="{{ get_taxonomy_url(kind=term_name, name=term, lang=lang) | safe }}"
       >{{ term }}</a
     >
     {% endfor %}

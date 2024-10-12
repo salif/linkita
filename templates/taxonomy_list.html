@@ -1,7 +1,9 @@
 {% extends "index.html" %}<!---->
 {% block main %}
 <!-- Taxonomy Title -->
-<h1 class="mb-16">{{ taxonomy.name | title }}</h1>
+<h1 class="mb-16">{% if taxonomy.name == "tags" %}{{ trans(key="word_tags", lang=lang) | title }}{%
+  elif taxonomy.name == "categories" %}{{ trans(key="word_categories", lang=lang) | title }}{% else
+  %}{{ taxonomy.name | title }}{% endif %}</h1>
 <!-- Taxonomies -->
 <div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
   {% for term in terms %}
@@ -17,7 +19,7 @@
 
     {% if term.pages | length > 5 %}
     <span class="flex justify-end">
-      <a class="secondary-link mt-1 pr-2" href="{{ term.permalink }}">More >></a>
+      <a class="secondary-link mt-1 pr-2" href="{{ term.permalink }}">{{ trans(key="word_more", lang=lang) }}</a>
     </span>
     {% endif %}<!---->
   </div>

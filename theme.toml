@@ -1,5 +1,5 @@
 name = "Linkita"
-description = "Linkita is a Zola theme based on Kita."
+description = "Linkita is a clean and elegant blog theme for Zola."
 license = "MIT"
 homepage = "https://github.com/salif/linkita"
 min_version = "0.17.0"

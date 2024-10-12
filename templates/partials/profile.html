@@ -13,10 +13,21 @@
   {% endif %}<!---->
 
   {% if config.extra.profile.name %}
+  {% if lang == config.default_language %}
+    {% set profile_name = config.extra.profile.name %}
+    {% set profile_bio = config.extra.profile.bio %}
+    {% set social_base_url = config.base_url %}
+  {% else %}
+    {% set key_name = "name_" ~ lang %}
+    {% set key_bio = "bio_" ~ lang %}
+    {% set profile_name = config.extra.profile[key_name] | default(value=config.extra.profile.name) %}
+    {% set profile_bio = config.extra.profile[key_bio] | default(value=config.extra.profile.bio) %}
+    {% set social_base_url = config.base_url ~ "/" ~ lang %}
+  {% endif %}
   <div>
-    <h1 class="mb-2 text-3xl font-bold">{{ config.extra.profile.name }}</h1>
+    <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
     <div class="mb-2 break-words">
-      {{ config.extra.profile.bio | default(value=`A blog by ` ~ config.extra.profile.name) }}
+      {{ profile_bio | default(value=`A blog by ` ~ profile_name) }}
     </div>
 
     {% if config.extra.profile.social %}
@@ -25,9 +36,7 @@
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
         style="--url: url({{ macros::get_social_icon(icon=social.name) }})"
-        href="{% if lang == config.default_language
-          %}{{ social.url | replace(from=`$BASE_URL`, to=config.base_url) | safe  }}{% else
-          %}{{ social.url | replace(from=`$BASE_URL`, to=config.base_url ~ '/' ~ lang) | safe  }}{% endif %}"
+        href="{{ social.url | replace(from=`$BASE_URL`, to=social_base_url) | safe }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
       >

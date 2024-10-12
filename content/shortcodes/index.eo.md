@@ -1,9 +1,9 @@
 +++
-title = "Шорткодове"
+title = "Shortcodes"
 date = "2022-10-20"
-description = "Шорткодове за темата Линкита."
+description = "The Linkita theme shortcodes."
 [taxonomies]
-tags = ["маркдаун", "css", "html"]
+tags = ["markdown", "css", "html"]
 [extra]
 mermaid = true
 +++
