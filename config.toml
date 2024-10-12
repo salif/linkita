@@ -125,7 +125,7 @@ social_image = "icons/github.svg"
 
 # Enable web analytics
 goatcounter = false
-# https://MYCODE.goatcounter.com/count
+# "https://MYCODE.goatcounter.com/count"
 goatcounter_endpoint = ""
 
 [extra.style]

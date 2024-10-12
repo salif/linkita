@@ -2,17 +2,20 @@
 
 Linkita is a clean and elegant blog theme for Zola.
 
-This theme is based on [Kita](https://github.com/st1020/kita) with some features added.
-
+It is based on [Kita](https://github.com/st1020/kita) with some features added.
 Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-paper) with some features added.
 
-[Demo](https://salif.github.io/linkita/en/)
+## Demo
+
+- [English](https://salif.github.io/linkita/en/)
+- [Bulgarian](https://salif.github.io/linkita/)
+- [Esperanto](https://salif.github.io/linkita/eo/)
 
 ![Screenshot](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.png)
 
 ![Screenshot - Dark mode](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.dark.png)
 
-## Features
+## Kita features
 
 - Easy to use and modify
 - No preset limits (This theme does not limit your content directory structure, taxonomy names, etc. It's applicable to all zola sites.)
@@ -29,6 +32,14 @@ Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-pape
 - Comments using [Giscus](https://giscus.app/)
 - Mathematical notations using [KaTeX](https://katex.org/)
 - Diagrams and charts using [Mermaid](https://mermaid.js.org/)
+
+## Linkita features
+
+### UI localization
+
+- English
+- Bulgarian
+- Esperanto
 
 ## Installation
 
