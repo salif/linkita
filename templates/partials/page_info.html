@@ -1,6 +1,11 @@
 <div class="text-sm antialiased opacity-80">
   {% if page.date %}
+  {% if trans(key="date_locale", lang=lang) == "" %}
   <time>{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</time>
+  {% else %}
+  <time>{{ page.date | date(format=trans(key="date_format", lang=lang),
+    locale=trans(key="date_locale", lang=lang)) }}</time>
+  {% endif %}
   <span class="mx-1">&middot;</span>
   <span>{{ page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</span>
   {% endif %}<!---->
