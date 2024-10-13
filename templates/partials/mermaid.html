@@ -23,7 +23,7 @@
         element.innerHTML = mermaidCode;
       }
     });
-    initMermaid(e.detail == "dark");
+    initMermaid(e.detail === "dark");
   });
 
   // The es module script will load defer, so the localStorage should already be set by script in header.

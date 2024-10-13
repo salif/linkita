@@ -76,6 +76,9 @@
       --header: {{ config.extra.style.header_color | default(value="#e4e4e7") }};
       --header-dark: {{ config.extra.style.header_dark_color | default(value="#27272a") }};
     }
+    :root.dark {
+      color-scheme: dark;
+    }
   </style>
 
   {% if section.path is defined and section.path == "/" %}

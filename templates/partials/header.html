@@ -33,24 +33,28 @@
       });
 
       // dark theme
-      const setDark = (isDark) => {
+      const applyDark = (isDark) => {
         if (isDark) {
-          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
           htmlClass.add("dark");
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
         } else {
-          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
           htmlClass.remove("dark");
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
         }
+      };
+
+      const setDark = (isDark) => {
+        applyDark(isDark);
         localStorage.setItem("dark", isDark);
       };
 
       // init
       const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
       if (htmlClass.contains("dark")) {
-        setDark(true);
+        applyDark(true);
       } else {
         const darkVal = localStorage.getItem("dark");
-        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+        applyDark(darkVal ? darkVal === "true" : darkScheme.matches);
       }
 
       // listen system
@@ -60,7 +64,7 @@
 
       // manual switch
       const btnDark = document.querySelector(".btn-dark");
-      btnDark.addEventListener("click", () => {
+      btnDark?.addEventListener("click", () => {
         setDark(localStorage.getItem("dark") !== "true");
       });
     </script>
