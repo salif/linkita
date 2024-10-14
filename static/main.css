@@ -630,6 +630,10 @@ pre table td:nth-of-type(1) {
   content: ".";
 }
 
+.prose a {
+  text-underline-offset: 2px;
+}
+
 .prose {
   color: var(--tw-prose-body);
   max-width: 65ch;
@@ -1410,6 +1414,12 @@ pre table td:nth-of-type(1) {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .grid-cols-1 {

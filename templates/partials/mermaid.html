@@ -26,7 +26,8 @@
     initMermaid(e.detail === "dark");
   });
 
+  // Ignore the comment:
   // The es module script will load defer, so the localStorage should already be set by script in header.
   // If this script is loaded first, the script in header will dispatch an event to re-render mermaid, it's works too.
-  initMermaid(localStorage.getItem("dark") === "true");
+  initMermaid(document.documentElement.classList.contains("dark"));
 </script>

@@ -63,7 +63,7 @@ To quickly turn a URL or email address into a link, enclose it in angle brackets
 
 ## Images
 
-![Markdown Guide](/images/markdown-syntax.png)
+![Markdown Guide](../../images/markdown-syntax.png)
 
 ## Tables
 

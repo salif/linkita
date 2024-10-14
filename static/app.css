@@ -67,6 +67,10 @@
   .prose .footnote-definition .footnote-definition-label::after {
     content: ".";
   }
+
+  .prose a {
+    @apply underline-offset-2;
+  }
 }
 
 @layer utilities {

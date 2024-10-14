@@ -10,7 +10,9 @@
   </title>
 
   <!-- Meta -->
-  <meta name="theme-color" content="{{ config.extra.style.header_color | default(value='#e4e4e7') }}" />
+  <meta name="theme-color"
+    data-light="{{ config.extra.style.header_color | default(value='#e4e4e7') }}"
+    data-dark="{{ config.extra.style.header_dark_color | default(value='#27272a') }}" />
 
   {% if page %}
   <!-- Author -->
