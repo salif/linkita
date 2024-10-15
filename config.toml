@@ -14,32 +14,6 @@ description = "Линкита е чиста и елегантна блог те�
 # When set to "true", a feed is automatically generated.
 generate_feeds = true
 
-# The filenames to use for the feeds.
-feed_filenames = ["atom.xml"]
-
-# The taxonomies to be rendered for the site and their configuration of the default languages
-taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
-
-# Configuration of the Markdown rendering
-[markdown]
-# When set to "true", all code blocks are highlighted.
-highlight_code = true
-
-# A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
-extra_syntaxes_and_themes = []
-
-# The theme to use for code highlighting.
-# See below for list of allowed values.
-highlight_theme = "monokai"
-
-[languages.en]
-# The site title and description; used in feeds by default.
-title = "Linkita"
-description = "Linkita is a clean and elegant blog theme for Zola."
-
-# When set to "true", a feed is automatically generated.
-generate_feeds = true
-
 # The filenames to use for the feeds. Used as the template filenames, too.
 # Defaults to ["atom.xml"], which has a built-in template that renders an Atom 1.0 feed.
 # There is also a built-in template "rss.xml" that renders an RSS 2.0 feed.
@@ -56,24 +30,39 @@ feed_filenames = ["atom.xml"]
 #
 taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
 
-[languages.eo]
-# The site title and description; used in feeds by default.
+# Configuration of the Markdown rendering
+[markdown]
+# When set to "true", all code blocks are highlighted.
+highlight_code = true
+
+# A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
+extra_syntaxes_and_themes = []
+
+# The theme to use for code highlighting.
+# See below for list of allowed values.
+highlight_theme = "monokai"
+
+[languages.en]
 title = "Linkita"
-description = "Linkita estas pura kaj eleganta bloga temo por Zola."
-
-# When set to "true", a feed is automatically generated.
+description = "Linkita is a clean and elegant blog theme for Zola."
 generate_feeds = true
-
-# The filenames to use for the feeds.
 feed_filenames = ["atom.xml"]
-
-# The taxonomies to be rendered for the site and their configuration of the default languages.
 taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
 
+[languages.eo]
+title = "Linkita"
+description = "Linkita estas pura kaj eleganta bloga temo por Zola."
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
+
+# Translations
 [languages.en.translations]
+date_locale = ""
 language_name_en = "English"
 language_name_bg = "Bulgarian"
 language_name_eo = "Esperanto"
+
 footer_powered_by = "Powered by"
 footer_and = "and"
 footer_zola = "Zola"
@@ -87,13 +76,13 @@ word_minutes = "min"
 word_words = "words"
 word_more = "More >>"
 error_404 = "404"
-date_locale = ""
-date_format_archive = "%m-%d"
 
 [languages.bg.translations]
+date_locale = "bg_BG"
 language_name_en = "английски"
 language_name_bg = "български"
 language_name_eo = "есперанто"
+
 footer_powered_by = "Осъществено чрез"
 footer_and = "и"
 footer_zola = "Зола"
@@ -107,13 +96,13 @@ word_minutes = "мин"
 word_words = "думи"
 word_more = "Още >>"
 error_404 = "Грешка 404: Страницата не е намерена!"
-date_locale = "bg_BG"
-date_format_archive = "%d.%m"
 
 [languages.eo.translations]
+date_locale = "eo"
 language_name_en = "Angla"
 language_name_bg = "Bulgara"
 language_name_eo = "Esperanto"
+
 footer_powered_by = "Funkciigita de"
 footer_and = "kaj"
 footer_zola = "Zola"
@@ -127,8 +116,6 @@ word_minutes = "min"
 word_words = "vortoj"
 word_more = "Pli >>"
 error_404 = "404"
-date_locale = "eo"
-date_format_archive = "%m-%d"
 
 # The Linkita theme style config.
 [extra]
@@ -140,7 +127,6 @@ mermaid = false
 comment = false
 # The URL of social image.
 social_image = "icons/github.svg"
-
 # Enable web analytics
 goatcounter = false
 # "https://MYCODE.goatcounter.com/count"
@@ -228,15 +214,25 @@ since = 2020
 license = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 
+# See https://docs.rs/chrono/0.4/chrono/format/strftime/index.html
 [extra.date_format]
 en = "%F"
 bg = "%d %b %Y"
 eo = "%d %b %Y"
 
-[extra.use_word_count]
-en = false
-bg = false
-eo = true
+[extra.date_format_archive]
+en = "%m-%d"
+bg = "%d %b"
+eo = "%d %b"
+
+# Show reading time
+# Example:
+#     ["reading_time"] | ["word_count"] | ["word_count", "reading_time"] | []
+#
+[extra.reading_time]
+en = ["reading_time"]
+bg = ["reading_time"]
+eo = ["word_count"]
 
 # The giscus comment options, only available when comment is enabled.
 [extra.giscus]

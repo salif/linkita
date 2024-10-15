@@ -14,7 +14,10 @@
     <li>
       <div class="my-2 flex items-center justify-between">
         <a class="secondary-link" href="{{ post.permalink }}">{{ post.title }}</a>
-        <time class="font-mono text-sm opacity-80">{{ post.date | date(format=trans(key="date_format_archive", lang=lang)) }}</time>
+        {%- set date_format_archive = config.extra.date_format_archive[lang] | default(value="%m-%d") %}
+        <time class="font-mono text-sm opacity-80">{% if trans(key="date_locale", lang=lang) == ""
+          %}{{ post.date | date(format=date_format_archive) }}{% else
+          %}{{ post.date | date(format=date_format_archive, locale=trans(key="date_locale", lang=lang)) }}{% endif %}</time>
       </div>
     </li>
     {% endfor %}

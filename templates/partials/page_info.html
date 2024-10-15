@@ -6,12 +6,16 @@
   {% else %}
   <time>{{ page.date | date(format=date_format, locale=trans(key="date_locale", lang=lang)) }}</time>
   {% endif %}
+  {% for reading_time in config.extra.reading_time[lang] %}
   <span class="mx-1">&middot;</span>
-  {% if config.extra.use_word_count[lang] %}
-  <span>{{ page.word_count }} {{ trans(key="word_words", lang=lang) }}</span>
-  {% else %}
+    {% if reading_time == "reading_time" %}
   <span>{{ page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</span>
-  {% endif %}
+    {% elif reading_time == "word_count" %}
+  <span>{{ page.word_count }} {{ trans(key="word_words", lang=lang) }}</span>
+    {% else %}
+  <span>{{ reading_time }}</span>
+    {% endif %}
+  {% endfor %}
 {% endif %}<!---->
 {% if page.authors | length > 0 %}<!---->
   {% set author = page.authors | join(sep=", ") %}<!---->
