@@ -84,4 +84,5 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 [MIT License](https://github.com/salif/linkita/blob/linkita/LICENSE)
 
 Copyright (c) 2023-present, st1020
+
 Copyright (c) 2024-present, salif

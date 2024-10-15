@@ -1,23 +1,27 @@
 <div class="text-sm antialiased opacity-80">
-  {% if page.date %}
+{% if page.date %}
+  {% set date_format = config.extra.date_format[lang] | default(value="%F") %}
   {% if trans(key="date_locale", lang=lang) == "" %}
-  <time>{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</time>
+  <time>{{ page.date | date(format=date_format) }}</time>
   {% else %}
-  <time>{{ page.date | date(format=trans(key="date_format", lang=lang),
-    locale=trans(key="date_locale", lang=lang)) }}</time>
+  <time>{{ page.date | date(format=date_format, locale=trans(key="date_locale", lang=lang)) }}</time>
   {% endif %}
   <span class="mx-1">&middot;</span>
+  {% if config.extra.use_word_count[lang] %}
+  <span>{{ page.word_count }} {{ trans(key="word_words", lang=lang) }}</span>
+  {% else %}
   <span>{{ page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</span>
-  {% endif %}<!---->
-  {% if page.authors | length > 0 %}<!---->
+  {% endif %}
+{% endif %}<!---->
+{% if page.authors | length > 0 %}<!---->
   {% set author = page.authors | join(sep=", ") %}<!---->
-  {% else %}<!---->
+{% else %}<!---->
   {% set author = config.author %}<!---->
-  {% endif %}<!---->
-  {% if author %}
+{% endif %}<!---->
+{% if author %}
   <span class="mx-1">&middot;</span>
   <span>{{ author }}</span>
-  {% endif %}
+{% endif %}
   <!-- Page Info inject -->
-  {% include "injects/page_info.html" ignore missing %}
+{% include "injects/page_info.html" ignore missing %}
 </div>

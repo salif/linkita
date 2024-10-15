@@ -49,52 +49,49 @@
       const setDark = (isDark) => {
         applyDark(isDark);
         localStorage.setItem("dark", isDark ? "dark" : "light");
+        console.debug("isDark:", isDark);
       };
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark?.addEventListener("click", () => {
+        setDark(!htmlClass.contains("dark"));
+      });
 
       // init
       const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-      if (htmlClass.contains("dark")) {
+      const darkVal = localStorage.getItem("dark");
+      if (darkVal) {
+        applyDark(darkVal === "dark");
+      } else if(htmlClass.contains("dark")) {
         applyDark(true);
       } else {
-        const darkVal = localStorage.getItem("dark");
-        applyDark(darkVal ? darkVal === "dark" : darkScheme.matches);
+        applyDark(darkScheme.matches);
       }
 
       // listen system
       darkScheme.addEventListener("change", (event) => {
         setDark(event.matches);
       });
-
-      // manual switch
-      const btnDark = document.querySelector(".btn-dark");
-      btnDark?.addEventListener("click", () => {
-        setDark(localStorage.getItem("dark") !== "dark");
-      });
     </script>
     {% if config.extra.menu %}
     <nav class="flex w-full items-center lg:w-auto">
       <ul
-        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0"
-      >
-        {% for menu in config.extra.menu %}
-        {% if lang == config.default_language %}
-          {% set menu_name = menu.name %}
-          {% set menu_base_url = config.base_url %}
-        {% else %}
-          {% set key_name = "name_" ~ lang %}
-          {% set menu_name = menu[key_name] | default(value="") %}
-          {% set menu_base_url = config.base_url ~ "/" ~ lang %}
-        {% endif %}
-        {% if menu_name != "" %}
+        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0">
+        {%- for menu in config.extra.menu %}
+        {%- if lang == config.default_language %}
+          {%- set menu_base_url = config.base_url %}
+        {%- else %}
+          {%- set menu_base_url = config.base_url ~ "/" ~ lang %}
+        {%- endif %}
+        {%- set menu_name_default = menu.url | replace(from=`$BASE_URL`, to="") %}
         <li>
           <a
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
             href="{{ menu.url | replace(from=`$BASE_URL`, to=menu_base_url) | safe }}"
-            >{{ menu_name }}</a
-          >
+            >{{ menu.name[lang] | default(value=menu_name_default) | safe }}</a>
         </li>
-        {% endif %}
-        {% endfor %}
+        {%- endfor %}
       </ul>
       <!-- Header Nav inject -->
       {% include "injects/header_nav.html" ignore missing %}

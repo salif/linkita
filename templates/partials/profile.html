@@ -12,18 +12,14 @@
   </div>
   {% endif %}<!---->
 
-  {% if config.extra.profile.name %}
-  {% if lang == config.default_language %}
-    {% set profile_name = config.extra.profile.name %}
-    {% set profile_bio = config.extra.profile.bio %}
-    {% set social_base_url = config.base_url %}
-  {% else %}
-    {% set key_name = "name_" ~ lang %}
-    {% set key_bio = "bio_" ~ lang %}
-    {% set profile_name = config.extra.profile[key_name] | default(value=config.extra.profile.name) %}
-    {% set profile_bio = config.extra.profile[key_bio] | default(value=config.extra.profile.bio) %}
-    {% set social_base_url = config.base_url ~ "/" ~ lang %}
-  {% endif %}
+  {%- if config.extra.profile.name[config.default_language] %}
+    {%- if lang == config.default_language %}
+      {%- set social_base_url = config.base_url %}
+    {%- else %}
+      {%- set social_base_url = config.base_url ~ "/" ~ lang %}
+    {%- endif %}
+    {%- set profile_name = config.extra.profile.name[lang] | default(value=config.extra.profile.name[config.default_language]) %}
+    {%- set profile_bio = config.extra.profile.bio[lang] | default(value=config.extra.profile.bio[config.default_language]) %}
   <div>
     <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
     <div class="mb-2 break-words">
