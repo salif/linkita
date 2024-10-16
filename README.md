@@ -1,6 +1,6 @@
 # Linkita
 
-Linkita is a clean and elegant blog theme for Zola.
+Linkita is a multilingual, clean and elegant blog theme for Zola.
 
 It is based on [Kita](https://github.com/st1020/kita) with some features added.
 Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-paper) with some features added.

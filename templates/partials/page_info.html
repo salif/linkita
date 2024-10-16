@@ -3,8 +3,18 @@
   {% set date_format = config.extra.date_format[lang] | default(value="%F") %}
   {% if trans(key="date_locale", lang=lang) == "" %}
   <time>{{ page.date | date(format=date_format) }}</time>
+    {% if page.updated and page.updated != page.date %}
+  <span class="mx-1">&middot;</span>
+  <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
+  <time>{{ page.updated | date(format=date_format) }}</time>
+    {% endif %}
   {% else %}
   <time>{{ page.date | date(format=date_format, locale=trans(key="date_locale", lang=lang)) }}</time>
+    {% if page.updated and page.updated != page.date %}
+  <span class="mx-1">&middot;</span>
+  <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
+  <time>{{ page.updated | date(format=date_format, locale=trans(key="date_locale", lang=lang)) }}</time>
+    {% endif %}
   {% endif %}
   {% for reading_time in config.extra.reading_time[lang] %}
   <span class="mx-1">&middot;</span>

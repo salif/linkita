@@ -1,7 +1,7 @@
 {
   "name": "linkita",
-  "version": "0.1.0",
-  "description": "Linkita is a clean and elegant blog theme for Zola.",
+  "version": "latest",
+  "description": "Linkita is a multilingual, clean and elegant blog theme for Zola.",
   "homepage": "https://github.com/salif/linkita",
   "license": "MIT",
   "author": "Salif Mehmed <mail@salif.eu>",

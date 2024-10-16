@@ -45,15 +45,13 @@
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ paginator.previous }}"
-    >← {{ trans(key="word_prev_page", lang=lang) }}</a
-  >
+    >{{ trans(key="word_prev_page", lang=lang) }}</a>
   {% endif %}<!---->
   {% if paginator.next %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ paginator.next }}"
-    >{{ trans(key="word_next_page", lang=lang) }} →</a
-  >
+    >{{ trans(key="word_next_page", lang=lang) }}</a>
   {% endif %}
 </nav>
 {% endif %}
