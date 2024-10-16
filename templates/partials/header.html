@@ -76,7 +76,7 @@
     </script>
     {% if config.extra.menu %}
     <nav class="flex w-full items-center lg:w-auto">
-      <ul
+      <menu
         class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0">
         {%- for menu in config.extra.menu %}
         {%- if lang == config.default_language %}
@@ -92,7 +92,7 @@
             >{{ menu.name[lang] | default(value=menu_name_default) | safe }}</a>
         </li>
         {%- endfor %}
-      </ul>
+      </menu>
       <!-- Header Nav inject -->
       {% include "injects/header_nav.html" ignore missing %}
     </nav>

@@ -2,9 +2,10 @@
   <div class="mr-auto basis-full lg:basis-1/2">
     {% set current_year = now() | date(format="%Y") | int %}<!---->
     {% if config.extra.footer.since and config.extra.footer.since != current_year %}<!---->
-    &copy; {{ config.extra.footer.since }} - {{ current_year }}<!---->
+    &copy; <time datetime="{{ config.extra.footer.since }}">{{ config.extra.footer.since
+      }}</time> - <time datetime="{{ current_year }}">{{ current_year }}</time><!---->
     {% else %}<!---->
-    &copy; {{ current_year }}<!---->
+    &copy; <time datetime="{{ current_year }}">{{ current_year }}</time><!---->
     {% endif %}
     <a class="link" href="{{ get_url(path=``, lang=lang) }}">
       {{ config.author | default(value=config.title) }}

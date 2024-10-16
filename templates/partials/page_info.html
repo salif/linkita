@@ -1,32 +1,36 @@
 <div class="text-sm antialiased opacity-80">
-{% if page.date %}
-  {% set date_format = config.extra.date_format[lang] | default(value="%F") %}
-  {% if trans(key="date_locale", lang=lang) == "" %}
-  <time>{{ page.date | date(format=date_format) }}</time>
-    {% if page.updated and page.updated != page.date %}
+{%- if page.date %}
+  {%- set date_format = config.extra.date_format[lang] | default(value="%F") %}
+  {%- if trans(key="date_locale", lang=lang) == "" %}
+  <time datetime="{{ page.date }}">{{ page.date | date(format=date_format) }}</time>
+    {%- if page.updated and page.updated != page.date %}
   <span class="mx-1">&middot;</span>
   <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
-  <time>{{ page.updated | date(format=date_format) }}</time>
-    {% endif %}
-  {% else %}
-  <time>{{ page.date | date(format=date_format, locale=trans(key="date_locale", lang=lang)) }}</time>
-    {% if page.updated and page.updated != page.date %}
+  <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format) }}</time>
+    {%- endif %}
+  {%- else %}
+  <time datetime="{{ page.date }}">{{ page.date | date(format=date_format,
+      locale=trans(key="date_locale", lang=lang)) }}</time>
+    {%- if page.updated and page.updated != page.date %}
   <span class="mx-1">&middot;</span>
   <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
-  <time>{{ page.updated | date(format=date_format, locale=trans(key="date_locale", lang=lang)) }}</time>
-    {% endif %}
-  {% endif %}
-  {% for reading_time in config.extra.reading_time[lang] %}
+  <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format,
+      locale=trans(key="date_locale", lang=lang)) }}</time>
+    {%- endif %}
+  {%- endif %}
+  {%- for reading_time in config.extra.reading_time[lang] %}
   <span class="mx-1">&middot;</span>
-    {% if reading_time == "reading_time" %}
-  <span>{{ page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</span>
-    {% elif reading_time == "word_count" %}
+    {%- if reading_time == "reading_time" %}
+    {%- set reading_time_minutes = page.reading_time % 60 %}
+  <time datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
+      page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</time>
+    {%- elif reading_time == "word_count" %}
   <span>{{ page.word_count }} {{ trans(key="word_words", lang=lang) }}</span>
-    {% else %}
+    {%- else %}
   <span>{{ reading_time }}</span>
-    {% endif %}
-  {% endfor %}
-{% endif %}<!---->
+    {%- endif %}
+  {%- endfor %}
+{%- endif %}<!---->
 {% if page.authors | length > 0 %}<!---->
   {% set author = page.authors | join(sep=", ") %}<!---->
 {% else %}<!---->
