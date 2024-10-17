@@ -3,71 +3,188 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="generator" content="{{ trans(key='footer_zola', lang=lang) | default(value='Zola')}}" />
+{%- if page.title %}
+  {%- set page_title = page.title %}
+  {%- if page.description %}
+    {%- set page_description = page.description %}
+  {%- endif %}
+{%- elif section.title %}
+  {%- set page_title = section.title %}
+  {%- if section.description %}
+    {%- set page_description = section.description %}
+  {%- endif %}
+{%- elif term.name %}
+  {%- set page_title = term.name %}
+{%- elif taxonomy.name %}
+  {%- if taxonomy.name == "tags"%}
+    {%- set page_title = trans(key="word_tags", lang=lang) | title %}
+  {%- elif taxonomy.name == "categories"%}
+    {%- set page_title = trans(key="word_categories", lang=lang) | title %}
+  {%- else %}
+    {%- set page_title = taxonomy.name %}
+  {%- endif %}
+{%- elif current_url %}
+  {%- set page_title = config.title %}
+  {%- set page_description = config.description %}
+{%- else %}
+  {%- set page_title = trans(key="error_404", lang=lang) | default(value="404") %}
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="{{ get_url(path=`404.html`) | safe }}" />
+{%- endif %}
 
-  <!-- Title -->
-  <title>
-    {% if page.title %}{{ page.title }} - {{ config.title }}{% else %}{{ config.title }}{% endif %}
-  </title>
-
-  <!-- Meta -->
-  <meta name="theme-color"
-    data-light="{{ config.extra.style.header_color | default(value='#e4e4e7') }}"
-    data-dark="{{ config.extra.style.header_dark_color | default(value='#27272a') }}" />
-
-  {% if page %}
-  <!-- Author -->
-  {% set page_title = page.title | default(value=config.title) %}
-  <!---->
-  {% set description = page.description | default(value=page_title) %}
-  <!---->
-  {% if page.authors | length > 0 %}
-  <!---->
-  {% set author = page.authors | join(sep=", ") %}
-  <!---->
-  {% else %}
-  <!---->
-  {% set author = config.author | default(value=config.title) %}
-  <!---->
-  {% endif %}
-  <!---->
-  <meta name="description" content="{{ description }}" />
-  <meta name="author" content="{{ author }}" />
-  <!-- The Open Graph protocol -->
-  <meta property="og:type" content="website" />
+  <title>{%- if page_title == config.title %}{{ page_title }}{% else
+    %}{{ page_title ~ " | " ~ config.title }}{% endif %}</title>
   <meta property="og:title" content="{{ page_title }}" />
+{%- if page_description %}
+  <meta name="description" content="{{ page_description }}" />
+  <meta property="og:description" content="{{ page_description }}" />
+{%- endif %}
   <meta property="og:site_name" content="{{ config.title }}" />
-  <meta property="og:description" content="{{ description }}" />
-  <meta property="og:url" content="{{ page.permalink }}" />
-  {% if page.extra.cover.image %}
-  <!---->
-  {% set image = page.extra.cover.image %}
-  <!---->
-  {% elif config.extra.social_image %}
-  <!---->
-  {% set image = config.extra.social_image %}
-  <!---->
-  {% endif %}
-  <!---->
-  {% if image %}
-  <meta property="og:image" content="{{ get_url(path=image) }}" />
-  {% endif %}
-  <!---->
-  {% else %}
-  <!-- Author -->
-  {% set description = config.description | default(value="A personal blog") %}
-  <!---->
-  <meta name="description" content="{{ description }}" />
+{%- if current_url %}
+  {%- if page.extra.open_graph.url %}
+  <meta property="og:url" content="{{ page.extra.open_graph.url }}" />
+  {%- else %}
+  <meta property="og:url" content="{{ current_url | safe }}" />
+  {%- endif %}
+  <link rel="canonical" href="{{ current_url | safe }}" />
+  {%- if lang == config.default_language %}
+    {%- set set_profile = current_path == "/" %}
+  {%- else %}
+    {%- set set_profile = current_path == "/" ~ lang ~ "/" %}
+  {%- endif %}
+{%- endif %}
+
+{%- if page.date %}
+  <meta property="og:type" content="article" />
+  {%- if page.date %}
+  <meta property="article:published_time" content="{{ page.date | date(format='%F') }}" />
+  {%- endif %}
+  {%- if page.updated %}
+  <meta property="article:modified_time" content="{{ page.updated | date(format='%F') }}" />
+  {%- endif %}
+  {%- if page.authors | length > 0 %}
+    {%- for page_author in page.authors %}
+  <meta property="article:author:username" content="{{ page_author }}" />
+    {%- endfor %}
+  <meta name="author" content="{{ page.authors | join(sep=', ') }}" />
+  {%- else %}
   <meta name="author" content="{{ config.author | default(value=config.title) }}" />
-  <!-- The Open Graph protocol -->
+    {%- if config.extra.profile.open_graph.first_name %}
+  <meta property="article:author:first_name" content="{{ config.extra.profile.open_graph.first_name }}" />
+    {%- endif %}
+    {%- if config.extra.profile.open_graph.last_name %}
+  <meta property="article:author:last_name" content="{{ config.extra.profile.open_graph.last_name }}" />
+    {%- endif %}
+    {%- if config.extra.profile.open_graph.username %}
+  <meta property="article:author:username" content="{{ config.extra.profile.open_graph.username }}" />
+    {%- endif %}
+    {%- if config.extra.profile.open_graph.gender %}
+  <meta property="article:author:gender" content="{{ config.extra.profile.open_graph.gender }}" />
+    {%- endif %}
+  {%- endif %}
+  {%- if page.extra.open_graph.content_tier %}
+  <meta property="article:content_tier" content="{{ page.extra.open_graph.content_tier }}" />
+  {%- endif %}
+  {%- if page.extra.open_graph.section %}
+  <meta property="article:section" content="{{ page.extra.open_graph.section }}" />
+  {%- endif %}
+  {%- if page.extra.open_graph.opinion %}
+  <meta property="article:opinion" content="{{ page.extra.open_graph.opinion == 'true' }}" />
+  {%- endif %}
+
+  {%- if page.extra.open_graph.locations %}
+    {%- for og_location in page.extra.open_graph.locations %}
+  <meta property="article:location" content="{{ og_location }}" />
+    {%- endfor %}
+  {%- endif %}
+
+  {%- if page.extra.open_graph.tags %}
+    {%- for og_tag in page.extra.open_graph.tags %}
+  <meta property="article:tag" content="{{ og_tag }}" />
+    {%- endfor %}
+  {%- endif %}
+{%- elif set_profile %}
+  <meta property="og:type" content="profile" />
+  {%- if config.extra.profile.open_graph.first_name %}
+  <meta property="profile:first_name" content="{{ config.extra.profile.open_graph.first_name }}" />
+  {%- endif %}
+  {%- if config.extra.profile.open_graph.last_name %}
+  <meta property="profile:last_name" content="{{ config.extra.profile.open_graph.last_name }}" />
+  {%- endif %}
+  {%- if config.extra.profile.open_graph.username %}
+  <meta property="profile:username" content="{{ config.extra.profile.open_graph.username }}" />
+  {%- endif %}
+  {%- if config.extra.profile.open_graph.gender %}
+  <meta property="profile:gender" content="{{ config.extra.profile.open_graph.gender }}" />
+  {%- endif %}
+{%- else %}
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{ config.title }}" />
-  <meta property="og:description" content="{{ description }}" />
-  <meta property="og:url" content="{{ get_url(path=``, lang=lang) }}" />
-  {% if config.extra.social_image %}
-  <meta property="og:image" content="{{ get_url(path=config.extra.social_image) }}" />
-  {% endif %}
-  <!---->
-  {% endif %}
+{%- endif %}
+
+{%- if config.extra.locale[lang] %}
+  <meta property="og:locale" content="{{ config.extra.locale[lang] }}" />
+{%- endif %}
+
+{%- if page.translations or section.translations %}
+  {%- set page_translations = page.translations | default(value=section.translations) %}
+  {%- for og_locale_alt in page_translations %}
+    {%- if og_locale_alt.lang != lang and config.extra.locale[og_locale_alt.lang] %}
+  <meta property="og:locale:alternate" content="{{ config.extra.locale[og_locale_alt.lang] }}" />
+    {%- endif %}
+  <link rel="alternate" hreflang="{{ og_locale_alt.lang }}" href="{{ og_locale_alt.permalink | safe }}" />
+  {%- endfor %}
+{%- endif %}
+
+{%- if config.extra.profile.open_graph.fb_app_id %}
+  <meta property="fb:app_id" content="{{ config.extra.profile.open_graph.fb_app_id }}" />
+{%- endif %}
+
+{%- if page.extra.cover.image or config.extra.profile.open_graph.image %}
+  {%- if page.extra.cover.image %}
+    {%- set og_image_path = page.extra.cover.image %}
+    {%- set og_image_alt = page.extra.cover.alt | default(val="Cover") %}
+  {%- else %}
+    {%- set og_image_path = config.extra.profile.open_graph.image %}
+    {%- set og_image_alt = config.extra.profile.name[lang] | default(value=config.title) %}
+  {%- endif %}
+  {%- set og_image_data = get_image_metadata(path=og_image_path) %}
+  <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
+  <meta property="og:image:type" content="{{ og_image_data.mime | safe }}" />
+  <meta property="og:image:width" content="{{ og_image_data.width }}" />
+  <meta property="og:image:height" content="{{ og_image_data.height }}" />
+  <meta property="og:image:alt" content="{{ og_image_alt }}" />
+{%- endif %}
+
+{%- if page.extra.open_graph.audio %}
+  <meta property="og:audio" content="{{ page.extra.open_graph.audio }}" />
+  {%- if page.extra.open_graph.audio_mime %}
+  <meta property="og:audio:type" content="{{ page.extra.open_graph.audio_mime }}" />
+  {%- endif %}
+{%- endif %}
+
+{%- if page.extra.open_graph.video %}
+  <meta property="og:video" content="{{ page.extra.open_graph.video }}" />
+  {%- if page.extra.open_graph.video_mime %}
+  <meta property="og:video:type" content="{{ page.extra.open_graph.video_mime }}" />
+  {%- endif %}
+{%- endif %}
+
+{%- if set_profile %}
+  {%- if config.extra.profile.avatar_url %}
+  <link rel="preload" as="image" href="{{ get_url(path=config.extra.profile.avatar_url) }}" />
+  {%- endif %}
+  {%- if config.extra.profile.social %}
+    {%- for image_social in config.extra.profile.social %}
+  <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
+    {%- endfor %}
+  {%- endif %}
+{%- endif %}
+
+  <meta name="theme-color" data-light="{{
+    config.extra.style.header_color | default(value='#e4e4e7') }}" data-dark="{{
+    config.extra.style.header_dark_color | default(value='#27272a') }}" content="{{
+    config.extra.style.header_color | default(value='#e4e4e7') }}" />
 
   <!-- CSS & JS -->
   <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.css`) }}" />
@@ -78,74 +195,47 @@
       --header: {{ config.extra.style.header_color | default(value="#e4e4e7") }};
       --header-dark: {{ config.extra.style.header_dark_color | default(value="#27272a") }};
     }
+    :root {
+      color-scheme: light;
+    }
     :root.dark {
       color-scheme: dark;
     }
   </style>
-
-  {% if section.path is defined and section.path == "/" %}
-  <!-- Avatar -->
-  {% if config.extra.profile.avatar_url %}
-  <link rel="preload" as="image" href="{{ get_url(path=config.extra.profile.avatar_url) }}" />
-  {% endif %}
-
-  <!-- Social List -->
-  {% if config.extra.profile.social %}
-  <!---->
-  {% for social in config.extra.profile.social %}
-  <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=social.name) }}" />
-  {% endfor %}
-  <!---->
-  {% endif %}
-  <!---->
-  {% endif %}
+  <script src="{{ get_url(path=`header.js`) }}"></script>
 
   <!-- Dark Icon -->
   <link rel="preload" as="image" href="{{ get_url(path=`icons/theme.svg`) }}" />
 
   <!-- Math -->
-  {% if page.extra.math | default(value=config.extra.math) %}
-  <!---->
-  {% include "partials/math.html" %}
-  <!---->
-  {% endif %}
-  <!---->
+  {%- if page.extra.math | default(value=config.extra.math) %}
+    {% include "partials/math.html" %}
+  {%- endif %}
 
   <!-- Mermaid -->
-  {% if page.extra.mermaid | default(value=config.extra.mermaid) %}
-  <!---->
-  {% include "partials/mermaid.html" %}
-  <!---->
-  {% endif %}
-  <!---->
+  {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
+    {% include "partials/mermaid.html" %}
+  {%- endif %}
 
   <!-- Favicon -->
   <link rel="icon" href="{{ get_url(path=`favicon.ico`) }}" />
   <link rel="apple-touch-icon" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
 
   <!-- Feeds -->
-  {% if config.generate_feed %}
-  <!---->
-  {% if "atom.xml" in config.feed_filenames %}
-  <link
-    rel="alternate"
-    type="application/atom+xml"
-    title="Atom"
-    href="{{ get_url(path=`atom.xml`, lang=lang) }}"
-  />
-  {% endif %} {% if "rss.xml" in config.feed_filenames %}
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="RSS"
-    href="{{ get_url(path=`rss.xml`, lang=lang) }}"
-  />
-  {% endif %}
-  <!---->
-  {% endif %}
-
-  <!-- Canonical -->
-  <link rel="canonical" href="{{ page.permalink | default(value=get_url(path=``, lang=lang)) }}" />
+  {%- if config.generate_feeds %}
+    {%- for feed_filename in config.feed_filenames %}
+      {%- if feed_filename == "atom.xml" %}
+  <link rel="alternate" type="application/atom+xml" href="{{
+    get_url(path=`atom.xml`, lang=lang) }}" title="{{ config.title }} | Atom Feed" />
+      {%- elif feed_filename == "rss.xml" %}
+  <link rel="alternate" type="application/rss+xml" href="{{
+    get_url(path=`rss.xml`, lang=lang) }}" title="{{ config.title }} | RSS Feed" />
+      {%- else %}
+  <link rel="alternate" title="{{ config.title }} | {{ feed_filename }}" href="{{
+    get_url(path=feed_filename, lang=lang) }}" />
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
 
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}

@@ -58,11 +58,9 @@ taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
 
 # Translations
 [languages.en.translations]
-date_locale = ""
 language_name_en = "English"
 language_name_bg = "Bulgarian"
 language_name_eo = "Esperanto"
-
 footer_powered_by = "Powered by"
 footer_and = "and"
 footer_zola = "Zola"
@@ -78,11 +76,9 @@ word_more = "More >>"
 error_404 = "404"
 
 [languages.bg.translations]
-date_locale = "bg_BG"
 language_name_en = "английски"
 language_name_bg = "български"
 language_name_eo = "есперанто"
-
 footer_powered_by = "Осъществено чрез"
 footer_and = "и"
 footer_zola = "Зола"
@@ -98,11 +94,9 @@ word_more = "Още >>"
 error_404 = "Грешка 404: Страницата не е намерена!"
 
 [languages.eo.translations]
-date_locale = "eo"
 language_name_en = "Angla"
 language_name_bg = "Bulgara"
 language_name_eo = "Esperanto"
-
 footer_powered_by = "Funkciigita de"
 footer_and = "kaj"
 footer_zola = "Zola"
@@ -125,12 +119,10 @@ math = false
 mermaid = false
 # Enable comment support globally.
 comment = false
-# The URL of social image.
-social_image = "icons/github.svg"
 # Enable web analytics
 goatcounter = false
 # "https://MYCODE.goatcounter.com/count"
-goatcounter_endpoint = ""
+# goatcounter_endpoint = ""
 
 [extra.style]
 # The custom background color.
@@ -179,6 +171,36 @@ url = "https://github.com/salif/linkita"
 name = "rss"
 url = "$BASE_URL/atom.xml"
 
+[extra.profile.open_graph]
+# The URL of social image.
+# image = "icons/github.svg"
+
+# A name normally given to an individual by a parent or self-chosen.
+# first_name = ""
+
+# A name inherited from a family or marriage and by which the individual is commonly known.
+# last_name = ""
+
+# A short unique string to identify them.
+# username = ""
+
+# Their gender. enum(male, female).
+# gender = ""
+
+# Not used in this file, put them in the front-matter.
+# [extra.open_graph]
+# content_tier = "" # free [default], locked, or metered
+# locations = [] # county:COUNTY, city:CITY,COUNTY
+# section = ""
+# tags = []
+# opinion = "" # "true" or "false"
+# audio = ""
+# audio_mime = ""
+# video = ""
+# video_mime = ""
+# url = ""
+# fb_app_id = ""
+
 # The top menu.
 [[extra.menu]]
 url = "$BASE_URL/projects"
@@ -215,6 +237,12 @@ license = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 
 # See https://docs.rs/chrono/0.4/chrono/format/strftime/index.html
+
+[extra.locale]
+en = "en_US"
+bg = "bg_BG"
+eo = "eo"
+
 [extra.date_format]
 en = "%F"
 bg = "%d %b %Y"
@@ -226,9 +254,7 @@ bg = "%d %b"
 eo = "%d %b"
 
 # Show reading time
-# Example:
-#     ["reading_time"] | ["word_count"] | ["word_count", "reading_time"] | []
-#
+# Example: ["reading_time"] | ["word_count"] | ["word_count", "reading_time"] | []
 [extra.reading_time]
 en = ["reading_time"]
 bg = ["reading_time"]

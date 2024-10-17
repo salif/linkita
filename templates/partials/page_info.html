@@ -1,21 +1,21 @@
 <div class="text-sm antialiased opacity-80">
 {%- if page.date %}
   {%- set date_format = config.extra.date_format[lang] | default(value="%F") %}
-  {%- if trans(key="date_locale", lang=lang) == "" %}
+  {%- if config.extra.locale[lang] %}
+  <time datetime="{{ page.date }}">{{ page.date | date(format=date_format,
+    locale=config.extra.locale[lang]) }}</time>
+    {%- if page.updated and page.updated != page.date %}
+  <span class="mx-1">&middot;</span>
+  <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
+  <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format,
+    locale=config.extra.locale[lang]) }}</time>
+    {%- endif %}
+  {%- else %}
   <time datetime="{{ page.date }}">{{ page.date | date(format=date_format) }}</time>
     {%- if page.updated and page.updated != page.date %}
   <span class="mx-1">&middot;</span>
   <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
   <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format) }}</time>
-    {%- endif %}
-  {%- else %}
-  <time datetime="{{ page.date }}">{{ page.date | date(format=date_format,
-      locale=trans(key="date_locale", lang=lang)) }}</time>
-    {%- if page.updated and page.updated != page.date %}
-  <span class="mx-1">&middot;</span>
-  <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
-  <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format,
-      locale=trans(key="date_locale", lang=lang)) }}</time>
     {%- endif %}
   {%- endif %}
   {%- for reading_time in config.extra.reading_time[lang] %}
