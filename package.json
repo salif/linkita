@@ -1,6 +1,6 @@
 {
   "name": "linkita",
-  "version": "latest",
+  "version": "0.2024_10_19.0",
   "description": "Linkita is a multilingual, clean and elegant blog theme for Zola.",
   "homepage": "https://github.com/salif/linkita",
   "license": "MIT",
@@ -11,7 +11,9 @@
   },
   "scripts": {
     "dev": "pnpm tailwindcss -i ./static/app.css -o ./static/main.css --watch",
-    "build": "pnpm tailwindcss -i ./static/app.css -o ./static/main.css"
+    "build": "pnpm tailwindcss -i ./static/app.css -o ./static/main.css",
+    "switch-to-latest": "git checkout tags/v${npm_package_version}",
+    "windows-switch-to-latest": "git checkout tags/v%npm_package_version%"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",

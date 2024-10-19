@@ -630,7 +630,7 @@ pre table td:nth-of-type(1) {
   content: ".";
 }
 
-.prose a {
+a {
   text-underline-offset: 2px;
 }
 

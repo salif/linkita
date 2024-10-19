@@ -4,6 +4,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="generator" content="{{ trans(key='footer_zola', lang=lang) | default(value='Zola')}}" />
+{%- if lang == config.default_language %}
+  {%- set base_url_prefix = config.base_url %}
+{%- else %}
+  {%- set base_url_prefix = config.base_url ~ "/" ~ lang %}
+{%- endif %}
 {%- if page.title %}
   {%- set page_title = page.title %}
   {%- if page.description %}
@@ -14,8 +19,6 @@
   {%- if section.description %}
     {%- set page_description = section.description %}
   {%- endif %}
-{%- elif term.name %}
-  {%- set page_title = term.name %}
 {%- elif taxonomy.name %}
   {%- if taxonomy.name == "tags"%}
     {%- set page_title = trans(key="word_tags", lang=lang) | title %}
@@ -23,6 +26,9 @@
     {%- set page_title = trans(key="word_categories", lang=lang) | title %}
   {%- else %}
     {%- set page_title = taxonomy.name %}
+  {%- endif %}
+  {%- if term.name %}
+    {%- set page_title = term.name ~ " | " ~ page_title %}
   {%- endif %}
 {%- elif current_url %}
   {%- set page_title = config.title %}
@@ -136,8 +142,32 @@
   {%- endfor %}
 {%- endif %}
 
+{%- if paginator.previous %}
+  <link rel="prev" href="{{ paginator.previous | safe }}" />
+{%- endif %}
+{%- if paginator.next %}
+  <link rel="next" href="{{ paginator.next | safe }}" />
+{%- endif %}
+
+{%- if config.extra.profile.open_graph.fediverse_username and
+      config.extra.profile.open_graph.fediverse_server %}
+  <meta property="fediverse:creator" content="@{{
+    config.extra.profile.open_graph.fediverse_username }}@{{
+    config.extra.profile.open_graph.fediverse_server | replace(from='https://', to='') }}" />
+  {%- if config.extra.profile.open_graph.fediverse_url %}
+  <link rel="me" href="{{ config.extra.profile.open_graph.fediverse_url }}" />
+  {%- else %}
+  <link rel="me" href="https://{{ config.extra.profile.open_graph.fediverse_server | 
+      replace(from='https://', to='') }}/@{{ config.extra.profile.open_graph.fediverse_username }}" />
+  {%- endif %}
+{%- endif %}
 {%- if config.extra.profile.open_graph.fb_app_id %}
   <meta property="fb:app_id" content="{{ config.extra.profile.open_graph.fb_app_id }}" />
+{%- endif %}
+{%- if config.extra.profile.open_graph.fb_admins %}
+  {%- for fb_admin in config.extra.profile.open_graph.fb_admins %}
+  <meta property="fb:admins" content="{{ fb_admin }}" />
+  {%- endfor %}
 {%- endif %}
 
 {%- if page.extra.cover.image or config.extra.profile.open_graph.image %}
@@ -170,15 +200,39 @@
   {%- endif %}
 {%- endif %}
 
-{%- if set_profile %}
-  {%- if config.extra.profile.avatar_url %}
-  <link rel="preload" as="image" href="{{ get_url(path=config.extra.profile.avatar_url) }}" />
-  {%- endif %}
-  {%- if config.extra.profile.social %}
-    {%- for image_social in config.extra.profile.social %}
-  <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
-    {%- endfor %}
-  {%- endif %}
+{%- if config.extra.webmanifest %}
+  <link rel="manifest" href="{{ get_url(path=config.extra.webmanifest, lang=lang) }}">
+{%- endif %}
+{%- if config.extra.footer.license_url %}
+  <link rel="license" href="{{ config.extra.footer.license_url |
+    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+{%- endif %}
+{%- if config.extra.footer.privacy_policy_url %}
+  <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |
+    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+{%- endif %}
+{%- if config.extra.footer.terms_of_service_url %}
+  <link rel="privacy-policy" href="{{ config.extra.footer.terms_of_service_url |
+    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+{%- endif %}
+{%- if config.extra.footer.search_page_url %}
+  <link rel="search" href="{{ config.extra.footer.search_page_url |
+    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+{%- endif %}
+
+{%- if config.generate_feeds %}
+  {%- for feed_filename in config.feed_filenames %}
+    {%- if feed_filename == "atom.xml" %}
+  <link rel="alternate" type="application/atom+xml" href="{{
+    get_url(path=`atom.xml`, lang=lang) }}" title="{{ config.title }} | Atom Feed" />
+    {%- elif feed_filename == "rss.xml" %}
+  <link rel="alternate" type="application/rss+xml" href="{{
+    get_url(path=`rss.xml`, lang=lang) }}" title="{{ config.title }} | RSS Feed" />
+    {%- else %}
+  <link rel="alternate" title="{{ config.title }} | {{ feed_filename }}" href="{{
+    get_url(path=feed_filename, lang=lang) }}" />
+    {%- endif %}
+  {%- endfor %}
 {%- endif %}
 
   <meta name="theme-color" data-light="{{
@@ -207,6 +261,17 @@
   <!-- Dark Icon -->
   <link rel="preload" as="image" href="{{ get_url(path=`icons/theme.svg`) }}" />
 
+{%- if set_profile %}
+  {%- if config.extra.profile.avatar_url %}
+  <link rel="preload" as="image" href="{{ get_url(path=config.extra.profile.avatar_url) }}" />
+  {%- endif %}
+  {%- if config.extra.profile.social %}
+    {%- for image_social in config.extra.profile.social %}
+  <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
+    {%- endfor %}
+  {%- endif %}
+{%- endif %}
+
   <!-- Math -->
   {%- if page.extra.math | default(value=config.extra.math) %}
     {% include "partials/math.html" %}
@@ -220,22 +285,6 @@
   <!-- Favicon -->
   <link rel="icon" href="{{ get_url(path=`favicon.ico`) }}" />
   <link rel="apple-touch-icon" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
-
-  <!-- Feeds -->
-  {%- if config.generate_feeds %}
-    {%- for feed_filename in config.feed_filenames %}
-      {%- if feed_filename == "atom.xml" %}
-  <link rel="alternate" type="application/atom+xml" href="{{
-    get_url(path=`atom.xml`, lang=lang) }}" title="{{ config.title }} | Atom Feed" />
-      {%- elif feed_filename == "rss.xml" %}
-  <link rel="alternate" type="application/rss+xml" href="{{
-    get_url(path=`rss.xml`, lang=lang) }}" title="{{ config.title }} | RSS Feed" />
-      {%- else %}
-  <link rel="alternate" title="{{ config.title }} | {{ feed_filename }}" href="{{
-    get_url(path=feed_filename, lang=lang) }}" />
-      {%- endif %}
-    {%- endfor %}
-  {%- endif %}
 
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}

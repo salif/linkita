@@ -55,6 +55,17 @@ Or to use it as a submodule:
 git submodule add https://github.com/salif/linkita.git themes/linkita
 ```
 
+<!--
+It is highly recommended to switch from the `linkita` branch to the latest release:
+
+```sh
+cd themes/linkita
+npm run switch-to-latest
+# Alternatively, use this command:
+./justfile switch-to-latest
+```
+-->
+
 Then set `linkita` as your theme in `config.toml`.
 
 ```toml

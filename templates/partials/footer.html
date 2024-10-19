@@ -29,8 +29,8 @@
   </div>
   {% if config.base_url == "https://salif.github.io/linkita" %}
   <script async data-goatcounter="https://sgi.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
-  {% elif config.extra.goatcounter %}
-  <script async data-goatcounter="{{ config.extra.goatcounter_endpoint | default(value='') }}" src="//gc.zgo.at/count.js"></script>
+  {% elif config.extra.goatcounter_endpoint %}
+  <script async data-goatcounter="{{ config.extra.goatcounter_endpoint | safe }}" src="//gc.zgo.at/count.js"></script>
   {% endif %}
   <!-- Footer inject -->
   {% include "injects/footer.html" ignore missing %}

@@ -1,6 +1,6 @@
-#!/usr/bin/env -S just -f
+#!/usr/bin/env -S just --justfile
 
-just := "cd '" + invocation_directory() + "' && just -f '" + justfile() + "'"
+just := just_executable() + " --justfile '" + justfile() + "'"
 zola := "zola"
 git := "git"
 npm := "npm"
@@ -11,6 +11,9 @@ version := version_major + "." + version_minor + "." + version_patch
 
 _:
     @{{ just }} --list
+
+switch-to-latest:
+    git switch $(git describe --tags $(git rev-list --tags --max-count=1))
 
 release: && (release-do version)
     {{ npm }} run build

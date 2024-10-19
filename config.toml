@@ -120,9 +120,7 @@ mermaid = false
 # Enable comment support globally.
 comment = false
 # Enable web analytics
-goatcounter = false
-# "https://MYCODE.goatcounter.com/count"
-# goatcounter_endpoint = ""
+# goatcounter_endpoint = "https://MYCODE.goatcounter.com/count"
 
 [extra.style]
 # The custom background color.
@@ -187,6 +185,14 @@ url = "$BASE_URL/atom.xml"
 # Their gender. enum(male, female).
 # gender = ""
 
+# fb_app_id = ""
+
+# fb_admins = ["USER_ID"]
+
+# Example for "@user@mastodon.social"
+# fediverse_username = "user"
+# fediverse_server = "mastodon.social"
+
 # Not used in this file, put them in the front-matter.
 # [extra.open_graph]
 # content_tier = "" # free [default], locked, or metered
@@ -199,32 +205,31 @@ url = "$BASE_URL/atom.xml"
 # video = ""
 # video_mime = ""
 # url = ""
-# fb_app_id = ""
 
 # The top menu.
 [[extra.menu]]
-url = "$BASE_URL/projects"
+url = "$BASE_URL/projects/"
 [extra.menu.name]
 en = "Projects"
 bg = "Проекти"
 eo = "Projektoj"
 
 [[extra.menu]]
-url = "$BASE_URL/archive"
+url = "$BASE_URL/archive/"
 [extra.menu.name]
 en = "Archive"
 bg = "Архив"
 eo = "Arkivo"
 
 [[extra.menu]]
-url = "$BASE_URL/tags"
+url = "$BASE_URL/tags/"
 [extra.menu.name]
 en = "Tags"
 bg = "Етикети"
 eo = "Etikedoj"
 
 [[extra.menu]]
-url = "$BASE_URL/about"
+url = "$BASE_URL/about/"
 [extra.menu.name]
 en = "About"
 bg = "Относно"
@@ -235,6 +240,9 @@ eo = "Pri"
 since = 2020
 license = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
+# privacy_policy_url = "$BASE_URL/privacy-policy/"
+# terms_of_service_url = "$BASE_URL/terms-of-service/"
+# search_page_url = "$BASE_URL/search/"
 
 # See https://docs.rs/chrono/0.4/chrono/format/strftime/index.html
 
