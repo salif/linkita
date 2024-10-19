@@ -1,14 +1,14 @@
 <div class="text-sm antialiased opacity-80">
 {%- if page.date %}
-  {%- set date_format = config.extra.date_format[lang] | default(value="%F") %}
-  {%- if config.extra.locale[lang] %}
+  {%- set date_format = config.extra.locales[lang].date_format | default(value="%F") %}
+  {%- if config.extra.locales[lang].locale %}
   <time datetime="{{ page.date }}">{{ page.date | date(format=date_format,
-    locale=config.extra.locale[lang]) }}</time>
+    locale=config.extra.locales[lang].locale) }}</time>
     {%- if page.updated and page.updated != page.date %}
   <span class="mx-1">&middot;</span>
   <span>{{ trans(key="word_updated_on", lang=lang) }}</span>
   <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format,
-    locale=config.extra.locale[lang]) }}</time>
+    locale=config.extra.locales[lang].locale) }}</time>
     {%- endif %}
   {%- else %}
   <time datetime="{{ page.date }}">{{ page.date | date(format=date_format) }}</time>

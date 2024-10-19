@@ -244,22 +244,23 @@ license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 # terms_of_service_url = "$BASE_URL/terms-of-service/"
 # search_page_url = "$BASE_URL/search/"
 
-# See https://docs.rs/chrono/0.4/chrono/format/strftime/index.html
+# For date format, see:
+# https://docs.rs/chrono/0.4/chrono/format/strftime/index.html
 
-[extra.locale]
-en = "en_US"
-bg = "bg_BG"
-eo = "eo"
+[extra.locales.en]
+locale = "en_US"
+date_format = "%F"
+date_format_archive = "%m-%d"
 
-[extra.date_format]
-en = "%F"
-bg = "%d %b %Y"
-eo = "%d %b %Y"
+[extra.locales.bg]
+locale = "bg_BG"
+date_format = "%d %b %Y"
+date_format_archive = "%d %b"
 
-[extra.date_format_archive]
-en = "%m-%d"
-bg = "%d %b"
-eo = "%d %b"
+[extra.locales.eo]
+locale = "eo"
+date_format = "%d %b %Y"
+date_format_archive = "%d %b"
 
 # Show reading time
 # Example: ["reading_time"] | ["word_count"] | ["word_count", "reading_time"] | []

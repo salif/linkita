@@ -128,15 +128,15 @@
   <meta property="og:type" content="website" />
 {%- endif %}
 
-{%- if config.extra.locale[lang] %}
-  <meta property="og:locale" content="{{ config.extra.locale[lang] }}" />
+{%- if config.extra.locales[lang].locale %}
+  <meta property="og:locale" content="{{ config.extra.locales[lang].locale }}" />
 {%- endif %}
 
 {%- if page.translations or section.translations %}
   {%- set page_translations = page.translations | default(value=section.translations) %}
   {%- for og_locale_alt in page_translations %}
-    {%- if og_locale_alt.lang != lang and config.extra.locale[og_locale_alt.lang] %}
-  <meta property="og:locale:alternate" content="{{ config.extra.locale[og_locale_alt.lang] }}" />
+    {%- if og_locale_alt.lang != lang and config.extra.locales[og_locale_alt.lang].locale %}
+  <meta property="og:locale:alternate" content="{{ config.extra.locales[og_locale_alt.lang].locale }}" />
     {%- endif %}
   <link rel="alternate" hreflang="{{ og_locale_alt.lang }}" href="{{ og_locale_alt.permalink | safe }}" />
   {%- endfor %}
@@ -212,7 +212,7 @@
     replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.terms_of_service_url %}
-  <link rel="privacy-policy" href="{{ config.extra.footer.terms_of_service_url |
+  <link rel="terms-of-service" href="{{ config.extra.footer.terms_of_service_url |
     replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.search_page_url %}
@@ -283,8 +283,9 @@
   {%- endif %}
 
   <!-- Favicon -->
-  <link rel="icon" href="{{ get_url(path=`favicon.ico`) }}" />
-  <link rel="apple-touch-icon" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
+  <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`) }}" />
 
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}
