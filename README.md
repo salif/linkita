@@ -72,10 +72,6 @@ Then set `linkita` as your theme in `config.toml`.
 theme = "linkita"
 ```
 
-## Configuration
-
-See the `extra` section in [config.toml](https://github.com/salif/linkita/blob/linkita/config.toml) as a example.
-
 ## Inject support
 
 You can easily use inject to add new features to your side without modifying the theme itself.
@@ -88,6 +84,169 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 
 ```html
 <script src="js-file-path-or-cdn-url.js"></script>
+```
+
+## Configuration
+
+See [config.toml](https://github.com/salif/linkita/blob/linkita/config.toml) as an example.
+
+| key | type | example |
+| --- | --- | --- |
+| `author` | string | `"Your Name"` |
+| `title` | string |  |
+| `description` | string |  |
+| `generate_feeds` | boolean | `true` |
+| `feed_filenames` | array of strings | `["atom.xml"]` |
+| `taxonomies` | array of tables |  |
+| `translations` | table |  |
+| `extra` | table |  |
+
+Example `taxonomies` value: `{ name = "tags", feed = true, paginate_by = 5 }`
+
+| key | type | default config value |
+| --- | --- | --- |
+| `extra.math` | boolean | `false` |
+| `extra.mermaid` | boolean | `false` |
+| `extra.comment` | boolean | `false` |
+| `extra.goatcounter_endpoint` | string |  |
+| `extra.style` | table |  |
+| `extra.profile` | table |  |
+| `extra.menu` | array of tables |  |
+| `extra.footer` | table |  |
+| `extra.locales` | table |  |
+| `extra.reading_time` | table |  |
+| `extra.giscus` | table |  |
+
+| key | type | default value |
+| --- | --- | --- |
+| `extra.style.bg_color` | string | `"#f4f4f5"` |
+| `extra.style.bg_dark_color` | string | `"#18181b"` |
+| `extra.style.header_blur` | boolean |  |
+| `extra.style.header_color` | string | `"#e4e4e7"` |
+| `extra.style.header_dark_color` | string | `"#27272a"` |
+
+| key | type | default config value |
+| --- | --- | --- |
+| `extra.profile.avatar_url` | string | `"icons/github.svg"` |
+| `extra.profile.avatar_invert` | boolean | `true` |
+| `extra.profile.name` | table |  |
+| `extra.profile.bio` | table |  |
+| `extra.profile.social` | array of tables |  |
+| `extra.profile.open_graph` | table |
+
+| key | type | example |
+| --- | --- | --- |
+| `extra.profile.name[lang]` | string | `"Your Name"` |
+| `extra.profile.bio[lang]` | string | `"A blog by Your Name"` |
+
+| key | type | supports `$BASE_URL` | example |
+| --- | --- | --- | --- |
+| `extra.profile.social[].name` |  | string | `"github"` |
+| `extra.profile.social[].url` | yes | string | `"https://github.com/salif/linkita"` |
+
+| key | type | example |
+| --- | --- | --- |
+| `extra.profile.open_graph.image` | string | `"icons/github.svg"` |
+| `extra.profile.open_graph.first_name` | string |  |
+| `extra.profile.open_graph.last_name` | string |  |
+| `extra.profile.open_graph.username` | string |  |
+| `extra.profile.open_graph.gender` | string |  |
+| `extra.profile.open_graph.fb_app_id` | string |  |
+| `extra.profile.open_graph.fb_admins` | array of strings |  |
+| `extra.profile.open_graph.fediverse_username` | string | "user" |
+| `extra.profile.open_graph.fediverse_server` | string | "mastodon.social" |
+
+| key | type |
+| --- | --- |
+| `extra.menu[].url` | string |
+| `extra.menu[].name` | table |
+| `extra.menu[].name[lang]` | string |
+
+| key | type | supports `$BASE_URL` | example |
+| --- | --- | --- | --- |
+| `extra.footer.since` | number |  | 2024 |
+| `extra.footer.license_name` | string |  | `"CC BY-SA 4.0"` |
+| `extra.footer.license_url` | string | yes | `"https://creativecommons.org/licenses/by-sa/4.0/deed"` |
+| `extra.footer.privacy_policy_url` | string | yes | `"$BASE_URL/privacy-policy/"` |
+| `extra.footer.terms_of_service_url` | string | yes | `"$BASE_URL/terms-of-service/"` |
+| `extra.footer.search_page_url` | string | yes | `"$BASE_URL/search/"` |
+
+| key | type | default value | example |
+| --- | --- | --- | --- |
+| `extra.locales[lang].locale` | string |  | `"en_US"` |
+| `extra.locales[lang].date_format` | string | `%F`  |  |
+| `extra.locales[lang].date_format_archive` | string | `%m-%d` |  |
+
+| key | type | default config value | allowed strings |
+| --- | --- | --- | --- |
+| `extra.reading_time[lang]` | array of strings | `["reading_time"]` | `reading_time`, `word_count` |
+
+| key | type | default config value | default value |
+| --- | --- | --- | --- |
+| `extra.giscus.repo` | string | `""` |  |
+| `extra.giscus.repo_id` | string | `""` |  |
+| `extra.giscus.category` | string | `""` |  |
+| `extra.giscus.category_id` | string | `""` |  |
+| `extra.giscus.mapping` | string | `"pathname"` | `pathname` |
+| `extra.giscus.strict` | number | `1` | `1` |
+| `extra.giscus.reactions_enabled` | number | `0` | `0` |
+| `extra.giscus.emit_metadata` | number | `0` | `0` |
+| `extra.giscus.input_position` | string | `"top"` | `top` |
+| `extra.giscus.theme` | string | `"light"` | `light` |
+| `extra.giscus.lang` | string | `"en"` | `en` |
+| `extra.giscus.loading` | string | `"lazy"` | `lazy` |
+
+## Front matter
+
+```toml
++++
+title = ""
+description = ""
+date = ""
+[taxonomies]
+tags = ["", ""]
+[extra]
+comment = false
+math = false
+mermaid = false
+[extra.cover]
+image = ""
+alt = ""
+[extra.open_graph]
++++
+```
+
+| `extra.open_graph` keys | type | example |
+| --- | --- | --- |
+| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` |
+| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` |
+| `section` | string |  |
+| `tags` | array of strings |  |
+| `opinion` | boolean | `"true"` or `"false"` |
+| `audio` | string |  |
+| `audio_mime` | string |  |
+| `video` | string |  |
+| `video_mime` | string |  |
+| `url` | string |  |
+
+### YAML Front Matter
+
+```yaml
+---
+title: ""
+description: ""
+date: ""
+taxonomies:
+  tags: ["", ""]
+extra:
+  comment: false
+  math: false
+  mermaid: false
+  cover:
+    image: ""
+    alt: ""
+  open_graph:
+---
 ```
 
 ## License

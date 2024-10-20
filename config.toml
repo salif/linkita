@@ -193,19 +193,6 @@ url = "$BASE_URL/atom.xml"
 # fediverse_username = "user"
 # fediverse_server = "mastodon.social"
 
-# Not used in this file, put them in the front-matter.
-# [extra.open_graph]
-# content_tier = "" # free [default], locked, or metered
-# locations = [] # county:COUNTY, city:CITY,COUNTY
-# section = ""
-# tags = []
-# opinion = "" # "true" or "false"
-# audio = ""
-# audio_mime = ""
-# video = ""
-# video_mime = ""
-# url = ""
-
 # The top menu.
 [[extra.menu]]
 url = "$BASE_URL/projects/"
@@ -238,7 +225,7 @@ eo = "Pri"
 # The page footer options.
 [extra.footer]
 since = 2020
-license = "CC BY-SA 4.0"
+license_name = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 # privacy_policy_url = "$BASE_URL/privacy-policy/"
 # terms_of_service_url = "$BASE_URL/terms-of-service/"
@@ -262,8 +249,6 @@ locale = "eo"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
 
-# Show reading time
-# Example: ["reading_time"] | ["word_count"] | ["word_count", "reading_time"] | []
 [extra.reading_time]
 en = ["reading_time"]
 bg = ["reading_time"]

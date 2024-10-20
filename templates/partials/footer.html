@@ -10,13 +10,13 @@
     <a class="link" href="{{ get_url(path=``, lang=lang) }}">
       {{ config.author | default(value=config.title) }}
     </a>
-    {% if config.extra.footer.license %} |<!---->
+    {% if config.extra.footer.license_name %} |<!---->
     {% if config.extra.footer.license_url %}<!---->
     <a class="link" href="{{ config.extra.footer.license_url }}" rel="noopener" target="_blank">
-      {{ config.extra.footer.license }}
+      {{ config.extra.footer.license_name }}
     </a>
     {% else %}<!---->
-    {{ config.extra.footer.license }}<!---->
+    {{ config.extra.footer.license_name }}<!---->
     {% endif %}<!---->
     {% endif %}
   </div>
