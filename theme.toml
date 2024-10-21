@@ -1,7 +1,7 @@
 name = "Linkita"
-description = "Linkita is a multilingual, clean and elegant blog theme for Zola."
+description = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
 license = "MIT"
-homepage = "https://github.com/salif/linkita"
+homepage = "https://codeberg.org/salif/linkita"
 min_version = "0.19.0"
 demo = "https://salif.github.io/linkita/en/"
 

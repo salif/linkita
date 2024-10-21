@@ -1,9 +1,6 @@
 # Linkita
 
-Linkita is a multilingual, clean and elegant blog theme for Zola.
-
-It is based on [Kita](https://github.com/st1020/kita) with some features added.
-Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-paper) with some features added.
+A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
 ## Demo
 
@@ -11,9 +8,11 @@ Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-pape
 - [Bulgarian](https://salif.github.io/linkita/)
 - [Esperanto](https://salif.github.io/linkita/eo/)
 
-![Screenshot](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.png)
+---
 
-![Screenshot - Dark mode](https://raw.githubusercontent.com/salif/linkita/linkita/screenshot.dark.png)
+![Screenshot](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.png)
+
+![Screenshot - Dark mode](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.dark.png)
 
 ## Kita features
 
@@ -46,9 +45,13 @@ Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-pape
 1. Use it as a submodule:
 
 ```sh
-git submodule add https://github.com/salif/linkita.git themes/linkita
-# Alternatively, clone this repository:
-# git clone https://github.com/salif/linkita.git themes/linkita
+git submodule add https://codeberg.org/salif/linkita.git themes/linkita
+```
+
+Alternatively, clone the repository:
+
+```sh 
+# git clone https://codeberg.org/salif/linkita.git themes/linkita
 ```
 
 2. It is recommended to switch from the `linkita` branch to the latest release:
@@ -57,12 +60,13 @@ git submodule add https://github.com/salif/linkita.git themes/linkita
 cd themes/linkita
 npm run switch-to-latest
 # Alternatively, use this command:
-./justfile switch-to-latest
+# ./justfile switch-to-latest
 ```
 
 3. Copy translations
 
-Open `themes/linkita/config.toml` and copy all `[languages.en.translations]` tables to your `config.toml`.
+Open `themes/linkita/config.toml` and copy all translations to your `config.toml`.
+The English translation is under `[languages.en.translations]`.
 
 Otherwise you will get this error:
 
@@ -93,8 +97,6 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 
 ## Configuration
 
-See [config.toml](https://github.com/salif/linkita/blob/linkita/config.toml) as an example.
-
 | key | type | example | comment |
 | --- | --- | --- | --- |
 | `default_language` | string | `"en"` | The default language |
@@ -110,12 +112,12 @@ Taxonomies with translated names are `tags` and `categories`.
 
 ---
 
-| key | type | default config value | comment |
-| --- | --- | --- | --- |
-| `extra.math` | boolean | `false` | Enable KaTeX globally |
-| `extra.mermaid` | boolean | `false` | Enable Mermaid globally |
-| `extra.comment` | boolean | `false` | Enable comments (giscus) |
-| `extra.goatcounter_endpoint` | string |  |
+| key | type | comment |
+| --- | --- | --- |
+| `extra.math` | boolean | Enable KaTeX globally |
+| `extra.mermaid` | boolean | Enable Mermaid globally |
+| `extra.comment` | boolean | Enable comments (giscus) |
+| `extra.goatcounter_endpoint` | string | `"https://MYCODE.goatcounter.com/count"` |
 | `extra.style` | table |  |
 | `extra.profile` | table |  |
 | `extra.menu` | array of tables |  |
@@ -149,7 +151,7 @@ Taxonomies with translated names are `tags` and `categories`.
 | key | type | supports `$BASE_URL` | example |
 | --- | --- | --- | --- |
 | `extra.profile.social[].name` |  | string | `"github"` |
-| `extra.profile.social[].url` | yes | string | `"https://github.com/salif/linkita"` |
+| `extra.profile.social[].url` | yes | string | `"https://github.com/salif"` |
 
 | key | type | example |
 | --- | --- | --- |
@@ -260,7 +262,7 @@ extra:
 
 ## License
 
-[MIT License](https://github.com/salif/linkita/blob/linkita/LICENSE)
+[MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICENSE)
 
 Copyright (c) 2023-present, st1020
 

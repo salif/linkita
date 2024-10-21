@@ -8,6 +8,8 @@ tags = ["markdown", "css", "html"]
 mermaid = true
 +++
 
+<div lang="en">
+
 The Linkita theme providers multiple shortcodes.
 
 Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/documentation/content/shortcodes/) for more information.
@@ -168,3 +170,5 @@ It's from [Zola documentation](https://www.getzola.org/documentation/content/ima
 ```
 
 {{ gallery() }}
+
+</div>

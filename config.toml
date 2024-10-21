@@ -4,7 +4,7 @@ base_url = "https://salif.github.io/linkita"
 default_language = "bg"
 author = "Авторът"
 title = "Линкита"
-description = "Линкита е чиста и елегантна блог тема за Зола."
+description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
@@ -23,14 +23,14 @@ highlight_theme = "monokai"
 
 [languages.en]
 title = "Linkita"
-description = "Linkita is a multilingual, clean and elegant blog theme for Zola."
+description = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
 
 [languages.eo]
 title = "Linkita"
-description = "Linkita estas pura kaj eleganta bloga temo por Zola."
+description = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
@@ -101,7 +101,7 @@ mermaid = false
 # Enable comment support globally.
 comment = false
 # Enable web analytics
-# goatcounter_endpoint = "https://MYCODE.goatcounter.com/count"
+goatcounter_endpoint = "https://sgi.goatcounter.com/count"
 
 [extra.style]
 # The custom background color.
@@ -132,19 +132,23 @@ bg = "Линкита - Тема за Зола"
 eo = "Linkita - Temo por Zola"
 
 [extra.profile.bio]
-en = "Linkita is a multilingual, clean, and elegant blog theme for Zola."
-bg = "Линкита е чиста и елегантна блог тема за Зола."
-eo = "Linkita estas pura kaj eleganta bloga temo por Zola."
+en = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
+bg = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+eo = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 
 # The social icons below the profile on the home page.
 # The `name` should be the file name of static/icons/*.svg or the icon name of https://simpleicons.org/
 [[extra.profile.social]]
+name = "codeberg"
+url = "https://codeberg.org/salif/linkita"
+
+[[extra.profile.social]]
 name = "github"
 url = "https://github.com/salif/linkita"
 
-[[extra.profile.social]]
-name = "bluesky"
-url = "https://github.com/salif/linkita"
+# [[extra.profile.social]]
+# name = "bluesky"
+# url = "https://bsky.app/"
 
 [[extra.profile.social]]
 name = "rss"

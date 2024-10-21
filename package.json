@@ -1,13 +1,17 @@
 {
   "name": "linkita",
-  "version": "0.2024_10_19.0",
-  "description": "Linkita is a multilingual, clean and elegant blog theme for Zola.",
-  "homepage": "https://github.com/salif/linkita",
+  "version": "0.2024_10_21.0",
+  "description": "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly.",
+  "homepage": "https://codeberg.org/salif/linkita",
   "license": "MIT",
-  "author": "Salif Mehmed <mail@salif.eu>",
+  "author": {
+    "name": "Salif Mehmed",
+    "email": "mail@salif.eu",
+    "url": "https://salif.eu"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/salif/linkita.git"
+    "url": "https://codeberg.org/salif/linkita.git"
   },
   "scripts": {
     "dev": "pnpm tailwindcss -i ./static/app.css -o ./static/main.css --watch",

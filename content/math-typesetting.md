@@ -5,6 +5,8 @@ description = "Кратко ръководство за настройка на 
 extra.math = true
 +++
 
+<div lang="en">
+
 Linkita theme support $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).
 
 <!--more-->
@@ -35,3 +37,5 @@ $$
 $$
  \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
 $$
+
+</div>

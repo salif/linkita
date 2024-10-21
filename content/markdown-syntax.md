@@ -9,6 +9,8 @@ cover.image = "images/markdown-syntax.png"
 cover.alt = "Лого на Маркдаун"
 +++
 
+<div lang="en">
+
 This article offers a sample of basic Markdown syntax that can be used in Zola content files, also it shows whether basic HTML elements are decorated with CSS in a Linkita theme.
 
 <!--more-->
@@ -145,3 +147,5 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+
+</div>

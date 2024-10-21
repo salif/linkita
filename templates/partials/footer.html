@@ -24,12 +24,10 @@
     <span class="mr-6 lg:ml-6">
       {{ trans(key="footer_powered_by", lang=lang) }} <a class="link underline" href="https://www.getzola.org/" rel="noopener"
       target="_blank">{{ trans(key="footer_zola", lang=lang) }}</a> {{ trans(key="footer_and", lang=lang) }} <a class="link underline"
-      href="https://github.com/salif/linkita" rel="noopener" target="_blank">{{ trans(key="footer_linkita", lang=lang) }}</a>
+      href="https://codeberg.org/salif/linkita" rel="noopener" target="_blank">{{ trans(key="footer_linkita", lang=lang) }}</a>
     </span>
   </div>
-  {% if config.base_url == "https://salif.github.io/linkita" %}
-  <script async data-goatcounter="https://sgi.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
-  {% elif config.extra.goatcounter_endpoint %}
+  {% if config.extra.goatcounter_endpoint %}
   <script async data-goatcounter="{{ config.extra.goatcounter_endpoint | safe }}" src="//gc.zgo.at/count.js"></script>
   {% endif %}
   <!-- Footer inject -->
