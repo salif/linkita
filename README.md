@@ -43,20 +43,15 @@ Kita is based on Hugo theme [hugo-paper](https://github.com/nanxiaobei/hugo-pape
 
 ## Installation
 
-The easiest way to install this theme is to clone this repository in the themes directory:
-
-```sh
-git clone https://github.com/salif/linkita.git themes/linkita
-```
-
-Or to use it as a submodule:
+1. Use it as a submodule:
 
 ```sh
 git submodule add https://github.com/salif/linkita.git themes/linkita
+# Alternatively, clone this repository:
+# git clone https://github.com/salif/linkita.git themes/linkita
 ```
 
-<!--
-It is highly recommended to switch from the `linkita` branch to the latest release:
+2. It is recommended to switch from the `linkita` branch to the latest release:
 
 ```sh
 cd themes/linkita
@@ -64,9 +59,19 @@ npm run switch-to-latest
 # Alternatively, use this command:
 ./justfile switch-to-latest
 ```
--->
 
-Then set `linkita` as your theme in `config.toml`.
+3. Copy translations
+
+Open `themes/linkita/config.toml` and copy all `[languages.en.translations]` tables to your `config.toml`.
+
+Otherwise you will get this error:
+
+```
+Error: Reason: Function call 'trans' failed
+Error: Reason: Failed to retrieve term translation
+```
+
+4. Then set `linkita` as your theme in `config.toml`.
 
 ```toml
 theme = "linkita"
@@ -90,24 +95,26 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 
 See [config.toml](https://github.com/salif/linkita/blob/linkita/config.toml) as an example.
 
-| key | type | example |
-| --- | --- | --- |
-| `author` | string | `"Your Name"` |
-| `title` | string |  |
-| `description` | string |  |
-| `generate_feeds` | boolean | `true` |
-| `feed_filenames` | array of strings | `["atom.xml"]` |
-| `taxonomies` | array of tables |  |
-| `translations` | table |  |
-| `extra` | table |  |
+| key | type | example | comment |
+| --- | --- | --- | --- |
+| `default_language` | string | `"en"` | The default language |
+| `author` | string | `"Your Name"` | The default author for pages |
+| `title` | string |  | The site title |
+| `description` | string |  | The site description |
+| `generate_feeds` | boolean | `true` | Automatically generated feed |
+| `feed_filenames` | array of strings | `["atom.xml"]` or `["rss.xml"]` | The filenames to use for the feeds |
+| `translations` | table |  | You need to copy translations from the `config.toml` file |
+| `extra` | table |  |  |
 
-Example `taxonomies` value: `{ name = "tags", feed = true, paginate_by = 5 }`
+Taxonomies with translated names are `tags` and `categories`.
 
-| key | type | default config value |
-| --- | --- | --- |
-| `extra.math` | boolean | `false` |
-| `extra.mermaid` | boolean | `false` |
-| `extra.comment` | boolean | `false` |
+---
+
+| key | type | default config value | comment |
+| --- | --- | --- | --- |
+| `extra.math` | boolean | `false` | Enable KaTeX globally |
+| `extra.mermaid` | boolean | `false` | Enable Mermaid globally |
+| `extra.comment` | boolean | `false` | Enable comments (giscus) |
 | `extra.goatcounter_endpoint` | string |  |
 | `extra.style` | table |  |
 | `extra.profile` | table |  |
@@ -176,6 +183,8 @@ Example `taxonomies` value: `{ name = "tags", feed = true, paginate_by = 5 }`
 | `extra.locales[lang].locale` | string |  | `"en_US"` |
 | `extra.locales[lang].date_format` | string | `%F`  |  |
 | `extra.locales[lang].date_format_archive` | string | `%m-%d` |  |
+
+For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html)
 
 | key | type | default config value | allowed strings |
 | --- | --- | --- | --- |
