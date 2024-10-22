@@ -18,6 +18,8 @@
   <time datetime="{{ page.updated }}">{{ page.updated | date(format=date_format) }}</time>
     {%- endif %}
   {%- endif %}
+{%- endif %}
+{%- if config.extra.reading_time[lang] %}
   {%- for reading_time in config.extra.reading_time[lang] %}
   <span class="mx-1">&middot;</span>
     {%- if reading_time == "reading_time" %}

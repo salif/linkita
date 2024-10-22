@@ -34,36 +34,40 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 ## Linkita features
 
-### UI localization
+### i18n
 
-- English
-- Bulgarian
-- Esperanto
+- `en`: English
+- `bg`: Bulgarian
+- `eo`: Esperanto
 
-## Installation
+## Installing
 
-1. Use it as a submodule:
+1. Add this theme as a submodule:
 
 ```sh
 git submodule add https://codeberg.org/salif/linkita.git themes/linkita
 ```
 
-Alternatively, clone the repository:
-
-```sh 
-# git clone https://codeberg.org/salif/linkita.git themes/linkita
-```
+Alternatively, clone the repository: `git clone https://codeberg.org/salif/linkita.git themes/linkita`.
 
 2. It is recommended to switch from the `linkita` branch to the latest release:
 
 ```sh
 cd themes/linkita
 npm run switch-to-latest
-# Alternatively, use this command:
-# ./justfile switch-to-latest
 ```
 
-3. Copy translations
+Alternatively, use this command: `./justfile switch-to-latest`.
+
+3. Set `linkita` as your theme in your `config.toml`.
+
+```toml
+theme = "linkita"
+```
+
+Also, make sure you have `title` and `default_language` set in your `config.toml`.
+
+4. Copy translations
 
 Open `themes/linkita/config.toml` and copy all translations to your `config.toml`.
 The English translation is under `[languages.en.translations]`.
@@ -75,13 +79,70 @@ Error: Reason: Function call 'trans' failed
 Error: Reason: Failed to retrieve term translation
 ```
 
-4. Then set `linkita` as your theme in `config.toml`.
+## Updating
 
-```toml
-theme = "linkita"
+```sh
+git submodule update --remote themes/linkita
+cd themes/linkita
+npm run switch-to-latest
 ```
 
-## Inject support
+## Usage
+
+### Front matter
+
+```toml
++++
+title = ""
+description = ""
+date = ""
+[taxonomies]
+tags = ["", ""]
+[extra]
+comment = false
+math = false
+mermaid = false
+[extra.cover]
+image = ""
+alt = ""
+[extra.open_graph]
++++
+```
+
+| `extra.open_graph` keys | type | example |
+| --- | --- | --- |
+| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` |
+| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` |
+| `section` | string |  |
+| `tags` | array of strings |  |
+| `opinion` | boolean | `"true"` or `"false"` |
+| `audio` | string |  |
+| `audio_mime` | string |  |
+| `video` | string |  |
+| `video_mime` | string |  |
+| `url` | string |  |
+
+### YAML front matter
+
+```yaml
+---
+title: ""
+description: ""
+date: ""
+taxonomies:
+  tags: ["", ""]
+extra:
+  comment: false
+  math: false
+  mermaid: false
+  cover:
+    image: ""
+    alt: ""
+  open_graph:
+---
+```
+
+### Inject support
 
 You can easily use inject to add new features to your side without modifying the theme itself.
 
@@ -95,7 +156,7 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 <script src="js-file-path-or-cdn-url.js"></script>
 ```
 
-## Configuration
+## Configuring
 
 | key | type | example | comment |
 | --- | --- | --- | --- |
@@ -207,63 +268,19 @@ For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strf
 | `extra.giscus.lang` | string | `"en"` | `en` |
 | `extra.giscus.loading` | string | `"lazy"` | `lazy` |
 
-## Front matter
-
-```toml
-+++
-title = ""
-description = ""
-date = ""
-[taxonomies]
-tags = ["", ""]
-[extra]
-comment = false
-math = false
-mermaid = false
-[extra.cover]
-image = ""
-alt = ""
-[extra.open_graph]
-+++
-```
-
-| `extra.open_graph` keys | type | example |
-| --- | --- | --- |
-| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` |
-| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` |
-| `section` | string |  |
-| `tags` | array of strings |  |
-| `opinion` | boolean | `"true"` or `"false"` |
-| `audio` | string |  |
-| `audio_mime` | string |  |
-| `video` | string |  |
-| `video_mime` | string |  |
-| `url` | string |  |
-
-### YAML Front Matter
-
-```yaml
----
-title: ""
-description: ""
-date: ""
-taxonomies:
-  tags: ["", ""]
-extra:
-  comment: false
-  math: false
-  mermaid: false
-  cover:
-    image: ""
-    alt: ""
-  open_graph:
----
-```
-
 ## License
 
-[MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICENSE)
+See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICENSE) file.
 
-Copyright (c) 2023-present, st1020
+## Contributing
 
-Copyright (c) 2024-present, salif
+Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
+Open *bug reports* and *feature requests* on [Codeberg](https://codeberg.org/salif/linkita/issues).
+
+If you want to add new translations or correct existing ones, please find another person who speaks the language to confirm your translations are good, by adding a comment or review on your pull request.
+
+## Blogs using this theme
+
+- [salif.eu](https://salif.eu): My personal website (soon)
+
+If you use Linkita, feel free to create a pull request to add your site to this list.
