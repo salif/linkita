@@ -158,18 +158,47 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 
 ## Configuring
 
-| key | type | example | comment |
-| --- | --- | --- | --- |
-| `default_language` | string | `"en"` | The default language |
-| `author` | string | `"Your Name"` | The default author for pages |
-| `title` | string |  | The site title |
-| `description` | string |  | The site description |
-| `generate_feeds` | boolean | `true` | Automatically generated feed |
-| `feed_filenames` | array of strings | `["atom.xml"]` or `["rss.xml"]` | The filenames to use for the feeds |
-| `translations` | table |  | You need to copy translations from the `config.toml` file |
-| `extra` | table |  |  |
+| key | type | comment |
+| --- | --- | --- |
+| `default_language` | string | The default language |
+| `author` | string | The default author for pages |
+| `title` | string | The site title |
+| `description` | string | The site description |
+| `generate_feeds` | boolean | Automatically generated feed |
+| `feed_filenames` | array of strings | The filenames to use for the feeds |
+| `translations` | table | You need to copy translations from the `config.toml` file |
+| `extra` | table |  |
 
 Taxonomies with translated names are `tags` and `categories`.
+
+```toml
+default_language = "en"
+author = "your_username" # or "your@email (Name)"
+title = "Site Title"
+description = "Site Description"
+generate_feeds = true
+feed_filenames = ["atom.xml"] # or ["rss.xml"]
+```
+
+```toml
+[[taxonomies]]
+name = "tags"
+feed = true
+paginate_by = 5
+```
+
+```toml
+[languages.fr]
+title = "Site Title in French"
+description = "Site Description in French"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+[[languages.fr.taxonomies]]
+name = "tags"
+feed = true
+paginate_by = 5
+```
 
 ---
 
@@ -178,53 +207,129 @@ Taxonomies with translated names are `tags` and `categories`.
 | `extra.math` | boolean | Enable KaTeX globally |
 | `extra.mermaid` | boolean | Enable Mermaid globally |
 | `extra.comment` | boolean | Enable comments (giscus) |
-| `extra.goatcounter_endpoint` | string | `"https://MYCODE.goatcounter.com/count"` |
-| `extra.style` | table |  |
-| `extra.profile` | table |  |
-| `extra.menu` | array of tables |  |
-| `extra.footer` | table |  |
-| `extra.locales` | table |  |
-| `extra.reading_time` | table |  |
-| `extra.giscus` | table |  |
+| `extra.goatcounter_endpoint` | string | Enable web analytics |
+| `extra.style` | table | The theme style config |
+| `extra.profile` | table | The profile on home page |
+| `extra.menu` | array of tables | The top menu |
+| `extra.footer` | table | The page footer options |
+| `extra.locales` | table | Locale codes and date formats |
+| `extra.reading_time` | table | Word count and reading time for posts |
+| `extra.giscus` | table | The giscus comment options, only available when comment is enabled |
 
-| key | type | default value |
-| --- | --- | --- |
-| `extra.style.bg_color` | string | `"#f4f4f5"` |
-| `extra.style.bg_dark_color` | string | `"#18181b"` |
-| `extra.style.header_blur` | boolean |  |
-| `extra.style.header_color` | string | `"#e4e4e7"` |
-| `extra.style.header_dark_color` | string | `"#27272a"` |
+```toml
+[extra]
+math = false
+mermaid = false
+comment = false
+# goatcounter_endpoint = "https://MYCODE.goatcounter.com/count"
+```
 
-| key | type | default config value |
+---
+
+| key | type | default value | comment |
+| --- | --- | --- | --- |
+| `extra.style.bg_color` | string | `"#f4f4f5"` | The custom background color |
+| `extra.style.bg_dark_color` | string | `"#18181b"` | The custom background color in dark mode |
+| `extra.style.header_blur` | boolean |  | Enable header blur |
+| `extra.style.header_color` | string | `"#e4e4e7"` | The custom header color, only available when `header_blur` is false |
+| `extra.style.header_dark_color` | string | `"#27272a"` | The custom header color in dark mode, only available when `header_blur` is false |
+
+```toml
+[extra.style]
+bg_color = ""
+bg_dark_color = ""
+header_blur = false
+header_color = ""
+header_dark_color = ""
+```
+
+---
+
+| key | type | comment |
 | --- | --- | --- |
-| `extra.profile.avatar_url` | string | `"icons/github.svg"` |
-| `extra.profile.avatar_invert` | boolean | `true` |
+| `extra.profile.avatar_url` | string | The URL of avatar |
+| `extra.profile.avatar_invert` | boolean | Invert color in dark mode |
 | `extra.profile.name` | table |  |
 | `extra.profile.bio` | table |  |
-| `extra.profile.social` | array of tables |  |
-| `extra.profile.open_graph` | table |
+| `extra.profile.social` | array of tables | The social icons below the profile on the home page |
+| `extra.profile.open_graph` | table |  |
 
-| key | type | example |
+```toml
+[extra.profile]
+avatar_url = "icons/github.svg"
+avatar_invert = true
+```
+
+---
+
+| key | type |
+| --- | --- |
+| `extra.profile.name[lang]` | string |
+| `extra.profile.bio[lang]` | string |
+
+```toml
+[extra.profile.name]
+en = "Profile Name in English"
+fr = "Profile Name in French"
+
+[extra.profile.bio]
+en = "Profile Bio in English"
+fr = "Profile Bio in French"
+```
+
+---
+
+| key | type |
+| --- | --- |
+| `extra.profile.social[].name` | string |
+| `extra.profile.social[].url` | string |
+
+The `name` should be the file name of `static/icons/*.svg` or the icon name of
+[simpleicons.org](https://simpleicons.org/). The `url` supports `$BASE_URL`.
+
+```toml
+[[extra.profile.social]]
+name = "github"
+url = "https://github.com/username"
+
+[[extra.profile.social]]
+name = "bluesky"
+url = "https://bsky.app/profile/username"
+
+[[extra.profile.social]]
+name = "rss"
+url = "$BASE_URL/atom.xml"
+```
+
+---
+
+| key | type | comment |
 | --- | --- | --- |
-| `extra.profile.name[lang]` | string | `"Your Name"` |
-| `extra.profile.bio[lang]` | string | `"A blog by Your Name"` |
-
-| key | type | supports `$BASE_URL` | example |
-| --- | --- | --- | --- |
-| `extra.profile.social[].name` |  | string | `"github"` |
-| `extra.profile.social[].url` | yes | string | `"https://github.com/salif"` |
-
-| key | type | example |
-| --- | --- | --- |
-| `extra.profile.open_graph.image` | string | `"icons/github.svg"` |
-| `extra.profile.open_graph.first_name` | string |  |
-| `extra.profile.open_graph.last_name` | string |  |
-| `extra.profile.open_graph.username` | string |  |
-| `extra.profile.open_graph.gender` | string |  |
+| `extra.profile.open_graph.image` | string | The URL of social image |
+| `extra.profile.open_graph.first_name` | string | A name normally given to an individual by a parent or self-chosen |
+| `extra.profile.open_graph.last_name` | string | A name inherited from a family or marriage and by which the individual is commonly known |
+| `extra.profile.open_graph.username` | string | A short unique string to identify them |
+| `extra.profile.open_graph.gender` | string | Their gender |
 | `extra.profile.open_graph.fb_app_id` | string |  |
 | `extra.profile.open_graph.fb_admins` | array of strings |  |
-| `extra.profile.open_graph.fediverse_username` | string | "user" |
-| `extra.profile.open_graph.fediverse_server` | string | "mastodon.social" |
+| `extra.profile.open_graph.fediverse_username` | string |  |
+| `extra.profile.open_graph.fediverse_server` | string |  |
+
+```toml
+[extra.profile.open_graph]
+image = "icons/github.svg"
+first_name = ""
+last_name = ""
+username = ""
+gender = "female" # or "male"
+fb_app_id = ""
+fb_admins = ["USER_ID"]
+# Example for "@user@mastodon.social"
+fediverse_username = "user"
+fediverse_server = "mastodon.social"
+```
+
+---
 
 | key | type |
 | --- | --- |
@@ -232,41 +337,119 @@ Taxonomies with translated names are `tags` and `categories`.
 | `extra.menu[].name` | table |
 | `extra.menu[].name[lang]` | string |
 
-| key | type | supports `$BASE_URL` | example |
-| --- | --- | --- | --- |
-| `extra.footer.since` | number |  | 2024 |
-| `extra.footer.license_name` | string |  | `"CC BY-SA 4.0"` |
-| `extra.footer.license_url` | string | yes | `"https://creativecommons.org/licenses/by-sa/4.0/deed"` |
-| `extra.footer.privacy_policy_url` | string | yes | `"$BASE_URL/privacy-policy/"` |
-| `extra.footer.terms_of_service_url` | string | yes | `"$BASE_URL/terms-of-service/"` |
-| `extra.footer.search_page_url` | string | yes | `"$BASE_URL/search/"` |
+```toml
+[[extra.menu]]
+url = "$BASE_URL/projects/"
+[extra.menu.name]
+en = "Projects"
+fr = "Projects in French"
 
-| key | type | default value | example |
-| --- | --- | --- | --- |
-| `extra.locales[lang].locale` | string |  | `"en_US"` |
-| `extra.locales[lang].date_format` | string | `%F`  |  |
-| `extra.locales[lang].date_format_archive` | string | `%m-%d` |  |
+[[extra.menu]]
+url = "$BASE_URL/archive/"
+[extra.menu.name]
+en = "Archive"
+fr = "Archive in French"
 
-For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html)
+[[extra.menu]]
+url = "$BASE_URL/tags/"
+[extra.menu.name]
+en = "Tags"
+fr = "Tags in French"
 
-| key | type | default config value | allowed strings |
-| --- | --- | --- | --- |
-| `extra.reading_time[lang]` | array of strings | `["reading_time"]` | `reading_time`, `word_count` |
+[[extra.menu]]
+url = "$BASE_URL/about/"
+[extra.menu.name]
+en = "About"
+fr = "About in French"
+```
 
-| key | type | default config value | default value |
-| --- | --- | --- | --- |
-| `extra.giscus.repo` | string | `""` |  |
-| `extra.giscus.repo_id` | string | `""` |  |
-| `extra.giscus.category` | string | `""` |  |
-| `extra.giscus.category_id` | string | `""` |  |
-| `extra.giscus.mapping` | string | `"pathname"` | `pathname` |
-| `extra.giscus.strict` | number | `1` | `1` |
-| `extra.giscus.reactions_enabled` | number | `0` | `0` |
-| `extra.giscus.emit_metadata` | number | `0` | `0` |
-| `extra.giscus.input_position` | string | `"top"` | `top` |
-| `extra.giscus.theme` | string | `"light"` | `light` |
-| `extra.giscus.lang` | string | `"en"` | `en` |
-| `extra.giscus.loading` | string | `"lazy"` | `lazy` |
+---
+
+| key | type | supports `$BASE_URL` |
+| --- | --- | --- |
+| `extra.footer.since` | number | no |
+| `extra.footer.license_name` | string | no |
+| `extra.footer.license_url` | string | yes |
+| `extra.footer.privacy_policy_url` | string | yes |
+| `extra.footer.terms_of_service_url` | string | yes |
+| `extra.footer.search_page_url` | string | yes |
+
+```toml
+[extra.footer]
+since = 2024
+license_name = "CC BY-SA 4.0"
+license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
+privacy_policy_url = "$BASE_URL/privacy-policy/"
+terms_of_service_url = "$BASE_URL/terms-of-service/"
+search_page_url = "$BASE_URL/search/"
+```
+
+---
+
+| key | type | default value |
+| --- | --- | --- |
+| `extra.locales[lang].locale` | string |  |
+| `extra.locales[lang].date_format` | string | `%F` |
+| `extra.locales[lang].date_format_archive` | string | `%m-%d` |
+
+For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
+
+```toml
+[extra.locales.en]
+locale = "en_US"
+date_format = "%x"
+date_format_archive = "%m-%d"
+
+[extra.locales.fr]
+locale = "fr_FR"
+date_format = "%x"
+date_format_archive = "%m-%d"
+```
+
+---
+
+| key | type | allowed strings |
+| --- | --- | --- |
+| `extra.reading_time[lang]` | array of strings | `reading_time`, `word_count` |
+
+```toml
+[extra.reading_time]
+en = ["reading_time"]
+fr = ["reading_time", "word_count"]
+```
+
+---
+
+| key | type | default value |
+| --- | --- | --- |
+| `extra.giscus.repo` | string |  |
+| `extra.giscus.repo_id` | string |  |
+| `extra.giscus.category` | string |  |
+| `extra.giscus.category_id` | string |  |
+| `extra.giscus.mapping` | string | `pathname` |
+| `extra.giscus.strict` | number | `1` |
+| `extra.giscus.reactions_enabled` | number | `0` |
+| `extra.giscus.emit_metadata` | number | `0` |
+| `extra.giscus.input_position` | string | `top` |
+| `extra.giscus.theme` | string | `light` |
+| `extra.giscus.lang` | string | `en` |
+| `extra.giscus.loading` | string | `lazy` |
+
+```toml
+[extra.giscus]
+repo = ""
+repo_id = ""
+category = ""
+category_id = ""
+mapping = "pathname"
+strict = 1
+reactions_enabled = 0
+emit_metadata = 0
+input_position = "top"
+theme = "light"
+lang = "en"
+loading = "lazy"
+```
 
 ## License
 
