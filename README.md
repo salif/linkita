@@ -95,32 +95,39 @@ npm run switch-to-latest
 +++
 title = ""
 description = ""
-date = ""
+# date = 
+# updated = 
 [taxonomies]
-tags = ["", ""]
+tags = []
 [extra]
-comment = false
-math = false
-mermaid = false
+# comment = true
+# math = true
+# mermaid = true
 [extra.cover]
-image = ""
-alt = ""
+# image = ""
+# alt = ""
 [extra.open_graph]
 +++
 ```
 
-| `extra.open_graph` keys | type | example |
-| --- | --- | --- |
-| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` |
-| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` |
-| `section` | string |  |
-| `tags` | array of strings |  |
-| `opinion` | boolean | `"true"` or `"false"` |
-| `audio` | string |  |
-| `audio_mime` | string |  |
-| `video` | string |  |
-| `video_mime` | string |  |
-| `url` | string |  |
+| `extra.open_graph` keys | type | example | comment |
+| --- | --- | --- | --- |
+| `cover_type` | string | `image/jpeg`, `image/gif`, `image/png` | MIME type of the cover image |
+| `cover_width` | string |  | Width of the cover image in pixels |
+| `cover_height` | string |  | Height of the cover image in pixels |
+| `expiration_time` | string | `"2024-02-29"` | When the article is out of date after |
+| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` | Describes the tier status for an article |
+| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` | Defines the location to target for the article |
+| `section` | string |  | A high-level section name. E.g. Technology |
+| `tags` | array of strings |  | Tag words associated with this article. |
+| `opinion` | string | `"true"` or `"false"` | Indicates whether the article is an opinion piece or not |
+| `audio` | string |  | The URL for the audio |
+| `audio_type` | string | `audio/vnd.facebook.bridge`, `audio/mpeg` | MIME type of the audio |
+| `video` | string |  | The URL for the video |
+| `video_type` | string | `application/x-shockwave-flash`, `video/mp4` | MIME type of the video |
+| `video_width` | string |  | Width of the video in pixels |
+| `video_height` | string |  | Height of the video in pixels |
+| `url` | string |  | Set only if different from canonical page URL |
 
 ### YAML front matter
 
@@ -128,9 +135,10 @@ alt = ""
 ---
 title: ""
 description: ""
-date: ""
+date: 
+updated: 
 taxonomies:
-  tags: ["", ""]
+  tags:
 extra:
   comment: false
   math: false
@@ -158,6 +166,11 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 
 ## Configuring
 
+Configuration options used by this theme.
+
+Most of them are optional. Copy-paste the examples into your `config.toml` file
+and comment out the options you don't use instead of setting empty values.
+
 | key | type | comment |
 | --- | --- | --- |
 | `default_language` | string | The default language |
@@ -166,7 +179,7 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 | `description` | string | The site description |
 | `generate_feeds` | boolean | Automatically generated feed |
 | `feed_filenames` | array of strings | The filenames to use for the feeds |
-| `translations` | table | You need to copy translations from the `config.toml` file |
+| `translations` | table | Copy-paste them from the theme's `config.toml` file |
 | `extra` | table |  |
 
 Taxonomies with translated names are `tags` and `categories`.
@@ -187,6 +200,8 @@ feed = true
 paginate_by = 5
 ```
 
+Add more languages ​​by replacing `fr` from the example with the language code.
+
 ```toml
 [languages.fr]
 title = "Site Title in French"
@@ -204,16 +219,17 @@ paginate_by = 5
 
 | key | type | comment |
 | --- | --- | --- |
-| `extra.math` | boolean | Enable KaTeX globally |
-| `extra.mermaid` | boolean | Enable Mermaid globally |
-| `extra.comment` | boolean | Enable comments (giscus) |
-| `extra.goatcounter_endpoint` | string | Enable web analytics |
+| `extra.math` | boolean | Enable KaTeX math formula support globally |
+| `extra.mermaid` | boolean | Enable Mermaid support globally |
+| `extra.comment` | boolean | Enable comment support globally |
+| `extra.show_updated_date` | boolean | Show the last updated date of posts |
 | `extra.style` | table | The theme style config |
 | `extra.profile` | table | The profile on home page |
 | `extra.menu` | array of tables | The top menu |
 | `extra.footer` | table | The page footer options |
 | `extra.locales` | table | Locale codes and date formats |
 | `extra.reading_time` | table | Word count and reading time for posts |
+| `extra.goatcounter` | table | Enable web analytics |
 | `extra.giscus` | table | The giscus comment options, only available when comment is enabled |
 
 ```toml
@@ -221,7 +237,7 @@ paginate_by = 5
 math = false
 mermaid = false
 comment = false
-# goatcounter_endpoint = "https://MYCODE.goatcounter.com/count"
+show_updated_date = true
 ```
 
 ---
@@ -236,11 +252,11 @@ comment = false
 
 ```toml
 [extra.style]
-bg_color = ""
-bg_dark_color = ""
+bg_color = "#f4f4f5"
+bg_dark_color = "#18181b"
 header_blur = false
-header_color = ""
-header_dark_color = ""
+header_color = "#e4e4e7"
+header_dark_color = "#27272a"
 ```
 
 ---
@@ -249,8 +265,8 @@ header_dark_color = ""
 | --- | --- | --- |
 | `extra.profile.avatar_url` | string | The URL of avatar |
 | `extra.profile.avatar_invert` | boolean | Invert color in dark mode |
-| `extra.profile.name` | table |  |
-| `extra.profile.bio` | table |  |
+| `extra.profile.name` | table | The profile name on the home page |
+| `extra.profile.bio` | table | The profile bio on the home page |
 | `extra.profile.social` | array of tables | The social icons below the profile on the home page |
 | `extra.profile.open_graph` | table |  |
 
@@ -270,11 +286,11 @@ avatar_invert = true
 ```toml
 [extra.profile.name]
 en = "Profile Name in English"
-fr = "Profile Name in French"
+# fr = "Profile Name in French"
 
 [extra.profile.bio]
 en = "Profile Bio in English"
-fr = "Profile Bio in French"
+# fr = "Profile Bio in French"
 ```
 
 ---
@@ -306,24 +322,26 @@ url = "$BASE_URL/atom.xml"
 | key | type | comment |
 | --- | --- | --- |
 | `extra.profile.open_graph.image` | string | The URL of social image |
+| `extra.profile.open_graph.image_alt` | string | A description of what is in the social image |
 | `extra.profile.open_graph.first_name` | string | A name normally given to an individual by a parent or self-chosen |
 | `extra.profile.open_graph.last_name` | string | A name inherited from a family or marriage and by which the individual is commonly known |
 | `extra.profile.open_graph.username` | string | A short unique string to identify them |
 | `extra.profile.open_graph.gender` | string | Their gender |
-| `extra.profile.open_graph.fb_app_id` | string |  |
-| `extra.profile.open_graph.fb_admins` | array of strings |  |
-| `extra.profile.open_graph.fediverse_username` | string |  |
-| `extra.profile.open_graph.fediverse_server` | string |  |
+| `extra.profile.open_graph.fb_app_id` | string | Set fb:app_id |
+| `extra.profile.open_graph.fb_admins` | array of strings | Set fb:admins |
+| `extra.profile.open_graph.fediverse_username` | string | Your username if you have a Fediverse account |
+| `extra.profile.open_graph.fediverse_server` | string | Your Fediverse server |
 
 ```toml
 [extra.profile.open_graph]
 image = "icons/github.svg"
-first_name = ""
-last_name = ""
-username = ""
+first_name = "Your first name"
+last_name = "Your last name"
+username = "Your username"
 gender = "female" # or "male"
-fb_app_id = ""
-fb_admins = ["USER_ID"]
+
+fb_app_id = "Your fb app ID"
+fb_admins = ["YOUR_USER_ID"]
 # Example for "@user@mastodon.social"
 fediverse_username = "user"
 fediverse_server = "mastodon.social"
@@ -342,37 +360,39 @@ fediverse_server = "mastodon.social"
 url = "$BASE_URL/projects/"
 [extra.menu.name]
 en = "Projects"
-fr = "Projects in French"
+# fr = "Projects in French"
 
 [[extra.menu]]
 url = "$BASE_URL/archive/"
 [extra.menu.name]
 en = "Archive"
-fr = "Archive in French"
+# fr = "Archive in French"
 
 [[extra.menu]]
 url = "$BASE_URL/tags/"
 [extra.menu.name]
 en = "Tags"
-fr = "Tags in French"
+# fr = "Tags in French"
 
 [[extra.menu]]
 url = "$BASE_URL/about/"
 [extra.menu.name]
 en = "About"
-fr = "About in French"
+# fr = "About in French"
 ```
 
 ---
 
-| key | type | supports `$BASE_URL` |
-| --- | --- | --- |
-| `extra.footer.since` | number | no |
-| `extra.footer.license_name` | string | no |
-| `extra.footer.license_url` | string | yes |
-| `extra.footer.privacy_policy_url` | string | yes |
-| `extra.footer.terms_of_service_url` | string | yes |
-| `extra.footer.search_page_url` | string | yes |
+| key | type |
+| --- | --- |
+| `extra.footer.since` | number |
+| `extra.footer.license_name` | string |
+| `extra.footer.license_url` | string |
+| `extra.footer.privacy_policy_url` | string |
+| `extra.footer.terms_of_service_url` | string |
+| `extra.footer.search_page_url` | string |
+
+`$BASE_URL` is supported in the `_url` options.
 
 ```toml
 [extra.footer]
@@ -408,14 +428,27 @@ date_format_archive = "%m-%d"
 
 ---
 
-| key | type | allowed strings |
+| key | type | strings |
 | --- | --- | --- |
 | `extra.reading_time[lang]` | array of strings | `reading_time`, `word_count` |
 
 ```toml
 [extra.reading_time]
 en = ["reading_time"]
-fr = ["reading_time", "word_count"]
+# fr = ["reading_time", "word_count"]
+```
+
+---
+
+| key | type |
+| --- | --- |
+| `extra.goatcounter.endpoint` | string |
+| `extra.goatcounter.src` | string |
+
+```toml
+[extra.goatcounter]
+endpoint = "https://MYCODE.goatcounter.com/count"
+src = "//gc.zgo.at/count.js"
 ```
 
 ---

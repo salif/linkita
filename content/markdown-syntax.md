@@ -1,23 +1,22 @@
 +++
 title = "Ръководство за синтаксиса на Маркдаун"
-date = "2022-10-20"
-description = "Примерна статия, показваща основния синтаксис и форматиране на Маркдаун."
+date = 2022-10-20
+updated = 2024-10-24
+description = "Примерна статия, демонстрираща основния синтаксис на Маркдаун и форматиране на HTML елементи"
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
 [extra]
 cover.image = "images/markdown-syntax.png"
-cover.alt = "Лого на Маркдаун"
+cover.alt = "Логото на Маркдаун"
 +++
 
-<div lang="en">
-
-This article offers a sample of basic Markdown syntax that can be used in Zola content files, also it shows whether basic HTML elements are decorated with CSS in a Linkita theme.
+Тази статия предлага пример за основния синтаксис на Маркдаун, който може да се използва във файлове със съдържание в Зола, също така показва дали основните HTML елементи са декорирани със CSS в темата Линкита.
 
 <!--more-->
 
-## Headings
+## Заглавия
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+Следните HTML елементи `<h1>`—`<h6>` представляват шест нива на секционни заглавия. `<h1>` е най-високото ниво на секция, докато `<h6>` е най-ниското.
 
 # H1
 
@@ -31,60 +30,60 @@ The following HTML `<h1>`—`<h6>` elements represent six levels of section head
 
 ###### H6
 
-## Paragraph
+## Параграф
 
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+Маркдаун е създаден през 2004 г. от Джон Грубър и се разпространява под лиценз за отворен код [_BSD_](https://daringfireball.net/projects/markdown/license). Основната цел на създателя му е да направи удобен формат за писане в Интернет. Маркдаун не е заместител на HTML, а опростен синтаксис за четене, писане и редактиране на уеб съдържание.
 
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
+За да започнете да работите с маркдаун, е необходим текстов редактор. В него към обикновения текст се прибавят форматиращите елементи на маркдаун синтаксиса.
 
-## Blockquotes
+## Цитати
 
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+Елементът за цитат представлява съдържание, цитирано от друг източник, по избор с цитат, който трябва да бъде в рамките на елемент `footer` или `cite`, и по избор с вградени промени като анотации и съкращения.
 
-#### Blockquote without attribution
+#### Цитат без атрибуция
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> **Забележете**, че можете да използвате _Маркдаун синтаксис_ в цитат.
 
-#### Blockquote with attribution
+#### Цитат с атрибуция
 
 > Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+> — <cite>Роб Пайк[^1]</cite>
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+[^1]: Горният цитат е взет от [речта](https://www.youtube.com/watch?v=PAAkCSZUG1c) на Роб Пайк по време на Gopherfest, 18 ноември 2015 г.
 
-## Links
+## Връзки
 
-To create a link, enclose the link text in brackets and then follow it immediately with the URL in parentheses.
+За да създадете връзка, поставете текста на връзката в квадратни скоби и веднага след това URL адреса в кръгли скоби.
 
 [GitHub](https://github.com)
 
-To quickly turn a URL or email address into a link, enclose it in angle brackets.
+За бързо превръщане на URL адрес или имейл адрес във връзка, го поставете в ъглови скоби.
 
 <https://github.com>
 
-## Images
+## Изображения
 
-![Markdown Guide](../images/markdown-syntax.png)
+![Ръководство за Маркдаун](../images/markdown-syntax.png)
 
-## Tables
+## Таблици
 
-Tables aren't part of the core Markdown spec, but Zola supports supports them out-of-the-box.
+Таблиците не са част от основната спецификация на Маркдаун, но Зола ги поддържа по подразбиране.
 
-| Name  | Age |
-| ----- | --- |
-| Bob   | 27  |
-| Alice | 23  |
+| Име   | Възраст |
+| ----- | ------- |
+| Боб   | 27      |
+| Алиса | 23      |
 
-#### Inline Markdown within tables
+#### Вграден Маркдаун в таблици
 
-| Italics   | Bold     | Code   |
-| --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+| Курсив      | Удебелен    | Код    |
+| ----------- | ----------- | ------ |
+| _курсив_    | **удебелен**| `код`  |
 
-## Code Blocks
+## Блокове с код
 
-#### Code block with backticks
+#### Блок с код с обратни тикове
 
 ```html
 <!doctype html>
@@ -99,7 +98,7 @@ Tables aren't part of the core Markdown spec, but Zola supports supports them ou
 </html>
 ```
 
-#### Code block indented with four spaces
+#### Блок с код, отместен с четири интервала
 
     <!doctype html>
     <html lang="en">
@@ -112,40 +111,38 @@ Tables aren't part of the core Markdown spec, but Zola supports supports them ou
     </body>
     </html>
 
-## List Types
+## Видове списъци
 
-#### Ordered List
+#### Подреден списък
 
-1. First item
-2. Second item
-3. Third item
+1. Първи елемент
+2. Втори елемент
+3. Трети елемент
 
-#### Unordered List
+#### Неподреден списък
 
-- List item
-- Another item
-- And another item
+- Елемент от списъка
+- Друг елемент
+- И още един елемент
 
-#### Nested list
+#### Вложен списък
 
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
+- Плодове
+  - Ябълка
+  - Портокал
+  - Банан
+- Млечни продукти
+  - Мляко
+  - Сирене
 
-## Other Elements — abbr, sub, sup, kbd, mark
+## Други елементи — abbr, sub, sup, kbd, mark
 
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+<abbr title="Graphics Interchange Format">GIF</abbr> е формат за растерни изображения.
 
 H<sub>2</sub>O
 
 X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 
-Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+Натиснете <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> за да прекратите сесията.
 
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
-
-</div>
+Повечето <mark>саламандри</mark> са нощни животни и ловуват насекоми, червеи и други малки създания.

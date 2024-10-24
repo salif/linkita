@@ -1,33 +1,32 @@
 +++
-title = "Shortcodes"
-date = "2022-10-20"
-description = "The Linkita theme shortcodes."
+title = "Mallongigoj"
+date = 2022-10-20
+updated = 2024-10-24
+description = "La mallongigoj de la temo Linkita."
 [taxonomies]
 tags = ["markdown", "css", "html"]
 [extra]
 mermaid = true
 +++
 
-<div lang="en">
+La temo Linkita provizas plurajn mallongigojn.
 
-The Linkita theme providers multiple shortcodes.
-
-Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/documentation/content/shortcodes/) for more information.
+Ĉu vi neniam aŭdis pri mallongigoj? Vidu la [dokumentaron de Zola](https://www.getzola.org/documentation/content/shortcodes/) por pli da informoj.
 
 ## Mermaid
 
-To use Mermaid in your page, you have to set `extra.mermaid = true` in the frontmatter of page.
+Por uzi Mermaid en via paĝo, vi devas agordi `extra.mermaid = true` en la antaŭaĵo (frontmatter) de la paĝo.
 
 ```markdown
 +++
-title = "Your page title"
+title = "La titolo de via paĝo"
 
 [extra]
 mermaid = true
 +++
 ```
 
-Then you can use the `mermaid()` shortcodes like:
+Tiam vi povas uzi la mallongigon `mermaid()` jene:
 
 ```markdown
 {%/* mermaid() */%}
@@ -41,7 +40,7 @@ C-->D;
 {%/* end */%}
 ```
 
-This will be rendered as:
+Ĉi tio estos montrata tiel:
 
 {% mermaid() %}
 
@@ -53,9 +52,9 @@ C-->D;
 
 {% end %}
 
-In addition, you can use code block inside `mermaid()` shortcodes and the code block will be ignored.
+Krome, vi povas uzi kodblokon ene de la mallongigo `mermaid()` kaj la kodbloko estos ignorata.
 
-The code block prevents formatter from breaking mermaid's formatting.
+La kodbloko malhelpas ke la formatilo rompu la formatadon de Mermaid.
 
 ````markdown
 {%/* mermaid() */%}
@@ -77,7 +76,7 @@ sequenceDiagram
 {%/* end */%}
 ````
 
-This will be rendered as:
+Ĉi tio estos montrata tiel:
 
 {% mermaid() %}
 
@@ -97,78 +96,76 @@ sequenceDiagram
 
 {% end %}
 
-## Admonition
+## Admono
 
-The `admonition()` shortcode displays a banner to help you put notice in your page.
+La mallongigo `admonition()` montras rubandon por helpi vin meti atentigon en vian paĝon.
 
-You can use the `admonition()` shortcode like:
+Vi povas uzi la mallongigon `admonition()` jene:
 
 ```markdown
-{%/* admonition(type="tip", title="tip") */%}
-The `tip` admonition.
+{%/* admonition(type="tip", title="konsileto") */%}
+La admono `konsileto`.
 {%/* end */%}
 ```
 
-The admonition shortcode has 12 different types:
+La mallongigo `admonition` havas 12 diversajn tipojn:
 
-{% admonition(type="note", title="note") %}
-The `note` admonition.
+{% admonition(type="note", title="noto") %}
+La admono `noto`.
 {% end %}
 
-{% admonition(type="abstract", title="abstract") %}
-The `abstract` admonition.
+{% admonition(type="abstract", title="resumo") %}
+La admono `resumo`.
 {% end %}
 
-{% admonition(type="info", title="info") %}
-The `info` admonition.
+{% admonition(type="info", title="informo") %}
+La admono `informo`.
 {% end %}
 
-{% admonition(type="tip", title="tip") %}
-The `tip` admonition.
+{% admonition(type="tip", title="konsileto") %}
+La admono `konsileto`.
 {% end %}
 
-{% admonition(type="success", title="success") %}
-The `success` admonition.
+{% admonition(type="success", title="sukceso") %}
+La admono `sukceso`.
 {% end %}
 
-{% admonition(type="question", title="question") %}
-The `question` admonition.
+{% admonition(type="question", title="demando") %}
+La admono `demando`.
 {% end %}
 
-{% admonition(type="warning", title="warning") %}
-The `warning` admonition.
+{% admonition(type="warning", title="averto") %}
+La admono `averto`.
 {% end %}
 
-{% admonition(type="failure", title="failure") %}
-The `failure` admonition.
+{% admonition(type="failure", title="malsukceso") %}
+La admono `malsukceso`.
 {% end %}
 
-{% admonition(type="abstract", title="danger") %}
-The `danger` admonition.
+{% admonition(type="abstract", title="danĝero") %}
+La admono `danĝero`.
 {% end %}
 
-{% admonition(type="bug", title="bug") %}
-The `bug` admonition.
+{% admonition(type="bug", title="cimo") %}
+La admono `cimo`.
 {% end %}
 
-{% admonition(type="example", title="example") %}
-The `example` admonition.
+{% admonition(type="example", title="ekzemplo") %}
+La admono `ekzemplo`.
 {% end %}
 
-{% admonition(type="quote", title="quote") %}
-The `quote` admonition.
+{% admonition(type="quote", title="citaĵo") %}
+La admono `citaĵo`.
 {% end %}
 
-## Gallery
+## Galerio
 
-The `gallery()` shortcode is very simple html-only clickable picture gallery that displays all images from the page assets.
+La mallongigo `gallery()` estas tre simpla nur-HTML-a klakebla bildgalerio, kiu montras ĉiujn bildojn el la paĝaj aktivaĵoj (assets).
 
-It's from [Zola documentation](https://www.getzola.org/documentation/content/image-processing/)
+Ĝi estas el la [dokumentaro de Zola](https://www.getzola.org/documentation/content/image-processing/)
 
 ```markdown
 {{/* gallery() */}}
 ```
 
 {{ gallery() }}
-
-</div>

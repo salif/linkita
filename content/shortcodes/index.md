@@ -1,33 +1,32 @@
 +++
 title = "Шорткодове"
-date = "2022-10-20"
-description = "Шорткодове за темата Линкита."
+date = 2022-10-20
+updated = 2024-10-24
+description = "Шорткодовете на темата Линкита."
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
 [extra]
 mermaid = true
 +++
 
-<div lang="en">
+Темата Линкита предоставя множество шорткодове.
 
-The Linkita theme providers multiple shortcodes.
-
-Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/documentation/content/shortcodes/) for more information.
+Ако не сте чували за шорткодове, вижте [документацията на Зола](https://www.getzola.org/documentation/content/shortcodes/) за повече информация.
 
 ## Mermaid
 
-To use Mermaid in your page, you have to set `extra.mermaid = true` in the frontmatter of page.
+За да използвате Mermaid във вашата страница, трябва да зададете `extra.mermaid = true` в предните данни (frontmatter) на страницата.
 
 ```markdown
 +++
-title = "Your page title"
+title = "Заглавие на вашата страница"
 
 [extra]
 mermaid = true
 +++
 ```
 
-Then you can use the `mermaid()` shortcodes like:
+След това можете да използвате шорткодовете `mermaid()` ето така:
 
 ```markdown
 {%/* mermaid() */%}
@@ -41,7 +40,7 @@ C-->D;
 {%/* end */%}
 ```
 
-This will be rendered as:
+Това ще бъде изобразено така:
 
 {% mermaid() %}
 
@@ -53,9 +52,9 @@ C-->D;
 
 {% end %}
 
-In addition, you can use code block inside `mermaid()` shortcodes and the code block will be ignored.
+Освен това, можете да използвате блок с код вътре в шорткодовете `mermaid()` и блокът с код ще бъде игнориран.
 
-The code block prevents formatter from breaking mermaid's formatting.
+Блокът с код предотвратява форматирането на Mermaid от форматиращия инструмент.
 
 ````markdown
 {%/* mermaid() */%}
@@ -77,7 +76,7 @@ sequenceDiagram
 {%/* end */%}
 ````
 
-This will be rendered as:
+Това ще бъде изобразено така:
 
 {% mermaid() %}
 
@@ -97,78 +96,77 @@ sequenceDiagram
 
 {% end %}
 
-## Admonition
+## Предупреждение
 
-The `admonition()` shortcode displays a banner to help you put notice in your page.
+Шорткодът `admonition()` показва банер, който ви помага да поставите известие на вашата страница.
 
-You can use the `admonition()` shortcode like:
+Можете да използвате шорткодът `admonition()` по този начин:
 
 ```markdown
-{%/* admonition(type="tip", title="tip") */%}
-The `tip` admonition.
+{%/* admonition(type="tip", title="съвет") */%}
+Предупреждението `tip`.
 {%/* end */%}
 ```
 
-The admonition shortcode has 12 different types:
+Шорткодът `admonition` има 12 различни типа:
 
-{% admonition(type="note", title="note") %}
-The `note` admonition.
+{% admonition(type="note", title="бележка") %}
+Предупреждението `note`.
 {% end %}
 
-{% admonition(type="abstract", title="abstract") %}
-The `abstract` admonition.
+{% admonition(type="abstract", title="резюме") %}
+Предупреждението `abstract`.
 {% end %}
 
-{% admonition(type="info", title="info") %}
-The `info` admonition.
+{% admonition(type="info", title="информация") %}
+Предупреждението `info`.
 {% end %}
 
-{% admonition(type="tip", title="tip") %}
-The `tip` admonition.
+{% admonition(type="tip", title="съвет") %}
+Предупреждението `tip`.
 {% end %}
 
-{% admonition(type="success", title="success") %}
-The `success` admonition.
+{% admonition(type="success", title="успех") %}
+Предупреждението `success`.
 {% end %}
 
-{% admonition(type="question", title="question") %}
-The `question` admonition.
+{% admonition(type="question", title="въпрос") %}
+Предупреждението `question`.
 {% end %}
 
-{% admonition(type="warning", title="warning") %}
-The `warning` admonition.
+{% admonition(type="warning", title="предупреждение") %}
+Предупреждението `warning`.
 {% end %}
 
-{% admonition(type="failure", title="failure") %}
-The `failure` admonition.
+{% admonition(type="failure", title="грешка") %}
+Предупреждението `failure`.
 {% end %}
 
-{% admonition(type="abstract", title="danger") %}
-The `danger` admonition.
+{% admonition(type="abstract", title="опасност") %}
+Предупреждението `danger`.
 {% end %}
 
-{% admonition(type="bug", title="bug") %}
-The `bug` admonition.
+{% admonition(type="bug", title="бъг") %}
+Предупреждението `bug`.
 {% end %}
 
-{% admonition(type="example", title="example") %}
-The `example` admonition.
+{% admonition(type="example", title="пример") %}
+Предупреждението `example`.
 {% end %}
 
-{% admonition(type="quote", title="quote") %}
-The `quote` admonition.
+{% admonition(type="quote", title="цитат") %}
+Предупреждението `quote`.
 {% end %}
 
-## Gallery
+## Галерия
 
-The `gallery()` shortcode is very simple html-only clickable picture gallery that displays all images from the page assets.
+Шорткодът `gallery()` е много проста, само с HTML, галерия с изображения, която показва всички изображения от „assets“ на страницата.
 
-It's from [Zola documentation](https://www.getzola.org/documentation/content/image-processing/)
+Взето е от [документацията на Зола](https://www.getzola.org/documentation/content/image-processing/)
 
 ```markdown
 {{/* gallery() */}}
 ```
 
 {{ gallery() }}
-
-</div>
+```

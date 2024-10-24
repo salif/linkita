@@ -1,11 +1,11 @@
 +++
 title = "Math Typesetting"
-date = "2022-10-20"
+date = 2022-10-20
 description = "A brief guide to setup KaTeX"
 extra.math = true
 +++
 
-Linkita theme support $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).
+Linkita theme supports $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).
 
 <!--more-->
 

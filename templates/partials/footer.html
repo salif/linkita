@@ -27,8 +27,11 @@
       href="https://codeberg.org/salif/linkita" rel="noopener" target="_blank">{{ trans(key="footer_linkita", lang=lang) }}</a>
     </span>
   </div>
-  {% if config.extra.goatcounter_endpoint %}
-  <script async data-goatcounter="{{ config.extra.goatcounter_endpoint | safe }}" src="//gc.zgo.at/count.js"></script>
+  {% if config.extra.goatcounter.endpoint %}
+    {%- if config.base_url != "http://127.0.0.1:1111" %}
+  <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | safe }}" {% if
+    config.extra.goatcounter.src %}src="{{ config.extra.goatcounter.src }}"{% endif %}></script>
+    {%- endif %}
   {% endif %}
   <!-- Footer inject -->
   {% include "injects/footer.html" ignore missing %}

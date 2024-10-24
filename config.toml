@@ -97,14 +97,10 @@ word_more = "Pli >>"
 error_404 = "404"
 
 [extra]
-# Enable KaTex math formula support globally.
 math = false
-# Enable mermaid support globally.
 mermaid = false
-# Enable comment support globally.
 comment = false
-# Enable web analytics
-goatcounter_endpoint = "https://sgi.goatcounter.com/count"
+show_updated_date = true
 
 [extra.style]
 # bg_color = ""
@@ -141,6 +137,7 @@ url = "$BASE_URL/atom.xml"
 
 [extra.profile.open_graph]
 # image = "icons/github.svg"
+# image_alt = ""
 # first_name = ""
 # last_name = ""
 # username = ""
@@ -202,6 +199,10 @@ date_format_archive = "%d %b"
 en = ["reading_time"]
 bg = ["reading_time"]
 eo = ["word_count"]
+
+[extra.goatcounter]
+endpoint = "https://sgi.goatcounter.com/count"
+src = "//gc.zgo.at/count.js"
 
 [extra.giscus]
 repo = ""

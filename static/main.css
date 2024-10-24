@@ -634,6 +634,10 @@ a {
   text-underline-offset: 2px;
 }
 
+sup a {
+  text-underline-offset: 1px;
+}
+
 .prose {
   color: var(--tw-prose-body);
   max-width: 65ch;
@@ -1779,10 +1783,6 @@ a {
   .btn-menu:is(.dark *)::after {
   --tw-invert: invert(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.open {
-  overflow: hidden;
 }
 
 .open .btn-menu::before {

@@ -1,9 +1,10 @@
 +++
-title = "Placeholder Text 3"
-date = "2023-10-20"
+title = "Placeholder Text"
+date = 2023-10-20
+updated = 2024-10-24
 description = "Lorem Ipsum Dolor Si Amet"
 [taxonomies]
-tags = ["markdown", "text"]
+tags = ["markdown"]
 +++
 
 Lorem est tota propiore conpellat pectoribus de pectora summo. <!--more-->Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.

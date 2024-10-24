@@ -69,6 +69,9 @@
   {%- if page.updated %}
   <meta property="article:modified_time" content="{{ page.updated | date(format='%F') }}" />
   {%- endif %}
+  {%- if page.expiration_time %}
+  <meta property="article:expiration_time" content="{{ page.expiration_time | date(format='%F') }}" />
+  {%- endif %}
   {%- if page.authors | length > 0 %}
     {%- for page_author in page.authors %}
   <meta property="article:author:username" content="{{ page_author }}" />
@@ -157,7 +160,7 @@
   {%- if config.extra.profile.open_graph.fediverse_url %}
   <link rel="me" href="{{ config.extra.profile.open_graph.fediverse_url }}" />
   {%- else %}
-  <link rel="me" href="https://{{ config.extra.profile.open_graph.fediverse_server | 
+  <link rel="me" href="https://{{ config.extra.profile.open_graph.fediverse_server |
       replace(from='https://', to='') }}/@{{ config.extra.profile.open_graph.fediverse_username }}" />
   {%- endif %}
 {%- endif %}
@@ -173,30 +176,39 @@
 {%- if page.extra.cover.image or config.extra.profile.open_graph.image %}
   {%- if page.extra.cover.image %}
     {%- set og_image_path = page.extra.cover.image %}
-    {%- set og_image_alt = page.extra.cover.alt | default(val="Cover") %}
+    {%- set og_image_alt = page.extra.cover.alt %}
   {%- else %}
     {%- set og_image_path = config.extra.profile.open_graph.image %}
-    {%- set og_image_alt = config.extra.profile.name[lang] | default(value=config.title) %}
+    {%- set og_image_alt = config.extra.profile.open_graph.image_alt |
+      default(value=config.extra.profile.name[lang]) %}
   {%- endif %}
-  {%- set og_image_data = get_image_metadata(path=og_image_path) %}
   <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
+  <meta property="og:image:alt" content="{{ og_image_alt }}" />
+  {%- if page.cover_type or page.cover_width or page.cover_height %}
+  <meta property="og:image:type" content="{{ page.cover_type }}" />
+  <meta property="og:image:width" content="{{ page.cover_width }}" />
+  <meta property="og:image:height" content="{{ page.cover_height }}" />>
+  {%- else %}
+    {%- set og_image_data = get_image_metadata(path=og_image_path) %}
   <meta property="og:image:type" content="{{ og_image_data.mime | safe }}" />
   <meta property="og:image:width" content="{{ og_image_data.width }}" />
   <meta property="og:image:height" content="{{ og_image_data.height }}" />
-  <meta property="og:image:alt" content="{{ og_image_alt }}" />
+  {%- endif %}
 {%- endif %}
 
 {%- if page.extra.open_graph.audio %}
   <meta property="og:audio" content="{{ page.extra.open_graph.audio }}" />
-  {%- if page.extra.open_graph.audio_mime %}
-  <meta property="og:audio:type" content="{{ page.extra.open_graph.audio_mime }}" />
+  {%- if page.extra.open_graph.audio_type %}
+  <meta property="og:audio:type" content="{{ page.extra.open_graph.audio_type }}" />
   {%- endif %}
 {%- endif %}
 
 {%- if page.extra.open_graph.video %}
   <meta property="og:video" content="{{ page.extra.open_graph.video }}" />
-  {%- if page.extra.open_graph.video_mime %}
-  <meta property="og:video:type" content="{{ page.extra.open_graph.video_mime }}" />
+  {%- if page.extra.open_graph.video_type %}
+  <meta property="og:video:type" content="{{ page.extra.open_graph.video_type }}" />
+  <meta property="og:video:width" content="{{ page.extra.open_graph.video_width }}" />
+  <meta property="og:video:height" content="{{ page.extra.open_graph.video_height }}" />
   {%- endif %}
 {%- endif %}
 

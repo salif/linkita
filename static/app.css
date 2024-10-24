@@ -71,6 +71,10 @@
   a {
     @apply underline-offset-2;
   }
+
+  sup a {
+    @apply underline-offset-1;
+  }
 }
 
 @layer utilities {

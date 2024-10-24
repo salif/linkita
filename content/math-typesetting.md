@@ -1,32 +1,31 @@
 +++
 title = "Математика"
-date = "2022-10-20"
-description = "Кратко ръководство за настройка на KaTeX"
+date = 2022-10-20
+updated = 2024-10-24
+description = "Кратко ръководство за настройване на KaTeX"
 extra.math = true
 +++
 
-<div lang="en">
-
-Linkita theme support $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).
+Темата Линкита поддържа $\LaTeX$ математически формули, използвайки [KaTeX](https://katex.org/).
 
 <!--more-->
 
-- To enable KaTeX globally, set the parameter `extra.math` to `true` in a project's configuration.
-- To enable KaTeX on a per page basis, include the parameter `extra.math = true` in the frontmatter of content files.
+- За да активирате KaTeX глобално, задайте параметъра `extra.math` на `true` в конфигурацията на проекта.
+- За да активирате KaTeX за отделна страница, включете параметъра `extra.math = true` в предните данни (frontmatter) на файловете със съдържание.
 
-**Note:** Use the online reference of [Supported TeX Functions](https://katex.org/docs/supported.html).
+**Забележка:** Използвайте онлайн справката за [Поддържани TeX функции](https://katex.org/docs/supported.html).
 
-### Examples
+### Примери
 
-#### Inline math
+#### Вградена математика
 
 ```markdown
-When $x = \pi$, Euler's formula may be rewritten as $e^{i \pi} + 1 = 0$.
+Когато $x = \pi$, формулата на Ойлер може да бъде презаписана като $e^{i \pi} + 1 = 0$.
 ```
 
-When $x = \pi$, Euler's formula may be rewritten as $e^{i \pi} + 1 = 0$.
+Когато $x = \pi$, формулата на Ойлер може да бъде презаписана като $e^{i \pi} + 1 = 0$.
 
-#### Block math
+#### Блокова математика
 
 ```markdown
 $$
@@ -37,5 +36,3 @@ $$
 $$
  \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
 $$
-
-</div>
