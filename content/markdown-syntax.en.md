@@ -4,6 +4,7 @@ date = 2022-10-20
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 [taxonomies]
 tags = ["markdown", "css", "html"]
+authors = ["kita"]
 [extra]
 cover.image = "images/markdown-syntax.png"
 cover.alt = "A Markdown logo"

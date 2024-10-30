@@ -8,13 +8,14 @@
     &copy; <time datetime="{{ current_year }}">{{ current_year }}</time><!---->
     {% endif %}
     <a class="link" href="{{ get_url(path=``, lang=lang) }}">
-      {{ config.author | default(value=config.title) }}
+      {% if config.extra.footer.author_name %}{{ config.extra.footer.author_name }}{%
+        elif config.author %}{{ macros::get_profile_name(username=config.author) }}{%
+        else %}{{ config.title }}{% endif %}
     </a>
     {% if config.extra.footer.license_name %} |<!---->
     {% if config.extra.footer.license_url %}<!---->
-    <a class="link" href="{{ config.extra.footer.license_url }}" rel="noopener" target="_blank">
-      {{ config.extra.footer.license_name }}
-    </a>
+    <a class="link" href="{{ config.extra.footer.license_url }}"
+      rel="license noopener" target="_blank">{{ config.extra.footer.license_name }}</a>
     {% else %}<!---->
     {{ config.extra.footer.license_name }}<!---->
     {% endif %}<!---->

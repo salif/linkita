@@ -7,3 +7,21 @@
 {{- "https://cdn.jsdelivr.net/npm/simple-icons/icons/" ~ icon ~ ".svg" -}}
 {%- endif -%}
 {%- endmacro get_social_icon -%}
+
+{%- macro get_profile_name(username) -%}
+{%- if config.extra.profiles[username] -%}
+{%- set profile_data = config.extra.profiles[username] -%}
+{%- if profile_data.translations[lang].name -%}
+{%- set profile_name = profile_data.translations[lang].name -%}
+{%- elif profile_data.name -%}
+{%- set profile_name = profile_data.name -%}
+{%- else -%}
+{%- set profile_name = username -%}
+{%- endif -%}
+{%- else -%}
+{%- set profile_name = username -%}
+{%- endif -%}
+{%- if profile_name -%}
+{{- profile_name -}}
+{%- endif -%}
+{%- endmacro get_profile_name -%}

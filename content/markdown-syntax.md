@@ -5,6 +5,7 @@ updated = 2024-10-24
 description = "Примерна статия, демонстрираща основния синтаксис на Маркдаун и форматиране на HTML елементи"
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
+authors = ["kita", "salif"]
 [extra]
 cover.image = "images/markdown-syntax.png"
 cover.alt = "Логото на Маркдаун"

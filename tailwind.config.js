@@ -5,5 +5,6 @@ module.exports = {
   theme: {
     extend: {},
   },
+  safelist: ["width-scroll"],
   plugins: [require("@tailwindcss/typography")],
 };

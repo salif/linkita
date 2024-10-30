@@ -3,7 +3,10 @@ title = "Математика"
 date = 2022-10-20
 updated = 2024-10-24
 description = "Кратко ръководство за настройване на KaTeX"
-extra.math = true
+[taxonomies]
+authors = ["kita", "salif"]
+[extra]
+math = true
 +++
 
 Темата Линкита поддържа $\LaTeX$ математически формули, използвайки [KaTeX](https://katex.org/).

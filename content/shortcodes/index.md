@@ -5,6 +5,7 @@ updated = 2024-10-24
 description = "Шорткодовете на темата Линкита."
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
+authors = ["kita", "salif"]
 [extra]
 mermaid = true
 +++

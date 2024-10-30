@@ -142,4 +142,8 @@
   .secondary-link {
     @apply text-[var(--tw-prose-body)] no-underline hover:text-black dark:hover:text-white;
   }
+
+  .width-scroll {
+    @apply overflow-x-auto;
+  }
 }

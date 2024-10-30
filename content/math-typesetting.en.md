@@ -2,7 +2,10 @@
 title = "Math Typesetting"
 date = 2022-10-20
 description = "A brief guide to setup KaTeX"
-extra.math = true
+[taxonomies]
+authors = ["kita"]
+[extra]
+math = true
 +++
 
 Linkita theme supports $\LaTeX$ mathematical formulas using [KaTeX](https://katex.org/).

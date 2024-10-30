@@ -4,6 +4,7 @@ date = 2022-10-20
 description = "The Linkita theme shortcodes."
 [taxonomies]
 tags = ["markdown", "css", "html"]
+authors = ["kita"]
 [extra]
 mermaid = true
 +++

@@ -1891,6 +1891,10 @@ article {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.width-scroll {
+  overflow-x: auto;
+}
+
 .\[background\:url\(\.\/icons\/theme\.svg\)_left_center\/cover_no-repeat\] {
   background: url(./icons/theme.svg) left center/cover no-repeat;
 }

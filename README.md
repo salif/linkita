@@ -59,17 +59,17 @@ npm run switch-to-latest
 
 Alternatively, use this command: `./justfile switch-to-latest`.
 
-3. Set `linkita` as your theme in your `config.toml`.
+3. Set `linkita` as your theme in your `config.toml` file.
 
 ```toml
 theme = "linkita"
 ```
 
-Also, make sure you have `title` and `default_language` set in your `config.toml`.
+Also, make sure you have `title` and `default_language` set in your `config.toml` file.
 
 4. Copy translations
 
-Open `themes/linkita/config.toml` and copy all translations to your `config.toml`.
+Open `themes/linkita/config.toml` and copy all translations to your `config.toml` file.
 The English translation is under `[languages.en.translations]`.
 
 Otherwise you will get this error:
@@ -91,25 +91,6 @@ npm run switch-to-latest
 
 ### Front matter
 
-```toml
-+++
-title = ""
-description = ""
-# date = 
-# updated = 
-[taxonomies]
-tags = []
-[extra]
-# comment = true
-# math = true
-# mermaid = true
-[extra.cover]
-# image = ""
-# alt = ""
-[extra.open_graph]
-+++
-```
-
 | `extra.open_graph` keys | type | example | comment |
 | --- | --- | --- | --- |
 | `cover_type` | string | `image/jpeg`, `image/gif`, `image/png` | MIME type of the cover image |
@@ -129,6 +110,29 @@ tags = []
 | `video_height` | string |  | Height of the video in pixels |
 | `url` | string |  | Set only if different from canonical page URL |
 
+### TOML front matter
+
+```toml
++++
+title = ""
+description = ""
+# date = 
+# updated = 
+[taxonomies]
+tags = []
+authors = []
+[extra]
+# comment = true
+# math = true
+# mermaid = true
+# show_updated_date = false
+[extra.cover]
+# image = ""
+# alt = ""
+[extra.open_graph]
++++
+```
+
 ### YAML front matter
 
 ```yaml
@@ -136,19 +140,74 @@ tags = []
 title: ""
 description: ""
 date: 
-updated: 
+# updated: 
 taxonomies:
   tags:
+  authors:
+    - your_username
 extra:
   comment: false
   math: false
   mermaid: false
+  show_updated_date: true
   cover:
     image: ""
     alt: ""
   open_graph:
 ---
 ```
+
+### Authors
+
+#### Option 1: Using Taxonomies
+
+You should set taxonomies in every post.
+
+Examples:
+
+**If the blog is your personal blog**:
+
+```toml
+[taxonomies]
+authors = ["your_username"]
+# or:
+# authors = ["your_username", "contributor_username"]
+# or:
+# authors = ["main_author_of_the_post", "your_username"]
+```
+
+**If the blog has a team of multiple authors**:
+
+```toml
+[taxonomies]
+authors = ["author_username"]
+# or:
+# authors = ["author_username", "author2_username", etc.]
+```
+
+#### Option 2: Using `config.author` and `page.authors`
+
+*TODO*
+
+### Home page profile
+
+Create `content/_index.md` file in your blog and set `extra.profile` to your username:
+
+```toml
++++
+sort_by = "date"
+paginate_by = 5
+[extra]
+profile = "your_username"
++++
+```
+
+Do it for each language in your blog, for example for French, the file name is `content/_index.fr.md`.
+
+#### Profiles for authors
+
+You should add `extra.profiles.author_username` table in your `config.toml` file for each author.
+Replace `author_username` with author's username.
 
 ### Inject support
 
@@ -182,11 +241,11 @@ and comment out the options you don't use instead of setting empty values.
 | `translations` | table | Copy-paste them from the theme's `config.toml` file |
 | `extra` | table |  |
 
-Taxonomies with translated names are `tags` and `categories`.
+Taxonomies with translated names are `tags`, `categories`, and `authors`.
 
 ```toml
 default_language = "en"
-author = "your_username" # or "your@email (Name)"
+author = "your_username"
 title = "Site Title"
 description = "Site Description"
 generate_feeds = true
@@ -198,6 +257,11 @@ feed_filenames = ["atom.xml"] # or ["rss.xml"]
 name = "tags"
 feed = true
 paginate_by = 5
+
+[[taxonomies]]
+name = "authors"
+feed = true
+paginate_by = 5
 ```
 
 Add more languages ​​by replacing `fr` from the example with the language code.
@@ -207,15 +271,20 @@ Add more languages ​​by replacing `fr` from the example with the language co
 title = "Site Title in French"
 description = "Site Description in French"
 generate_feeds = true
-feed_filenames = ["atom.xml"]
+feed_filenames = ["atom.xml"] # or ["rss.xml"]
 
 [[languages.fr.taxonomies]]
 name = "tags"
 feed = true
 paginate_by = 5
+
+[[languages.fr.taxonomies]]
+name = "authors"
+feed = true
+paginate_by = 5
 ```
 
----
+### `extra`
 
 | key | type | comment |
 | --- | --- | --- |
@@ -223,14 +292,15 @@ paginate_by = 5
 | `extra.mermaid` | boolean | Enable Mermaid support globally |
 | `extra.comment` | boolean | Enable comment support globally |
 | `extra.show_updated_date` | boolean | Show the last updated date of posts |
+| `extra.title_separator` | boolean | Title Separator |
 | `extra.style` | table | The theme style config |
-| `extra.profile` | table | The profile on home page |
+| `extra.profiles` | table | Profiles |
 | `extra.menu` | array of tables | The top menu |
 | `extra.footer` | table | The page footer options |
 | `extra.locales` | table | Locale codes and date formats |
 | `extra.reading_time` | table | Word count and reading time for posts |
 | `extra.goatcounter` | table | Enable web analytics |
-| `extra.giscus` | table | The giscus comment options, only available when comment is enabled |
+| `extra.giscus` | table | The giscus comment options |
 
 ```toml
 [extra]
@@ -238,9 +308,10 @@ math = false
 mermaid = false
 comment = false
 show_updated_date = true
+title_separator = " | "
 ```
 
----
+### The theme style config (`extra.style`)
 
 | key | type | default value | comment |
 | --- | --- | --- | --- |
@@ -259,132 +330,156 @@ header_color = "#e4e4e7"
 header_dark_color = "#27272a"
 ```
 
----
+### Profiles (`extra.profiles`)
 
 | key | type | comment |
 | --- | --- | --- |
-| `extra.profile.avatar_url` | string | The URL of avatar |
-| `extra.profile.avatar_invert` | boolean | Invert color in dark mode |
-| `extra.profile.name` | table | The profile name on the home page |
-| `extra.profile.bio` | table | The profile bio on the home page |
-| `extra.profile.social` | array of tables | The social icons below the profile on the home page |
-| `extra.profile.open_graph` | table |  |
+| `extra.profiles[username]` | table |  |
+| `extra.profiles[username].avatar_url` | string | The URL of avatar |
+| `extra.profiles[username].avatar_invert` | boolean | Invert color in dark mode |
+| `extra.profiles[username].name` | string | Default profile name |
+| `extra.profiles[username].bio` | string | Default profile bio |
+| `extra.profiles[username].email` | string | Profile email |
+| `extra.profiles[username].url` | string | Profile website |
+| `extra.profiles[username].translations` | table | Profile name and bio translations |
+| `extra.profiles[username].social` | array of tables | The social icons below the profile |
+| `extra.profiles[username].open_graph` | table |  |
 
 ```toml
-[extra.profile]
+[extra.profiles.your_username]
 avatar_url = "icons/github.svg"
 avatar_invert = true
+# name = ""
+# bio = ""
 ```
 
----
+### `extra.profiles[username].translations`
 
 | key | type |
 | --- | --- |
-| `extra.profile.name[lang]` | string |
-| `extra.profile.bio[lang]` | string |
+| `extra.profiles[username].translations[lang]` | table |
+| `extra.profiles[username].translations[lang].name` | string |
+| `extra.profiles[username].translations[lang].bio` | string |
+| `extra.profiles[username].translations[lang].url` | string |
 
 ```toml
-[extra.profile.name]
-en = "Profile Name in English"
-# fr = "Profile Name in French"
-
-[extra.profile.bio]
-en = "Profile Bio in English"
-# fr = "Profile Bio in French"
+[extra.profiles.your_username.translations.fr]
+name = "Profile Name in French"
+bio = "Profile Bio in French"
 ```
 
----
+### `extra.profiles[username].social`
 
 | key | type |
 | --- | --- |
-| `extra.profile.social[].name` | string |
-| `extra.profile.social[].url` | string |
+| `extra.profiles[username].social[].name` | string |
+| `extra.profiles[username].social[].url` | string |
 
 The `name` should be the file name of `static/icons/*.svg` or the icon name of
 [simpleicons.org](https://simpleicons.org/). The `url` supports `$BASE_URL`.
 
 ```toml
-[[extra.profile.social]]
+[[extra.profiles.your_username.social]]
 name = "github"
 url = "https://github.com/username"
 
-[[extra.profile.social]]
+[[extra.profiles.your_username.social]]
 name = "bluesky"
 url = "https://bsky.app/profile/username"
 
-[[extra.profile.social]]
+[[extra.profiles.your_username.social]]
 name = "rss"
 url = "$BASE_URL/atom.xml"
 ```
 
----
+### Open Graph (`extra.profiles[username].open_graph`)
+
+See [the Open Graph protocol](https://ogp.me/).
+Some options `config.author` to a real author in the `config.toml` file,
+set a neutral profile instead.
 
 | key | type | comment |
 | --- | --- | --- |
-| `extra.profile.open_graph.image` | string | The URL of social image |
-| `extra.profile.open_graph.image_alt` | string | A description of what is in the social image |
-| `extra.profile.open_graph.first_name` | string | A name normally given to an individual by a parent or self-chosen |
-| `extra.profile.open_graph.last_name` | string | A name inherited from a family or marriage and by which the individual is commonly known |
-| `extra.profile.open_graph.username` | string | A short unique string to identify them |
-| `extra.profile.open_graph.gender` | string | Their gender |
-| `extra.profile.open_graph.fb_app_id` | string | Set fb:app_id |
-| `extra.profile.open_graph.fb_admins` | array of strings | Set fb:admins |
-| `extra.profile.open_graph.fediverse_username` | string | Your username if you have a Fediverse account |
-| `extra.profile.open_graph.fediverse_server` | string | Your Fediverse server |
+| `extra.profiles[username].open_graph.image` | string | The URL of social image |
+| `extra.profiles[username].open_graph.image_alt` | string | A description of what is in the social image |
+| `extra.profiles[username].open_graph.first_name` | string | A name normally given to an individual by a parent or self-chosen |
+| `extra.profiles[username].open_graph.last_name` | string | A name inherited from a family or marriage and by which the individual is commonly known |
+| `extra.profiles[username].open_graph.username` | string | A short unique string to identify them |
+| `extra.profiles[username].open_graph.gender` | string | Their gender |
+| `extra.profiles[username].open_graph.fediverse_username` | string | Your username if you have a Fediverse account |
+| `extra.profiles[username].open_graph.fediverse_server` | string | Your Fediverse server |
+| `extra.profiles[username].open_graph.fediverse_url` | string |  |
+| `extra.profiles[config.author].open_graph.fb_app_id` | string | Set fb:app_id |
+| `extra.profiles[config.author].open_graph.fb_admins` | array of strings | Set fb:admins |
 
 ```toml
-[extra.profile.open_graph]
-image = "icons/github.svg"
+[extra.profiles.your_username.open_graph]
+# image = ""
+# image_alt = ""
 first_name = "Your first name"
 last_name = "Your last name"
 username = "Your username"
 gender = "female" # or "male"
-
-fb_app_id = "Your fb app ID"
-fb_admins = ["YOUR_USER_ID"]
 # Example for "@user@mastodon.social"
 fediverse_username = "user"
 fediverse_server = "mastodon.social"
 ```
 
----
+The following options are only allowed in the `config.author` profile.
+In addition, `image` and `image_alt` of the profile will be used as a
+fallback open graph image for all pages.
+
+```toml
+[extra.profiles.default_author.open_graph]
+fb_app_id = "Your fb app ID"
+fb_admins = ["YOUR_USER_ID"]
+```
+
+### The top menu (`extra.menu`)
+
+`$BASE_URL` will be automatically translated into the language specific base url.
 
 | key | type |
 | --- | --- |
 | `extra.menu[].url` | string |
-| `extra.menu[].name` | table |
-| `extra.menu[].name[lang]` | string |
+| `extra.menu[].names` | table |
+| `extra.menu[].names[lang]` | string |
 
 ```toml
 [[extra.menu]]
 url = "$BASE_URL/projects/"
-[extra.menu.name]
+[extra.menu.names]
 en = "Projects"
 # fr = "Projects in French"
 
 [[extra.menu]]
 url = "$BASE_URL/archive/"
-[extra.menu.name]
+[extra.menu.names]
 en = "Archive"
 # fr = "Archive in French"
 
 [[extra.menu]]
 url = "$BASE_URL/tags/"
-[extra.menu.name]
+[extra.menu.names]
 en = "Tags"
 # fr = "Tags in French"
 
 [[extra.menu]]
 url = "$BASE_URL/about/"
-[extra.menu.name]
+[extra.menu.names]
 en = "About"
 # fr = "About in French"
 ```
 
----
+### The page footer (`extra.footer`)
+
+Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` are only used in `<head>`.
+
+`$BASE_URL` is supported in the `_url` options.
 
 | key | type |
 | --- | --- |
+| `extra.footer.author_name` | string |
 | `extra.footer.since` | number |
 | `extra.footer.license_name` | string |
 | `extra.footer.license_url` | string |
@@ -392,27 +487,25 @@ en = "About"
 | `extra.footer.terms_of_service_url` | string |
 | `extra.footer.search_page_url` | string |
 
-`$BASE_URL` is supported in the `_url` options.
-
 ```toml
 [extra.footer]
 since = 2024
 license_name = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
-privacy_policy_url = "$BASE_URL/privacy-policy/"
-terms_of_service_url = "$BASE_URL/terms-of-service/"
-search_page_url = "$BASE_URL/search/"
+# privacy_policy_url = "$BASE_URL/privacy-policy/"
+# terms_of_service_url = "$BASE_URL/terms-of-service/"
+# search_page_url = "$BASE_URL/search/"
 ```
 
----
+### Locale and Date format (`extra.locales`)
+
+For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
 
 | key | type | default value |
 | --- | --- | --- |
 | `extra.locales[lang].locale` | string |  |
 | `extra.locales[lang].date_format` | string | `%F` |
 | `extra.locales[lang].date_format_archive` | string | `%m-%d` |
-
-For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
 
 ```toml
 [extra.locales.en]
@@ -426,11 +519,13 @@ date_format = "%x"
 date_format_archive = "%m-%d"
 ```
 
----
+### Reading time (`extra.reading_time`)
 
-| key | type | strings |
-| --- | --- | --- |
-| `extra.reading_time[lang]` | array of strings | `reading_time`, `word_count` |
+Possible values are `[]`, `["reading_time"]`, `["word_count"]`, `["reading_time", "word_count"]`, `["word_count", "reading_time"]`.
+
+| key | type |
+| --- | --- |
+| `extra.reading_time[lang]` | array of strings |
 
 ```toml
 [extra.reading_time]
@@ -438,7 +533,9 @@ en = ["reading_time"]
 # fr = ["reading_time", "word_count"]
 ```
 
----
+### Web analytics (`extra.goatcounter`)
+
+Set only if you use [GoatCounter](https://www.goatcounter.com/).
 
 | key | type |
 | --- | --- |
@@ -451,7 +548,9 @@ endpoint = "https://MYCODE.goatcounter.com/count"
 src = "//gc.zgo.at/count.js"
 ```
 
----
+### Comments (`extra.giscus`)
+
+Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`. See [giscus.app](https://giscus.app/).
 
 | key | type | default value |
 | --- | --- | --- |

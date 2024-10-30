@@ -2,16 +2,8 @@
 base_url = "https://salif.github.io/linkita"
 
 default_language = "bg"
-author = "Авторът"
-title = "Линкита"
-description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+author = "your_username"
 generate_feeds = true
-feed_filenames = ["atom.xml"]
-
-[[taxonomies]]
-name = "tags"
-feed = true
-paginate_by = 5
 
 # Configuration of the Markdown rendering
 [markdown]
@@ -25,33 +17,62 @@ extra_syntaxes_and_themes = []
 # See below for list of allowed values.
 highlight_theme = "monokai"
 
+[languages.bg]
+title = "Линкита"
+description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+# generate_feeds = true
+feed_filenames = ["atom.xml"]
+[[languages.bg.taxonomies]]
+name = "tags"
+feed = true
+paginate_by = 5
+[[languages.bg.taxonomies]]
+name = "authors"
+feed = true
+paginate_by = 5
+
 [languages.en]
 title = "Linkita"
 description = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
-taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
+[[languages.en.taxonomies]]
+name = "tags"
+feed = true
+paginate_by = 5
+[[languages.en.taxonomies]]
+name = "authors"
+feed = true
+paginate_by = 5
 
 [languages.eo]
 title = "Linkita"
 description = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
-taxonomies = [{ name = "tags", feed = true, paginate_by = 5 }]
+[[languages.eo.taxonomies]]
+name = "tags"
+feed = true
+paginate_by = 5
+[[languages.eo.taxonomies]]
+name = "authors"
+feed = true
+paginate_by = 5
 
 # English translations
 [languages.en.translations]
 language_name_en = "English"
 language_name_bg = "Bulgarian"
 language_name_eo = "Esperanto"
+taxonomy_tags = "tags"
+taxonomy_categories = "categories"
+taxonomy_authors = "authors"
 footer_powered_by = "Powered by"
 footer_and = "and"
 footer_zola = "Zola"
 footer_linkita = "Linkita"
 word_prev_page = "← Prev Page"
 word_next_page = "Next Page →"
-word_tags = "tags"
-word_categories = "categories"
 word_toc = "Table of Contents"
 word_minutes = "min"
 word_words = "words"
@@ -63,14 +84,15 @@ error_404 = "404"
 language_name_en = "английски"
 language_name_bg = "български"
 language_name_eo = "есперанто"
+taxonomy_tags = "етикети"
+taxonomy_categories = "категории"
+taxonomy_authors = "автори"
 footer_powered_by = "Осъществено чрез"
 footer_and = "и"
 footer_zola = "Зола"
 footer_linkita = "Линкита"
 word_prev_page = "← Предишна страница"
 word_next_page = "Следваща страница →"
-word_tags = "етикети"
-word_categories = "категории"
 word_toc = "Съдържание"
 word_minutes = "мин"
 word_words = "думи"
@@ -82,14 +104,15 @@ error_404 = "Грешка 404: Страницата не е намерена!"
 language_name_en = "Angla"
 language_name_bg = "Bulgara"
 language_name_eo = "Esperanto"
+taxonomy_tags = "etikedoj"
+taxonomy_categories = "kategorioj"
+taxonomy_authors = "aŭtoroj"
 footer_powered_by = "Funkciigita de"
 footer_and = "kaj"
 footer_zola = "Zola"
 footer_linkita = "Linkita"
 word_prev_page = "← Antaŭa Paĝo"
 word_next_page = "Sekva Paĝo →"
-word_tags = "etikedoj"
-word_categories = "kategorioj"
 word_toc = "Enhavtabelo"
 word_minutes = "min"
 word_words = "vortoj"
@@ -101,6 +124,7 @@ math = false
 mermaid = false
 comment = false
 show_updated_date = true
+title_separator = " | "
 
 [extra.style]
 # bg_color = ""
@@ -109,73 +133,116 @@ show_updated_date = true
 # header_color = ""
 # header_dark_color = ""
 
-[extra.profile]
+[extra.profiles]
+
+# Your profile
+[extra.profiles.your_username]
 avatar_url = "icons/github.svg"
+# avatar_alt = ""
 avatar_invert = true
+# name = "Default Name"
+# bio = "Default Bio"
 
-[extra.profile.name]
-en = "Linkita - Zola Theme"
-bg = "Линкита - Тема за Зола"
-eo = "Linkita - Temo por Zola"
+[extra.profiles.your_username.translations]
+[extra.profiles.your_username.translations.en]
+name = "Linkita - Zola Theme"
+bio = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
+[extra.profiles.your_username.translations.bg]
+name = "Линкита - Тема за Зола"
+bio = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+[extra.profiles.your_username.translations.eo]
+name = "Linkita - Temo por Zola"
+bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 
-[extra.profile.bio]
-en = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
-bg = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
-eo = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
-
-[[extra.profile.social]]
+[[extra.profiles.your_username.social]]
 name = "codeberg"
 url = "https://codeberg.org/salif/linkita"
 
-[[extra.profile.social]]
+[[extra.profiles.your_username.social]]
 name = "github"
 url = "https://github.com/salif/linkita"
 
-[[extra.profile.social]]
+[[extra.profiles.your_username.social]]
 name = "rss"
 url = "$BASE_URL/atom.xml"
 
-[extra.profile.open_graph]
-# image = "icons/github.svg"
-# image_alt = ""
-# first_name = ""
-# last_name = ""
-# username = ""
-# gender = ""
+[extra.profiles.your_username.open_graph]
+image = "images/screenshot.png"
+image_alt = "A screenshot of this website"
 # fb_app_id = ""
 # fb_admins = ["USER_ID"]
-# fediverse_username = ""
-# fediverse_server = ""
 
+# My profile
+[extra.profiles.salif]
+name = "Salif"
+bio = "Hi, I'm Salif"
+email = "mail@salif.eu"
+url = "https://salif.eu"
+[extra.profiles.salif.translations]
+[extra.profiles.salif.translations.bg]
+name = "Салиф"
+url = "https://salif.eu/bg/"
+[extra.profiles.salif.open_graph]
+first_name = "Salif"
+last_name = "Mehmed"
+username = "salif"
+gender = "male"
+fediverse_username = "bg.salif.eu"
+fediverse_server = "bsky.brid.gy"
+fediverse_url = "https://bsky.brid.gy/r/https://bsky.app/profile/bg.salif.eu"
+[[extra.profiles.salif.social]]
+name = "codeberg"
+url = "https://codeberg.org/salif"
+[[extra.profiles.salif.social]]
+name = "github"
+url = "https://github.com/salif"
+[[extra.profiles.salif.social]]
+name = "bluesky"
+url = "https://bsky.app/profile/bg.salif.eu"
+[[extra.profiles.salif.social]]
+name = "rss"
+url = "$BASE_URL/authors/salif/atom.xml"
+
+# Kita Theme's profile
+[extra.profiles.kita]
+name = "Kita"
+bio = "Kita - Zola Theme"
+url = "https://st1020.github.io/kita/"
+[[extra.profiles.kita.social]]
+name = "github"
+url = "https://github.com/st1020/kita"
+
+# Menu
 [[extra.menu]]
 url = "$BASE_URL/projects/"
-[extra.menu.name]
+[extra.menu.names]
 en = "Projects"
 bg = "Проекти"
 eo = "Projektoj"
 
 [[extra.menu]]
 url = "$BASE_URL/archive/"
-[extra.menu.name]
+[extra.menu.names]
 en = "Archive"
 bg = "Архив"
 eo = "Arkivo"
 
 [[extra.menu]]
 url = "$BASE_URL/tags/"
-[extra.menu.name]
+[extra.menu.names]
 en = "Tags"
 bg = "Етикети"
 eo = "Etikedoj"
 
 [[extra.menu]]
 url = "$BASE_URL/about/"
-[extra.menu.name]
+[extra.menu.names]
 en = "About"
 bg = "Относно"
 eo = "Pri"
 
 [extra.footer]
+author_name = "Linkita"
 since = 2020
 license_name = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"

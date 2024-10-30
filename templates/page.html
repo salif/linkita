@@ -24,20 +24,15 @@
 
   <!-- Content -->
   <section>{{ page.content | safe }}</section>
-
   <hr />
-
   <!-- Post Taxonomies -->
   {% include "partials/post_taxonomies.html" %}<!---->
-
   <!-- Post Nav -->
   {% include "partials/post_navigation.html" %}<!---->
-
   <!-- Comment -->
   {% if page.extra.comment | default(value=config.extra.comment) %}<!---->
   {% include "partials/comment.html" %}<!---->
   {% endif %}
-
   <!-- Page End inject -->
   {% include "injects/page_end.html" ignore missing %}
 </article>

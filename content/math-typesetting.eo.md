@@ -3,7 +3,10 @@ title = "Matematika Kompostado"
 date = 2022-10-20
 updated = 2024-10-24
 description = "Mallonga gvidilo por agordi KaTeX"
-extra.math = true
+[taxonomies]
+authors = ["kita", "salif"]
+[extra]
+math = true
 +++
 
 La temo Linkita subtenas $\LaTeX$ matematikajn formulojn per [KaTeX](https://katex.org/).

@@ -14,9 +14,9 @@
       {% block main %}
 
       <!-- Profile -->
-      {% if paginator is undefined or paginator.current_index == 1 %}<!---->
+      {%- if paginator is undefined or paginator.current_index == 1 %}<!---->
       {% include "partials/profile.html" %}<!---->
-      {% endif %}<!---->
+      {%- endif %}<!---->
 
       {% include "partials/page_list.html" %}<!---->
       {% endblock main %}

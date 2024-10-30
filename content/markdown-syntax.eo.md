@@ -5,6 +5,7 @@ updated = 2024-10-24
 description = "Ekzempla artikolo montrante bazan Markdown-sintakson kaj formatadon por HTML-elementoj."
 [taxonomies]
 tags = ["markdown", "css", "html"]
+authors = ["kita", "salif"]
 [extra]
 cover.image = "images/markdown-syntax.png"
 cover.alt = "Markdown-emblemo"
