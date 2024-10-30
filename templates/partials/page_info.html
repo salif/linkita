@@ -1,47 +1,49 @@
 <div class="text-sm antialiased opacity-80">
-{%- if page.date -%}
-  {%- set date_format = config.extra.locales[lang].date_format | default(value="%F") -%}
-  {%- if page.extra.show_updated_date is defined %}
-    {%- set show_updated_date = page.extra.show_updated_date %}
-  {%- elif config.extra.show_updated_date is defined %}
-    {%- set show_updated_date = config.extra.show_updated_date %}
-  {%- endif %}
+{%- if page.extra.page_info %}
+  {%- set page_info = page.extra.page_info %}
+{%- elif config.extra.page_info %}
+  {%- set page_info = config.extra.page_info %}
+{%- else %}
+  {%- set page_info = ["date", "date_updated", "reading_time", "word_count", "authors"] %}
+{% endif %}
+{%- set date_format = config.extra.locales[lang].date_format | default(value="%F") %}
+{%- for page_info_entry in page_info %}
+  {%- if page_info_entry == "date" %}
+    {%- if page.date %}
   <time datetime="{{ page.date }}">{% if config.extra.locales[lang].locale %}{{
     page.date | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
     page.date | date(format=date_format) }}{% endif %}</time>
-    {%- if show_updated_date and page.updated and page.updated != page.date -%}
+    {%- endif %}
+  {%- elif page_info_entry == "date_updated" %}
+    {%- if page.updated and page.updated != page.date -%}
   &comma; <time datetime="{{ page.updated }}">{% if config.extra.locales[lang].locale %}{{
     page.updated | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
     page.updated | date(format=date_format) }}{% endif %}</time>
     {%- endif %}
-{%- endif %}
-{%- if config.extra.reading_time[lang] %}
-  {%- for reading_time in config.extra.reading_time[lang] %}
+  {%- elif page_info_entry == "reading_time" %}
   <span class="mx-1">&middot;</span>
-    {%- if reading_time == "reading_time" %}
     {%- set reading_time_minutes = page.reading_time % 60 %}
   <time datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
       page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</time>
-    {%- elif reading_time == "word_count" %}
+  {%- elif page_info_entry == "word_count" %}
+  <span class="mx-1">&middot;</span>
   <span>{{ page.word_count }} {{ trans(key="word_words", lang=lang) }}</span>
+  {%- elif page_info_entry == "authors" %}
+    {%- if page.taxonomies.authors %}
+      {%- set page_authors = page.taxonomies.authors %}
+    {%- elif page.authors %}
+      {%- set page_authors = page.authors %}
+    {%- elif config.author %}
+      {%- set page_authors = [config.author] %}
     {%- else %}
-  <span>{{ reading_time }}</span>
+      {%- set page_authors = [] %}
     {%- endif %}
-  {%- endfor %}
-{%- endif %}
-  {%- if page.taxonomies.authors %}
-    {%- set page_authors = page.taxonomies.authors %}
-  {%- elif page.authors %}
-    {%- set page_authors = page.authors %}
-  {%- elif config.author %}
-    {%- set page_authors = [config.author] %}
-  {%- else %}
-    {%- set page_authors = [] %}
-  {%- endif %}
-  {%- for page_author in page_authors %}
+    {%- for page_author in page_authors %}
   <span class="mx-1">&middot;</span>
   <span>{{ macros::get_profile_name(username=page_author) }}</span>
-  {%- endfor %}
-  <!-- Page Info inject -->
-{% include "injects/page_info.html" ignore missing %}
+    {%- endfor %}
+  {%- else %}
+    {{ page_info_entry }}
+  {%- endif %}
+{%- endfor %}
 </div>

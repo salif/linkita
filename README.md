@@ -89,27 +89,6 @@ npm run switch-to-latest
 
 ## Usage
 
-### Front matter
-
-| `extra.open_graph` keys | type | example | comment |
-| --- | --- | --- | --- |
-| `cover_type` | string | `image/jpeg`, `image/gif`, `image/png` | MIME type of the cover image |
-| `cover_width` | string |  | Width of the cover image in pixels |
-| `cover_height` | string |  | Height of the cover image in pixels |
-| `expiration_time` | string | `"2024-02-29"` | When the article is out of date after |
-| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` | Describes the tier status for an article |
-| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` | Defines the location to target for the article |
-| `section` | string |  | A high-level section name. E.g. Technology |
-| `tags` | array of strings |  | Tag words associated with this article. |
-| `opinion` | string | `"true"` or `"false"` | Indicates whether the article is an opinion piece or not |
-| `audio` | string |  | The URL for the audio |
-| `audio_type` | string | `audio/vnd.facebook.bridge`, `audio/mpeg` | MIME type of the audio |
-| `video` | string |  | The URL for the video |
-| `video_type` | string | `application/x-shockwave-flash`, `video/mp4` | MIME type of the video |
-| `video_width` | string |  | Width of the video in pixels |
-| `video_height` | string |  | Height of the video in pixels |
-| `url` | string |  | Set only if different from canonical page URL |
-
 ### TOML front matter
 
 ```toml
@@ -125,7 +104,6 @@ authors = []
 # comment = true
 # math = true
 # mermaid = true
-# show_updated_date = false
 [extra.cover]
 # image = ""
 # alt = ""
@@ -149,13 +127,33 @@ extra:
   comment: false
   math: false
   mermaid: false
-  show_updated_date: true
   cover:
     image: ""
     alt: ""
   open_graph:
 ---
 ```
+
+### `extra.open_graph` keys
+
+| key | type | example | comment |
+| --- | --- | --- | --- |
+| `cover_type` | string | `image/jpeg`, `image/gif`, `image/png` | MIME type of the cover image |
+| `cover_width` | string |  | Width of the cover image in pixels |
+| `cover_height` | string |  | Height of the cover image in pixels |
+| `expiration_time` | string | `"2024-02-29"` | When the article is out of date after |
+| `content_tier` | string | `"free"`, `"locked"`, or `"metered"` | Describes the tier status for an article |
+| `locations` | array of strings | `["county:COUNTY"]` or `["city:CITY,COUNTY"]` | Defines the location to target for the article |
+| `section` | string |  | A high-level section name. E.g. Technology |
+| `tags` | array of strings |  | Tag words associated with this article. |
+| `opinion` | string | `"true"` or `"false"` | Indicates whether the article is an opinion piece or not |
+| `audio` | string |  | The URL for the audio |
+| `audio_type` | string | `audio/vnd.facebook.bridge`, `audio/mpeg` | MIME type of the audio |
+| `video` | string |  | The URL for the video |
+| `video_type` | string | `application/x-shockwave-flash`, `video/mp4` | MIME type of the video |
+| `video_width` | string |  | Width of the video in pixels |
+| `video_height` | string |  | Height of the video in pixels |
+| `url` | string |  | Set only if different from canonical page URL |
 
 ### Authors
 
@@ -215,7 +213,7 @@ You can easily use inject to add new features to your side without modifying the
 
 To use inject, you need to add some HTML files to the `templates/injects` directory.
 
-The available inject points are: `head`, `header_nav`, `body_start`, `body_end`, `page_start`, `page_end`, `footer`, `page_info`.
+The available inject points are: `head`, `header_nav`, `body_start`, `body_end`, `page_start`, `page_end`, `footer`.
 
 For example, to load a custom script, you can add a `templates/injects/head.html` file:
 
@@ -286,19 +284,21 @@ paginate_by = 5
 
 ### `extra`
 
+Strings in `extra.page_info` that are not one of the following, will be displayed directly in the UI:
+`"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
+
 | key | type | comment |
 | --- | --- | --- |
 | `extra.math` | boolean | Enable KaTeX math formula support globally |
 | `extra.mermaid` | boolean | Enable Mermaid support globally |
 | `extra.comment` | boolean | Enable comment support globally |
-| `extra.show_updated_date` | boolean | Show the last updated date of posts |
 | `extra.title_separator` | boolean | Title Separator |
+| `extra.page_info` | array of strings |  |
 | `extra.style` | table | The theme style config |
 | `extra.profiles` | table | Profiles |
 | `extra.menu` | array of tables | The top menu |
 | `extra.footer` | table | The page footer options |
 | `extra.locales` | table | Locale codes and date formats |
-| `extra.reading_time` | table | Word count and reading time for posts |
 | `extra.goatcounter` | table | Enable web analytics |
 | `extra.giscus` | table | The giscus comment options |
 
@@ -307,8 +307,8 @@ paginate_by = 5
 math = false
 mermaid = false
 comment = false
-show_updated_date = true
 title_separator = " | "
+page_info = ["date", "date_updated", "reading_time", "word_count", "authors"]
 ```
 
 ### The theme style config (`extra.style`)
@@ -517,20 +517,6 @@ date_format_archive = "%m-%d"
 locale = "fr_FR"
 date_format = "%x"
 date_format_archive = "%m-%d"
-```
-
-### Reading time (`extra.reading_time`)
-
-Possible values are `[]`, `["reading_time"]`, `["word_count"]`, `["reading_time", "word_count"]`, `["word_count", "reading_time"]`.
-
-| key | type |
-| --- | --- |
-| `extra.reading_time[lang]` | array of strings |
-
-```toml
-[extra.reading_time]
-en = ["reading_time"]
-# fr = ["reading_time", "word_count"]
 ```
 
 ### Web analytics (`extra.goatcounter`)

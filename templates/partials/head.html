@@ -141,9 +141,9 @@
 {%- if page.translations or section.translations %}
   {%- set page_translations = page.translations | default(value=section.translations) %}
   {%- for og_locale_alt in page_translations %}
-    {%- if og_locale_alt.lang == lang %}
+    {%- if og_locale_alt.lang == lang and config.extra.locales[lang].locale %}
   <meta property="og:locale" content="{{ config.extra.locales[lang].locale }}" />
-    {%- elif config.extra.locales[og_locale_alt.lang].locale %}
+    {%- elif config.extra.locales[og_locale_alt.lang].locale and config.extra.locales[og_locale_alt.lang].locale %}
   <meta property="og:locale:alternate" content="{{ config.extra.locales[og_locale_alt.lang].locale }}" />
     {%- endif %}
   <link rel="alternate" hreflang="{{ og_locale_alt.lang }}" href="{{ og_locale_alt.permalink | safe }}" />

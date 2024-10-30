@@ -123,7 +123,6 @@ error_404 = "404"
 math = false
 mermaid = false
 comment = false
-show_updated_date = true
 title_separator = " | "
 
 [extra.style]
@@ -261,11 +260,6 @@ date_format_archive = "%d %b"
 locale = "eo"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
-
-[extra.reading_time]
-en = ["reading_time"]
-bg = ["reading_time"]
-eo = ["word_count"]
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
