@@ -1,0 +1,87 @@
+{
+  "language_name_en": {
+    "en": "English",
+    "bg": "английски",
+    "eo": "Angla"
+  },
+  "language_name_bg": {
+    "en": "Bulgarian",
+    "bg": "български",
+    "eo": "Bulgara"
+  },
+  "language_name_eo": {
+    "en": "Esperanto",
+    "bg": "есперанто",
+    "eo": "Esperanto"
+  },
+  "taxonomy_tags": {
+    "en": "tags",
+    "bg": "етикети",
+    "eo": "etikedoj"
+  },
+  "taxonomy_categories": {
+    "en": "categories",
+    "bg": "категории",
+    "eo": "kategorioj"
+  },
+  "taxonomy_authors": {
+    "en": "authors",
+    "bg": "автори",
+    "eo": "aŭtoroj"
+  },
+  "footer_powered_by": {
+    "en": "Powered by",
+    "bg": "Осъществено чрез",
+    "eo": "Funkciigita de"
+  },
+  "footer_and": {
+    "en": "and",
+    "bg": "и",
+    "eo": "kaj"
+  },
+  "footer_zola": {
+    "en": "Zola",
+    "bg": "Зола",
+    "eo": "Zola"
+  },
+  "footer_linkita": {
+    "en": "Linkita",
+    "bg": "Линкита",
+    "eo": "Linkita"
+  },
+  "word_prev_page": {
+    "en": "← Prev Page",
+    "bg": "← Предишна страница",
+    "eo": "← Antaŭa Paĝo"
+  },
+  "word_next_page": {
+    "en": "Next Page →",
+    "bg": "Следваща страница →",
+    "eo": "Sekva Paĝo →"
+  },
+  "word_toc": {
+    "en": "Table of Contents",
+    "bg": "Съдържание",
+    "eo": "Enhavtabelo"
+  },
+  "word_minutes": {
+    "en": "min",
+    "bg": "мин",
+    "eo": "min"
+  },
+  "word_words": {
+    "en": "words",
+    "bg": "думи",
+    "eo": "vortoj"
+  },
+  "word_more": {
+    "en": "More >>",
+    "bg": "Още >>",
+    "eo": "Pli >>"
+  },
+  "error_not_found": {
+    "en": "404: Page not found!",
+    "bg": "404: Страницата не е намерена!",
+    "eo": "404: ne trovita!"
+  }
+}

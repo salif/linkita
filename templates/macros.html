@@ -25,3 +25,13 @@
 {{- profile_name -}}
 {%- endif -%}
 {%- endmacro get_profile_name -%}
+
+{%- macro translate(key, language, trans_data) -%}
+{%- if trans_data[key][language] -%}
+{{- trans_data[key][language] -}}
+{%- elif trans_data[key]["en"] -%}
+{{- trans_data[key]["en"] -}}
+{%- else -%}
+{{- trans_data[key][language] -}}
+{%- endif -%}
+{%- endmacro translate -%}

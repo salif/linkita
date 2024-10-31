@@ -67,18 +67,6 @@ theme = "linkita"
 
 Also, make sure you have `title` and `default_language` set in your `config.toml` file.
 
-4. Copy translations
-
-Open `themes/linkita/config.toml` and copy all translations to your `config.toml` file.
-The English translation is under `[languages.en.translations]`.
-
-Otherwise you will get this error:
-
-```
-Error: Reason: Function call 'trans' failed
-Error: Reason: Failed to retrieve term translation
-```
-
 ## Updating
 
 ```sh
@@ -134,7 +122,7 @@ extra:
 ---
 ```
 
-### `extra.open_graph` keys
+### Open Graph options for pages
 
 | key | type | example | comment |
 | --- | --- | --- | --- |
@@ -202,7 +190,7 @@ profile = "your_username"
 
 Do it for each language in your blog, for example for French, the file name is `content/_index.fr.md`.
 
-#### Profiles for authors
+### Profiles for authors
 
 You should add `extra.profiles.author_username` table in your `config.toml` file for each author.
 Replace `author_username` with author's username.
@@ -228,25 +216,35 @@ Configuration options used by this theme.
 Most of them are optional. Copy-paste the examples into your `config.toml` file
 and comment out the options you don't use instead of setting empty values.
 
-| key | type | comment |
-| --- | --- | --- |
-| `default_language` | string | The default language |
-| `author` | string | The default author for pages |
-| `title` | string | The site title |
-| `description` | string | The site description |
-| `generate_feeds` | boolean | Automatically generated feed |
-| `feed_filenames` | array of strings | The filenames to use for the feeds |
-| `translations` | table | Copy-paste them from the theme's `config.toml` file |
-| `extra` | table |  |
+| key | type |
+| --- | --- |
+| `default_language` | string |
+| `author` | string |
+| `title` | string |
+| `description` | string |
+| `generate_feeds` | boolean |
+| `feed_filenames` | array of strings |
+| `extra` | table |
 
 Taxonomies with translated names are `tags`, `categories`, and `authors`.
 
 ```toml
+# The default language
 default_language = "en"
+
+# The default author for pages
 author = "your_username"
-title = "Site Title"
-description = "Site Description"
+
+# The site title
+title = ""
+
+# The site description
+description = ""
+
+# Automatically generated feed 
 generate_feeds = true
+
+# The filenames to use for the feeds
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 ```
 
@@ -284,9 +282,6 @@ paginate_by = 5
 
 ### `extra`
 
-Strings in `extra.page_info` that are not one of the following, will be displayed directly in the UI:
-`"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
-
 | key | type | comment |
 | --- | --- | --- |
 | `extra.math` | boolean | Enable KaTeX math formula support globally |
@@ -301,6 +296,9 @@ Strings in `extra.page_info` that are not one of the following, will be displaye
 | `extra.locales` | table | Locale codes and date formats |
 | `extra.goatcounter` | table | Enable web analytics |
 | `extra.giscus` | table | The giscus comment options |
+
+Strings in `extra.page_info` that are not one of the following, will be displayed directly in the UI:
+`"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
 
 ```toml
 [extra]
@@ -394,10 +392,6 @@ url = "$BASE_URL/atom.xml"
 
 ### Open Graph (`extra.profiles[username].open_graph`)
 
-See [the Open Graph protocol](https://ogp.me/).
-Some options `config.author` to a real author in the `config.toml` file,
-set a neutral profile instead.
-
 | key | type | comment |
 | --- | --- | --- |
 | `extra.profiles[username].open_graph.image` | string | The URL of social image |
@@ -411,6 +405,10 @@ set a neutral profile instead.
 | `extra.profiles[username].open_graph.fediverse_url` | string |  |
 | `extra.profiles[config.author].open_graph.fb_app_id` | string | Set fb:app_id |
 | `extra.profiles[config.author].open_graph.fb_admins` | array of strings | Set fb:admins |
+
+See [the Open Graph protocol](https://ogp.me/).
+Some options `config.author` to a real author in the `config.toml` file,
+set a neutral profile instead.
 
 ```toml
 [extra.profiles.your_username.open_graph]
@@ -437,14 +435,14 @@ fb_admins = ["YOUR_USER_ID"]
 
 ### The top menu (`extra.menu`)
 
-`$BASE_URL` will be automatically translated into the language specific base url.
-
 | key | type |
 | --- | --- |
 | `extra.menu[].url` | string |
 | `extra.menu[].name` | string |
 | `extra.menu[].names` | table |
 | `extra.menu[].names[lang]` | string |
+
+`$BASE_URL` will be automatically translated into the language specific base url.
 
 ```toml
 [[extra.menu]]
@@ -474,10 +472,6 @@ en = "About"
 
 ### The page footer (`extra.footer`)
 
-Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` are only used in `<head>`.
-
-`$BASE_URL` is supported in the `_url` options.
-
 | key | type |
 | --- | --- |
 | `extra.footer.author_name` | string |
@@ -487,6 +481,10 @@ Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` ar
 | `extra.footer.privacy_policy_url` | string |
 | `extra.footer.terms_of_service_url` | string |
 | `extra.footer.search_page_url` | string |
+
+Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` are only used in `<head>`.
+
+`$BASE_URL` is supported in the `_url` options.
 
 ```toml
 [extra.footer]
@@ -500,13 +498,13 @@ license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 
 ### Locale and Date format (`extra.locales`)
 
-For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
-
 | key | type | default value |
 | --- | --- | --- |
 | `extra.locales[lang].locale` | string |  |
 | `extra.locales[lang].date_format` | string | `%F` |
 | `extra.locales[lang].date_format_archive` | string | `%m-%d` |
+
+For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
 
 ```toml
 [extra.locales.en]
@@ -522,12 +520,12 @@ date_format_archive = "%m-%d"
 
 ### Web analytics (`extra.goatcounter`)
 
-Set only if you use [GoatCounter](https://www.goatcounter.com/).
-
 | key | type |
 | --- | --- |
 | `extra.goatcounter.endpoint` | string |
 | `extra.goatcounter.src` | string |
+
+Set only if you use [GoatCounter](https://www.goatcounter.com/).
 
 ```toml
 [extra.goatcounter]
@@ -536,8 +534,6 @@ src = "//gc.zgo.at/count.js"
 ```
 
 ### Comments (`extra.giscus`)
-
-Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`. See [giscus.app](https://giscus.app/).
 
 | key | type | default value |
 | --- | --- | --- |
@@ -553,6 +549,8 @@ Only available when `extra.comment` in the frontmatter or `extra.comment` in the
 | `extra.giscus.theme` | string | `light` |
 | `extra.giscus.lang` | string | `en` |
 | `extra.giscus.loading` | string | `lazy` |
+
+Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`. See [giscus.app](https://giscus.app/).
 
 ```toml
 [extra.giscus]

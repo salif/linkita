@@ -1,4 +1,5 @@
 {% import "macros.html" as macros %}
+{%- set trans_data = load_data(path="i18n.json", format="json") -%}
 <!DOCTYPE html>
 <html class="not-ready overflow-y-scroll lg:text-base" lang="{{ lang }}">
   {% include "partials/head.html" %}

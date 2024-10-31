@@ -6,10 +6,14 @@
   {%- endfor %}<!---->
   {% for term_name in term_names | sort %}
   <div class="mb-2 flex flex-wrap">
-    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{% if term_name == "tags"
-      %}{{ trans(key="taxonomy_tags", lang=lang) | title }}{% elif term_name == "categories"
-      %}{{ trans(key="taxonomy_categories", lang=lang) | title }}{% elif term_name == "authors"
-      %}{{ trans(key="taxonomy_authors", lang=lang) | title }}{% else %}{{ term_name | title }}{% endif %}</span>
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{%
+      if term_name == "tags" %}{{ macros::translate(key="taxonomy_tags",
+        language=lang, trans_data=trans_data) | title }}{%
+      elif term_name == "categories" %}{{ macros::translate(key="taxonomy_categories",
+        language=lang, trans_data=trans_data) | title }}{%
+      elif term_name == "authors" %}{{ macros::translate(key="taxonomy_authors",
+        language=lang, trans_data=trans_data) | title }}{%
+      else %}{{ term_name | title }}{% endif %}</span>
     {% for term in page.taxonomies[term_name] %}
     <a
       class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"

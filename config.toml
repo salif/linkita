@@ -59,66 +59,6 @@ name = "authors"
 feed = true
 paginate_by = 5
 
-# English translations
-[languages.en.translations]
-language_name_en = "English"
-language_name_bg = "Bulgarian"
-language_name_eo = "Esperanto"
-taxonomy_tags = "tags"
-taxonomy_categories = "categories"
-taxonomy_authors = "authors"
-footer_powered_by = "Powered by"
-footer_and = "and"
-footer_zola = "Zola"
-footer_linkita = "Linkita"
-word_prev_page = "← Prev Page"
-word_next_page = "Next Page →"
-word_toc = "Table of Contents"
-word_minutes = "min"
-word_words = "words"
-word_more = "More >>"
-error_404 = "404"
-
-# Bulgarian translations
-[languages.bg.translations]
-language_name_en = "английски"
-language_name_bg = "български"
-language_name_eo = "есперанто"
-taxonomy_tags = "етикети"
-taxonomy_categories = "категории"
-taxonomy_authors = "автори"
-footer_powered_by = "Осъществено чрез"
-footer_and = "и"
-footer_zola = "Зола"
-footer_linkita = "Линкита"
-word_prev_page = "← Предишна страница"
-word_next_page = "Следваща страница →"
-word_toc = "Съдържание"
-word_minutes = "мин"
-word_words = "думи"
-word_more = "Още >>"
-error_404 = "Грешка 404: Страницата не е намерена!"
-
-# Esperanto translations
-[languages.eo.translations]
-language_name_en = "Angla"
-language_name_bg = "Bulgara"
-language_name_eo = "Esperanto"
-taxonomy_tags = "etikedoj"
-taxonomy_categories = "kategorioj"
-taxonomy_authors = "aŭtoroj"
-footer_powered_by = "Funkciigita de"
-footer_and = "kaj"
-footer_zola = "Zola"
-footer_linkita = "Linkita"
-word_prev_page = "← Antaŭa Paĝo"
-word_next_page = "Sekva Paĝo →"
-word_toc = "Enhavtabelo"
-word_minutes = "min"
-word_words = "vortoj"
-word_more = "Pli >>"
-error_404 = "404"
-
 [extra]
 math = false
 mermaid = false

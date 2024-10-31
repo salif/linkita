@@ -24,10 +24,10 @@
   <span class="mx-1">&middot;</span>
     {%- set reading_time_minutes = page.reading_time % 60 %}
   <time datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
-      page.reading_time }} {{ trans(key="word_minutes", lang=lang) }}</time>
+      page.reading_time }} {{ macros::translate(key="word_minutes", language=lang, trans_data=trans_data) }}</time>
   {%- elif page_info_entry == "word_count" %}
   <span class="mx-1">&middot;</span>
-  <span>{{ page.word_count }} {{ trans(key="word_words", lang=lang) }}</span>
+  <span>{{ page.word_count }} {{ macros::translate(key="word_words", language=lang, trans_data=trans_data) }}</span>
   {%- elif page_info_entry == "authors" %}
     {%- if page.taxonomies.authors %}
       {%- set page_authors = page.taxonomies.authors %}
