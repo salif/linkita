@@ -35,6 +35,7 @@
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
             href="{{ menu.url | replace(from=`$BASE_URL`, to=menu_base_url) | safe }}"
             >{% if menu.names[lang] %}{{ menu.names[lang] }}{%
+              elif menu.name %}{{ menu.name }}{%
               else %}{{ menu_name_default | safe }}{% endif %}</a>
         </li>
         {%- endfor %}

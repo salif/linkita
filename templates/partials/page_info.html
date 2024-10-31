@@ -4,7 +4,7 @@
 {%- elif config.extra.page_info %}
   {%- set page_info = config.extra.page_info %}
 {%- else %}
-  {%- set page_info = ["date", "date_updated", "reading_time", "word_count", "authors"] %}
+  {%- set page_info = ["date", "date_updated", "reading_time", "authors"] %}
 {% endif %}
 {%- set date_format = config.extra.locales[lang].date_format | default(value="%F") %}
 {%- for page_info_entry in page_info %}

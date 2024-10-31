@@ -8,11 +8,11 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - [Bulgarian](https://salif.github.io/linkita/)
 - [Esperanto](https://salif.github.io/linkita/eo/)
 
----
+### Screenshots
 
-![Screenshot](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.png)
-
-![Screenshot - Dark mode](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.dark.png)
+| Light mode | Dark mode |
+| :---: | :---: |
+| ![Screenshot](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.png) | ![Screenshot - Dark mode](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.dark.png) |
 
 ## Kita features
 
@@ -442,6 +442,7 @@ fb_admins = ["YOUR_USER_ID"]
 | key | type |
 | --- | --- |
 | `extra.menu[].url` | string |
+| `extra.menu[].name` | string |
 | `extra.menu[].names` | table |
 | `extra.menu[].names[lang]` | string |
 
