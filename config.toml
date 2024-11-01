@@ -7,14 +7,8 @@ generate_feeds = true
 
 # Configuration of the Markdown rendering
 [markdown]
-# When set to "true", all code blocks are highlighted.
 highlight_code = true
-
-# A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
 extra_syntaxes_and_themes = []
-
-# The theme to use for code highlighting.
-# See below for list of allowed values.
 highlight_theme = "monokai"
 
 [languages.bg]
@@ -22,42 +16,30 @@ title = "Линкита"
 description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
 # generate_feeds = true
 feed_filenames = ["atom.xml"]
-[[languages.bg.taxonomies]]
-name = "tags"
-feed = true
-paginate_by = 5
-[[languages.bg.taxonomies]]
-name = "authors"
-feed = true
-paginate_by = 5
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
 
 [languages.en]
 title = "Linkita"
 description = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
-[[languages.en.taxonomies]]
-name = "tags"
-feed = true
-paginate_by = 5
-[[languages.en.taxonomies]]
-name = "authors"
-feed = true
-paginate_by = 5
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
 
 [languages.eo]
 title = "Linkita"
 description = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
-[[languages.eo.taxonomies]]
-name = "tags"
-feed = true
-paginate_by = 5
-[[languages.eo.taxonomies]]
-name = "authors"
-feed = true
-paginate_by = 5
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
 
 [extra]
 math = false
@@ -81,6 +63,11 @@ avatar_url = "icons/github.svg"
 avatar_invert = true
 # name = "Default Name"
 # bio = "Default Bio"
+social = [
+  { name = "codeberg", url = "https://codeberg.org/salif/linkita" },
+  { name = "github", url = "https://github.com/salif/linkita" },
+  { name = "rss", url = "$BASE_URL/atom.xml" },
+]
 
 [extra.profiles.your_username.translations]
 [extra.profiles.your_username.translations.en]
@@ -92,18 +79,6 @@ bio = "Линкита е многоезична, SEO оптимизирана, �
 [extra.profiles.your_username.translations.eo]
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
-
-[[extra.profiles.your_username.social]]
-name = "codeberg"
-url = "https://codeberg.org/salif/linkita"
-
-[[extra.profiles.your_username.social]]
-name = "github"
-url = "https://github.com/salif/linkita"
-
-[[extra.profiles.your_username.social]]
-name = "rss"
-url = "$BASE_URL/atom.xml"
 
 [extra.profiles.your_username.open_graph]
 image = "images/screenshot.png"
@@ -117,39 +92,36 @@ name = "Salif"
 bio = "Hi, I'm Salif"
 email = "mail@salif.eu"
 url = "https://salif.eu"
-[extra.profiles.salif.translations]
+social = [
+  { name = "codeberg", url = "https://codeberg.org/salif" },
+  { name = "github", url = "https://github.com/salif" },
+  { name = "bluesky", url = "https://bsky.app/profile/bg.salif.eu" },
+  { name = "rss", url = "$BASE_URL/authors/salif/atom.xml" },
+]
 [extra.profiles.salif.translations.bg]
 name = "Салиф"
 url = "https://salif.eu/bg/"
+[extra.profiles.salif.translations.eo]
+name = "Salif"
+url = "https://salif.eu/eo/"
 [extra.profiles.salif.open_graph]
 first_name = "Salif"
 last_name = "Mehmed"
 username = "salif"
 gender = "male"
-fediverse_username = "bg.salif.eu"
-fediverse_server = "bsky.brid.gy"
-fediverse_url = "https://bsky.brid.gy/r/https://bsky.app/profile/bg.salif.eu"
-[[extra.profiles.salif.social]]
-name = "codeberg"
-url = "https://codeberg.org/salif"
-[[extra.profiles.salif.social]]
-name = "github"
-url = "https://github.com/salif"
-[[extra.profiles.salif.social]]
-name = "bluesky"
-url = "https://bsky.app/profile/bg.salif.eu"
-[[extra.profiles.salif.social]]
-name = "rss"
-url = "$BASE_URL/authors/salif/atom.xml"
+[extra.profiles.salif.open_graph.fediverse_creator]
+handle = "bg.salif.eu"
+domain = "bsky.brid.gy"
+url = "https://bsky.brid.gy/r/https://bsky.app/profile/bg.salif.eu"
 
 # Kita Theme's profile
 [extra.profiles.kita]
 name = "Kita"
 bio = "Kita - Zola Theme"
 url = "https://st1020.github.io/kita/"
-[[extra.profiles.kita.social]]
-name = "github"
-url = "https://github.com/st1020/kita"
+social = [
+  { name = "github", url = "https://github.com/st1020/kita" }
+]
 
 # Menu
 [[extra.menu]]

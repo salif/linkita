@@ -173,14 +173,14 @@
   {%- if profile_data.open_graph %}
     {%- set profile_og_data = profile_data.open_graph %}
   {%- endif %}
-  {%- if profile_og_data.fediverse_username and profile_og_data.fediverse_server %}
-  <meta property="fediverse:creator" content="@{{ profile_og_data.fediverse_username }}@{{
-    profile_og_data.fediverse_server | replace(from='https://', to='') }}" />
-    {%- if profile_og_data.fediverse_url %}
-  <link rel="me" href="{{ profile_og_data.fediverse_url | safe }}" />
+  {%- if profile_og_data.fediverse_creator.handle and profile_og_data.fediverse_creator.domain %}
+  <meta property="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle }}@{{
+    profile_og_data.fediverse_creator.domain | replace(from='https://', to='') }}" />
+    {%- if profile_og_data.fediverse_creator.url %}
+  <link rel="me" href="{{ profile_og_data.fediverse_creator.url | safe }}" />
     {%- else %}
-  <link rel="me" href="https://{{ profile_og_data.fediverse_server |
-      replace(from='https://', to='') }}/@{{ profile_og_data.fediverse_username }}" />
+  <link rel="me" href="https://{{ profile_og_data.fediverse_creator.domain |
+      replace(from='https://', to='') }}/@{{ profile_og_data.fediverse_creator.handle }}" />
     {%- endif %}
   {%- endif %}
 {%- endif %}
@@ -253,10 +253,10 @@
     {%- endif %}
     {%- if feed_filename is ending_with("atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}{{ title_separator }}Atom Feed" />
+    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}{{ title_separator }}Atom" />
     {%- elif feed_filename is ending_with("rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}{{ title_separator }}RSS Feed" />
+    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}{{ title_separator }}RSS" />
     {%- else %}
   <link rel="alternate" title="{{ feed_title }}{{ title_separator }}{{ feed_filename }}" href="{{
     get_url(path=feed_filename, lang=lang) }}" />

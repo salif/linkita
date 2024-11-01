@@ -34,11 +34,9 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 ## Linkita features
 
-### i18n
-
-- `en`: English
-- `bg`: Bulgarian
-- `eo`: Esperanto
+- i18n
+- Author profiles
+- Improved SEO
 
 ## Installing
 
@@ -280,17 +278,17 @@ feed = true
 paginate_by = 5
 ```
 
-### `extra`
+### (`extra`)
 
 | key | type | comment |
 | --- | --- | --- |
 | `extra.math` | boolean | Enable KaTeX math formula support globally |
 | `extra.mermaid` | boolean | Enable Mermaid support globally |
 | `extra.comment` | boolean | Enable comment support globally |
-| `extra.title_separator` | boolean | Title Separator |
-| `extra.page_info` | array of strings |  |
+| `extra.title_separator` | string | Title Separator |
+| `extra.page_info` | array of strings | Show page date, reading time, author names |
 | `extra.style` | table | The theme style config |
-| `extra.profiles` | table | Profiles |
+| `extra.profiles` | table | Author profiles |
 | `extra.menu` | array of tables | The top menu |
 | `extra.footer` | table | The page footer options |
 | `extra.locales` | table | Locale codes and date formats |
@@ -299,6 +297,7 @@ paginate_by = 5
 
 Strings in `extra.page_info` that are not one of the following, will be displayed directly in the UI:
 `"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
+Default `extra.page_info` value is `["date", "date_updated", "reading_time", "authors"]`.
 
 ```toml
 [extra]
@@ -306,10 +305,10 @@ math = false
 mermaid = false
 comment = false
 title_separator = " | "
-page_info = ["date", "date_updated", "reading_time", "word_count", "authors"]
+# page_info = ["date", "date_updated", "reading_time", "word_count", "authors"]
 ```
 
-### The theme style config (`extra.style`)
+### Style config (`extra.style`)
 
 | key | type | default value | comment |
 | --- | --- | --- | --- |
@@ -335,13 +334,13 @@ header_dark_color = "#27272a"
 | `extra.profiles[username]` | table |  |
 | `extra.profiles[username].avatar_url` | string | The URL of avatar |
 | `extra.profiles[username].avatar_invert` | boolean | Invert color in dark mode |
-| `extra.profiles[username].name` | string | Default profile name |
-| `extra.profiles[username].bio` | string | Default profile bio |
+| `extra.profiles[username].name` | string | Profile name for all languages |
+| `extra.profiles[username].bio` | string | Profile bio for all languages |
 | `extra.profiles[username].email` | string | Profile email |
 | `extra.profiles[username].url` | string | Profile website |
 | `extra.profiles[username].translations` | table | Profile name and bio translations |
 | `extra.profiles[username].social` | array of tables | The social icons below the profile |
-| `extra.profiles[username].open_graph` | table |  |
+| `extra.profiles[username].open_graph` | table | Open Graph |
 
 ```toml
 [extra.profiles.your_username]
@@ -351,7 +350,7 @@ avatar_invert = true
 # bio = ""
 ```
 
-### `extra.profiles[username].translations`
+### Profile translations (`extra.profiles[username].translations`)
 
 | key | type |
 | --- | --- |
@@ -362,11 +361,11 @@ avatar_invert = true
 
 ```toml
 [extra.profiles.your_username.translations.fr]
-name = "Profile Name in French"
-bio = "Profile Bio in French"
+name = "Profile name in French"
+bio = "Profile bio in French"
 ```
 
-### `extra.profiles[username].social`
+### Social icons `extra.profiles[username].social`
 
 | key | type |
 | --- | --- |
@@ -400,15 +399,14 @@ url = "$BASE_URL/atom.xml"
 | `extra.profiles[username].open_graph.last_name` | string | A name inherited from a family or marriage and by which the individual is commonly known |
 | `extra.profiles[username].open_graph.username` | string | A short unique string to identify them |
 | `extra.profiles[username].open_graph.gender` | string | Their gender |
-| `extra.profiles[username].open_graph.fediverse_username` | string | Your username if you have a Fediverse account |
-| `extra.profiles[username].open_graph.fediverse_server` | string | Your Fediverse server |
-| `extra.profiles[username].open_graph.fediverse_url` | string |  |
-| `extra.profiles[config.author].open_graph.fb_app_id` | string | Set fb:app_id |
-| `extra.profiles[config.author].open_graph.fb_admins` | array of strings | Set fb:admins |
+| `extra.profiles[username].open_graph.fb_app_id` | string | Set fb:app_id |
+| `extra.profiles[username].open_graph.fb_admins` | array of strings | Set fb:admins |
+| `extra.profiles[username].open_graph.fediverse_creator` | table | Set if you a Fediverse account |
+| `extra.profiles[username].open_graph.fediverse_creator.handle` | string | Your Fediverse handle |
+| `extra.profiles[username].open_graph.fediverse_creator.domain` | string | Your Fediverse instance |
+| `extra.profiles[username].open_graph.fediverse_creator.url` | string | Your Fediverse account URL |
 
 See [the Open Graph protocol](https://ogp.me/).
-Some options `config.author` to a real author in the `config.toml` file,
-set a neutral profile instead.
 
 ```toml
 [extra.profiles.your_username.open_graph]
@@ -418,12 +416,14 @@ first_name = "Your first name"
 last_name = "Your last name"
 username = "Your username"
 gender = "female" # or "male"
+
+[extra.profiles.your_username.open_graph.fediverse_creator]
 # Example for "@user@mastodon.social"
-fediverse_username = "user"
-fediverse_server = "mastodon.social"
+handle = "user"
+domain = "mastodon.social"
 ```
 
-The following options are only allowed in the `config.author` profile.
+`fb_app_id` and `fb_admins` are only allowed in the `config.author`'s profile.
 In addition, `image` and `image_alt` of the profile will be used as a
 fallback open graph image for all pages.
 
@@ -431,6 +431,8 @@ fallback open graph image for all pages.
 [extra.profiles.default_author.open_graph]
 fb_app_id = "Your fb app ID"
 fb_admins = ["YOUR_USER_ID"]
+# image = ""
+# image_alt = ""
 ```
 
 ### The top menu (`extra.menu`)
@@ -447,24 +449,28 @@ fb_admins = ["YOUR_USER_ID"]
 ```toml
 [[extra.menu]]
 url = "$BASE_URL/projects/"
+# name = "Projects"
 [extra.menu.names]
 en = "Projects"
 # fr = "Projects in French"
 
 [[extra.menu]]
 url = "$BASE_URL/archive/"
+# name = "Archive"
 [extra.menu.names]
 en = "Archive"
 # fr = "Archive in French"
 
 [[extra.menu]]
 url = "$BASE_URL/tags/"
+# name = "Tags"
 [extra.menu.names]
 en = "Tags"
 # fr = "Tags in French"
 
 [[extra.menu]]
 url = "$BASE_URL/about/"
+# name = "About"
 [extra.menu.names]
 en = "About"
 # fr = "About in French"
