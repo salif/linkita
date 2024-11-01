@@ -587,6 +587,6 @@ If you want to add new translations or correct existing ones, please find anothe
 
 ## Blogs using this theme
 
-- [salif.eu](https://salif.eu): My personal website (soon)
+- [salif.eu](https://salif.eu): My personal website
 
 If you use Linkita, feel free to create a pull request to add your site to this list.
