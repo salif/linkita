@@ -4,7 +4,8 @@
   <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center">
-        <a class="text-2xl font-semibold" href="{{ get_url(path=``, lang=lang) }}">{{ config.title }}</a>
+        <a class="text-2xl font-semibold" href="{{ get_url(path=``, lang=lang) }}">{%if config.title %}{{
+          config.title }}{% else %}&sol;{% endif %}</a>
         <div
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
           role="button"
@@ -35,6 +36,8 @@
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
             href="{{ menu.url | replace(from=`$BASE_URL`, to=menu_base_url) | safe }}"
             >{% if menu.names[lang] %}{{ menu.names[lang] }}{%
+              elif menu.names_i18n and trans_data[menu.names_i18n][lang] %}{{
+                trans_data[menu.names_i18n][lang] }}{%
               elif menu.name %}{{ menu.name }}{%
               else %}{{ menu_name_default | safe }}{% endif %}</a>
         </li>

@@ -22,6 +22,7 @@
 {%- else %}
   {%- set base_url_prefix = config.base_url ~ "/" ~ lang %}
 {%- endif %}
+{%- set config_title = config.title | default(value="") %}
 {%- set title_separator = config.extra.title_separator | default(value= " | ") %}
 <head prefix="og: https://ogp.me/ns#{% if profile_username %} profile: https://ogp.me/ns/profile#{%
   elif page.date %} article: https://ogp.me/ns/article#{% endif %}">
@@ -53,7 +54,7 @@
     {%- set page_title = term.name ~ title_separator ~ page_title %}
   {%- endif %}
 {%- elif current_url %}
-  {%- set page_title = config.title %}
+  {%- set page_title = config_title %}
   {%- set page_description = config.description %}
 {%- else %}
   {%- set page_title = macros::translate(key="error_not_found", language=lang, trans_data=trans_data) %}
@@ -62,14 +63,16 @@
   <link rel="canonical" href="{{ get_url(path=`404.html`) | safe }}" />
 {%- endif %}
 
-  <title>{% if page_title == config.title %}{{ page_title }}{%
-    else %}{{ page_title ~ title_separator ~ config.title }}{% endif %}</title>
+{%- if config_title %}
+  <title>{% if page_title == config_title %}{{ page_title }}{%
+    else %}{{ page_title ~ title_separator ~ config_title }}{% endif %}</title>
   <meta property="og:title" content="{{ page_title }}" />
+  <meta property="og:site_name" content="{{ config_title }}" />
+{%- endif %}
 {%- if page_description %}
   <meta name="description" content="{{ page_description }}" />
   <meta property="og:description" content="{{ page_description }}" />
 {%- endif %}
-  <meta property="og:site_name" content="{{ config.title }}" />
 {%- if current_url %}
   {%- if page.extra.open_graph.url %}
   <meta property="og:url" content="{{ page.extra.open_graph.url }}" />
@@ -246,19 +249,21 @@
 {%- if config.generate_feeds or (taxonomy.feed and term.path) %}
   {%- for feed_filename in config.feed_filenames %}
     {%- if taxonomy.feed and term.path %}
-      {%- set feed_title = page_title %}
+      {%- set feed_title = page_title ~ title_separator %}
       {%- set feed_filename = term.path ~ feed_filename %}
+    {%- elif config_title %}
+      {%- set feed_title = config_title ~ title_separator %}
     {%- else %}
-      {%- set feed_title = config.title %}
+      {%- set feed_title = "" %}
     {%- endif %}
     {%- if feed_filename is ending_with("atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}{{ title_separator }}Atom" />
+    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}Atom" />
     {%- elif feed_filename is ending_with("rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}{{ title_separator }}RSS" />
+    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}RSS" />
     {%- else %}
-  <link rel="alternate" title="{{ feed_title }}{{ title_separator }}{{ feed_filename }}" href="{{
+  <link rel="alternate" title="{{ feed_title }}{{ feed_filename }}" href="{{
     get_url(path=feed_filename, lang=lang) }}" />
     {%- endif %}
   {%- endfor %}

@@ -1,4 +1,204 @@
 {
+  "common_about": {
+    "en": "About",
+    "bg": "Относно",
+    "eo": "Pri"
+  },
+  "common_about_me": {
+    "en": "About Me",
+    "bg": "За мен",
+    "eo": "Pri mi"
+  },
+  "common_about_us": {
+    "en": "About Us",
+    "bg": "За нас",
+    "eo": "Pri ni"
+  },
+  "common_archive": {
+    "en": "Archive",
+    "bg": "Архив",
+    "eo": "Arkivo"
+  },
+  "common_archives": {
+    "en": "Archives",
+    "bg": "Архиви",
+    "eo": "Arkivoj"
+  },
+  "common_article": {
+    "en": "Article",
+    "bg": "Статия",
+    "eo": "Artikolo"
+  },
+  "common_articles": {
+    "en": "Articles",
+    "bg": "Статии",
+    "eo": "Artikoloj"
+  },
+  "common_author": {
+    "en": "Author",
+    "bg": "Автор",
+    "eo": "Aŭtoro"
+  },
+  "common_authors": {
+    "en": "Authors",
+    "bg": "Автори",
+    "eo": "Aŭtoroj"
+  },
+  "common_blog": {
+    "en": "Blog",
+    "bg": "Блог",
+    "eo": "Blogo"
+  },
+  "common_blogs": {
+    "en": "Blogs",
+    "bg": "Блогове",
+    "eo": "Blogoj"
+  },
+  "common_category": {
+    "en": "Category",
+    "bg": "Категория",
+    "eo": "Kategorio"
+  },
+  "common_categories": {
+    "en": "Categories",
+    "bg": "Категории",
+    "eo": "Kategorioj"
+  },
+  "common_code": {
+    "en": "Code",
+    "bg": "Код",
+    "eo": "Kodo"
+  },
+  "common_comment": {
+    "en": "Comment",
+    "bg": "Коментар",
+    "eo": "Komento"
+  },
+  "common_comments": {
+    "en": "Comments",
+    "bg": "Коментари",
+    "eo": "Komentoj"
+  },
+  "common_contacts": {
+    "en": "Contacts",
+    "bg": "Контакти",
+    "eo": "Kontaktoj"
+  },
+  "common_do_contact_me": {
+    "en": "Contact Me",
+    "bg": "Контакти",
+    "eo": "Кontakti min"
+  },
+  "common_do_contact_us": {
+    "en": "Contact Us",
+    "bg": "Контакти",
+    "eo": "Kontakti nin"
+  },
+  "common_do_follow": {
+    "en": "Follow",
+    "bg": "Последвайте",
+    "eo": "Sekvi"
+  },
+  "common_do_install": {
+    "en": "Install",
+    "bg": "Инсталирайте",
+    "eo": "Instali"
+  },
+  "common_do_read_more": {
+    "en": "Read more",
+    "bg": "Прочетете повече",
+    "eo": "Legu pli"
+  },
+  "common_do_search": {
+    "en": "Search",
+    "bg": "Търсене",
+    "eo": "Serĉi"
+  },
+  "common_do_subscribe": {
+    "en": "Subscribe",
+    "bg": "Абониране",
+    "eo": "Aboni"
+  },
+  "common_feed": {
+    "en": "Feed",
+    "bg": "Емисия",
+    "eo": "Fluo"
+  },
+  "common_feeds": {
+    "en": "Feeds",
+    "bg": "Емисии",
+    "eo": "Fluoj"
+  },
+  "common_forum": {
+    "en": "Forum",
+    "bg": "Форум",
+    "eo": "Forumo"
+  },
+  "common_home": {
+    "en": "Home",
+    "bg": "Начало",
+    "eo": "Hejmo"
+  },
+  "common_links": {
+    "en": "Links",
+    "bg": "Връзки",
+    "eo": "Ligiloj"
+  },
+  "common_more": {
+    "en": "More",
+    "bg": "Още",
+    "eo": "Pli"
+  },
+  "common_news": {
+    "en": "News",
+    "bg": "Новини",
+    "eo": "Novaĵoj"
+  },
+  "common_photos": {
+    "en": "Photos",
+    "bg": "Снимки",
+    "eo": "Fotoj"
+  },
+  "common_preferences": {
+    "en": "Preferences",
+    "bg": "Предпочитания",
+    "eo": "Preferoj"
+  },
+  "common_project": {
+    "en": "Project",
+    "bg": "Проект",
+    "eo": "Projekto"
+  },
+  "common_projects": {
+    "en": "Projects",
+    "bg": "Проекти",
+    "eo": "Projektoj"
+  },
+  "common_settings": {
+    "en": "Settings",
+    "bg": "Настройки",
+    "eo": "Agordoj"
+  },
+  "common_source_code": {
+    "en": "Source code",
+    "bg": "Изходен код",
+    "eo": "Fontkodo"
+  },
+  "common_tag": {
+    "en": "Tag",
+    "bg": "Етикет",
+    "eo": "Etikedo"
+  },
+  "common_tags": {
+    "en": "Tags",
+    "bg": "Етикети",
+    "eo": "Etikedoj"
+  },
+  "common_team": {
+    "en": "Team",
+    "bg": "Екип",
+    "eo": "Teamo"
+  },
   "language_name_en": {
     "en": "English",
     "bg": "английски",

@@ -15,12 +15,6 @@ const applyDark = (isDark) => {
   }
 };
 
-const setDark = (isDark) => {
-  applyDark(isDark);
-  localStorage.setItem("dark", isDark ? "dark" : "light");
-  console.debug("isDark:", isDark);
-};
-
 function loaded() {
   // mobile menu
   const btnMenu = document.querySelector(".btn-menu");
@@ -31,7 +25,9 @@ function loaded() {
   // manual switch
   const btnDark = document.querySelector(".btn-dark");
   btnDark?.addEventListener("click", () => {
-    setDark(!htmlClass.contains("dark"));
+    const isDark = !htmlClass.contains("dark");
+    applyDark(isDark);
+    localStorage.setItem("dark", isDark ? "dark" : "light");
   });
 
   htmlClass.remove("not-ready");
@@ -50,7 +46,7 @@ if (darkVal) {
 
 // listen system
 darkScheme.addEventListener("change", (event) => {
-  setDark(event.matches);
+  applyDark(event.matches);
 });
 
 if (document.readyState === "loading") {

@@ -10,7 +10,7 @@
     <a class="link" href="{{ get_url(path=``, lang=lang) }}">
       {% if config.extra.footer.author_name %}{{ config.extra.footer.author_name }}{%
         elif config.author %}{{ macros::get_profile_name(username=config.author) }}{%
-        else %}{{ config.title }}{% endif %}
+        elif config.title %}{{ config.title }}{% else %}&sol;{% endif %}
     </a>
     {% if config.extra.footer.license_name %} |<!---->
     {% if config.extra.footer.license_url %}<!---->

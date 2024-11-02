@@ -63,8 +63,6 @@ Alternatively, use this command: `./justfile switch-to-latest`.
 theme = "linkita"
 ```
 
-Also, make sure you have `title` and `default_language` set in your `config.toml` file.
-
 ## Updating
 
 ```sh
@@ -169,7 +167,7 @@ authors = ["author_username"]
 # authors = ["author_username", "author2_username", etc.]
 ```
 
-#### Option 2: Using `config.author` and `page.authors`
+#### Option 2: Using `page.authors`
 
 *TODO*
 
@@ -209,10 +207,10 @@ For example, to load a custom script, you can add a `templates/injects/head.html
 
 ## Configuring
 
-Configuration options used by this theme.
-
-Most of them are optional. Copy-paste the examples into your `config.toml` file
+Copy and paste the examples into your `config.toml` file
 and comment out the options you don't use instead of setting empty values.
+
+All configuration options used by this theme are listed in tables.
 
 | key | type |
 | --- | --- |
@@ -333,6 +331,7 @@ header_dark_color = "#27272a"
 | --- | --- | --- |
 | `extra.profiles[username]` | table |  |
 | `extra.profiles[username].avatar_url` | string | The URL of avatar |
+| `extra.profiles[username].avatar_alt` | string | A description of what is in the avatar |
 | `extra.profiles[username].avatar_invert` | boolean | Invert color in dark mode |
 | `extra.profiles[username].name` | string | Profile name for all languages |
 | `extra.profiles[username].bio` | string | Profile bio for all languages |
