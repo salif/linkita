@@ -31,6 +31,19 @@ function loaded() {
   });
 
   htmlClass.remove("not-ready");
+
+  const pageTrans = document.getElementById("linkita-page-trans");
+  const userLanguage = navigator.language || navigator.userLanguage;
+  if (userLanguage && pageTrans) {
+    const userLanguageCode = userLanguage.split("-")[0];
+    const pageTransLinks = pageTrans.querySelectorAll("[hreflang^='" + userLanguageCode + "']");
+    if (pageTransLinks.length > 0) {
+      pageTrans.classList.remove("hidden");
+    }
+    for (let i = 0; i < pageTransLinks.length; i++) {
+      pageTransLinks[i].classList.remove("hidden");
+    }
+  }
 }
 
 // init

@@ -6,24 +6,20 @@
     </summary>
     <div class="px-2">
       <ul>
-        {% for h1 in page.toc %}
+        {%- for h1 in page.toc %}
         <li>
-          <a class="no-underline hover:underline" href="{{ h1.permalink | safe }}"
-            >{{ h1.title }}</a
-          >
-          {% if h1.children %}
+          <a class="no-underline hover:underline" href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+          {%- if h1.children %}
           <ul>
-            {% for h2 in h1.children %}
+            {%- for h2 in h1.children %}
             <li>
-              <a class="no-underline hover:underline" href="{{ h2.permalink | safe }}"
-                >{{ h2.title }}</a
-              >
+              <a class="no-underline hover:underline" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
             </li>
-            {% endfor %}
+            {%- endfor %}
           </ul>
-          {% endif %}
+          {%- endif %}
         </li>
-        {% endfor %}
+        {%- endfor %}
       </ul>
     </div>
   </details>

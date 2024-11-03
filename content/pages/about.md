@@ -1,5 +1,5 @@
 +++
-title = "Относно"
+title = "За мен"
 path = "about"
 +++
 

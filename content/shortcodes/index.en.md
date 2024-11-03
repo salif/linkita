@@ -168,4 +168,4 @@ It's from [Zola documentation](https://www.getzola.org/documentation/content/ima
 {{/* gallery() */}}
 ```
 
-{{ gallery() }}
+{{ gallery(alt="Demo image for the gallery") }}

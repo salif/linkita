@@ -1,6 +1,5 @@
-<header
-  class="{% if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
->
+<header class="{%
+  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full">
   <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center">
@@ -34,8 +33,8 @@
         <li>
           <a
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
-            href="{{ menu.url | replace(from=`$BASE_URL`, to=menu_base_url) | safe }}"
-            >{% if menu.names[lang] %}{{ menu.names[lang] }}{%
+            href="{{ menu.url | replace(from=`$BASE_URL`, to=menu_base_url) | safe }}">{%
+              if menu.names[lang] %}{{ menu.names[lang] }}{%
               elif menu.names_i18n and trans_data[menu.names_i18n][lang] %}{{
                 trans_data[menu.names_i18n][lang] }}{%
               elif menu.name %}{{ menu.name }}{%

@@ -199,20 +199,27 @@
     "bg": "Екип",
     "eo": "Teamo"
   },
-  "language_name_en": {
-    "en": "English",
-    "bg": "английски",
-    "eo": "Angla"
+  "language_names": {
+    "en": {
+      "en": "English",
+      "bg": "английски",
+      "eo": "Angla"
+    },
+    "bg": {
+      "en": "Bulgarian",
+      "bg": "български",
+      "eo": "Bulgara"
+    },
+    "eo": {
+      "en": "Esperanto",
+      "bg": "есперанто",
+      "eo": "Esperanto"
+    }
   },
-  "language_name_bg": {
-    "en": "Bulgarian",
-    "bg": "български",
-    "eo": "Bulgara"
-  },
-  "language_name_eo": {
-    "en": "Esperanto",
-    "bg": "есперанто",
-    "eo": "Esperanto"
+  "word_translations": {
+    "en": "Translations",
+    "bg": "Преводи",
+    "eo": "Tradukoj"
   },
   "taxonomy_tags": {
     "en": "tags",

@@ -99,7 +99,7 @@ eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
 # My profile
 [extra.profiles.salif]
 name = "Salif"
-bio = "Hi, I'm the author"
+bio = "Hi! I'm the author."
 email = "mail@salif.eu"
 url = "https://salif.eu"
 social = [
@@ -110,11 +110,11 @@ social = [
 ]
 [extra.profiles.salif.translations.bg]
 name = "Салиф"
-bio = "Здравейте, аз съм авторът тук"
+bio = "Здравейте! Аз съм авторът тук"
 url = "https://salif.eu/bg/"
 [extra.profiles.salif.translations.eo]
 name = "Salif"
-bio = "Saluton, mi estas la aŭtoro"
+bio = "Saluton! Mi estas la aŭtoro"
 url = "https://salif.eu/eo/"
 [extra.profiles.salif.open_graph]
 first_name = "Salif"

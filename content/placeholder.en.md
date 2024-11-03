@@ -2,7 +2,7 @@
 title = "Placeholder Text"
 date = 2023-10-20
 updated = 2024-10-24
-description = "Lorem Ipsum Dolor Si Amet"
+description = "Lorem Ipsum Dolor Si Amet."
 [taxonomies]
 tags = ["markdown"]
 authors = ["kita"]

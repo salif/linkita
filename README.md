@@ -404,7 +404,7 @@ url = "$BASE_URL/atom.xml"
 | `extra.profiles[username].open_graph.fediverse_creator.handle` | string | Your Fediverse handle |
 | `extra.profiles[username].open_graph.fediverse_creator.domain` | string | Your Fediverse instance |
 | `extra.profiles[username].open_graph.fediverse_creator.url` | string | Your Fediverse account URL |
-| `extra.profiles[username].open_graph.translations[lang].image_alt` | A description of what is in the social image |
+| `extra.profiles[username].open_graph.translations[lang].image_alt` | string | A description of what is in the social image |
 
 See [the Open Graph protocol](https://ogp.me/).
 

@@ -1,5 +1,5 @@
 +++
-title = "Проекти"
+title = "Моите проекти"
 path = "projects"
 template = "projects.html"
 +++

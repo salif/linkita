@@ -1,5 +1,5 @@
 +++
-title = "Pri"
+title = "Pri mi"
 path = "/eo/about"
 +++
 

@@ -169,4 +169,4 @@ La mallongigo `gallery()` estas tre simpla nur-HTML-a klakebla bildgalerio, kiu 
 {{/* gallery() */}}
 ```
 
-{{ gallery() }}
+{{ gallery(alt="Demobildo por la galerio") }}

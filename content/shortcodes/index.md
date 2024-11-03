@@ -169,5 +169,5 @@ sequenceDiagram
 {{/* gallery() */}}
 ```
 
-{{ gallery() }}
+{{ gallery(alt="Демо изображение за галерията") }}
 ```
