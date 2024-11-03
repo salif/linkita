@@ -14,8 +14,7 @@
     <img
       class="h-auto w-full rounded-lg"
       src="{{ get_url(path=page.extra.cover.image) }}"
-      alt="{{ page.extra.cover.alt | default(value='cover') }}"
-    />
+      {% if page.extra.cover.alt %}alt="{{ page.extra.cover.alt }}"{% endif %} />
   </figure>
   {% endif %}
 

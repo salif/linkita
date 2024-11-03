@@ -1,12 +1,11 @@
-<!-- Pages -->
-{% if pages is defined %}<!---->
-{% elif paginator is defined %}<!---->
-{% set pages = paginator.pages %}<!---->
-{% elif term is defined %}<!---->
-{% set pages = term.pages %}<!---->
-{% elif section is defined %}<!---->
-{% set pages = section.pages %}<!---->
-{% endif %}<!---->
+{%- if pages is defined %}
+{%- elif paginator is defined %}
+  {%- set pages = paginator.pages %}
+{%- elif term is defined %}
+  {%- set pages = term.pages %}
+{%- elif section is defined %}
+  {%- set pages = section.pages %}
+{%- endif %}
 
 {% for page in pages %}
 <section
@@ -17,8 +16,7 @@
     <img
       class="h-auto w-full rounded-lg"
       src="{{ get_url(path=page.extra.cover.image) }}"
-      alt="{{ page.extra.cover.alt | default(value='cover') }}"
-    />
+      {% if page.extra.cover.alt %}alt="{{ page.extra.cover.alt }}"{% endif %} />
   </figure>
   {% endif %}<!---->
 

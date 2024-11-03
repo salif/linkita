@@ -65,37 +65,41 @@ menu = [
 # Your profile
 [extra.profiles.your_username]
 avatar_url = "icons/github.svg"
-# avatar_alt = ""
 avatar_invert = true
-# name = "Default Name"
-# bio = "Default Bio"
+# avatar_alt = "Default alt text"
+# name = "Default name"
+# bio = "Default bio"
 social = [
   { name = "codeberg", url = "https://codeberg.org/salif/linkita" },
   { name = "github", url = "https://github.com/salif/linkita" },
   { name = "rss", url = "$BASE_URL/atom.xml" },
 ]
-
 [extra.profiles.your_username.translations]
 [extra.profiles.your_username.translations.en]
 name = "Linkita - Zola Theme"
 bio = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
+avatar_alt = "Demo profile avatar."
 [extra.profiles.your_username.translations.bg]
 name = "Линкита - Тема за Зола"
 bio = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+avatar_alt = "Демонстративен аватар за профила."
 [extra.profiles.your_username.translations.eo]
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
-
+avatar_alt = "Demoprofila avataro."
 [extra.profiles.your_username.open_graph]
 image = "images/screenshot.png"
-image_alt = "A screenshot of this website"
+image_alt = "A screenshot of this website."
 # fb_app_id = ""
 # fb_admins = ["USER_ID"]
+[extra.profiles.your_username.open_graph.translations]
+bg = { image_alt = "Екранна снимка на този сайт." }
+eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
 
 # My profile
 [extra.profiles.salif]
 name = "Salif"
-bio = "Hi, I'm Salif"
+bio = "Hi, I'm the author"
 email = "mail@salif.eu"
 url = "https://salif.eu"
 social = [
@@ -106,9 +110,11 @@ social = [
 ]
 [extra.profiles.salif.translations.bg]
 name = "Салиф"
+bio = "Здравейте, аз съм авторът тук"
 url = "https://salif.eu/bg/"
 [extra.profiles.salif.translations.eo]
 name = "Salif"
+bio = "Saluton, mi estas la aŭtoro"
 url = "https://salif.eu/eo/"
 [extra.profiles.salif.open_graph]
 first_name = "Salif"

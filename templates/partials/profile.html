@@ -32,7 +32,9 @@
     class="not-prose mr-5 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow dark:bg-white/[15%]">
     <img
       class="{% if profile_data.avatar_invert %}dark:invert{% endif %} my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin"
-      src="{{ get_url(path=profile_data.avatar_url) }}" {%if profile_data.avatar_alt %}alt="{{ profile_data.avatar_alt }}"{% endif %} />
+      src="{{ get_url(path=profile_data.avatar_url) }}"{%
+        if profile_data.translations[lang].avatar_alt %} alt="{{ profile_data.translations[lang].avatar_alt }}"{%
+        elif profile_data.avatar_alt %} alt="{{ profile_data.avatar_alt }}"{% endif %} />
   </div>
   {%- endif %}<!---->
 

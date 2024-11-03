@@ -48,7 +48,13 @@ git submodule add https://codeberg.org/salif/linkita.git themes/linkita
 
 Alternatively, clone the repository: `git clone https://codeberg.org/salif/linkita.git themes/linkita`.
 
-2. It is recommended to switch from the `linkita` branch to the latest release:
+2. Set `linkita` as your theme in your `config.toml` file.
+
+```toml
+theme = "linkita"
+```
+
+3. It is recommended to switch from the `linkita` branch to the latest release:
 
 ```sh
 cd themes/linkita
@@ -56,12 +62,6 @@ npm run switch-to-latest
 ```
 
 Alternatively, use this command: `./justfile switch-to-latest`.
-
-3. Set `linkita` as your theme in your `config.toml` file.
-
-```toml
-theme = "linkita"
-```
 
 ## Updating
 
@@ -139,11 +139,31 @@ extra:
 | `video_height` | string |  | Height of the video in pixels |
 | `url` | string |  | Set only if different from canonical page URL |
 
+### Home page profile
+
+Create `content/_index.md` file in your blog and set `extra.profile` to your username:
+
+```toml
++++
+sort_by = "date"
+paginate_by = 5
+[extra]
+profile = "your_username"
++++
+```
+
+Do it for each language in your blog, for example for French, the file name is `content/_index.fr.md`.
+
+### Profiles for authors
+
+You should add `extra.profiles.author_username` table in your `config.toml` file for each author.
+Replace `author_username` with author's username.
+
 ### Authors
 
 #### Option 1: Using Taxonomies
 
-You should set taxonomies in every post.
+If you choose this option you should set taxonomies in each post.
 
 Examples:
 
@@ -170,26 +190,6 @@ authors = ["author_username"]
 #### Option 2: Using `page.authors`
 
 *TODO*
-
-### Home page profile
-
-Create `content/_index.md` file in your blog and set `extra.profile` to your username:
-
-```toml
-+++
-sort_by = "date"
-paginate_by = 5
-[extra]
-profile = "your_username"
-+++
-```
-
-Do it for each language in your blog, for example for French, the file name is `content/_index.fr.md`.
-
-### Profiles for authors
-
-You should add `extra.profiles.author_username` table in your `config.toml` file for each author.
-Replace `author_username` with author's username.
 
 ### Inject support
 
@@ -260,8 +260,8 @@ Add more languages ​​by replacing `fr` from the example with the language co
 
 ```toml
 [languages.fr]
-title = "Site Title in French"
-description = "Site Description in French"
+title = "Site title in French"
+description = "Site description in French"
 generate_feeds = true
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 
@@ -275,8 +275,6 @@ name = "authors"
 feed = true
 paginate_by = 5
 ```
-
-### (`extra`)
 
 | key | type | comment |
 | --- | --- | --- |
@@ -344,6 +342,7 @@ header_dark_color = "#27272a"
 ```toml
 [extra.profiles.your_username]
 avatar_url = "icons/github.svg"
+avatar_alt = ""
 avatar_invert = true
 # name = ""
 # bio = ""
@@ -357,6 +356,7 @@ avatar_invert = true
 | `extra.profiles[username].translations[lang].name` | string |
 | `extra.profiles[username].translations[lang].bio` | string |
 | `extra.profiles[username].translations[lang].url` | string |
+| `extra.profiles[username].translations[lang].avatar_alt` | string |
 
 ```toml
 [extra.profiles.your_username.translations.fr]
@@ -404,6 +404,7 @@ url = "$BASE_URL/atom.xml"
 | `extra.profiles[username].open_graph.fediverse_creator.handle` | string | Your Fediverse handle |
 | `extra.profiles[username].open_graph.fediverse_creator.domain` | string | Your Fediverse instance |
 | `extra.profiles[username].open_graph.fediverse_creator.url` | string | Your Fediverse account URL |
+| `extra.profiles[username].open_graph.translations[lang].image_alt` | A description of what is in the social image |
 
 See [the Open Graph protocol](https://ogp.me/).
 
@@ -442,8 +443,11 @@ fb_admins = ["YOUR_USER_ID"]
 | `extra.menu[].name` | string |
 | `extra.menu[].names` | table |
 | `extra.menu[].names[lang]` | string |
+| `extra.menu[].names_i18n` | string |
 
 `$BASE_URL` will be automatically translated into the language specific base url.
+You can use `names_i18n` instead of `names[lang]`, see the `static/i18n.json` file,
+set `names_i18n` to a `common_` key.
 
 ```toml
 [[extra.menu]]
@@ -586,6 +590,6 @@ If you want to add new translations or correct existing ones, please find anothe
 
 ## Blogs using this theme
 
-- [salif.eu](https://salif.eu): My personal website
+- [salif.eu](https://salif.eu): Personal website
 
 If you use Linkita, feel free to create a pull request to add your site to this list.

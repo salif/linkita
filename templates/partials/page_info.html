@@ -10,13 +10,13 @@
 {%- for page_info_entry in page_info %}
   {%- if page_info_entry == "date" %}
     {%- if page.date %}
-  <time datetime="{{ page.date }}">{% if config.extra.locales[lang].locale %}{{
+  <time datetime="{{ page.date | date(format='%+') }}">{% if config.extra.locales[lang].locale %}{{
     page.date | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
     page.date | date(format=date_format) }}{% endif %}</time>
     {%- endif %}
   {%- elif page_info_entry == "date_updated" %}
     {%- if page.updated and page.updated != page.date -%}
-  &comma; <time datetime="{{ page.updated }}">{% if config.extra.locales[lang].locale %}{{
+  &comma; <time datetime="{{ page.updated | date(format='%+') }}">{% if config.extra.locales[lang].locale %}{{
     page.updated | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
     page.updated | date(format=date_format) }}{% endif %}</time>
     {%- endif %}
