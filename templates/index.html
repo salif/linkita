@@ -1,7 +1,9 @@
 {% import "macros.html" as macros %}
 {%- set trans_data = load_data(path="i18n.json", format="json") -%}
 <!DOCTYPE html>
-<html class="not-ready overflow-y-scroll lg:text-base" lang="{{ lang }}">
+<html class="not-ready overflow-y-scroll lg:text-base"{%
+  if config.extra.locales[lang].art_x_lang %} lang="{{ config.extra.locales[lang].art_x_lang }}"{%
+  else %} lang="{{ lang }}"{% endif %}>
   {% include "partials/head.html" %}
   <body class="text-black duration-200 ease-out dark:text-white">
     {% include "partials/header.html" %}

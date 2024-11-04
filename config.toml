@@ -41,6 +41,14 @@ taxonomies = [
   { name = "authors", feed = true, paginate_by = 5 },
 ]
 
+[languages.glb]
+title = "Linkita"
+generate_feeds = false
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
+
 [extra]
 math = false
 mermaid = false
@@ -50,7 +58,7 @@ menu = [
   { url = "$BASE_URL/projects/", name = "Projects", names_i18n = "common_projects" },
   { url = "$BASE_URL/archive/", name = "Archive", names_i18n = "common_archive" },
   { url = "$BASE_URL/tags/", name = "Tags", names_i18n = "common_tags" },
-  { url = "$BASE_URL/about/", name = "About", names = { en = "About", bg = "Относно", eo = "Pri" } },
+  { url = "$BASE_URL/about/", name = "About", names_i18n = "common_about" },
 ]
 
 [extra.style]
@@ -155,6 +163,9 @@ date_format_archive = "%d %b"
 locale = "eo"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
+
+[extra.locales.glb]
+art_x_lang = "art-x-globasa"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"

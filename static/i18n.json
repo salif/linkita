@@ -2,122 +2,146 @@
   "common_about": {
     "en": "About",
     "bg": "Относно",
-    "eo": "Pri"
+    "eo": "Pri",
+    "glb": "Tem"
   },
   "common_about_me": {
     "en": "About Me",
     "bg": "За мен",
-    "eo": "Pri mi"
+    "eo": "Pri mi",
+    "glb": "Tem mi"
   },
   "common_about_us": {
     "en": "About Us",
     "bg": "За нас",
-    "eo": "Pri ni"
+    "eo": "Pri ni",
+    "glb": "Tem imi"
   },
   "common_archive": {
     "en": "Archive",
     "bg": "Архив",
-    "eo": "Arkivo"
+    "eo": "Arkivo",
+    "glb": "Arcivo"
   },
   "common_archives": {
     "en": "Archives",
     "bg": "Архиви",
-    "eo": "Arkivoj"
+    "eo": "Arkivoj",
+    "glb": "Arcivo"
   },
   "common_article": {
     "en": "Article",
     "bg": "Статия",
-    "eo": "Artikolo"
+    "eo": "Artikolo",
+    "glb": "Makale"
   },
   "common_articles": {
     "en": "Articles",
     "bg": "Статии",
-    "eo": "Artikoloj"
+    "eo": "Artikoloj",
+    "glb": "Makale"
   },
   "common_author": {
     "en": "Author",
     "bg": "Автор",
-    "eo": "Aŭtoro"
+    "eo": "Aŭtoro",
+    "glb": "Eskriyen"
   },
   "common_authors": {
     "en": "Authors",
     "bg": "Автори",
-    "eo": "Aŭtoroj"
+    "eo": "Aŭtoroj",
+    "glb": "Eskriyen"
   },
   "common_blog": {
     "en": "Blog",
     "bg": "Блог",
-    "eo": "Blogo"
+    "eo": "Blogo",
+    "glb": "Blogu"
   },
   "common_blogs": {
     "en": "Blogs",
     "bg": "Блогове",
-    "eo": "Blogoj"
+    "eo": "Blogoj",
+    "glb": "Blogu"
   },
   "common_category": {
     "en": "Category",
     "bg": "Категория",
-    "eo": "Kategorio"
+    "eo": "Kategorio",
+    "glb": "Klase"
   },
   "common_categories": {
     "en": "Categories",
     "bg": "Категории",
-    "eo": "Kategorioj"
+    "eo": "Kategorioj",
+    "glb": "Klase"
   },
   "common_code": {
     "en": "Code",
     "bg": "Код",
-    "eo": "Kodo"
+    "eo": "Kodo",
+    "glb": "Kodi"
   },
   "common_comment": {
     "en": "Comment",
     "bg": "Коментар",
-    "eo": "Komento"
+    "eo": "Komento",
+    "glb": "Komenta"
   },
   "common_comments": {
     "en": "Comments",
     "bg": "Коментари",
-    "eo": "Komentoj"
+    "eo": "Komentoj",
+    "glb": "Komenta"
   },
   "common_contacts": {
     "en": "Contacts",
     "bg": "Контакти",
-    "eo": "Kontaktoj"
+    "eo": "Kontaktoj",
+    "glb": "Kontato"
   },
   "common_do_contact_me": {
     "en": "Contact Me",
     "bg": "Контакти",
-    "eo": "Кontakti min"
+    "eo": "Kontakti min",
+    "glb": "Kontato mi"
   },
   "common_do_contact_us": {
     "en": "Contact Us",
     "bg": "Контакти",
-    "eo": "Kontakti nin"
+    "eo": "Kontakti nin",
+    "glb": "Kontato imi"
   },
   "common_do_follow": {
     "en": "Follow",
     "bg": "Последвайте",
-    "eo": "Sekvi"
+    "eo": "Sekvi",
+    "glb": "Folo"
   },
   "common_do_install": {
     "en": "Install",
     "bg": "Инсталирайте",
-    "eo": "Instali"
+    "eo": "Instali",
+    "glb": "Istala"
   },
   "common_do_read_more": {
     "en": "Read more",
     "bg": "Прочетете повече",
-    "eo": "Legu pli"
+    "eo": "Legu pli",
+    "glb": "Doxo max"
   },
   "common_do_search": {
     "en": "Search",
     "bg": "Търсене",
-    "eo": "Serĉi"
+    "eo": "Serĉi",
+    "glb": "Xerca"
   },
   "common_do_subscribe": {
     "en": "Subscribe",
     "bg": "Абониране",
-    "eo": "Aboni"
+    "eo": "Aboni",
+    "glb": "Abone"
   },
   "common_feed": {
     "en": "Feed",
@@ -132,52 +156,62 @@
   "common_forum": {
     "en": "Forum",
     "bg": "Форум",
-    "eo": "Forumo"
+    "eo": "Forumo",
+    "glb": "Forum"
   },
   "common_home": {
     "en": "Home",
     "bg": "Начало",
-    "eo": "Hejmo"
+    "eo": "Hejmo",
+    "glb": "Ogar"
   },
   "common_links": {
     "en": "Links",
     "bg": "Връзки",
-    "eo": "Ligiloj"
+    "eo": "Ligiloj",
+    "glb": "Linkutul"
   },
   "common_more": {
     "en": "More",
     "bg": "Още",
-    "eo": "Pli"
+    "eo": "Pli",
+    "glb": "Max to"
   },
   "common_news": {
     "en": "News",
     "bg": "Новини",
-    "eo": "Novaĵoj"
+    "eo": "Novaĵoj",
+    "glb": "Haberi"
   },
   "common_photos": {
     "en": "Photos",
     "bg": "Снимки",
-    "eo": "Fotoj"
+    "eo": "Fotoj",
+    "glb": "Foto"
   },
   "common_preferences": {
     "en": "Preferences",
     "bg": "Предпочитания",
-    "eo": "Preferoj"
+    "eo": "Preferoj",
+    "glb": "Preferi"
   },
   "common_project": {
     "en": "Project",
     "bg": "Проект",
-    "eo": "Projekto"
+    "eo": "Projekto",
+    "glb": "Projeto"
   },
   "common_projects": {
     "en": "Projects",
     "bg": "Проекти",
-    "eo": "Projektoj"
+    "eo": "Projektoj",
+    "glb": "Projeto"
   },
   "common_settings": {
     "en": "Settings",
     "bg": "Настройки",
-    "eo": "Agordoj"
+    "eo": "Agordoj",
+    "glb": "Setin"
   },
   "common_source_code": {
     "en": "Source code",
@@ -187,54 +221,50 @@
   "common_tag": {
     "en": "Tag",
     "bg": "Етикет",
-    "eo": "Etikedo"
+    "eo": "Etikedo",
+    "glb": "Label"
   },
   "common_tags": {
     "en": "Tags",
     "bg": "Етикети",
-    "eo": "Etikedoj"
+    "eo": "Etikedoj",
+    "glb": "Label"
   },
   "common_team": {
     "en": "Team",
     "bg": "Екип",
-    "eo": "Teamo"
+    "eo": "Teamo",
+    "glb": "Tim"
   },
   "language_names": {
-    "en": {
-      "en": "English",
-      "bg": "английски",
-      "eo": "Angla"
-    },
-    "bg": {
-      "en": "Bulgarian",
-      "bg": "български",
-      "eo": "Bulgara"
-    },
-    "eo": {
-      "en": "Esperanto",
-      "bg": "есперанто",
-      "eo": "Esperanto"
-    }
+    "en": "English",
+    "bg": "български",
+    "eo": "Esperanto",
+    "glb": "Globasa"
   },
   "word_translations": {
     "en": "Translations",
     "bg": "Преводи",
-    "eo": "Tradukoj"
+    "eo": "Tradukoj",
+    "glb": "Basatayti"
   },
   "taxonomy_tags": {
     "en": "tags",
     "bg": "етикети",
-    "eo": "etikedoj"
+    "eo": "etikedoj",
+    "glb": "label"
   },
   "taxonomy_categories": {
     "en": "categories",
     "bg": "категории",
-    "eo": "kategorioj"
+    "eo": "kategorioj",
+    "glb": "klase"
   },
   "taxonomy_authors": {
     "en": "authors",
     "bg": "автори",
-    "eo": "aŭtoroj"
+    "eo": "aŭtoroj",
+    "glb": "eskriyen"
   },
   "footer_powered_by": {
     "en": "Powered by",
@@ -244,51 +274,61 @@
   "footer_and": {
     "en": "and",
     "bg": "и",
-    "eo": "kaj"
+    "eo": "kaj",
+    "glb": "ji"
   },
   "footer_zola": {
     "en": "Zola",
     "bg": "Зола",
-    "eo": "Zola"
+    "eo": "Zola",
+    "glb": "Zola"
   },
   "footer_linkita": {
     "en": "Linkita",
     "bg": "Линкита",
-    "eo": "Linkita"
+    "eo": "Linkita",
+    "glb": "Linkita"
   },
   "word_prev_page": {
     "en": "← Prev Page",
     "bg": "← Предишна страница",
-    "eo": "← Antaŭa Paĝo"
+    "eo": "← Antaŭa paĝo",
+    "glb": "← sayfa"
   },
   "word_next_page": {
     "en": "Next Page →",
     "bg": "Следваща страница →",
-    "eo": "Sekva Paĝo →"
+    "eo": "Sekva paĝo →",
+    "glb": "sayfa →"
   },
   "word_toc": {
     "en": "Table of Contents",
     "bg": "Съдържание",
-    "eo": "Enhavtabelo"
+    "eo": "Enhavtabelo",
+    "glb": "Inhare"
   },
   "word_minutes": {
     "en": "min",
     "bg": "мин",
-    "eo": "min"
+    "eo": "min",
+    "glb": "min"
   },
   "word_words": {
     "en": "words",
     "bg": "думи",
-    "eo": "vortoj"
+    "eo": "vortoj",
+    "glb": "lexi"
   },
   "word_more": {
     "en": "More >>",
     "bg": "Още >>",
-    "eo": "Pli >>"
+    "eo": "Pli >>",
+    "glb": "Max to >>"
   },
   "error_not_found": {
     "en": "404: Page not found!",
     "bg": "404: Страницата не е намерена!",
-    "eo": "404: ne trovita!"
+    "eo": "404: ne trovita!",
+    "glb": "404"
   }
 }

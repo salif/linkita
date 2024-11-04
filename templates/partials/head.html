@@ -154,7 +154,9 @@
     {%- elif config.extra.locales[og_locale_alt.lang].locale and config.extra.locales[og_locale_alt.lang].locale %}
   <meta property="og:locale:alternate" content="{{ config.extra.locales[og_locale_alt.lang].locale }}" />
     {%- endif %}
-  <link rel="alternate" hreflang="{{ og_locale_alt.lang }}" href="{{ og_locale_alt.permalink | safe }}" />
+  <link rel="alternate" href="{{ og_locale_alt.permalink | safe }}" hreflang="{%
+    if config.extra.locales[og_locale_alt.lang].art_x_lang %}{{ config.extra.locales[og_locale_alt.lang].art_x_lang }}{%
+    else %}{{ og_locale_alt.lang }}{% endif %}" />
   {%- endfor %}
 {%- endif %}
 
