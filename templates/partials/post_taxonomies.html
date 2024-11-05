@@ -8,11 +8,11 @@
   <div class="mb-2 flex flex-wrap">
     <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{%
       if term_name == "tags" %}{{ macros::translate(key="taxonomy_tags",
-        language=lang, trans_data=trans_data) | title }}{%
+        language=lang, trans_data=trans_data) }}{%
       elif term_name == "categories" %}{{ macros::translate(key="taxonomy_categories",
-        language=lang, trans_data=trans_data) | title }}{%
+        language=lang, trans_data=trans_data) }}{%
       elif term_name == "authors" %}{{ macros::translate(key="taxonomy_authors",
-        language=lang, trans_data=trans_data) | title }}{%
+        language=lang, trans_data=trans_data) }}{%
       else %}{{ term_name | title }}{% endif %}</span>
     {% for term in page.taxonomies[term_name] %}
     <a

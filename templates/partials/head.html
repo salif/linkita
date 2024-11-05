@@ -37,11 +37,11 @@
   {%- endif %}
 {%- elif taxonomy.name %}
   {%- if taxonomy.name == "tags"%}
-    {%- set page_title = macros::translate(key="taxonomy_tags", language=lang, trans_data=trans_data) | title %}
+    {%- set page_title = macros::translate(key="taxonomy_tags", language=lang, trans_data=trans_data) %}
   {%- elif taxonomy.name == "categories"%}
-    {%- set page_title = macros::translate(key="taxonomy_categories", language=lang, trans_data=trans_data) | title %}
+    {%- set page_title = macros::translate(key="taxonomy_categories", language=lang, trans_data=trans_data) %}
   {%- elif taxonomy.name == "authors"%}
-    {%- set page_title = macros::translate(key="taxonomy_authors", language=lang, trans_data=trans_data) | title %}
+    {%- set page_title = macros::translate(key="taxonomy_authors", language=lang, trans_data=trans_data) %}
   {%- else %}
     {%- set page_title = taxonomy.name %}
   {%- endif %}

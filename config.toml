@@ -49,6 +49,15 @@ taxonomies = [
   { name = "authors", feed = true, paginate_by = 5 },
 ]
 
+[languages.uwu]
+title = "Linkita"
+generate_feeds = false
+description = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
+
 [extra]
 math = false
 mermaid = false
@@ -95,6 +104,9 @@ avatar_alt = "Демонстративен аватар за профила."
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 avatar_alt = "Demoprofila avataro."
+[extra.profiles.your_username.translations.uwu]
+name = "Linkita"
+bio = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
 [extra.profiles.your_username.open_graph]
 image = "images/screenshot.png"
 image_alt = "A screenshot of this website."
@@ -166,6 +178,9 @@ date_format_archive = "%d %b"
 
 [extra.locales.glb]
 art_x_lang = "art-x-globasa"
+
+[extra.locales.uwu]
+art_x_lang = "art-x-uwu"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
