@@ -1288,6 +1288,10 @@ sup a {
   margin-left: 0.375rem;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -1368,12 +1372,12 @@ sup a {
   height: 100%;
 }
 
-.min-h-\[3\.5rem\] {
-  min-height: 3.5rem;
+.min-h-\[3\.25rem\] {
+  min-height: 3.25rem;
 }
 
-.min-h-\[calc\(100\%-9rem\)\] {
-  min-height: calc(100% - 9rem);
+.min-h-\[calc\(100\%-4rem\)\] {
+  min-height: calc(100% - 4rem);
 }
 
 .w-16 {
@@ -1563,6 +1567,10 @@ sup a {
   padding: 0.5rem;
 }
 
+.p-2\.5 {
+  padding: 0.625rem;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -1615,11 +1623,6 @@ sup a {
   padding-bottom: 0.75rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1656,8 +1659,8 @@ sup a {
   padding-right: 0.75rem;
 }
 
-.pt-32 {
-  padding-top: 8rem;
+.pt-28 {
+  padding-top: 7rem;
 }
 
 .text-center {
@@ -1899,6 +1902,10 @@ article {
   overflow-x: auto;
 }
 
+.\[background\:url\(\.\/icons\/search\.svg\)_center\/cover_no-repeat\] {
+  background: url(./icons/search.svg) center/cover no-repeat;
+}
+
 .\[background\:url\(\.\/icons\/theme\.svg\)_left_center\/cover_no-repeat\] {
   background: url(./icons/theme.svg) left center/cover no-repeat;
 }
@@ -2020,6 +2027,10 @@ article {
 
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:h-\[4rem\] {
+    height: 4rem;
   }
 
   .lg\:w-auto {

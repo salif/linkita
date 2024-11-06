@@ -1,15 +1,16 @@
 <header class="{%
-  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full">
-  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
+  <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center">
         <a class="text-2xl font-semibold" href="{{ get_url(path=``, lang=lang) }}">{%if config.title %}{{
           config.title }}{% else %}&sol;{% endif %}</a>
-        <div
+        <button type="button" aria-label="Toggle dark/light mode"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
-          role="button"
-          aria-label="Dark"
-        ></div>
+        ></button>
+        <button type="button" aria-label="Search"
+          class="btn-search ml-3 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/search.svg)_center/cover_no-repeat] dark:invert"
+        ></button>
       </div>
       {% if config.extra.menu %}
       <div

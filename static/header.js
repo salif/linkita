@@ -22,12 +22,16 @@ function loaded() {
     htmlClass.toggle("open");
   });
 
-  // manual switch
   const btnDark = document.querySelector(".btn-dark");
   btnDark?.addEventListener("click", () => {
     const isDark = !htmlClass.contains("dark");
     applyDark(isDark);
     localStorage.setItem("dark", isDark ? "dark" : "light");
+  });
+
+  const btnSearch = document.querySelector(".btn-search");
+  btnSearch?.addEventListener("click", () => {
+    alert("Search is not supported yet!");
   });
 
   htmlClass.remove("not-ready");
