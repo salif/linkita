@@ -12,6 +12,9 @@
     {% include "injects/body_start.html" ignore missing %}
 
     <main class="prose prose-neutral relative mx-auto min-h-[calc(100%-4rem)] max-w-3xl break-words px-4 pb-16 pt-28 dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg">
+      {%- if config.build_search_index %}
+      {% include "partials/search.html" %}
+      {%- endif %}
       {% block main %}
 
       <!-- Profile -->

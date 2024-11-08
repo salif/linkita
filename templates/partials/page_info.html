@@ -46,16 +46,4 @@
     {{ page_info_entry }}
   {%- endif %}
 {%- endfor %}
-{%- if not paginator and (page.translations or section.translations) %}
-  {%- set page_translations = page.translations | default(value=section.translations) %}
-  <span id="linkita-page-trans" class="hidden">
-    <span class="mx-1">&middot;</span>
-    {{ macros::translate(key="word_translations", language=lang, trans_data=trans_data) }}&colon;
-    {%- for page_translation in page_translations %}{% if page_translation.lang != lang %}
-  <a href="{{ page_translation.permalink }}" hreflang="{{ page_translation.lang }}" class="hidden"
-    title="{{ page_translation.title | default(value='') }}" lang="{{ page_translation.lang }}" >{{
-    trans_data.language_names[page_translation.lang] | default(value=page_translation.lang) }}</a>
-    {%- endif %}{% endfor %}
-  </span>
-{%- endif %}
 </div>

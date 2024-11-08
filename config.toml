@@ -5,11 +5,7 @@ default_language = "bg"
 author = "your_username"
 generate_feeds = true
 
-# Configuration of the Markdown rendering
-[markdown]
-highlight_code = true
-extra_syntaxes_and_themes = []
-highlight_theme = "monokai"
+[languages]
 
 [languages.bg]
 title = "Линкита"
@@ -24,6 +20,7 @@ taxonomies = [
 [languages.en]
 title = "Linkita"
 description = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
+build_search_index = true
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
@@ -57,6 +54,11 @@ taxonomies = [
   { name = "tags", feed = true, paginate_by = 5 },
   { name = "authors", feed = true, paginate_by = 5 },
 ]
+
+[markdown]
+highlight_code = true
+extra_syntaxes_and_themes = []
+highlight_theme = "monokai"
 
 [extra]
 math = false
@@ -128,6 +130,7 @@ social = [
   { name = "bluesky", url = "https://bsky.app/profile/bg.salif.eu" },
   { name = "rss", url = "$BASE_URL/authors/salif/atom.xml" },
 ]
+[extra.profiles.salif.translations]
 [extra.profiles.salif.translations.bg]
 name = "Салиф"
 bio = "Здравейте! Аз съм авторът тук"
@@ -160,6 +163,8 @@ author_name = "Linkita"
 since = 2020
 license_name = "CC BY-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
+
+[extra.locales]
 
 [extra.locales.en]
 locale = "en_US"

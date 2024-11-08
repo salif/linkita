@@ -8,8 +8,13 @@
         <button type="button" aria-label="Toggle dark/light mode"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
         ></button>
+        {%- if config.build_search_index %}
         <button type="button" aria-label="Search"
-          class="btn-search ml-3 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/search.svg)_center/cover_no-repeat] dark:invert"
+          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/search.svg)_center/cover_no-repeat] dark:invert"
+        ></button>
+        {%- endif %}
+        <button type="button" aria-label="Open page translation"
+          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/translations.svg)_center/cover_no-repeat] dark:invert"
         ></button>
       </div>
       {% if config.extra.menu %}

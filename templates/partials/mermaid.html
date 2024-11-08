@@ -1,9 +1,11 @@
 <script type="module">
-  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-
-  const initMermaid = (isDark) => {
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  function initMermaid(isDark) {
     mermaid.initialize({
       theme: isDark ? "dark" : "default",
+      themeVariables: {
+        darkMode: isDark
+      },
       startOnLoad: false,
     });
     mermaid.run();
@@ -13,6 +15,8 @@
   document.querySelectorAll(".mermaid").forEach((element) => {
     element.setAttribute("data-mermaid-code", element.innerHTML);
   });
+
+  initMermaid(document.documentElement.classList.contains("dark"));
 
   // Re-render mermaid when theme changed.
   document.body.addEventListener("set-theme", (e) => {
@@ -25,9 +29,4 @@
     });
     initMermaid(e.detail === "dark");
   });
-
-  // Ignore the comment:
-  // The es module script will load defer, so the localStorage should already be set by script in header.
-  // If this script is loaded first, the script in header will dispatch an event to re-render mermaid, it's works too.
-  initMermaid(document.documentElement.classList.contains("dark"));
 </script>

@@ -14,7 +14,7 @@ La temo Linkita provizas plurajn mallongigojn.
 
 Ĉu vi neniam aŭdis pri mallongigoj? Vidu la [dokumentaron de Zola](https://www.getzola.org/documentation/content/shortcodes/) por pli da informoj.
 
-## Mermaid
+## Mermaid {#mermaid-header}
 
 Por uzi Mermaid en via paĝo, vi devas agordi `extra.mermaid = true` en la antaŭaĵo (frontmatter) de la paĝo.
 

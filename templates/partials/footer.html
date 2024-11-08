@@ -31,6 +31,11 @@
         macros::translate(key="footer_linkita", language=lang, trans_data=trans_data) }}</a>
     </span>
   </div>
+  <!-- Mermaid -->
+  {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
+    {% include "partials/mermaid.html" %}
+  {%- endif %}
+  <!-- GoatCounter -->
   {% if config.extra.goatcounter.endpoint %}
     {%- if config.base_url != "http://127.0.0.1:1111" %}
   <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | safe }}" {% if

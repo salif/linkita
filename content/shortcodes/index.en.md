@@ -13,7 +13,7 @@ The Linkita theme providers multiple shortcodes.
 
 Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/documentation/content/shortcodes/) for more information.
 
-## Mermaid
+## Mermaid {#mermaid-header}
 
 To use Mermaid in your page, you have to set `extra.mermaid = true` in the frontmatter of page.
 

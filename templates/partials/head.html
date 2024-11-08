@@ -307,10 +307,9 @@
       color-scheme: dark;
     }
   </style>
-  <script src="{{ get_url(path=`header.js`) }}"></script>
+  <script src="{{ get_url(path=`js/linkita_header.js`) }}"></script>
 
   <link rel="preload" as="image" href="{{ get_url(path=`icons/theme.svg`) }}" />
-  <link rel="preload" as="image" href="{{ get_url(path=`icons/search.svg`) }}" />
 
 {%- if profile_data %}
   {%- if profile_data.avatar_url %}
@@ -323,20 +322,20 @@
   {%- endif %}
 {%- endif %}
 
-  <!-- Math -->
-  {%- if page.extra.math | default(value=config.extra.math) %}
-    {% include "partials/math.html" %}
-  {%- endif %}
-
-  <!-- Mermaid -->
-  {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
-    {% include "partials/mermaid.html" %}
-  {%- endif %}
+{%- if config.build_search_index %}
+  <link rel="preload" as="image" href="{{ get_url(path=`icons/search.svg`) }}" />
+  <script src="{{ get_url(path=`js/linkita_search.js`) }}"></script>
+{%- endif %}
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
   <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
   <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`) }}" />
+
+  <!-- Math -->
+  {%- if page.extra.math | default(value=config.extra.math) %}
+    {% include "partials/math.html" %}
+  {%- endif %}
 
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}

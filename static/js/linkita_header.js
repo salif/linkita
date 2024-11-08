@@ -2,20 +2,23 @@
 const htmlClass = document.documentElement.classList;
 
 // dark theme
-const themeColorTag = document.querySelector('meta[name="theme-color"]');
-const applyDark = (isDark) => {
+const themeColorTag = document.head.querySelector('meta[name="theme-color"]');
+
+function applyDark(isDark, dEvent) {
   if (isDark) {
     htmlClass.add("dark");
     themeColorTag?.setAttribute("content", themeColorTag.dataset.dark);
-    document.body?.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
   } else {
     htmlClass.remove("dark");
     themeColorTag?.setAttribute("content", themeColorTag.dataset.light);
-    document.body?.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
   }
-};
+  if (dEvent) {
+    document.body?.dispatchEvent(new CustomEvent("set-theme",
+      { detail: isDark ? "dark" : "light" }));
+  }
+}
 
-function loaded() {
+function onDCLoad() {
   // mobile menu
   const btnMenu = document.querySelector(".btn-menu");
   btnMenu?.addEventListener("click", () => {
@@ -25,27 +28,32 @@ function loaded() {
   const btnDark = document.querySelector(".btn-dark");
   btnDark?.addEventListener("click", () => {
     const isDark = !htmlClass.contains("dark");
-    applyDark(isDark);
+    applyDark(isDark, true);
     localStorage.setItem("dark", isDark ? "dark" : "light");
   });
 
   const btnSearch = document.querySelector(".btn-search");
   btnSearch?.addEventListener("click", () => {
-    alert("Search is not supported yet!");
+    if (typeof (linkitaSearch) === "undefined") {
+      console.error("window.linkitaSearch is undefined");
+    } else {
+      window.linkitaSearch();
+    }
   });
 
   htmlClass.remove("not-ready");
 
-  const pageTrans = document.getElementById("linkita-page-trans");
+  const btnTranslations = document.querySelector(".btn-translations");
   const userLanguage = navigator.language || navigator.userLanguage;
-  if (userLanguage && pageTrans) {
+  if (userLanguage && btnTranslations) {
     const userLanguageCode = userLanguage.split("-")[0];
-    const pageTransLinks = pageTrans.querySelectorAll("[hreflang^='" + userLanguageCode + "']");
-    if (pageTransLinks.length > 0) {
-      pageTrans.classList.remove("hidden");
-    }
-    for (let i = 0; i < pageTransLinks.length; i++) {
-      pageTransLinks[i].classList.remove("hidden");
+    const pageTranslations = document.head.querySelector(
+      "link[rel='alternate'][hreflang^='" + userLanguageCode + "']");
+    if (pageTranslations && userLanguageCode !== document.documentElement.getAttribute("lang")) {
+      btnTranslations.classList.remove("hidden");
+      btnTranslations.addEventListener("click", () => {
+        window.location.href = pageTranslations.getAttribute("href");
+      })
     }
   }
 }
@@ -54,20 +62,20 @@ function loaded() {
 const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 const darkVal = localStorage.getItem("dark");
 if (darkVal) {
-  applyDark(darkVal === "dark");
+  applyDark(darkVal === "dark", false);
 } else if (htmlClass.contains("dark")) {
-  applyDark(true);
+  applyDark(true, false);
 } else {
-  applyDark(darkScheme.matches);
+  applyDark(darkScheme.matches, false);
 }
 
 // listen system
 darkScheme.addEventListener("change", (event) => {
-  applyDark(event.matches);
+  applyDark(event.matches, true);
 });
 
 if (document.readyState === "loading") {
-  window.addEventListener("DOMContentLoaded", loaded);
+  window.addEventListener("DOMContentLoaded", onDCLoad);
 } else {
-  loaded();
+  onDCLoad();
 }

@@ -14,7 +14,7 @@ mermaid = true
 
 Ако не сте чували за шорткодове, вижте [документацията на Зола](https://www.getzola.org/documentation/content/shortcodes/) за повече информация.
 
-## Mermaid
+## Mermaid {#mermaid-header}
 
 За да използвате Mermaid във вашата страница, трябва да зададете `extra.mermaid = true` в предните данни (frontmatter) на страницата.
 

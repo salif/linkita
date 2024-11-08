@@ -18,9 +18,9 @@ La temo Linkita subtenas $\LaTeX$ matematikajn formulojn per [KaTeX](https://kat
 
 **Rimarko:** Uzu la retan referencon de [Subtenataj TeX Funkcioj](https://katex.org/docs/supported.html).
 
-### Ekzemploj
+## Ekzemploj
 
-#### Enlinia matematiko
+### Enlinia matematiko
 
 ```markdown
 Kiam $x = \pi$, la formulo de Euler povas esti reskribita kiel $e^{i \pi} + 1 = 0$.
@@ -28,7 +28,7 @@ Kiam $x = \pi$, la formulo de Euler povas esti reskribita kiel $e^{i \pi} + 1 = 
 
 Kiam $x = \pi$, la formulo de Euler povas esti reskribita kiel $e^{i \pi} + 1 = 0$.
 
-#### Bloka matematiko
+### Bloka matematiko
 
 ```markdown
 $$

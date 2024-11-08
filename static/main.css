@@ -1288,10 +1288,6 @@ sup a {
   margin-left: 0.375rem;
 }
 
-.ml-3 {
-  margin-left: 0.75rem;
-}
-
 .ml-4 {
   margin-left: 1rem;
 }
@@ -1908,6 +1904,10 @@ article {
 
 .\[background\:url\(\.\/icons\/theme\.svg\)_left_center\/cover_no-repeat\] {
   background: url(./icons/theme.svg) left center/cover no-repeat;
+}
+
+.\[background\:url\(\.\/icons\/translations\.svg\)_center\/cover_no-repeat\] {
+  background: url(./icons/translations.svg) center/cover no-repeat;
 }
 
 .\[background\:var\(--url\)_center_center\/cover_no-repeat\] {
