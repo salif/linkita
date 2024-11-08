@@ -14,11 +14,9 @@ var linkitaSearch = function () {
     return;
   }
 
-  const searchIndexFileName = window.location.host === "127.0.0.1:1111" ?
-    "/js/demo.search_index.en.js" : "/search_index." +
+  const searchIndexFileName = "/search_index." +
     document.documentElement.getAttribute("lang").split("-")[0].split("_")[0] + ".js";
-  const elasticlunrFileName = window.location.host === "127.0.0.1:1111" ?
-    "/js/demo.elasticlunr.min.js" : "/elasticlunr.min.js";
+  const elasticlunrFileName = "/elasticlunr.min.js";
 
   if (typeof (mySearchIndex) === "undefined") {
     searchResultsEl.innerHTML = "<li>Search: Please wait...</li>";
@@ -29,14 +27,14 @@ var linkitaSearch = function () {
             window.mySearchIndex = elasticlunr.Index.load(searchIndex);
             doSearch(q, searchResultsEl);
           }, (err) => {
-            showError(searchResultsEl, "<li>Search: <code>" + elasticlunrFileName + "</code> not found!</li>");
+            showError(searchResultsEl, "<li>Search file not found: <code>" + elasticlunrFileName + "</code></li>");
           });
         } else {
           window.mySearchIndex = elasticlunr.Index.load(searchIndex);
           doSearch(q, searchResultsEl);
         }
       }, (err) => {
-        showError(searchResultsEl, "<li>Search: <code>" + searchIndexFileName + "</code> not found!</li>");
+        showError(searchResultsEl, "<li>Search file not found: <code>" + searchIndexFileName + "</code></li>");
       });
     }
   } else {
@@ -46,16 +44,19 @@ var linkitaSearch = function () {
 
 function doSearch(q, searchResultsEl) {
   const searchResults = mySearchIndex.search(q);
-  if (searchResults.length > 0) {
-    const searchResultsRows = ["<li>Search results:</li>"];
-    for (let i = 0; i < searchResults.length; i++) {
+  const searchResultsCount = searchResults.length;
+  if (searchResultsCount > 0) {
+    const searchResultsRows = ["<li><strong>" + searchResultsCount + "</strong> search " +
+      (searchResultsCount === 1 ? "result" : "results") + " for <code>" + mySafe(q) + "</code>:</li>"];
+    for (let i = 0; i < searchResultsCount; i++) {
       const searchResult = searchResults[i];
-      searchResultsRows.push("<li><a href=\"" + mySafe(searchResult.ref) + "\">" + mySafe(searchResult.doc.title) + "</a></li>");
+      searchResultsRows.push("<li><a href=\"" + mySafe(searchResult.ref) + "\">" +
+        mySafe(searchResult.doc.title) + "</a></li>");
     }
     searchResultsEl.innerHTML = searchResultsRows.join("");
     searchResultsEl.scrollIntoViewIfNeeded();
   } else {
-    showError(searchResultsEl, "<li>Search: No results for <code>" + mySafe(q) + "</code></li>");
+    showError(searchResultsEl, "<li>No search results for <code>" + mySafe(q) + "</code>.</li>");
   }
 }
 
