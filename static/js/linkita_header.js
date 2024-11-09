@@ -1,10 +1,7 @@
-// base
 const htmlClass = document.documentElement.classList;
-
-// dark theme
 const themeColorTag = document.head.querySelector('meta[name="theme-color"]');
 
-function applyDark(isDark, dEvent) {
+function applyDark(isDark, doDispatchEvent) {
   if (isDark) {
     htmlClass.add("dark");
     themeColorTag?.setAttribute("content", themeColorTag.dataset.dark);
@@ -12,7 +9,7 @@ function applyDark(isDark, dEvent) {
     htmlClass.remove("dark");
     themeColorTag?.setAttribute("content", themeColorTag.dataset.light);
   }
-  if (dEvent) {
+  if (doDispatchEvent) {
     document.body?.dispatchEvent(new CustomEvent("set-theme",
       { detail: isDark ? "dark" : "light" }));
   }
@@ -31,6 +28,7 @@ function onDCLoad() {
     applyDark(isDark, true);
     localStorage.setItem("dark", isDark ? "dark" : "light");
   });
+  htmlClass.remove("not-ready");
 
   const btnSearch = document.querySelector(".btn-search");
   btnSearch?.addEventListener("click", () => {
@@ -41,19 +39,29 @@ function onDCLoad() {
     }
   });
 
-  htmlClass.remove("not-ready");
-
+  let userLanguages = [];
+  if (navigator.languages) {
+    userLanguages = navigator.languages;
+  } else if (navigator.language) {
+    userLanguages = [navigator.language];
+  } else if (navigator.userLanguage) {
+    userLanguages = [navigator.userLanguage];
+  }
+  const pageLanguage = document.documentElement.getAttribute("lang");
   const btnTranslations = document.querySelector(".btn-translations");
-  const userLanguage = navigator.language || navigator.userLanguage;
-  if (userLanguage && btnTranslations) {
-    const userLanguageCode = userLanguage.split("-")[0];
-    const pageTranslations = document.head.querySelector(
-      "link[rel='alternate'][hreflang^='" + userLanguageCode + "']");
-    if (pageTranslations && userLanguageCode !== document.documentElement.getAttribute("lang")) {
-      btnTranslations.classList.remove("hidden");
-      btnTranslations.addEventListener("click", () => {
-        window.location.href = pageTranslations.getAttribute("href");
-      })
+  if (btnTranslations) {
+    for (let i = 0; i < userLanguages.length; i++) {
+      const userLanguage = userLanguages[i];
+      if (userLanguage === pageLanguage) continue;
+      const pageTranslations = document.head.querySelector(
+        "link[rel='alternate'][hreflang^='" + userLanguage.split("-")[0] + "']");
+      if (pageTranslations) {
+        btnTranslations.classList.remove("hidden");
+        btnTranslations.addEventListener("click", () => {
+          window.location.href = pageTranslations.getAttribute("href");
+        });
+        break;
+      }
     }
   }
 }

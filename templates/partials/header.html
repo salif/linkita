@@ -10,12 +10,21 @@
         ></button>
         {%- if config.build_search_index %}
         <button type="button" aria-label="Search"
-          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/search.svg)_center/cover_no-repeat] dark:invert"
+          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] dark:invert"
+          style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
+            fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-search\' \
+            ><circle cx=\'11\' cy=\'11\' r=\'8\'></circle><line x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'></line></svg>') center/cover no-repeat;"
         ></button>
         {%- endif %}
+        {%- if page.translations or section.translations %}
         <button type="button" aria-label="Open page translation"
-          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/translations.svg)_center/cover_no-repeat] dark:invert"
+          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] dark:invert"
+          style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' \
+            viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' \
+            class=\'feather feather-globe\'><circle cx=\'12\' cy=\'12\' r=\'10\'></circle><line x1=\'2\' y1=\'12\' x2=\'22\' y2=\'12\'></line><path \
+            d=\'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\'></path></svg>') center/cover no-repeat;"
         ></button>
+        {%- endif %}
       </div>
       {% if config.extra.menu %}
       <div

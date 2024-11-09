@@ -16,9 +16,9 @@
     {%- endif %}
   {%- elif page_info_entry == "date_updated" %}
     {%- if page.updated and page.updated != page.date -%}
-  &comma; <time datetime="{{ page.updated | date(format='%+') }}">{% if config.extra.locales[lang].locale %}{{
+  &nbsp;&lpar;<time datetime="{{ page.updated | date(format='%+') }}">{% if config.extra.locales[lang].locale %}{{
     page.updated | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
-    page.updated | date(format=date_format) }}{% endif %}</time>
+    page.updated | date(format=date_format) }}{% endif %}</time>&rpar;
     {%- endif %}
   {%- elif page_info_entry == "reading_time" %}
   <span class="mx-1">&middot;</span>
