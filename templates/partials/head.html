@@ -328,15 +328,16 @@
   <script src="{{ get_url(path=`js/linkita_search.js`) }}"></script>
 {%- endif %}
 
-  <!-- Favicon -->
+{%- if not config.extra.disable_default_favicon %}
   <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
   <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
   <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`) }}" />
+{%- endif %}
 
   <!-- Math -->
-  {%- if page.extra.math | default(value=config.extra.math) %}
-    {% include "partials/math.html" %}
-  {%- endif %}
+{%- if page.extra.math | default(value=config.extra.math) %}
+  {% include "partials/math.html" %}
+{%- endif %}
 
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}
