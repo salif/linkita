@@ -70,11 +70,17 @@
   <link rel="canonical" href="{{ get_url(path=`404.html`) | safe }}" />
 {%- endif %}
 
-{%- if config_title %}
-  <title>{% if page_title == config_title %}{{ page_title }}{%
-    else %}{{ page_title ~ title_separator ~ config_title }}{% endif %}</title>
-  <meta property="og:title" content="{{ page_title }}" />
+{%- if page_title %}
+  {%- if config_title %}
+  <title>{%
+    if page_title == config_title %}{{ page_title }}{%
+    else %}{{ page_title ~ title_separator ~ config_title }}{%
+    endif %}</title>
   <meta property="og:site_name" content="{{ config_title }}" />
+  {%- else %}
+  <title>{{ page_title }}</title>
+  {%- endif %}
+  <meta property="og:title" content="{{ page_title }}" />
 {%- endif %}
 {%- if page_description %}
   <meta name="description" content="{{ page_description }}" />
@@ -313,8 +319,6 @@
 {%- if config.build_search_index %}
   <script src="{{ get_url(path=`js/linkita-search.js`) }}"></script>
 {%- endif %}
-
-  <link rel="preload" as="image" href="{{ get_url(path=`icons/theme.svg`) }}" />
 
 {%- if profile_data %}
   {%- if profile_data.avatar_url %}

@@ -141,11 +141,11 @@ social = [
 [extra.profiles.salif.languages]
 [extra.profiles.salif.languages.bg]
 name = "Салиф"
-bio = "Здравейте! Аз съм авторът тук"
+bio = "Здравейте! Аз съм авторът тук."
 url = "https://salif.eu/bg/"
 [extra.profiles.salif.languages.eo]
 name = "Salif"
-bio = "Saluton! Mi estas la aŭtoro"
+bio = "Saluton! Mi estas la aŭtoro."
 url = "https://salif.eu/eo/"
 [extra.profiles.salif.open_graph]
 first_name = "Salif"

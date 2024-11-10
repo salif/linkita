@@ -1555,6 +1555,18 @@ sup a {
   background-color: rgb(255 255 255 / 0.5);
 }
 
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -1898,8 +1910,8 @@ article {
   overflow-x: auto;
 }
 
-.\[background\:url\(\.\/icons\/theme\.svg\)_left_center\/cover_no-repeat\] {
-  background: url(./icons/theme.svg) left center/cover no-repeat;
+.\[background-image\:var\(--url-dark\)\] {
+  background-image: var(--url-dark);
 }
 
 .\[background\:var\(--url\)_center_center\/cover_no-repeat\] {
@@ -1990,8 +2002,8 @@ article {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.dark\:\[background-position\:right\]:is(.dark *) {
-  background-position: right;
+.dark\:\[background-image\:var\(--url-light\)\]:is(.dark *) {
+  background-image: var(--url-light);
 }
 
 @media (min-width: 768px) {
