@@ -1,33 +1,31 @@
 <div class="text-sm antialiased opacity-80">
-{%- if page.extra.page_info %}
+{%- if page.extra.page_info is defined %}
   {%- set page_info = page.extra.page_info %}
-{%- elif config.extra.page_info %}
+{%- elif config.extra.page_info is defined %}
   {%- set page_info = config.extra.page_info %}
 {%- else %}
   {%- set page_info = ["date", "date_updated", "reading_time", "authors"] %}
-{% endif %}
-{%- set date_format = config.extra.locales[lang].date_format | default(value="%F") %}
+{%- endif %}
+{%- set date_format = config.extra.languages[lang].date_format | default(value="%F") %}
 {%- for page_info_entry in page_info %}
   {%- if page_info_entry == "date" %}
-    {%- if page.date %}
-  <time datetime="{{ page.date | date(format='%+') }}">{% if config.extra.locales[lang].locale %}{{
-    page.date | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
+    {%- if page.date %}<time
+    datetime="{{ page.date | date(format='%+') }}">{% if config.extra.languages[lang].locale %}{{
+    page.date | date(format=date_format, locale=config.extra.languages[lang].locale) }}{% else %}{{
     page.date | date(format=date_format) }}{% endif %}</time>
     {%- endif %}
   {%- elif page_info_entry == "date_updated" %}
-    {%- if page.updated and page.updated != page.date -%}
-  &nbsp;&lpar;<time datetime="{{ page.updated | date(format='%+') }}">{% if config.extra.locales[lang].locale %}{{
-    page.updated | date(format=date_format, locale=config.extra.locales[lang].locale) }}{% else %}{{
+    {%- if page.updated and page.updated != page.date %} &lpar;<time
+    datetime="{{ page.updated | date(format='%+') }}">{% if config.extra.languages[lang].locale %}{{
+    page.updated | date(format=date_format, locale=config.extra.languages[lang].locale) }}{% else %}{{
     page.updated | date(format=date_format) }}{% endif %}</time>&rpar;
-    {%- endif %}
-  {%- elif page_info_entry == "reading_time" %}
-  <span class="mx-1">&middot;</span>
-    {%- set reading_time_minutes = page.reading_time % 60 %}
-  <time datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
-      page.reading_time }} {{ macros::translate(key="word_minutes", language=lang, trans_data=trans_data) }}</time>
-  {%- elif page_info_entry == "word_count" %}
-  <span class="mx-1">&middot;</span>
-  <span>{{ page.word_count }} {{ macros::translate(key="word_words", language=lang, trans_data=trans_data) }}</span>
+  {%- endif %}
+  {%- elif page_info_entry == "reading_time" %}<span class="mx-1">&middot;</span>
+    {%- set reading_time_minutes = page.reading_time % 60 %}<time
+    datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
+    page.reading_time }} {{ macros::translate(key="word_minutes", language=lang, trans_data=trans_data) }}</time>
+  {%- elif page_info_entry == "word_count" %}<span class="mx-1">&middot;</span><span>{{
+    page.word_count }} {{ macros::translate(key="word_words", language=lang, trans_data=trans_data) }}</span>
   {%- elif page_info_entry == "authors" %}
     {%- if page.taxonomies.authors %}
       {%- set page_authors = page.taxonomies.authors %}
@@ -38,9 +36,8 @@
     {%- else %}
       {%- set page_authors = [] %}
     {%- endif %}
-    {%- for page_author in page_authors %}
-  <span class="mx-1">&middot;</span>
-  <span>{{ macros::get_profile_name(username=page_author) }}</span>
+    {%- for page_author in page_authors %}<span class="mx-1">&middot;</span><span>{{
+      macros::get_profile_name(username=page_author) }}</span>
     {%- endfor %}
   {%- else %}
     {{ page_info_entry }}

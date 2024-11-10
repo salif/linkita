@@ -1,25 +1,23 @@
 <footer class="mx-auto flex lg:h-[4rem] max-w-3xl flex-wrap items-center px-8 py-3 text-sm opacity-60">
   <div class="mr-auto basis-full lg:basis-1/2">
-    {% set current_year = now() | date(format="%Y") | int %}<!---->
-    {% if config.extra.footer.since and config.extra.footer.since != current_year %}<!---->
-    &copy; <time datetime="{{ config.extra.footer.since }}">{{ config.extra.footer.since
-      }}</time> - <time datetime="{{ current_year }}">{{ current_year }}</time><!---->
-    {% else %}<!---->
-    &copy; <time datetime="{{ current_year }}">{{ current_year }}</time><!---->
-    {% endif %}
-    <a class="link" href="{{ get_url(path=``, lang=lang) }}">
-      {% if config.extra.footer.author_name %}{{ config.extra.footer.author_name }}{%
-        elif config.author %}{{ macros::get_profile_name(username=config.author) }}{%
-        elif config.title %}{{ config.title }}{% else %}&sol;{% endif %}
-    </a>
-    {% if config.extra.footer.license_name %} &vert;<!---->
-    {% if config.extra.footer.license_url %}<!---->
+    {%- set current_year = now() | date(format="%Y") | int %}
+    &copy; {%
+      if config.extra.footer.since and config.extra.footer.since != current_year %}<time
+    datetime="{{ config.extra.footer.since }}">{{ config.extra.footer.since }}</time> - {%
+      endif %}<time datetime="{{ current_year }}">{{ current_year }}</time>&nbsp;<a
+    class="link" href="{{ get_url(path=``, lang=lang) }}">{%
+      if config.extra.footer.author_name %}{{ config.extra.footer.author_name }}{%
+      elif config.author %}{{ macros::get_profile_name(username=config.author) }}{%
+      elif config.title %}{{ config.title }}{% else %}&sol;{%
+      endif %}</a>
+  {% if config.extra.footer.license_name %}&vert;
+    {%- if config.extra.footer.license_url %}
     <a class="link" href="{{ config.extra.footer.license_url }}"
       rel="license noopener" target="_blank">{{ config.extra.footer.license_name }}</a>
-    {% else %}<!---->
-    {{ config.extra.footer.license_name }}<!---->
-    {% endif %}<!---->
-    {% endif %}
+    {%- else %}
+      {{ config.extra.footer.license_name }}
+    {%- endif %}
+  {% endif %}
   </div>
   <div class="flex basis-full lg:basis-1/2 lg:justify-end">
     <span class="mr-6 lg:ml-6">
@@ -37,7 +35,8 @@
   {%- endif %}
   <!-- GoatCounter -->
   {% if config.extra.goatcounter.endpoint %}
-    {%- if config.base_url != "http://127.0.0.1:1111" %}
+    {%- if config.base_url is not starting_with("http://192.168.") and
+      config.base_url is not starting_with("http://127.0.0.1") %}
   <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | safe }}" {% if
     config.extra.goatcounter.src %}src="{{ config.extra.goatcounter.src }}"{% endif %}></script>
     {%- endif %}

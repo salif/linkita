@@ -1,22 +1,38 @@
+{%- if config.extra.languages[lang].header_buttons is defined %}
+  {%- set header_buttons = config.extra.languages[lang].header_buttons %}
+{%- elif config.extra.header_buttons is defined %}
+  {%- set header_buttons = config.extra.header_buttons %}
+{%- else %}
+  {%- set header_buttons = ["site_title", "theme_button", "search_button", "translations_button"] %}
+{%- endif %}
+{%- if config.extra.languages[lang].header_menu_name and config.extra.menus[config.extra.languages[lang].header_menu_name] is defined %}
+  {%- set header_menu = config.extra.menus[config.extra.languages[lang].header_menu_name] %}
+{%- elif config.extra.header_menu_name and config.extra.menus[config.extra.header_menu_name] is defined %}
+  {%- set header_menu = config.extra.menus[config.extra.header_menu_name] %}
+{%- elif config.extra.menu %}
+  {%- set header_menu = config.extra.menu %}
+{%- endif %}
 <header class="{%
   if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center">
+        {%- for header_button in header_buttons %}
+          {%- if header_button == "site_title" %}
         <a class="text-2xl font-semibold" href="{{ get_url(path=``, lang=lang) }}">{%if config.title %}{{
           config.title }}{% else %}&sol;{% endif %}</a>
-        <button type="button" aria-label="Toggle dark/light mode"
+          {%- elif header_button == "theme_button" %}
+        <button type="button" aria-label="Toggle dark/light mode" onclick="window.linkita.toggleDarkMode();"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
         ></button>
-        {%- if config.build_search_index %}
-        <button type="button" aria-label="Search"
+          {%- elif header_button == "search_button" and config.build_search_index %}
+        <button type="button" aria-label="Search" onclick="window.linkita.toggleSearch();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] dark:invert"
           style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
             fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-search\' \
             ><circle cx=\'11\' cy=\'11\' r=\'8\'></circle><line x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'></line></svg>') center/cover no-repeat;"
         ></button>
-        {%- endif %}
-        {%- if page.translations or section.translations %}
+          {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" aria-label="Open page translation"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] dark:invert"
           style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' \
@@ -24,27 +40,29 @@
             class=\'feather feather-globe\'><circle cx=\'12\' cy=\'12\' r=\'10\'></circle><line x1=\'2\' y1=\'12\' x2=\'22\' y2=\'12\'></line><path \
             d=\'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\'></path></svg>') center/cover no-repeat;"
         ></button>
-        {%- endif %}
+        <script>window.linkita?.initTranslationsButton(document.querySelector(".btn-translations"));</script>
+          {%- endif %}
+        {%- endfor %}
       </div>
-      {% if config.extra.menu %}
+      {% if header_menu %}
       <div
         class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
         role="button"
         aria-label="Menu"
+        onclick="window.linkita.toggleHeaderMenu();"
       ></div>
       {% endif %}
     </div>
-    {% if config.extra.menu %}
+    {% if header_menu %}
     <nav class="flex w-full items-center lg:w-auto">
       <menu
         class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0">
-        {%- for menu in config.extra.menu %}
         {%- if lang == config.default_language %}
           {%- set menu_base_url = config.base_url %}
         {%- else %}
           {%- set menu_base_url = config.base_url ~ "/" ~ lang %}
         {%- endif %}
-        {%- set menu_name_default = menu.url | replace(from=`$BASE_URL`, to="") %}
+        {%- for menu in header_menu %}
         <li>
           <a
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
@@ -53,7 +71,7 @@
               elif menu.names_i18n and trans_data[menu.names_i18n][lang] %}{{
                 trans_data[menu.names_i18n][lang] }}{%
               elif menu.name %}{{ menu.name }}{%
-              else %}{{ menu_name_default | safe }}{% endif %}</a>
+              else %}{{ menu.url | replace(from=`$BASE_URL`, to="") | safe }}{% endif %}</a>
         </li>
         {%- endfor %}
       </menu>

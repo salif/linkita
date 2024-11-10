@@ -150,15 +150,15 @@
 
 {%- if page.translations or section.translations %}
   {%- set page_translations = page.translations | default(value=section.translations) %}
-  {%- for og_locale_alt in page_translations %}
-    {%- if og_locale_alt.lang == lang and config.extra.locales[lang].locale %}
-  <meta property="og:locale" content="{{ config.extra.locales[lang].locale }}" />
-    {%- elif config.extra.locales[og_locale_alt.lang].locale and config.extra.locales[og_locale_alt.lang].locale %}
-  <meta property="og:locale:alternate" content="{{ config.extra.locales[og_locale_alt.lang].locale }}" />
+  {%- for page_translation in page_translations %}
+    {%- if page_translation.lang == lang and config.extra.languages[lang].locale %}
+  <meta property="og:locale" content="{{ config.extra.languages[lang].locale }}" />
+    {%- elif config.extra.languages[page_translation.lang].locale %}
+  <meta property="og:locale:alternate" content="{{ config.extra.languages[page_translation.lang].locale }}" />
     {%- endif %}
-  <link rel="alternate" href="{{ og_locale_alt.permalink | safe }}" hreflang="{%
-    if config.extra.locales[og_locale_alt.lang].art_x_lang %}{{ config.extra.locales[og_locale_alt.lang].art_x_lang }}{%
-    else %}{{ og_locale_alt.lang }}{% endif %}" />
+  <link rel="alternate" href="{{ page_translation.permalink | safe }}" hreflang="{%
+    if config.extra.languages[page_translation.lang].art_x_lang %}{{ config.extra.languages[page_translation.lang].art_x_lang }}{%
+    else %}{{ page_translation.lang }}{% endif %}" />
   {%- endfor %}
 {%- endif %}
 
@@ -204,15 +204,15 @@
     {%- set og_image_alt = page.extra.cover.alt %}
   {%- elif profile_data.open_graph.image %}
     {%- set og_image_path = profile_data.open_graph.image %}
-    {%- if profile_data.open_graph.translations[lang].image_alt %}
-      {%- set og_image_alt = profile_data.open_graph.translations[lang].image_alt %}
+    {%- if profile_data.open_graph.languages[lang].image_alt %}
+      {%- set og_image_alt = profile_data.open_graph.languages[lang].image_alt %}
     {%- else %}
       {%- set og_image_alt = profile_data.open_graph.image_alt | default(value=profile_username) %}
     {%- endif %}
   {%- else %}
     {%- set og_image_path = config.extra.profiles[config.author].open_graph.image %}
-    {%- if config.extra.profiles[config.author].open_graph.translations[lang].image_alt %}
-      {%- set og_image_alt = config.extra.profiles[config.author].open_graph.translations[lang].image_alt %}
+    {%- if config.extra.profiles[config.author].open_graph.languages[lang].image_alt %}
+      {%- set og_image_alt = config.extra.profiles[config.author].open_graph.languages[lang].image_alt %}
     {%- else %}
       {%- set og_image_alt = config.extra.profiles[config.author].open_graph.image_alt | default(value=config.author) %}
     {%- endif %}
@@ -309,7 +309,10 @@
       color-scheme: dark;
     }
   </style>
-  <script src="{{ get_url(path=`js/linkita_header.js`) }}"></script>
+  <script src="{{ get_url(path=`js/linkita.js`) }}"></script>
+{%- if config.build_search_index %}
+  <script src="{{ get_url(path=`js/linkita-search.js`) }}"></script>
+{%- endif %}
 
   <link rel="preload" as="image" href="{{ get_url(path=`icons/theme.svg`) }}" />
 
@@ -324,10 +327,6 @@
   {%- endif %}
 {%- endif %}
 
-{%- if config.build_search_index %}
-  <script src="{{ get_url(path=`js/linkita_search.js`) }}"></script>
-{%- endif %}
-
 {%- if not config.extra.disable_default_favicon %}
   <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
   <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
@@ -336,7 +335,13 @@
 
   <!-- Math -->
 {%- if page.extra.math | default(value=config.extra.math) %}
-  {% include "partials/math.html" %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+    integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+  <script>document.addEventListener("DOMContentLoaded", window.linkita.initKatex);</script>
 {%- endif %}
 
   <!-- Head inject -->

@@ -18,6 +18,10 @@ switch-to-latest:
         rev-list --tags --max-count=1))
 
 [group('dev')]
+serve:
+    zola serve --interface 0.0.0.0 --base-url $(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
+
+[group('dev')]
 push-linkita:
     {{ git }} push codeberg linkita
     {{ git }} push github linkita
