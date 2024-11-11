@@ -388,20 +388,20 @@
     "glb": "Linkita"
   },
   "word_prev_page": {
-    "en": "← Prev Page",
-    "uwu": "← pwev page",
-    "uwu2": "← Pwev Page",
-    "bg": "← Предишна страница",
-    "eo": "← Antaŭa paĝo",
-    "glb": "← sayfa"
+    "en": "Prev Page",
+    "uwu": "pwev page",
+    "uwu2": "Pwev Page",
+    "bg": "Предишна страница",
+    "eo": "Antaŭa paĝo",
+    "glb": "sayfa"
   },
   "word_next_page": {
-    "en": "Next Page →",
-    "uwu": "nyext page →",
-    "uwu2": "Nyext Page →",
-    "bg": "Следваща страница →",
-    "eo": "Sekva paĝo →",
-    "glb": "sayfa →"
+    "en": "Next Page",
+    "uwu": "nyext page",
+    "uwu2": "Nyext Page",
+    "bg": "Следваща страница",
+    "eo": "Sekva paĝo",
+    "glb": "sayfa"
   },
   "word_toc": {
     "en": "Table of Contents",

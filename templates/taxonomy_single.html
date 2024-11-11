@@ -1,9 +1,9 @@
-{% extends "index.html" %}<!---->
+{% extends "index.html" %}
 {% block main %}
 <!-- Term Title -->
-{% if taxonomy.name == "authors" %}
-  {%- if paginator is undefined or paginator.current_index == 1 %}<!---->
-{% include "partials/profile.html" %}<!---->
+{%- if taxonomy.name == "authors" %}
+  {%- if paginator is undefined or paginator.current_index == 1 %}
+{% include "partials/profile.html" %}
   {%- else %}
 <h1 class="mb-16">{{ macros::get_profile_name(username=term.name) }}</h1>
   {%- endif %}
@@ -15,5 +15,5 @@
 <h1 class="mb-16">{{ term.name }}</h1>
 {%- endif %}
 <!-- Pages -->
-{% include "partials/page_list.html" %}<!---->
+{% include "partials/page_list.html" %}
 {% endblock main %}

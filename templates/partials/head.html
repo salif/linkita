@@ -112,9 +112,6 @@
   <meta property="article:author" content="{{ get_taxonomy_url(kind='authors', name=page_author, lang=lang) }}" />
     {%- endfor %}
   {%- endif %}
-  {%- if page_authors | length > 0 %}
-  <meta name="author" content="{{ page_authors | join(sep=', ') }}" />
-  {%- endif %}
   {%- if page.extra.open_graph.content_tier %}
   <meta property="article:content_tier" content="{{ page.extra.open_graph.content_tier }}" />
   {%- endif %}
