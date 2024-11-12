@@ -29,18 +29,20 @@
         macros::translate(key="footer_linkita", language=lang, trans_data=trans_data) }}</a>
     </span>
   </div>
+{%- if not config.extra.disable_javascript %}
   <!-- Mermaid -->
   {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
     {% include "partials/mermaid.html" %}
   {%- endif %}
   <!-- GoatCounter -->
-  {% if config.extra.goatcounter.endpoint %}
+  {%- if config.extra.goatcounter.endpoint %}
     {%- if config.base_url is not starting_with("http://192.168.") and
       config.base_url is not starting_with("http://127.0.0.1") %}
   <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | safe }}" {% if
     config.extra.goatcounter.src %}src="{{ config.extra.goatcounter.src }}"{% endif %}></script>
     {%- endif %}
-  {% endif %}
+  {%- endif %}
+{%- endif %}
   <!-- Footer inject -->
   {% include "injects/footer.html" ignore missing %}
 </footer>

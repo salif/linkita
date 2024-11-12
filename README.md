@@ -10,9 +10,8 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 ### Screenshots
 
-| Light mode | Dark mode |
-| :---: | :---: |
-| ![Screenshot](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.png) | ![Screenshot - Dark mode](https://codeberg.org/salif/linkita/raw/branch/linkita/screenshot.dark.png) |
+- [Light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png)
+- [Dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png)
 
 ## Kita features
 
@@ -62,8 +61,6 @@ cd themes/linkita
 npm run switch-to-latest
 ```
 
-Alternatively, use this command: `./justfile switch-to-latest`.
-
 ## Updating
 
 ```sh
@@ -83,15 +80,21 @@ description = ""
 # date = 
 # updated = 
 [taxonomies]
+categories = []
 tags = []
 authors = []
 [extra]
 # comment = true
 # math = true
 # mermaid = true
+# page_info = []
 [extra.cover]
 # image = ""
 # alt = ""
+[extra.sitemap]
+# updated =
+# changefreq =
+# priority =
 +++
 ```
 
@@ -104,9 +107,9 @@ description: ""
 date: 
 # updated: 
 taxonomies:
+  categories:
   tags:
   authors:
-    - your_username
 extra:
   comment: false
   math: false
@@ -224,18 +227,10 @@ To use inject, you need to add some HTML files to the `templates/injects` direct
 
 The available inject points are: `head`, `header_nav`, `body_start`, `body_end`, `page_start`, `page_end`, `footer`.
 
-For example, to load a custom script, you can add a `templates/injects/head.html` file:
-
-```html
-<script src="js-file-path-or-cdn-url.js"></script>
-```
-
 ## Configuring
 
 Copy and paste the examples into your `config.toml` file
 and comment out the options you don't use instead of setting empty values.
-
-All configuration options used by this theme are listed in tables.
 
 | key | type |
 | --- | --- |
@@ -269,10 +264,16 @@ generate_feeds = true
 # The filenames to use for the feeds
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 
-# build_search_index = true
+# Enable search
+build_search_index = true
 ```
 
 ```toml
+[[taxonomies]]
+name = "categories"
+feed = true
+paginate_by = 5
+
 [[taxonomies]]
 name = "tags"
 feed = true
@@ -294,67 +295,80 @@ generate_feeds = true
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 
 [[languages.fr.taxonomies]]
-name = "tags"
-feed = true
-paginate_by = 5
-
-[[languages.fr.taxonomies]]
 name = "authors"
 feed = true
 paginate_by = 5
 ```
 
-| key | type | comment |
-| --- | --- | --- |
-| `extra.math` | boolean | Enable KaTeX math formula support globally |
-| `extra.mermaid` | boolean | Enable Mermaid support globally |
-| `extra.comment` | boolean | Enable comment support globally |
-| `extra.title_separator` | string | Title Separator |
-| `extra.disable_default_favicon` | boolean | Disable default favicons |
-| `extra.page_info` | array of strings | Show page date, reading time, author names |
-| `extra.style` | table | The theme style config |
-| `extra.profiles` | table | Author profiles |
-| `extra.header_menu_name` | string | The top menu |
-| `extra.header_buttons` | array of strings | Buttons |
-| `extra.menus` | table | Menus |
-| `extra.footer` | table | The page footer options |
-| `extra.languages` | table | Locale codes and date formats |
-| `extra.goatcounter` | table | Enable web analytics |
-| `extra.giscus` | table | The giscus comment options |
+| key | type |
+| --- | --- |
+| `extra.math` | boolean |
+| `extra.mermaid` | boolean |
+| `extra.comment` | boolean |
+| `extra.title_separator` | string |
+| `extra.header_menu_name` | string |
+| `extra.header_buttons` | array of strings |
+| `extra.page_info` | array of strings |
+| `extra.disable_default_favicon` | boolean |
+| `extra.disable_javascript` | boolean |
+
+Tables: `extra.style`, `extra.menus`, `extra.profiles`, `extra.footer`, `extra.languages`, `extra.goatcounter`, `extra.giscus`.
 
 Strings in `extra.page_info` that are not one of the following, will be displayed directly in the UI:
 `"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
 Default `extra.page_info` value is `["date", "date_updated", "reading_time", "authors"]`.
-You can replace `reading_time` with `word_count` if you want.
 
 Default `extra.header_buttons` value is `["site_title", "theme_button", "search_button", "translations_button"]`.
 You can replace `site_title` with `home_button` if you want.
 
 ```toml
 [extra]
+# Enable KaTeX math formula support globally
 math = false
+
+# Enable Mermaid support globally 
 mermaid = false
+
+# Enable comments globally
 comment = false
+
+# Title separator
 title_separator = " | "
+
+# The top menu. See `extra.menus`
 header_menu_name = "menu_name"
+
+# header_buttons = []
+# page_info = []
+# disable_default_favicon = true
+# disable_javascript = false
 ```
 
 ### Style config (`extra.style`)
 
-| key | type | default value | comment |
-| --- | --- | --- | --- |
-| `extra.style.bg_color` | string | `"#f4f4f5"` | The custom background color |
-| `extra.style.bg_dark_color` | string | `"#18181b"` | The custom background color in dark mode |
-| `extra.style.header_blur` | boolean |  | Enable header blur |
-| `extra.style.header_color` | string | `"#e4e4e7"` | The custom header color, only available when `header_blur` is false |
-| `extra.style.header_dark_color` | string | `"#27272a"` | The custom header color in dark mode, only available when `header_blur` is false |
+| key | type | default value |
+| --- | --- | --- |
+| `extra.style.bg_color` | string | `"#f4f4f5"` |
+| `extra.style.bg_dark_color` | string | `"#18181b"` |
+| `extra.style.header_blur` | boolean | false |
+| `extra.style.header_color` | string | `"#e4e4e7"` |
+| `extra.style.header_dark_color` | string | `"#27272a"` |
 
 ```toml
 [extra.style]
+# The custom background color
 bg_color = "#f4f4f5"
+
+# The custom background color in dark mode
 bg_dark_color = "#18181b"
-header_blur = false
+
+# Enable header blur
+header_blur = true
+
+# The custom header color, only available when `header_blur` is false
 header_color = "#e4e4e7"
+
+# The custom header color in dark mode, only available when `header_blur` is false
 header_dark_color = "#27272a"
 ```
 
@@ -368,7 +382,7 @@ header_dark_color = "#27272a"
 | `extra.menus[menu_name].menu[].names[lang]` | string |
 | `extra.menus[menu_name].menu[].names_i18n` | string |
 
-`$BASE_URL` will be automatically translated into the language specific base url.
+`$BASE_URL` in `.url` will be automatically replaced with the language specific base url.
 You can use `names_i18n` instead of `names[lang]`, see the `static/i18n.json` file,
 set `names_i18n` to a `common_` key.
 
@@ -404,34 +418,48 @@ en = "About"
 
 ### Profiles (`extra.profiles`)
 
-| key | type | comment |
-| --- | --- | --- |
-| `extra.profiles[username]` | table |  |
-| `extra.profiles[username].avatar_url` | string | The URL of avatar |
-| `extra.profiles[username].avatar_alt` | string | A description of what is in the avatar |
-| `extra.profiles[username].avatar_invert` | boolean | Invert color in dark mode |
-| `extra.profiles[username].name` | string | Profile name for all languages |
-| `extra.profiles[username].bio` | string | Profile bio for all languages |
-| `extra.profiles[username].email` | string | Profile email |
-| `extra.profiles[username].url` | string | Profile website |
-| `extra.profiles[username].languages` | table | Profile name and bio translations |
-| `extra.profiles[username].social` | array of tables | The social icons below the profile |
-| `extra.profiles[username].open_graph` | table | Open Graph |
+| key | type |
+| --- | --- |
+| `extra.profiles[username].avatar_url` | string |
+| `extra.profiles[username].avatar_alt` | string |
+| `extra.profiles[username].avatar_invert` | boolean |
+| `extra.profiles[username].name` | string |
+| `extra.profiles[username].bio` | string |
+| `extra.profiles[username].email` | string |
+| `extra.profiles[username].url` | string |
+| `extra.profiles[username].languages` | table |
+| `extra.profiles[username].social` | array of tables |
+| `extra.profiles[username].open_graph` | table |
 
 ```toml
 [extra.profiles.your_username]
+# The URL of avatar
 avatar_url = "icons/github.svg"
+
+# A description of what is in the avatar
 avatar_alt = ""
-avatar_invert = true
-# name = ""
-# bio = ""
+
+# Invert avatar color in dark mode
+avatar_invert = false
+
+# Profile name for all languages
+name = ""
+
+# Profile bio for all languages
+bio = ""
+
+# Profile email
+# email = ""
+
+# Profile website
+# url = ""
+
 ```
 
 ### Profile translations (`extra.profiles[username].languages`)
 
 | key | type |
 | --- | --- |
-| `extra.profiles[username].languages[lang]` | table |
 | `extra.profiles[username].languages[lang].name` | string |
 | `extra.profiles[username].languages[lang].bio` | string |
 | `extra.profiles[username].languages[lang].url` | string |
@@ -439,8 +467,11 @@ avatar_invert = true
 
 ```toml
 [extra.profiles.your_username.languages.fr]
-name = "Profile name in French"
-bio = "Profile bio in French"
+# Profile name in French
+name = ""
+
+# Profile bio in French
+bio = ""
 ```
 
 ### Social icons `extra.profiles[username].social`
@@ -469,37 +500,49 @@ url = "$BASE_URL/atom.xml"
 
 ### Open Graph (`extra.profiles[username].open_graph`)
 
-| key | type | comment |
-| --- | --- | --- |
-| `extra.profiles[username].open_graph.image` | string | The URL of social image |
-| `extra.profiles[username].open_graph.image_alt` | string | A description of what is in the social image |
-| `extra.profiles[username].open_graph.first_name` | string | A name normally given to an individual by a parent or self-chosen |
-| `extra.profiles[username].open_graph.last_name` | string | A name inherited from a family or marriage and by which the individual is commonly known |
-| `extra.profiles[username].open_graph.username` | string | A short unique string to identify them |
-| `extra.profiles[username].open_graph.gender` | string | Their gender |
-| `extra.profiles[username].open_graph.fb_app_id` | string | Set fb:app_id |
-| `extra.profiles[username].open_graph.fb_admins` | array of strings | Set fb:admins |
-| `extra.profiles[username].open_graph.fediverse_creator` | table | Set if you a Fediverse account |
-| `extra.profiles[username].open_graph.fediverse_creator.handle` | string | Your Fediverse handle |
-| `extra.profiles[username].open_graph.fediverse_creator.domain` | string | Your Fediverse instance |
-| `extra.profiles[username].open_graph.fediverse_creator.url` | string | Your Fediverse account URL |
-| `extra.profiles[username].open_graph.languages[lang].image_alt` | string | A description of what is in the social image |
+| key | type |
+| --- | --- |
+| `extra.profiles[username].open_graph.image` | string |
+| `extra.profiles[username].open_graph.image_alt` | string |
+| `extra.profiles[username].open_graph.first_name` | string |
+| `extra.profiles[username].open_graph.last_name` | string |
+| `extra.profiles[username].open_graph.username` | string |
+| `extra.profiles[username].open_graph.gender` | string |
+| `extra.profiles[username].open_graph.fb_app_id` | string |
+| `extra.profiles[username].open_graph.fb_admins` | array of strings |
+| `extra.profiles[username].open_graph.fediverse_creator` | table |
+| `extra.profiles[username].open_graph.fediverse_creator.handle` | string |
+| `extra.profiles[username].open_graph.fediverse_creator.domain` | string |
+| `extra.profiles[username].open_graph.fediverse_creator.url` | string |
+| `extra.profiles[username].open_graph.languages[lang]` | table |
 
 See [the Open Graph protocol](https://ogp.me/).
 
 ```toml
 [extra.profiles.your_username.open_graph]
-# image = ""
-# image_alt = ""
+# The URL of social image
+image = ""
+
+# A description of what is in the social image
+image_alt = ""
+
 first_name = "Your first name"
 last_name = "Your last name"
 username = "Your username"
 gender = "female" # or "male"
 
+# Set if you a Fediverse account. Example for "@user@mastodon.social"
 [extra.profiles.your_username.open_graph.fediverse_creator]
-# Example for "@user@mastodon.social"
-handle = "user"
-domain = "mastodon.social"
+# Your Fediverse handle
+# handle = "user"
+# Your Fediverse instance
+# domain = "mastodon.social"
+# Your Fediverse account URL
+# url = ""
+
+# [extra.profiles.your_username.open_graph.languages.fr.image_alt]
+# A description in French of what is in the social image
+# image_alt = ""
 ```
 
 `fb_app_id` and `fb_admins` are only allowed in the `config.author`'s profile.
@@ -526,7 +569,7 @@ fb_admins = ["YOUR_USER_ID"]
 | `extra.footer.terms_of_service_url` | string |
 | `extra.footer.search_page_url` | string |
 
-Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` are only used inside head.
+Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` are not shown.
 
 `$BASE_URL` is supported in the `_url` options.
 
@@ -597,7 +640,8 @@ src = "//gc.zgo.at/count.js"
 | `extra.giscus.lang` | string | `en` |
 | `extra.giscus.loading` | string | `lazy` |
 
-Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`. See [giscus.app](https://giscus.app/).
+See [giscus.app](https://giscus.app/).
+Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`.
 
 ```toml
 [extra.giscus]

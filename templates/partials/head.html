@@ -312,10 +312,6 @@
       color-scheme: dark;
     }
   </style>
-  <script src="{{ get_url(path=`js/linkita.js`) }}"></script>
-{%- if config.build_search_index %}
-  <script src="{{ get_url(path=`js/linkita-search.js`) }}"></script>
-{%- endif %}
 
 {%- if profile_data %}
   {%- if profile_data.avatar_url %}
@@ -334,8 +330,13 @@
   <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`) }}" />
 {%- endif %}
 
-  <!-- Math -->
-{%- if page.extra.math | default(value=config.extra.math) %}
+{%- if not config.extra.disable_javascript %}
+  <script src="{{ get_url(path=`js/linkita.js`) }}"></script>
+  {%- if config.build_search_index %}
+  <script src="{{ get_url(path=`js/linkita-search.js`) }}"></script>
+  {%- endif %}
+
+  {%- if page.extra.math | default(value=config.extra.math) %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
     integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
@@ -343,6 +344,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
     integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
   <script>document.addEventListener("DOMContentLoaded", window.linkita.initKatex);</script>
+  {%- endif %}
 {%- endif %}
 
   <!-- Head inject -->

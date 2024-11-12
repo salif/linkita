@@ -83,12 +83,17 @@
     })
   }
 
-  window.linkita = {
-    applyDarkMode: applyDarkMode,
-    toggleDarkMode: toggleDarkMode,
-    initDarkMode: initDarkMode,
-    initTranslationsButton: initTranslationsButton,
-    toggleHeaderMenu: toggleHeaderMenu,
-    initKatex: initKatex,
-  };
+  function main() {
+    initDarkMode();
+
+    window.linkita = {
+      applyDarkMode: applyDarkMode,
+      toggleDarkMode: toggleDarkMode,
+      initTranslationsButton: initTranslationsButton,
+      toggleHeaderMenu: toggleHeaderMenu,
+      initKatex: initKatex,
+    };
+  }
+
+  main();
 })();

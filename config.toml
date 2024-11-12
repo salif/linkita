@@ -66,6 +66,7 @@ mermaid = false
 comment = false
 title_separator = " | "
 header_menu_name = "main"
+disable_javascript = false
 
 [extra.style]
 # bg_color = ""
