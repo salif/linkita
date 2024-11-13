@@ -46,6 +46,9 @@
             fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-search\' \
             ><circle cx=\'11\' cy=\'11\' r=\'8\'></circle><line x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'></line></svg>');"
         ></button>
+            {%- if not config.extra.disable_javascript %}
+        <script>window.linkita?.initSearchButton(["{{ get_url(path=`elasticlunr.min.js`) }}", "{{ get_url(path=`search_index.`~lang~`.js`) }}"]);</script>
+            {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" aria-label="Open page translation"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"

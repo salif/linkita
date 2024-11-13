@@ -1,5 +1,9 @@
 "use strict";
 (function () {
+  let elasticlunrFileName;
+  let searchIndexFileName;
+  let mySearchIndex;
+
   function toggleSearch() {
     const searchWrapperEl = document.getElementById("linkita-search-wrapper");
     const searchResultsEl = document.getElementById("linkita-search-results");
@@ -16,23 +20,19 @@
       return;
     }
 
-    const searchIndexFileName = "/search_index." +
-      document.documentElement.getAttribute("lang").split("-")[0].split("_")[0] + ".js";
-    const elasticlunrFileName = "/elasticlunr.min.js";
-
     if (typeof (mySearchIndex) === "undefined") {
       searchResultsEl.innerHTML = "<li>Search: Please wait...</li>";
       if (typeof (searchIndex) === "undefined") {
         fetchScript(searchIndexFileName, () => {
           if (typeof (elasticlunr) === "undefined") {
             fetchScript(elasticlunrFileName, () => {
-              window.mySearchIndex = elasticlunr.Index.load(searchIndex);
+              mySearchIndex = elasticlunr.Index.load(window.searchIndex);
               doSearch(q, searchResultsEl);
             }, (err) => {
               showError(searchResultsEl, "<li>Search file not found: <code>" + elasticlunrFileName + "</code></li>");
             });
           } else {
-            window.mySearchIndex = elasticlunr.Index.load(searchIndex);
+            mySearchIndex = elasticlunr.Index.load(window.searchIndex);
             doSearch(q, searchResultsEl);
           }
         }, (err) => {
@@ -73,7 +73,6 @@
   }
 
   function fetchScript(fileName, onL, onE) {
-    console.debug("Fetch ", fileName);
     const scriptEl = document.createElement("script");
     scriptEl.onload = onL;
     scriptEl.onerror = onE;
@@ -82,6 +81,12 @@
     return scriptEl;
   }
 
+  function initSearchButton(filenames) {
+    elasticlunrFileName = filenames[0];
+    searchIndexFileName = filenames[1];
+  }
+
   if (null == window.linkita) window.linkita = {};
   window.linkita.toggleSearch = toggleSearch;
+  window.linkita.initSearchButton = initSearchButton;
 })();

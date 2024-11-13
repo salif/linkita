@@ -91,10 +91,6 @@ authors = []
 [extra.cover]
 # image = ""
 # alt = ""
-[extra.sitemap]
-# updated =
-# changefreq =
-# priority =
 +++
 ```
 
@@ -158,6 +154,18 @@ video_height = ""
 url = ""
 ```
 
+### Sitemap frontmatter options
+
+```
+[extra.sitemap]
+# Set only if different from `page.updated`
+updated =
+# Valid values are `always`, `hourly`, `daily`, `weekly`, `monthly`, `yearly`, `never`
+changefreq =
+# Valid values range from 0.0 to 1.0. The default priority of a page is 0.5
+priority =
+```
+
 ### Home page profile
 
 Create `content/_index.md` file in your blog and set `extra.profile` to your username:
@@ -165,7 +173,7 @@ Create `content/_index.md` file in your blog and set `extra.profile` to your use
 ```toml
 +++
 sort_by = "date"
-paginate_by = 10
+paginate_by = 5
 [extra]
 profile = "your_username"
 +++
@@ -180,7 +188,19 @@ Replace `author_username` with author's username.
 
 ### Authors
 
-#### Option 1: Using Taxonomies
+#### Option 1: Using `page.authors`
+
+You don't need to set `page.authors` in the frontmatter if you are the only author.
+
+Otherwise, set `page.authors`:
+
+```toml
++++
+authors = ["author_username", "author2_username", etc.]
++++
+```
+
+#### Option 2: Using Taxonomies
 
 If you choose this option you should set taxonomies in each post.
 
@@ -189,34 +209,32 @@ Examples:
 **If the blog is your personal blog**:
 
 ```toml
++++
 [taxonomies]
 authors = ["your_username"]
-# or:
-# authors = ["your_username", "contributor_username"]
-# or:
-# authors = ["main_author_of_the_post", "your_username"]
++++
 ```
 
 **If the blog has a team of multiple authors**:
 
 ```toml
++++
 [taxonomies]
 authors = ["author_username"]
 # or:
 # authors = ["author_username", "author2_username", etc.]
++++
 ```
-
-#### Option 2: Using `page.authors`
-
-*TODO*
 
 ### Archive page
 
 ```toml
++++
 title = "Archive"
 template = "archive.html"
 [extra]
 section = "_index.md"
++++
 ```
 
 ### Inject support
@@ -234,14 +252,14 @@ and comment out the options you don't use instead of setting empty values.
 
 | key | type |
 | --- | --- |
-| `default_language` | string |
-| `author` | string |
-| `title` | string |
-| `description` | string |
-| `generate_feeds` | boolean |
-| `feed_filenames` | array of strings |
-| `build_search_index` | boolean |
-| `extra` | table |
+| default_language | string |
+| author | string |
+| title | string |
+| description | string |
+| generate_feeds | boolean |
+| feed_filenames | array of strings |
+| build_search_index | boolean |
+| extra | table |
 
 Taxonomies with translated names are `tags`, `categories`, and `authors`.
 
@@ -302,21 +320,19 @@ paginate_by = 5
 
 | key | type |
 | --- | --- |
-| `extra.math` | boolean |
-| `extra.mermaid` | boolean |
-| `extra.comment` | boolean |
-| `extra.title_separator` | string |
-| `extra.header_menu_name` | string |
-| `extra.header_buttons` | array of strings |
-| `extra.page_info` | array of strings |
-| `extra.disable_default_favicon` | boolean |
-| `extra.disable_javascript` | boolean |
+| extra.math | boolean |
+| extra.mermaid | boolean |
+| extra.comment | boolean |
+| extra.title_separator | string |
+| extra.header_menu_name | string |
+| extra.header_buttons | array of strings |
+| extra.page_info | array of strings |
+| extra.disable_default_favicon | boolean |
+| extra.disable_javascript | boolean |
 
 Tables: `extra.style`, `extra.menus`, `extra.profiles`, `extra.footer`, `extra.languages`, `extra.goatcounter`, `extra.giscus`.
 
-Strings in `extra.page_info` that are not one of the following, will be displayed directly in the UI:
-`"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
-Default `extra.page_info` value is `["date", "date_updated", "reading_time", "authors"]`.
+Valid `extra.page_info` values are: `"date"`, `"date_updated"`, `"reading_time"`, `"word_count"`, `"authors"`.
 
 Default `extra.header_buttons` value is `["site_title", "theme_button", "search_button", "translations_button"]`.
 You can replace `site_title` with `home_button` if you want.
@@ -344,15 +360,15 @@ header_menu_name = "menu_name"
 # disable_javascript = false
 ```
 
-### Style config (`extra.style`)
+### Style config
 
 | key | type | default value |
 | --- | --- | --- |
-| `extra.style.bg_color` | string | `"#f4f4f5"` |
-| `extra.style.bg_dark_color` | string | `"#18181b"` |
-| `extra.style.header_blur` | boolean | false |
-| `extra.style.header_color` | string | `"#e4e4e7"` |
-| `extra.style.header_dark_color` | string | `"#27272a"` |
+| extra.style.bg_color | string | `"#f4f4f5"` |
+| extra.style.bg_dark_color | string | `"#18181b"` |
+| extra.style.header_blur | boolean | false |
+| extra.style.header_color | string | `"#e4e4e7"` |
+| extra.style.header_dark_color | string | `"#27272a"` |
 
 ```toml
 [extra.style]
@@ -372,15 +388,15 @@ header_color = "#e4e4e7"
 header_dark_color = "#27272a"
 ```
 
-### Menus (`extra.menus`)
+### Menus
 
 | key | type |
 | --- | --- |
-| `extra.menus[menu_name].menu[].url` | string |
-| `extra.menus[menu_name].menu[].name` | string |
-| `extra.menus[menu_name].menu[].names` | table |
-| `extra.menus[menu_name].menu[].names[lang]` | string |
-| `extra.menus[menu_name].menu[].names_i18n` | string |
+| extra.menus[menu_name].menu[].url | string |
+| extra.menus[menu_name].menu[].name | string |
+| extra.menus[menu_name].menu[].names | table |
+| extra.menus[menu_name].menu[].names[lang] | string |
+| extra.menus[menu_name].menu[].names_i18n | string |
 
 `$BASE_URL` in `.url` will be automatically replaced with the language specific base url.
 You can use `names_i18n` instead of `names[lang]`, see the `static/i18n.json` file,
@@ -416,20 +432,20 @@ en = "About"
 # fr = "About in French"
 ```
 
-### Profiles (`extra.profiles`)
+### Profiles
 
 | key | type |
 | --- | --- |
-| `extra.profiles[username].avatar_url` | string |
-| `extra.profiles[username].avatar_alt` | string |
-| `extra.profiles[username].avatar_invert` | boolean |
-| `extra.profiles[username].name` | string |
-| `extra.profiles[username].bio` | string |
-| `extra.profiles[username].email` | string |
-| `extra.profiles[username].url` | string |
-| `extra.profiles[username].languages` | table |
-| `extra.profiles[username].social` | array of tables |
-| `extra.profiles[username].open_graph` | table |
+| extra.profiles[username].avatar_url | string |
+| extra.profiles[username].avatar_alt | string |
+| extra.profiles[username].avatar_invert | boolean |
+| extra.profiles[username].name | string |
+| extra.profiles[username].bio | string |
+| extra.profiles[username].email | string |
+| extra.profiles[username].url | string |
+| extra.profiles[username].languages | table |
+| extra.profiles[username].social | array of tables |
+| extra.profiles[username].open_graph | table |
 
 ```toml
 [extra.profiles.your_username]
@@ -453,17 +469,16 @@ bio = ""
 
 # Profile website
 # url = ""
-
 ```
 
-### Profile translations (`extra.profiles[username].languages`)
+### Profile translations
 
 | key | type |
 | --- | --- |
-| `extra.profiles[username].languages[lang].name` | string |
-| `extra.profiles[username].languages[lang].bio` | string |
-| `extra.profiles[username].languages[lang].url` | string |
-| `extra.profiles[username].languages[lang].avatar_alt` | string |
+| extra.profiles[username].languages[lang].name | string |
+| extra.profiles[username].languages[lang].bio | string |
+| extra.profiles[username].languages[lang].url | string |
+| extra.profiles[username].languages[lang].avatar_alt | string |
 
 ```toml
 [extra.profiles.your_username.languages.fr]
@@ -474,12 +489,12 @@ name = ""
 bio = ""
 ```
 
-### Social icons `extra.profiles[username].social`
+### Social icons
 
 | key | type |
 | --- | --- |
-| `extra.profiles[username].social[].name` | string |
-| `extra.profiles[username].social[].url` | string |
+| extra.profiles[username].social[].name | string |
+| extra.profiles[username].social[].url | string |
 
 The `name` should be the file name of `static/icons/*.svg` or the icon name of
 [simpleicons.org](https://simpleicons.org/). The `url` supports `$BASE_URL`.
@@ -498,23 +513,23 @@ name = "rss"
 url = "$BASE_URL/atom.xml"
 ```
 
-### Open Graph (`extra.profiles[username].open_graph`)
+### Open Graph
 
 | key | type |
 | --- | --- |
-| `extra.profiles[username].open_graph.image` | string |
-| `extra.profiles[username].open_graph.image_alt` | string |
-| `extra.profiles[username].open_graph.first_name` | string |
-| `extra.profiles[username].open_graph.last_name` | string |
-| `extra.profiles[username].open_graph.username` | string |
-| `extra.profiles[username].open_graph.gender` | string |
-| `extra.profiles[username].open_graph.fb_app_id` | string |
-| `extra.profiles[username].open_graph.fb_admins` | array of strings |
-| `extra.profiles[username].open_graph.fediverse_creator` | table |
-| `extra.profiles[username].open_graph.fediverse_creator.handle` | string |
-| `extra.profiles[username].open_graph.fediverse_creator.domain` | string |
-| `extra.profiles[username].open_graph.fediverse_creator.url` | string |
-| `extra.profiles[username].open_graph.languages[lang]` | table |
+| extra.profiles[username].open_graph.image | string |
+| extra.profiles[username].open_graph.image_alt | string |
+| extra.profiles[username].open_graph.first_name | string |
+| extra.profiles[username].open_graph.last_name | string |
+| extra.profiles[username].open_graph.username | string |
+| extra.profiles[username].open_graph.gender | string |
+| extra.profiles[username].open_graph.fb_app_id | string |
+| extra.profiles[username].open_graph.fb_admins | array of strings |
+| extra.profiles[username].open_graph.fediverse_creator | table |
+| extra.profiles[username].open_graph.fediverse_creator.handle | string |
+| extra.profiles[username].open_graph.fediverse_creator.domain | string |
+| extra.profiles[username].open_graph.fediverse_creator.url | string |
+| extra.profiles[username].open_graph.languages[lang] | table |
 
 See [the Open Graph protocol](https://ogp.me/).
 
@@ -557,17 +572,17 @@ fb_admins = ["YOUR_USER_ID"]
 # image_alt = ""
 ```
 
-### The page footer (`extra.footer`)
+### The page footer
 
 | key | type |
 | --- | --- |
-| `extra.footer.author_name` | string |
-| `extra.footer.since` | number |
-| `extra.footer.license_name` | string |
-| `extra.footer.license_url` | string |
-| `extra.footer.privacy_policy_url` | string |
-| `extra.footer.terms_of_service_url` | string |
-| `extra.footer.search_page_url` | string |
+| extra.footer.author_name | string |
+| extra.footer.since | number |
+| extra.footer.license_name | string |
+| extra.footer.license_url | string |
+| extra.footer.privacy_policy_url | string |
+| extra.footer.terms_of_service_url | string |
+| extra.footer.search_page_url | string |
 
 Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` are not shown.
 
@@ -583,16 +598,16 @@ license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 # search_page_url = "$BASE_URL/search/"
 ```
 
-### Locale and Date format (`extra.languages`)
+### Locale and Date format
 
 | key | type | default value |
 | --- | --- | --- |
-| `extra.languages[lang].locale` | string |  |
-| `extra.languages[lang].date_format` | string | `%F` |
-| `extra.languages[lang].date_format_archive` | string | `%m-%d` |
-| `extra.languages[lang].header_menu_name` | string |  |
-| `extra.languages[lang].header_buttons` | array of strings |  |
-| `extra.languages[lang].art_x_lang` | string |  |
+| extra.languages[lang].locale | string |  |
+| extra.languages[lang].date_format | string | `%F` |
+| extra.languages[lang].date_format_archive | string | `%m-%d` |
+| extra.languages[lang].header_menu_name | string |  |
+| extra.languages[lang].header_buttons | array of strings |  |
+| extra.languages[lang].art_x_lang | string |  |
 
 For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
 
@@ -608,12 +623,12 @@ date_format = "%x"
 date_format_archive = "%m-%d"
 ```
 
-### Web analytics (`extra.goatcounter`)
+### Web analytics
 
 | key | type |
 | --- | --- |
-| `extra.goatcounter.endpoint` | string |
-| `extra.goatcounter.src` | string |
+| extra.goatcounter.endpoint | string |
+| extra.goatcounter.src | string |
 
 Set only if you use [GoatCounter](https://www.goatcounter.com/).
 
@@ -623,22 +638,22 @@ endpoint = "https://MYCODE.goatcounter.com/count"
 src = "//gc.zgo.at/count.js"
 ```
 
-### Comments (`extra.giscus`)
+### Comments
 
 | key | type | default value |
 | --- | --- | --- |
-| `extra.giscus.repo` | string |  |
-| `extra.giscus.repo_id` | string |  |
-| `extra.giscus.category` | string |  |
-| `extra.giscus.category_id` | string |  |
-| `extra.giscus.mapping` | string | `pathname` |
-| `extra.giscus.strict` | number | `1` |
-| `extra.giscus.reactions_enabled` | number | `0` |
-| `extra.giscus.emit_metadata` | number | `0` |
-| `extra.giscus.input_position` | string | `top` |
-| `extra.giscus.theme` | string | `light` |
-| `extra.giscus.lang` | string | `en` |
-| `extra.giscus.loading` | string | `lazy` |
+| extra.giscus.repo | string |  |
+| extra.giscus.repo_id | string |  |
+| extra.giscus.category | string |  |
+| extra.giscus.category_id | string |  |
+| extra.giscus.mapping | string | `pathname` |
+| extra.giscus.strict | number | `1` |
+| extra.giscus.reactions_enabled | number | `0` |
+| extra.giscus.emit_metadata | number | `0` |
+| extra.giscus.input_position | string | `top` |
+| extra.giscus.theme | string | `light` |
+| extra.giscus.lang | string | `en` |
+| extra.giscus.loading | string | `lazy` |
 
 See [giscus.app](https://giscus.app/).
 Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`.

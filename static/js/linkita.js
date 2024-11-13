@@ -51,15 +51,26 @@
       userLanguages = [navigator.userLanguage];
     }
     const pageLanguage = document.documentElement.getAttribute("lang");
+    const pageTranslations = new Map();
+    document.head.querySelectorAll("link[rel='alternate'][hreflang]").forEach(el => {
+      const hreflang = el.getAttribute("hreflang");
+      const href = el.getAttribute("href");
+      if (hreflang !== pageLanguage) {
+        pageTranslations.set(hreflang, href);
+        const hreflangcode = hreflang.split("-")[0];
+        if (!pageTranslations.has(hreflangcode)) {
+          pageTranslations.set(hreflangcode, href);
+        }
+      }
+    });
     for (let i = 0; i < userLanguages.length; i++) {
       const userLanguage = userLanguages[i];
-      if (userLanguage === pageLanguage) continue;
-      const pageTranslations = document.head.querySelector(
-        "link[rel='alternate'][hreflang^='" + userLanguage.split("-")[0] + "']");
-      if (pageTranslations) {
+      const pageTranslation = pageTranslations.get(userLanguage) ||
+        pageTranslations.get(userLanguage.split("-")[0]);
+      if (undefined != pageTranslation) {
         btn.classList.remove("hidden");
         btn.addEventListener("click", () => {
-          window.location.href = pageTranslations.getAttribute("href");
+          window.location.href = pageTranslation;
         });
         break;
       }

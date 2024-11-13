@@ -357,35 +357,12 @@
     "glb": "Eskriyen"
   },
   "footer_powered_by": {
-    "en": "Powered by",
-    "uwu": "made with wuv by",
-    "uwu2": "powewed by",
-    "bg": "Осъществено чрез",
-    "eo": "Funkciigita de"
-  },
-  "footer_and": {
-    "en": "and",
-    "uwu": "and",
-    "uwu2": "an'",
-    "bg": "и",
-    "eo": "kaj",
-    "glb": "ji"
-  },
-  "footer_zola": {
-    "en": "Zola",
-    "uwu": "zowa",
-    "uwu2": "Zowa",
-    "bg": "Зола",
-    "eo": "Zola",
-    "glb": "Zola"
-  },
-  "footer_linkita": {
-    "en": "Linkita",
-    "uwu": "winkita",
-    "uwu2": "Winkita",
-    "bg": "Линкита",
-    "eo": "Linkita",
-    "glb": "Linkita"
+    "en": "Powered by $$Zola$$ and $$Linkita$$",
+    "uwu": "made with wuv by $$zola$$ and $$linkita$$",
+    "uwu2": "powewed by $$zola$$ an' $$linkita$$",
+    "bg": "Осъществено чрез $$Зола$$ и $$Линкита$$",
+    "eo": "Funkciigita de $$Zola$$ kaj $$Linkita$$",
+    "glb": "$$Zola$$ | $$Linkita$$"
   },
   "word_prev_page": {
     "en": "Prev Page",
