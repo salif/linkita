@@ -2,21 +2,14 @@
 
 A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
-## Demo
+The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita). A live preview can be viewed in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), and [Esperanto](https://salif.github.io/linkita/eo/). Screenshots are provided for both [Light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png) and [Dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png). For discussion, you can join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
 
-- [English](https://salif.github.io/linkita/en/)
-- [Bulgarian](https://salif.github.io/linkita/)
-- [Esperanto](https://salif.github.io/linkita/eo/)
+## Features
 
-### Screenshots
-
-- [Light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png)
-- [Dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png)
-
-## Kita features
+### Kita features
 
 - Easy to use and modify
-- No preset limits (This theme does not limit your content directory structure, taxonomy names, etc. It's applicable to all zola sites.)
+- No preset limits
 - Inject support
 - Dark mode
 - Responsive design
@@ -31,7 +24,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - Mathematical notations using [KaTeX](https://katex.org/)
 - Diagrams and charts using [Mermaid](https://mermaid.js.org/)
 
-## Linkita features
+### Linkita features
 
 - i18n
 - Improved SEO
@@ -701,5 +694,5 @@ Open *bug reports* and *feature requests* on [Codeberg](https://codeberg.org/sal
 
 If you use Linkita, feel free to create a pull request to add your site to this list.
 
-See also [Google results](https://www.google.com/search?q=%22Powered+by+Zola+and+Linkita%22+-https%3A%2F%2Fsalif.github.io%2Flinkita%2F)
-and [Bing results](https://www.bing.com/search?q=%22Powered+by+Zola+and+Linkita%22+-https%3A%2F%2Fsalif.github.io%2Flinkita%2F).
+See also [Google results](https://www.google.com/search?q=%22Powered+by+Zola+and+Linkita%22+-site%3Ahttps%3A%2F%2Fsalif.github.io%2Flinkita%2F)
+and [Bing results](https://www.bing.com/search?q=%22Powered+by+Zola+and+Linkita%22+-site%3Ahttps%3A%2F%2Fsalif.github.io%2Flinkita%2F).

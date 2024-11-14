@@ -5,7 +5,7 @@ updated = 2024-10-24
 description = "Lorem Ipsum Dolor Si Amet."
 [taxonomies]
 tags = ["markdown"]
-authors = ["kita"]
+authors = ["salif"]
 [extra]
 page_info = ["date", "reading_time", "authors"]
 +++

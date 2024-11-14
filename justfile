@@ -61,3 +61,14 @@ release-json version:
 [group('dev')]
 format:
     {{ just }} --fmt --unstable
+
+[group('dev')]
+add-screenshot url='127.0.0.1:1111' browser='brave' forcelight='false' schema='org.x.apps.portal':
+    if [[ "{{ forcelight }}" == "true" ]]; then \
+        if [[ "$(gsettings get {{ schema }} color-scheme)" == "'prefer-dark'" ]]; then \
+            gsettings set {{ schema }} color-scheme 'prefer-light'; fi; fi
+    {{ browser }} --headless --disable-gpu --screenshot=screenshot.png  --window-size=1400,936 \
+        --hide-scrollbars --force-device-scale-factor=1.2 "http://{{ url }}/en/"
+    magick screenshot.png -gravity north -crop '1360x765+0+0' screenshot.png
+    -mat2 --inplace screenshot.png
+    cp screenshot.png static/images/
