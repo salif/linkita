@@ -156,7 +156,7 @@ url = ""
 
 ### Sitemap frontmatter options
 
-```
+```toml
 [extra.sitemap]
 # Set only if different from `page.updated`
 updated =
@@ -244,6 +244,18 @@ You can easily use inject to add new features to your side without modifying the
 To use inject, you need to add some HTML files to the `templates/injects` directory.
 
 The available inject points are: `head`, `header_nav`, `body_start`, `body_end`, `page_start`, `page_end`, `footer`.
+
+### Keyboard shortcuts
+
+| Action | Shortcut |
+| --- | --- |
+| Home | <kbd>Alt</kbd>+<kbd>\!</kbd> |
+| Dark mode | <kbd>Alt</kbd>+<kbd>\$</kbd> |
+| Search | <kbd>Alt</kbd>+<kbd>\?</kbd> |
+| Menu | <kbd>Alt</kbd>+<kbd>\+</kbd> |
+| Prev page | <kbd>Alt</kbd>+<kbd>&lt;</kbd> |
+| Next page | <kbd>Alt</kbd>+<kbd>&gt;</kbd> |
+| TOC | <kbd>Alt</kbd>+<kbd>\%</kbd> |
 
 ## Configuring
 
@@ -546,7 +558,7 @@ last_name = "Your last name"
 username = "Your username"
 gender = "female" # or "male"
 
-# Set if you a Fediverse account. Example for "@user@mastodon.social"
+# Set if you have a Fediverse account. Example for @user@mastodon.social:
 [extra.profiles.your_username.open_graph.fediverse_creator]
 # Your Fediverse handle
 # handle = "user"
@@ -565,7 +577,7 @@ In addition, `image` and `image_alt` of the profile will be used as a
 fallback open graph image for all pages.
 
 ```toml
-[extra.profiles.default_author.open_graph]
+[extra.profiles.your_username.open_graph]
 fb_app_id = "Your fb app ID"
 fb_admins = ["YOUR_USER_ID"]
 # image = ""
@@ -688,3 +700,6 @@ Open *bug reports* and *feature requests* on [Codeberg](https://codeberg.org/sal
 - [salif.eu](https://salif.eu): Personal website
 
 If you use Linkita, feel free to create a pull request to add your site to this list.
+
+See also [Google results](https://www.google.com/search?q=%22Powered+by+Zola+and+Linkita%22+-https%3A%2F%2Fsalif.github.io%2Flinkita%2F)
+and [Bing results](https://www.bing.com/search?q=%22Powered+by+Zola+and+Linkita%22+-https%3A%2F%2Fsalif.github.io%2Flinkita%2F).

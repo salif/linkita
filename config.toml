@@ -161,7 +161,7 @@ url = "https://bsky.brid.gy/r/https://bsky.app/profile/bg.salif.eu"
 # Kita Theme's profile
 [extra.profiles.kita]
 name = "Kita"
-bio = "Kita - Zola Theme"
+bio = "Kita is the theme on which Linkita is based."
 url = "https://st1020.github.io/kita/"
 social = [
   { name = "github", url = "https://github.com/st1020/kita" }
