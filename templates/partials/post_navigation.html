@@ -3,13 +3,13 @@
   {% if page.higher %}
   <a
     class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
-    href="{{ page.higher.permalink }}" accesskey="<"
+    href="{{ page.higher.permalink }}" accesskey=","
     ><span class="mr-1.5">&#8249;</span><span>{{ page.higher.title }}</span></a>
   {% endif %}
   {% if page.lower %}
   <a
     class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
-    href="{{ page.lower.permalink }}" accesskey=">"
+    href="{{ page.lower.permalink }}" accesskey="."
     ><span>{{ page.lower.title }}</span><span class="ml-1.5">&#8250;</span></a>
   {% endif %}
 </nav>

@@ -1,7 +1,6 @@
 "use strict";
 (function () {
-  let elasticlunrFileName;
-  let searchIndexFileName;
+  let searchFiles;
   let mySearchIndex;
 
   function toggleSearch() {
@@ -20,25 +19,16 @@
       return;
     }
 
-    if (typeof (mySearchIndex) === "undefined") {
+    if ("undefined" === typeof (searchIndex) && "undefined" === typeof (elasticlunr)) {
       searchResultsEl.innerHTML = "<li>Search: Please wait...</li>";
-      if (typeof (searchIndex) === "undefined") {
-        fetchScript(searchIndexFileName, () => {
-          if (typeof (elasticlunr) === "undefined") {
-            fetchScript(elasticlunrFileName, () => {
-              mySearchIndex = elasticlunr.Index.load(window.searchIndex);
-              doSearch(q, searchResultsEl);
-            }, (err) => {
-              showError(searchResultsEl, "<li>Search file not found: <code>" + elasticlunrFileName + "</code></li>");
-            });
-          } else {
-            mySearchIndex = elasticlunr.Index.load(window.searchIndex);
-            doSearch(q, searchResultsEl);
-          }
-        }, (err) => {
-          showError(searchResultsEl, "<li>Search file not found: <code>" + searchIndexFileName + "</code></li>");
+      Promise.all(searchFiles.map(loadScript))
+        .catch(error => {
+          showError(searchResultsEl, "<li>Search file not found: <code>" + error + "</code></li>");
+        })
+        .then((t) => {
+          mySearchIndex = elasticlunr.Index.load(window.searchIndex);
+          doSearch(q, searchResultsEl);
         });
-      }
     } else {
       doSearch(q, searchResultsEl);
     }
@@ -72,18 +62,19 @@
       replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
   }
 
-  function fetchScript(fileName, onL, onE) {
-    const scriptEl = document.createElement("script");
-    scriptEl.onload = onL;
-    scriptEl.onerror = onE;
-    scriptEl.src = fileName;
-    document.head.appendChild(scriptEl);
-    return scriptEl;
+  function loadScript(fileName) {
+    return new Promise((resolve, reject) => {
+      const scriptEl = document.createElement("script");
+      scriptEl.onload = () => resolve(fileName);
+      scriptEl.onerror = () => reject(fileName);
+      scriptEl.async = true;
+      scriptEl.src = fileName;
+      document.head.appendChild(scriptEl);
+    });
   }
 
   function initSearchButton(filenames) {
-    elasticlunrFileName = filenames[0];
-    searchIndexFileName = filenames[1];
+    searchFiles = filenames;
   }
 
   if (null == window.linkita) window.linkita = {};

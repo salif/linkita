@@ -30,6 +30,7 @@ The source code is available on [Codeberg](https://codeberg.org/salif/linkita) a
 - Improved SEO
 - Author profiles
 - Search (elasticlunr_javascript)
+- Keyboard shortcuts
 
 ## Installing
 
@@ -243,12 +244,13 @@ The available inject points are: `head`, `header_nav`, `body_start`, `body_end`,
 | Action | Shortcut |
 | --- | --- |
 | Home | <kbd>Alt</kbd>+<kbd>\!</kbd> |
-| Dark mode | <kbd>Alt</kbd>+<kbd>\$</kbd> |
-| Search | <kbd>Alt</kbd>+<kbd>\?</kbd> |
-| Menu | <kbd>Alt</kbd>+<kbd>\+</kbd> |
-| Prev page | <kbd>Alt</kbd>+<kbd>&lt;</kbd> |
-| Next page | <kbd>Alt</kbd>+<kbd>&gt;</kbd> |
-| TOC | <kbd>Alt</kbd>+<kbd>\%</kbd> |
+| Search | <kbd>Alt</kbd>+<kbd>\/</kbd> |
+| Toggle menu | <kbd>Alt</kbd>+<kbd>\+</kbd> |
+| Toggle dark mode | <kbd>Alt</kbd>+<kbd>\$</kbd> |
+| Prev page | <kbd>Alt</kbd>+<kbd>\,</kbd> |
+| Next page | <kbd>Alt</kbd>+<kbd>\.</kbd> |
+| Table of contents | <kbd>Alt</kbd>+<kbd>\=</kbd> |
+| Skip to main | <kbd>Alt</kbd>+<kbd>\-</kbd> |
 
 ## Configuring
 
@@ -384,7 +386,7 @@ bg_color = "#f4f4f5"
 bg_dark_color = "#18181b"
 
 # Enable header blur
-header_blur = true
+header_blur = false
 
 # The custom header color, only available when `header_blur` is false
 header_color = "#e4e4e7"
@@ -686,7 +688,7 @@ See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICE
 ## Contributing
 
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
-Open *bug reports* and *feature requests* on [Codeberg](https://codeberg.org/salif/linkita/issues).
+Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 
 ## Blogs using this theme
 
