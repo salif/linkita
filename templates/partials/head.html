@@ -35,7 +35,7 @@
   {%- if page.description %}
     {%- set page_description = page.description %}
   {%- elif page.summary %}
-    {%- set page_description = page.summary %}
+    {%- set page_description = page.summary | linebreaksbr | striptags %}
   {%- endif %}
 {%- elif taxonomy.name %}
   {%- if taxonomy.name == "tags"%}
@@ -67,7 +67,7 @@
   {%- set page_title = macros::translate(key="error_not_found", language=lang, trans_data=trans_data) %}
   {%- set is_404 = true %}
   <meta name="robots" content="noindex" />
-  <link rel="canonical" href="{{ get_url(path=`404.html`) | safe }}" />
+  <link rel="canonical" href="{{ get_url(path=`404.html`) }}" />
 {%- endif %}
 
 {%- if page_title %}
@@ -76,23 +76,23 @@
     if page_title == config_title %}{{ page_title }}{%
     else %}{{ page_title ~ title_separator ~ config_title }}{%
     endif %}</title>
-  <meta property="og:site_name" content="{{ config_title }}" />
+  <meta property="og:site_name" content="{{ config_title | escape_xml | safe }}" />
   {%- else %}
   <title>{{ page_title }}</title>
   {%- endif %}
-  <meta property="og:title" content="{{ page_title }}" />
+  <meta property="og:title" content="{{ page_title | escape_xml | safe }}" />
 {%- endif %}
 {%- if page_description %}
-  <meta name="description" content="{{ page_description }}" />
-  <meta property="og:description" content="{{ page_description }}" />
+  <meta name="description" content="{{ page_description | truncate(length=300, end='…') | escape_xml | safe }}" />
+  <meta property="og:description" content="{{ page_description | truncate(length=300, end='…') | escape_xml | safe }}" />
 {%- endif %}
 {%- if current_url %}
   {%- if page.extra.open_graph.url %}
-  <meta property="og:url" content="{{ page.extra.open_graph.url }}" />
+  <meta property="og:url" content="{{ page.extra.open_graph.url | escape_xml | safe }}" />
   {%- else %}
-  <meta property="og:url" content="{{ current_url | safe }}" />
+  <meta property="og:url" content="{{ current_url | escape_xml | safe }}" />
   {%- endif %}
-  <link rel="canonical" href="{{ current_url | safe }}" />
+  <link rel="canonical" href="{{ current_url | escape_xml | safe }}" />
 
 {%- endif %}
 
@@ -113,39 +113,39 @@
     {%- endfor %}
   {%- endif %}
   {%- if page.extra.open_graph.content_tier %}
-  <meta property="article:content_tier" content="{{ page.extra.open_graph.content_tier }}" />
+  <meta property="article:content_tier" content="{{ page.extra.open_graph.content_tier | escape_xml | safe }}" />
   {%- endif %}
   {%- if page.extra.open_graph.section %}
-  <meta property="article:section" content="{{ page.extra.open_graph.section }}" />
+  <meta property="article:section" content="{{ page.extra.open_graph.section | escape_xml | safe }}" />
   {%- endif %}
-  {%- if page.extra.open_graph.opinion %}
-  <meta property="article:opinion" content="{{ page.extra.open_graph.opinion == 'true' }}" />
+  {%- if page.extra.open_graph.opinion is defined %}
+  <meta property="article:opinion" content="{{ page.extra.open_graph.opinion == true }}" />
   {%- endif %}
 
   {%- if page.extra.open_graph.locations %}
     {%- for og_location in page.extra.open_graph.locations %}
-  <meta property="article:location" content="{{ og_location }}" />
+  <meta property="article:location" content="{{ og_location | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
 
   {%- if page.extra.open_graph.tags %}
     {%- for og_tag in page.extra.open_graph.tags %}
-  <meta property="article:tag" content="{{ og_tag }}" />
+  <meta property="article:tag" content="{{ og_tag | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
 {%- elif profile_username %}
   <meta property="og:type" content="profile" />
   {%- if profile_data.open_graph.first_name %}
-  <meta property="profile:first_name" content="{{ profile_data.open_graph.first_name }}" />
+  <meta property="profile:first_name" content="{{ profile_data.open_graph.first_name | escape_xml | safe }}" />
   {%- endif %}
   {%- if profile_data.open_graph.last_name %}
-  <meta property="profile:last_name" content="{{ profile_data.open_graph.last_name }}" />
+  <meta property="profile:last_name" content="{{ profile_data.open_graph.last_name | escape_xml | safe }}" />
   {%- endif %}
   {%- if profile_data.open_graph.username %}
-  <meta property="profile:username" content="{{ profile_data.open_graph.username }}" />
+  <meta property="profile:username" content="{{ profile_data.open_graph.username | escape_xml | safe }}" />
   {%- endif %}
   {%- if profile_data.open_graph.gender %}
-  <meta property="profile:gender" content="{{ profile_data.open_graph.gender }}" />
+  <meta property="profile:gender" content="{{ profile_data.open_graph.gender | escape_xml | safe }}" />
   {%- endif %}
 {%- else %}
   <meta property="og:type" content="website" />
@@ -155,21 +155,23 @@
   {%- set page_translations = page.translations | default(value=section.translations) %}
   {%- for page_translation in page_translations %}
     {%- if page_translation.lang == lang and config.extra.languages[lang].locale %}
-  <meta property="og:locale" content="{{ config.extra.languages[lang].locale }}" />
+  <meta property="og:locale" content="{{ config.extra.languages[lang].locale | escape_xml | safe }}" />
     {%- elif config.extra.languages[page_translation.lang].locale %}
-  <meta property="og:locale:alternate" content="{{ config.extra.languages[page_translation.lang].locale }}" />
+  <meta property="og:locale:alternate" content="{{
+    config.extra.languages[page_translation.lang].locale | escape_xml | safe }}" />
     {%- endif %}
-  <link rel="alternate" href="{{ page_translation.permalink | safe }}" hreflang="{%
-    if config.extra.languages[page_translation.lang].art_x_lang %}{{ config.extra.languages[page_translation.lang].art_x_lang }}{%
-    else %}{{ page_translation.lang }}{% endif %}" />
+  <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
+    if config.extra.languages[page_translation.lang].art_x_lang %}{{
+      config.extra.languages[page_translation.lang].art_x_lang | escape_xml | safe }}{%
+    else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}" />
   {%- endfor %}
 {%- endif %}
 
 {%- if paginator.previous %}
-  <link rel="prev" href="{{ paginator.previous | safe }}" />
+  <link rel="prev" href="{{ paginator.previous | escape_xml | safe }}" />
 {%- endif %}
 {%- if paginator.next %}
-  <link rel="next" href="{{ paginator.next | safe }}" />
+  <link rel="next" href="{{ paginator.next | escape_xml | safe }}" />
 {%- endif %}
 
 {%- if profile_data or (config.author and config.extra.profiles[config.author]) %}
@@ -177,11 +179,11 @@
   {%- if config.extra.profiles[config.author].open_graph %}
   {%- set profile_og_data = config.extra.profiles[config.author].open_graph %}
   {%- if profile_og_data.fb_app_id %}
-  <meta property="fb:app_id" content="{{ profile_og_data.fb_app_id }}" />
+  <meta property="fb:app_id" content="{{ profile_og_data.fb_app_id | escape_xml | safe }}" />
     {%- endif %}
     {%- if profile_og_data.fb_admins %}
       {%- for fb_admin in profile_og_data.fb_admins %}
-  <meta property="fb:admins" content="{{ fb_admin }}" />
+  <meta property="fb:admins" content="{{ fb_admin | escape_xml | safe }}" />
       {%- endfor %}
     {%- endif %}
   {%- endif %}
@@ -189,13 +191,13 @@
     {%- set profile_og_data = profile_data.open_graph %}
   {%- endif %}
   {%- if profile_og_data.fediverse_creator.handle and profile_og_data.fediverse_creator.domain %}
-  <meta property="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle }}@{{
-    profile_og_data.fediverse_creator.domain | replace(from='https://', to='') }}" />
+  <meta property="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe
+    }}@{{ profile_og_data.fediverse_creator.domain | replace(from='https://', to='') | escape_xml | safe }}" />
     {%- if profile_og_data.fediverse_creator.url %}
-  <link rel="me" href="{{ profile_og_data.fediverse_creator.url | safe }}" />
+  <link rel="me" href="{{ profile_og_data.fediverse_creator.url | escape_xml | safe }}" />
     {%- else %}
-  <link rel="me" href="https://{{ profile_og_data.fediverse_creator.domain |
-      replace(from='https://', to='') }}/@{{ profile_og_data.fediverse_creator.handle }}" />
+  <link rel="me" href="https://{{ profile_og_data.fediverse_creator.domain | replace(from='https://', to='') |
+    escape_xml | safe }}/@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe }}" />
     {%- endif %}
   {%- endif %}
 {%- endif %}
@@ -221,34 +223,34 @@
     {%- endif %}
   {%- endif %}
   <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
-  <meta property="og:image:alt" content="{{ og_image_alt }}" />
+  <meta property="og:image:alt" content="{{ og_image_alt | escape_xml | safe }}" />
   {%- if page.extra.cover_type or page.extra.cover_width or page.extra.cover_height %}
-  <meta property="og:image:type" content="{{ page.extra.cover_type }}" />
-  <meta property="og:image:width" content="{{ page.extra.cover_width }}" />
-  <meta property="og:image:height" content="{{ page.extra.cover_height }}" />>
+  <meta property="og:image:type" content="{{ page.extra.cover_type | escape_xml | safe }}" />
+  <meta property="og:image:width" content="{{ page.extra.cover_width | int }}" />
+  <meta property="og:image:height" content="{{ page.extra.cover_height | int }}" />>
   {%- else %}
     {%- set og_image_data = get_image_metadata(path=og_image_path, allow_missing=true) %}
     {%- if og_image_data.mime and og_image_data.width and og_image_data.height %}
-  <meta property="og:image:type" content="{{ og_image_data.mime | safe }}" />
-  <meta property="og:image:width" content="{{ og_image_data.width }}" />
-  <meta property="og:image:height" content="{{ og_image_data.height }}" />
+  <meta property="og:image:type" content="{{ og_image_data.mime | escape_xml | safe }}" />
+  <meta property="og:image:width" content="{{ og_image_data.width | int }}" />
+  <meta property="og:image:height" content="{{ og_image_data.height | int }}" />
     {%- endif %}
   {%- endif %}
 {%- endif %}
 
 {%- if page.extra.open_graph.audio %}
-  <meta property="og:audio" content="{{ page.extra.open_graph.audio }}" />
+  <meta property="og:audio" content="{{ page.extra.open_graph.audio | escape_xml | safe }}" />
   {%- if page.extra.open_graph.audio_type %}
-  <meta property="og:audio:type" content="{{ page.extra.open_graph.audio_type }}" />
+  <meta property="og:audio:type" content="{{ page.extra.open_graph.audio_type | escape_xml | safe }}" />
   {%- endif %}
 {%- endif %}
 
 {%- if page.extra.open_graph.video %}
-  <meta property="og:video" content="{{ page.extra.open_graph.video }}" />
+  <meta property="og:video" content="{{ page.extra.open_graph.video | escape_xml | safe }}" />
   {%- if page.extra.open_graph.video_type %}
-  <meta property="og:video:type" content="{{ page.extra.open_graph.video_type }}" />
-  <meta property="og:video:width" content="{{ page.extra.open_graph.video_width }}" />
-  <meta property="og:video:height" content="{{ page.extra.open_graph.video_height }}" />
+  <meta property="og:video:type" content="{{ page.extra.open_graph.video_type | escape_xml | safe }}" />
+  <meta property="og:video:width" content="{{ page.extra.open_graph.video_width | int }}" />
+  <meta property="og:video:height" content="{{ page.extra.open_graph.video_height | int }}" />
   {%- endif %}
 {%- endif %}
 
@@ -257,15 +259,15 @@
 {%- endif %}
 {%- if config.extra.footer.privacy_policy_url %}
   <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.terms_of_service_url %}
   <link rel="terms-of-service" href="{{ config.extra.footer.terms_of_service_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.search_page_url %}
   <link rel="search" href="{{ config.extra.footer.search_page_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
 {%- endif %}
 
 {%- if config.generate_feeds or (taxonomy.feed and term.path) %}
@@ -280,21 +282,21 @@
     {%- endif %}
     {%- if feed_filename is ending_with("atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}Atom" />
+    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title | escape_xml | safe }}Atom" />
     {%- elif feed_filename is ending_with("rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title }}RSS" />
+    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title | escape_xml | safe }}RSS" />
     {%- else %}
-  <link rel="alternate" title="{{ feed_title }}{{ feed_filename }}" href="{{
+  <link rel="alternate" title="{{ feed_title ~ feed_filename | escape_xml | safe }}" href="{{
     get_url(path=feed_filename, lang=lang) }}" />
     {%- endif %}
   {%- endfor %}
 {%- endif %}
 
   <meta name="theme-color" data-light="{{
-    config.extra.style.header_color | default(value='#e4e4e7') }}" data-dark="{{
-    config.extra.style.header_dark_color | default(value='#27272a') }}" content="{{
-    config.extra.style.header_color | default(value='#e4e4e7') }}" />
+    config.extra.style.header_color | default(value='#e4e4e7') | escape_xml | safe }}" data-dark="{{
+    config.extra.style.header_dark_color | default(value='#27272a') | escape_xml | safe }}" content="{{
+    config.extra.style.header_color | default(value='#e4e4e7') | escape_xml | safe }}" />
 
   <!-- CSS & JS -->
   <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.css`) }}" />

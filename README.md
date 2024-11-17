@@ -117,11 +117,11 @@ extra:
 # MIME type of the cover image. e.g. `image/jpeg`, `image/gif`, `image/png`
 cover_type = ""
 # Width of the cover image in pixels
-cover_width = ""
+cover_width =
 # Height of the cover image in pixels
-cover_height = ""
+cover_height =
 # When the article is out of date after. e.g. `2024-02-29`
-expiration_time = ""
+expiration_time =
 # Describes the tier status for an article. e.g. `free`, `locked`, or `metered`
 content_tier = ""
 # Defines the location to target for the article. e.g. `["county:COUNTY"]` or `["city:CITY,COUNTY"]`
@@ -130,8 +130,8 @@ locations = []
 section = ""
 # Tag words associated with this article
 tags = [""]
-# Indicates whether the article is an opinion piece or not. e.g. `"true"` or `"false"`
-opinion = "" 
+# Indicates whether the article is an opinion piece or not. e.g. `true` or `false`
+opinion =
 # The URL for the audio
 audio = ""
 # MIME type of the audio. e.g. `audio/vnd.facebook.bridge`, `audio/mpeg`
@@ -141,9 +141,9 @@ video = ""
 # MIME type of the video. e.g. `application/x-shockwave-flash`, `video/mp4`
 video_type = ""
 # Width of the video in pixels
-video_width = ""
+video_width =
 # Height of the video in pixels
-video_height = ""
+video_height =
 # Set only if different from canonical page URL
 url = ""
 ```
@@ -190,7 +190,7 @@ Otherwise, set `page.authors`:
 
 ```toml
 +++
-authors = ["author_username", "author2_username", etc.]
+authors = ["author_username", "author2_username"]
 +++
 ```
 
@@ -216,7 +216,7 @@ authors = ["your_username"]
 [taxonomies]
 authors = ["author_username"]
 # or:
-# authors = ["author_username", "author2_username", etc.]
+# authors = ["author_username", "author2_username"]
 +++
 ```
 
@@ -479,7 +479,7 @@ avatar_invert = false
 # Profile name for all languages
 name = ""
 
-# Profile bio for all languages
+# Profile bio for all languages. Supports Markdown.
 bio = ""
 
 # Profile email

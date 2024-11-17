@@ -1,9 +1,9 @@
-{% extends "index.html" %}<!---->
-{% block main %}<!---->
+{% extends "index.html" %}
+{% block main %}
 
 <h1 class="mb-16">{{ page.title }}</h1>
 
-{% set section = get_section(path=page.extra.section) %}<!---->
+{% set section = get_section(path=page.extra.section) %}
 
 {% for year, posts in section.pages | group_by(attribute="year") %}
 <h2>{{ year }} <sup class="opacity-60">{{ posts | length }}</sup></h2>
@@ -13,7 +13,7 @@
     {% for post in posts %}
     <li>
       <div class="my-2 flex items-center justify-between">
-        <a class="secondary-link" href="{{ post.permalink }}">{{ post.title }}</a>
+        <a class="secondary-link" href="{{ post.permalink | escape_xml | safe }}">{{ post.title }}</a>
         {%- set date_format_archive = config.extra.languages[lang].date_format_archive | default(value="%m-%d") %}
         <time class="font-mono text-sm opacity-80" datetime="{{ post.date | date(format='%+') }}">{%
           if config.extra.languages[lang].locale %}{{ post.date | date(format=date_format_archive,
@@ -25,5 +25,5 @@
   </ul>
 </div>
 
-{% endfor %}<!---->
+{% endfor %}
 {% endblock main %}

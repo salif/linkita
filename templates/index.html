@@ -2,8 +2,8 @@
 {%- set trans_data = load_data(path="i18n.json", format="json") -%}
 <!DOCTYPE html>
 <html class="not-ready overflow-y-scroll lg:text-base"{%
-  if config.extra.languages[lang].art_x_lang %} lang="{{ config.extra.languages[lang].art_x_lang }}"{%
-  else %} lang="{{ lang }}"{% endif %}>
+  if config.extra.languages[lang].art_x_lang %} lang="{{ config.extra.languages[lang].art_x_lang | escape_xml | safe }}"{%
+  else %} lang="{{ lang | escape_xml | safe }}"{% endif %}>
   {% include "partials/head.html" %}
   <body class="text-black duration-200 ease-out dark:text-white">
     {% include "partials/header.html" %}

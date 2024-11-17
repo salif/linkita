@@ -8,15 +8,14 @@
     {%- set author_name = config.title %}
   {%- endif %}
   {%- set current_year = now() | date(format="%Y") | int %}
-    &copy; {%
-      if config.extra.footer.since and config.extra.footer.since != current_year %}<time
-    datetime="{{ config.extra.footer.since }}">{{ config.extra.footer.since }}</time> - {%
-      endif %}<time datetime="{{ current_year }}">{{ current_year }}</time>&nbsp;{%
+    &copy; {% if config.extra.footer.since and config.extra.footer.since != current_year
+    %}<time datetime="{{ config.extra.footer.since }}">{{ config.extra.footer.since }}</time> - {% endif
+    %}<time datetime="{{ current_year }}">{{ current_year }}</time>&nbsp;{%
         if author_name %}<a class="link" href="{{ get_url(path=``, lang=lang) }}">{{
         author_name }}</a>{% endif %}
   {% if config.extra.footer.license_name %}&vert;
     {%- if config.extra.footer.license_url %}
-    <a class="link" href="{{ config.extra.footer.license_url }}"
+    <a class="link" href="{{ config.extra.footer.license_url | escape_xml | safe }}"
       rel="license noopener" target="_blank">{{ config.extra.footer.license_name }}</a>
     {%- else %}
       {{ config.extra.footer.license_name }}
@@ -40,8 +39,8 @@
   {%- if config.extra.goatcounter.endpoint %}
     {%- if config.base_url is not starting_with("http://192.168.") and
       config.base_url is not starting_with("http://127.0.0.1") %}
-  <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | safe }}" {% if
-    config.extra.goatcounter.src %}src="{{ config.extra.goatcounter.src }}"{% endif %}></script>
+  <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | escape_xml | safe }}" {% if
+    config.extra.goatcounter.src %}src="{{ config.extra.goatcounter.src | escape_xml | safe }}"{% endif %}></script>
     {%- endif %}
   {%- endif %}
 {%- endif %}

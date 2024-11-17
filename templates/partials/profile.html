@@ -33,8 +33,8 @@
     <img
       class="{% if profile_data.avatar_invert %}dark:invert{% endif %} my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin"
       src="{{ get_url(path=profile_data.avatar_url) }}"{%
-        if profile_data.languages[lang].avatar_alt %} alt="{{ profile_data.languages[lang].avatar_alt }}"{%
-        elif profile_data.avatar_alt %} alt="{{ profile_data.avatar_alt }}"{% endif %} />
+        if profile_data.languages[lang].avatar_alt %} alt="{{ profile_data.languages[lang].avatar_alt | escape_xml | safe }}"{%
+        elif profile_data.avatar_alt %} alt="{{ profile_data.avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
   {%- endif %}
 
@@ -43,7 +43,7 @@
     <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
     {%- if profile_bio %}
     <div class="mb-2 break-words">
-      {{ profile_bio }}
+      {{ profile_bio | markdown(inline=true) | safe }}
     </div>
     {%- endif %}
 
@@ -53,7 +53,7 @@
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
         style="--url: url({{ macros::get_social_icon(icon=social.name) }})"
-        href="{{ social.url | replace(from=`$BASE_URL`, to=social_base_url) | safe }}"
+        href="{{ social.url | replace(from=`$BASE_URL`, to=social_base_url) | escape_xml | safe }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         >{{ social.name }}</a>
