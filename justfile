@@ -14,7 +14,7 @@ _:
 
 [group('user')]
 switch-to-latest:
-    {{ git }} switch $({{ git }} describe --tags $({{ git }} \
+    {{ git }} checkout $({{ git }} describe --tags $({{ git }} \
         rev-list --tags --max-count=1))
 
 [group('dev')]
