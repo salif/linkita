@@ -30,7 +30,7 @@
         ></button>
           {%- elif header_button == "theme_button" %}
         <button type="button" aria-label="Toggle dark/light mode" accesskey="$"
-          onclick="window.linkita.toggleDarkMode();"
+          onclick="window.linkita.toggleDarkMode();" ondblclick="window.linkita.resetDarkMode();"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert [background-image:var(--url-dark)] dark:[background-image:var(--url-light)]"
           style="--url-light: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
             fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-sun\' \
@@ -69,7 +69,8 @@
       {% if header_menu %}
       <div aria-label="Menu" role="button" accesskey="+" tabindex="0"
         class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-        onclick="window.linkita.toggleHeaderMenu();" onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || this.click() : true;"
+        onclick="window.linkita.toggleHeaderMenu();"
+        onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || window.linkita.toggleHeaderMenu() : true;"
       ></div>
       {% endif %}
     </div>

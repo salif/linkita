@@ -2,6 +2,7 @@
 (function () {
   const htmlClass = document.documentElement.classList;
   const themeColorTag = document.head.querySelector('meta[name="theme-color"]');
+  const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
   function applyDarkMode(isDark, doDispatchEvent) {
     if (isDark) {
@@ -18,7 +19,6 @@
   }
 
   function initDarkMode() {
-    const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
     const darkVal = localStorage.getItem("dark");
     if (darkVal) {
       applyDarkMode(darkVal === "dark", false);
@@ -39,6 +39,11 @@
     const isDark = !htmlClass.contains("dark");
     applyDarkMode(isDark, true);
     localStorage.setItem("dark", isDark ? "dark" : "light");
+  }
+
+  function resetDarkMode() {
+    localStorage.removeItem("dark");
+    applyDarkMode(darkScheme.matches, true);
   }
 
   function initTranslationsButton(btn) {
@@ -100,6 +105,7 @@
     window.linkita = {
       applyDarkMode: applyDarkMode,
       toggleDarkMode: toggleDarkMode,
+      resetDarkMode: resetDarkMode,
       initTranslationsButton: initTranslationsButton,
       toggleHeaderMenu: toggleHeaderMenu,
       initKatex: initKatex,

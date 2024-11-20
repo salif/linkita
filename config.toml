@@ -168,10 +168,9 @@ social = [
 ]
 
 [extra.footer]
-author_name = "Linkita"
 since = 2020
-license_name = "CC BY-SA 4.0"
-license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
+license_url = "https://creativecommons.org/licenses/by-sa/4.0/"
+copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 
 [extra.languages]
 

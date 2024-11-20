@@ -594,9 +594,8 @@ fb_admins = ["YOUR_USER_ID"]
 
 | key                               | type   |
 | --------------------------------- | ------ |
-| extra.footer.author_name          | string |
 | extra.footer.since                | number |
-| extra.footer.license_name         | string |
+| extra.footer.copyright            | string |
 | extra.footer.license_url          | string |
 | extra.footer.privacy_policy_url   | string |
 | extra.footer.terms_of_service_url | string |
@@ -606,11 +605,19 @@ Currently `privacy_policy_url`, `terms_of_service_url`, and `search_page_url` ar
 
 `$BASE_URL` is supported in the `_url` options.
 
+Option `copyright` supports Markdown and:
+- `$BASE_URL`
+- `$YEAR` (uses `since`)
+- `$LICENSE_URL` (uses `license_url`)
+
 ```toml
 [extra.footer]
+# Replace with the correct year
 since = 2024
-license_name = "CC BY-SA 4.0"
+# Replace with the url of the license you want
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
+# Replace `Your Name` with your name and `CC BY-SA 4.0` with the name of the license you want
+copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 # privacy_policy_url = "$BASE_URL/privacy-policy/"
 # terms_of_service_url = "$BASE_URL/terms-of-service/"
 # search_page_url = "$BASE_URL/search/"

@@ -206,17 +206,17 @@
   config.author and config.extra.profiles[config.author].open_graph.image) %}
   {%- if page.extra.cover.image %}
     {%- set og_image_path = page.extra.cover.image %}
-    {%- set og_image_alt = page.extra.cover.alt %}
+    {%- set og_image_alt = page.extra.cover.alt | default(value="cover") %}
   {%- elif profile_data.open_graph.image %}
     {%- set og_image_path = profile_data.open_graph.image %}
-    {%- if profile_data.open_graph.languages[lang].image_alt %}
+    {%- if profile_data.open_graph.languages[lang].image_alt is defined %}
       {%- set og_image_alt = profile_data.open_graph.languages[lang].image_alt %}
     {%- else %}
       {%- set og_image_alt = profile_data.open_graph.image_alt | default(value=profile_username) %}
     {%- endif %}
   {%- else %}
     {%- set og_image_path = config.extra.profiles[config.author].open_graph.image %}
-    {%- if config.extra.profiles[config.author].open_graph.languages[lang].image_alt %}
+    {%- if config.extra.profiles[config.author].open_graph.languages[lang].image_alt is defined %}
       {%- set og_image_alt = config.extra.profiles[config.author].open_graph.languages[lang].image_alt %}
     {%- else %}
       {%- set og_image_alt = config.extra.profiles[config.author].open_graph.image_alt | default(value=config.author) %}
@@ -256,6 +256,10 @@
 
 {%- if config.extra.webmanifest %}
   <link rel="manifest" href="{{ get_url(path=config.extra.webmanifest, lang=lang) }}">
+{%- endif %}
+{%- if config.extra.footer.license_url %}
+  <link rel="license" href="{{ config.extra.footer.license_url |
+    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.privacy_policy_url %}
   <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |

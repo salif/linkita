@@ -1,26 +1,38 @@
 <footer class="mx-auto flex lg:h-[4rem] max-w-3xl flex-wrap items-center px-8 py-3 text-sm opacity-60">
   <div class="mr-auto basis-full lg:basis-1/2">
-  {%- if config.extra.footer.author_name %}
-    {%- set author_name = config.extra.footer.author_name %}
-  {%- elif config.author %}
-    {%- set author_name = macros::get_profile_name(username=config.author) %}
-  {%- elif config.title %}
-    {%- set author_name = config.title %}
+  {%- if lang == config.default_language %}
+    {%- set base_url_prefix = config.base_url %}
+  {%- else %}
+    {%- set base_url_prefix = config.base_url ~ "/" ~ lang %}
+  {%- endif %}
+  {%- if config.extra.footer.copyright %}
+    {%- set copyright = config.extra.footer.copyright | replace(from=`$BASE_URL`, to=base_url_prefix)%}
+    {%- if config.extra.footer.license_url %}
+      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_prefix) %}
+      {%- set copyright = copyright | replace(from=`$LICENSE_URL`, to=license_url) %}
+    {%- endif %}
+  {%- else %}
+    {%- if config.author %}
+      {%- set author_name = macros::get_profile_name(username=config.author) %}
+      {%- set copyright = "&copy; $YEAR " ~ author_name %}
+    {%- else %}
+      {%- set copyright = "&copy; $YEAR" %}
+    {%- endif %}
+    {%- if config.extra.footer.license_url %}
+      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_prefix) %}
+      {%- set copyright = "[" ~ copyright ~ "](" ~ license_url ~ ')' %}
+    {%- endif %}
   {%- endif %}
   {%- set current_year = now() | date(format="%Y") | int %}
-    &copy; {% if config.extra.footer.since and config.extra.footer.since != current_year
-    %}<time datetime="{{ config.extra.footer.since }}">{{ config.extra.footer.since }}</time> - {% endif
-    %}<time datetime="{{ current_year }}">{{ current_year }}</time>&nbsp;{%
-        if author_name %}<a class="link" href="{{ get_url(path=``, lang=lang) }}">{{
-        author_name }}</a>{% endif %}
-  {% if config.extra.footer.license_name %}&vert;
-    {%- if config.extra.footer.license_url %}
-    <a class="link" href="{{ config.extra.footer.license_url | escape_xml | safe }}"
-      rel="license noopener" target="_blank">{{ config.extra.footer.license_name }}</a>
-    {%- else %}
-      {{ config.extra.footer.license_name }}
-    {%- endif %}
-  {% endif %}
+  {%- if config.extra.footer.since and config.extra.footer.since != current_year %}
+    {%- set copyright_years = '<time datetime="' ~ config.extra.footer.since ~ '">' ~
+      config.extra.footer.since ~ '</time> - <time datetime="' ~ current_year ~ '">' ~
+      current_year ~ '</time>' %}
+  {%- else %}
+    {%- set copyright_years = '<time datetime="' ~ current_year ~ '">' ~ current_year ~ '</time>' %}
+  {%- endif %}
+  {%- set copyright = copyright | replace(from=`$YEAR`, to=copyright_years) %}
+  {{ copyright | markdown(inline=true) | safe }}
   </div>
   <div class="flex basis-full lg:basis-1/2 lg:justify-end">
     <span class="mr-6 lg:ml-6">
