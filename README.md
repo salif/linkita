@@ -711,6 +711,7 @@ Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/l
 ## Blogs using this theme
 
 - [salif.eu](https://salif.eu): Personal website
+- [Zola Themes Collection](https://salif.github.io/zola-themes-collection/)
 
 If you use Linkita, feel free to create a pull request to add your site to this list.
 
