@@ -3,21 +3,11 @@
 just := just_executable() + " --justfile '" + justfile() + "'"
 zola := "zola"
 git := "git"
-npm := "npm"
 browser := "brave"
 screenshot_url := "http://127.0.0.1:1111"
-version_major := "0"
-version_minor := `date +%Y_%m_%d`
-version_patch := "0"
-version := version_major + "." + version_minor + "." + version_patch
 
 _:
     @command {{ just }} --list --unsorted
-
-[group('user')]
-switch-to-latest:
-    command {{ git }} checkout $(command {{ git }} describe --tags $(command {{ git }} \
-        rev-list --tags --max-count=1))
 
 [group('dev')]
 [private]
@@ -29,36 +19,9 @@ serve-and args='':
 serve: (serve-and)
 
 [group('dev')]
-push-linkita:
-    command {{ git }} push codeberg linkita
-    command {{ git }} push github linkita
-
-[group('dev')]
-release: (release-json version) && (release-git version)
-    command {{ npm }} run build
-    @command {{ git }} add ./static/main.css
-    command {{ zola }} check
-    command {{ git }} diff --cached --quiet
-    @! command {{ git }} show-ref --tags 'v{{ version }}' --quiet
-    @printf '%s\n' 'Releasing v{{ version }}'
-
-[confirm("Are you sure?")]
-[group('dev')]
-[private]
-release-git version:
-    command {{ git }} tag -s -a 'v{{ version }}' -m 'Release v{{ version }}'
-    command {{ git }} push --follow-tags
-
-[group('dev')]
-[private]
-release-json version:
-    #!/usr/bin/env node
-    const fs = require("fs");
-    const path = require("path");
-    const jsonPath = path.join("package.json");
-    const packageJson = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
-    packageJson.version = "{{ version }}";
-    fs.writeFileSync(jsonPath, JSON.stringify(packageJson, null, 2) + "\n", "utf8");
+push-demo:
+    command {{ git }} push codeberg-demo demo
+    command {{ git }} push github demo
 
 [group('dev')]
 format:
@@ -77,8 +40,7 @@ set-screenshot-mode mode='light' schema='org.x.apps.portal':
 
 [group('dev')]
 add-screenshot screenshot_url=screenshot_url browser=browser:
-    command {{ browser }} --headless --disable-gpu --screenshot=screenshot.png  --window-size=1400,936 \
+    command {{ browser }} --headless --disable-gpu --screenshot=static/images/screenshot.png  --window-size=1400,936 \
         --hide-scrollbars --force-device-scale-factor=1.2 "{{ screenshot_url }}/en/"
-    magick screenshot.png -gravity north -crop '1360x765+0+0' screenshot.png
-    -mat2 --inplace screenshot.png
-    cp screenshot.png static/images/
+    magick static/images/screenshot.png -gravity north -crop '1360x765+0+0' static/images/screenshot.png
+    -mat2 --inplace static/images/screenshot.png

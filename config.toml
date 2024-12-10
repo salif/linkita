@@ -1,16 +1,13 @@
 base_url = "https://salif.github.io/linkita"
 
+theme = "linkita"
 default_language = "bg"
 author = "your_username"
-generate_feeds = true
 minify_html = true
 
-[languages]
-
-[languages.bg]
 title = "Линкита"
 description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
-# generate_feeds = true
+generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
   { name = "tags", feed = true, paginate_by = 5 },
