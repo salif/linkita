@@ -29,6 +29,12 @@ serve-and args='':
 serve: (serve-and)
 
 [group('dev')]
+add-git-remotes:
+    command {{ git }} remote add codeberg git@codeberg.org:salif/linkita.git
+    command {{ git }} remote add github git@github.com:salif/linkita.git
+    command {{ git }} remote add kita https://github.com/st1020/kita.git
+
+[group('dev')]
 push-linkita:
     command {{ git }} push codeberg linkita
     command {{ git }} push github linkita
