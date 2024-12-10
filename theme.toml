@@ -4,7 +4,7 @@ license = "MIT"
 homepage = "https://codeberg.org/salif/linkita"
 min_version = "0.19.0"
 demo = "https://salif.github.io/linkita/en/"
-tags = ["Blog", "SEO-friendly", "Multilingual", "Responsive"]
+tags = ["Blog", "Multilingual", "Responsive", "SEO", "Search"]
 
 [author]
 name = "Salif Mehmed"

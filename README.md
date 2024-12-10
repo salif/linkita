@@ -573,7 +573,7 @@ gender = "female" # or "male"
 # Your Fediverse account URL
 # url = ""
 
-# [extra.profiles.your_username.open_graph.languages.fr.image_alt]
+# [extra.profiles.your_username.open_graph.languages.fr]
 # A description in French of what is in the social image
 # image_alt = ""
 ```
