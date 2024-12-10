@@ -3,12 +3,10 @@
 ## Links
 
 - [Demo site](https://salif.github.io/linkita/en/)
-- [Demo source on Codeberg](https://codeberg.org/salif/linkita-demo)
-- [Demo source on GitHub](https://github.com/salif/linkita/tree/demo)
-
-- [Linkita source on Codeberg](https://codeberg.org/salif/linkita)
-- [Linkita source on GitHub](https://github.com/salif/linkita)
-
+- [Demo source](https://codeberg.org/salif/linkita-demo)
+- [Demo source mirror](https://github.com/salif/linkita/tree/demo)
+- [Theme source](https://codeberg.org/salif/linkita)
+- [Theme source mirror](https://github.com/salif/linkita)
 - [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org)
 
 - [Zola Themes Collection](https://salif.github.io/zola-themes-collection/)
