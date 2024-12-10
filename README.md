@@ -2,7 +2,10 @@
 
 A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
-The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita). A live preview can be viewed in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), and [Esperanto](https://salif.github.io/linkita/eo/). Screenshots are provided for both [Light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png) and [Dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png). For discussion, you can join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
+- The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita).
+- Live preview in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/). See [demo source code](https://codeberg.org/salif/linkita-demo).
+- Screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png), [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
+- For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
 
 ## Features
 
@@ -710,8 +713,8 @@ Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/l
 
 ## Blogs using this theme
 
-- [salif.eu](https://salif.eu): Personal website
 - [Zola Themes Collection](https://salif.github.io/zola-themes-collection/)
+- [salif.eu](https://salif.eu): Personal website
 
 If you use Linkita, feel free to create a pull request to add your site to this list.
 

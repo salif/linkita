@@ -1,5 +1,7 @@
 #!/usr/bin/env -S just --justfile
 
+mod? demo "../../justfile"
+
 just := just_executable() + " --justfile '" + justfile() + "'"
 zola := "zola"
 git := "git"
@@ -20,26 +22,17 @@ switch-to-latest:
         rev-list --tags --max-count=1))
 
 [group('dev')]
-[private]
-serve-and args='':
-    command {{ zola }} serve {{ args }} --interface 0.0.0.0 --base-url \
-        $(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
-
-[group('dev')]
-serve: (serve-and)
-
-[group('dev')]
 add-git-remotes:
-    command {{ git }} remote add codeberg git@codeberg.org:salif/linkita.git
-    command {{ git }} remote add github git@github.com:salif/linkita.git
-    command {{ git }} remote add kita https://github.com/st1020/kita.git
+    command {{ git }} remote add codeberg 'git@codeberg.org:salif/linkita.git'
+    command {{ git }} remote add github 'git@github.com:salif/linkita.git'
+    command {{ git }} remote add kita 'https://github.com/st1020/kita.git'
 
-[group('dev')]
+[group('public')]
 push-linkita:
     command {{ git }} push codeberg linkita
     command {{ git }} push github linkita
 
-[group('dev')]
+[group('public')]
 release: (release-json version) && (release-git version)
     command {{ npm }} run build
     @command {{ git }} add ./static/main.css
@@ -49,14 +42,13 @@ release: (release-json version) && (release-git version)
     @printf '%s\n' 'Releasing v{{ version }}'
 
 [confirm("Are you sure?")]
-[group('dev')]
+[group('public')]
 [private]
 release-git version:
     command {{ git }} tag -s -a 'v{{ version }}' -m 'Release v{{ version }}'
     command {{ git }} push --follow-tags
 
-[group('dev')]
-[private]
+[group('public')]
 release-json version:
     #!/usr/bin/env node
     const fs = require("fs");
@@ -70,21 +62,6 @@ release-json version:
 format:
     command {{ just }} --fmt --unstable
 
-[group('dev')]
-set-screenshot-mode mode='light' schema='org.x.apps.portal':
-    #!/usr/bin/env bash
-    if [[ "{{ mode }}" == "light" ]]; then
-        if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-light'" ]]; then
-            gsettings set {{ schema }} color-scheme 'prefer-light'; fi
-    elif [[ "{{ mode }}" == "dark" ]]; then
-        if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-dark'" ]]; then
-            gsettings set {{ schema }} color-scheme 'prefer-dark'; fi
-    fi
-
-[group('dev')]
-add-screenshot screenshot_url=screenshot_url browser=browser:
-    command {{ browser }} --headless --disable-gpu --screenshot=screenshot.png  --window-size=1400,936 \
-        --hide-scrollbars --force-device-scale-factor=1.2 "{{ screenshot_url }}/en/"
-    magick screenshot.png -gravity north -crop '1360x765+0+0' screenshot.png
-    -mat2 --inplace screenshot.png
-    cp screenshot.png static/images/
+[group('public')]
+update-screenshot screenshot_url=screenshot_url browser=browser:
+    command {{ just }} demo::update-screenshot '{{ screenshot_url }}' '{{ browser }}'
