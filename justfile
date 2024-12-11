@@ -19,11 +19,20 @@ serve-and args='':
 [group('dev')]
 serve: serve-and
 
-[doc('git push')]
 [group('dev')]
+zola-check:
+    command {{ zola }} check
+
+[doc('git commit')]
+[group('git')]
+commit-demo: zola-check format
+    command {{ git }} commit
+
+[doc('git push')]
+[group('git')]
 push-demo:
-    command {{ git }} push codeberg-demo demo
-    command {{ git }} push github demo
+    command {{ git }} push codeberg-demo demo:demo
+    command {{ git }} push github demo:demo
 
 [doc('Format source code')]
 [group('dev')]
