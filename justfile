@@ -23,6 +23,21 @@ switch-to-latest:
 format:
     command {{ just }} --fmt --unstable
 
+[extension('.mjs')]
+update-social-icons:
+    #!/usr/bin/env node
+    import fs from "fs"
+    import stream from "node:stream"
+    const icons = ["bluesky", "codeberg", "git", "github"]
+    for (const icon of icons) {
+        const resp = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons/icons/${icon}.svg`)
+        if (resp.ok) {
+            const iconFile = fs.createWriteStream(`static/icons/${icon}.svg`)
+            stream.Readable.fromWeb(resp.body).pipe(iconFile)
+            iconFile.on("finish", () => console.log(`Saved ${iconFile.path}`))
+        }
+    }
+
 [group('git')]
 [private]
 add-git-remotes:

@@ -68,6 +68,8 @@
     content: ".";
   }
 
+  /* Linkita */
+
   a {
     @apply underline-offset-2;
   }
@@ -142,6 +144,8 @@
   .secondary-link {
     @apply text-[var(--tw-prose-body)] no-underline hover:text-black dark:hover:text-white;
   }
+
+  /* Linkita */
 
   .width-scroll {
     @apply overflow-x-auto;
