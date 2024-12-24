@@ -654,6 +654,8 @@ date_format_archive = "%m-%d"
 
 ### Web analytics
 
+#### GoatCounter
+
 | key                        | type   |
 | -------------------------- | ------ |
 | extra.goatcounter.endpoint | string |
@@ -665,6 +667,19 @@ Set only if you use [GoatCounter](https://www.goatcounter.com/).
 [extra.goatcounter]
 endpoint = "https://MYCODE.goatcounter.com/count"
 src = "//gc.zgo.at/count.js"
+```
+
+#### Vercel Analytics
+
+| key                        | type   |
+| -------------------------- | ------ |
+| extra.vercel_analytics.src | string |
+
+Set only if you use [Vercel Web Analytics](https://vercel.com/docs/analytics).
+
+```toml
+[extra.vercel_analytics]
+src = "/_vercel/insights/script.js"
 ```
 
 ### Comments

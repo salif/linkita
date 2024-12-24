@@ -7,13 +7,15 @@
   function applyDarkMode(isDark, doDispatchEvent) {
     if (isDark) {
       htmlClass.add("dark");
-      themeColorTag?.setAttribute("content", themeColorTag.dataset.dark);
     } else {
       htmlClass.remove("dark");
-      themeColorTag?.setAttribute("content", themeColorTag.dataset.light);
     }
-    if (doDispatchEvent) {
-      document.body?.dispatchEvent(new CustomEvent("set-theme",
+    if (undefined != themeColorTag) {
+      themeColorTag.setAttribute("content", isDark ?
+        themeColorTag.dataset.dark : themeColorTag.dataset.light);
+    }
+    if (doDispatchEvent && undefined != document.body) {
+      document.body.dispatchEvent(new CustomEvent("set-theme",
         { detail: isDark ? "dark" : "light" }));
     }
   }
@@ -99,6 +101,63 @@
     })
   }
 
+  function enableAnalytics(key) {
+    return localStorage.removeItem(key)
+  }
+
+  function disableAnalytics(key) {
+    return localStorage.setItem(key, "t")
+  }
+
+  function isAnalyticsEnabled(key, init) {
+    if (init) {
+      if (window.location.hash === "#enable-analytics") {
+        if (localStorage.getItem(key) === 't') {
+          enableAnalytics(key);
+          alert("Analytics is now ENABLED in this browser. To disable analytics, load #disable-analytics.");
+        }
+      } else if (window.location.hash === "#disable-analytics") {
+        if (localStorage.getItem(key) !== 't') {
+          disableAnalytics(key);
+          alert("Analytics is now DISABLED in this browser. To enable analytics, load #enable-analytics.");
+        }
+      }
+    }
+    return localStorage.getItem(key) !== 't'
+  }
+
+  function initGoatCounterAnalytics(src, endpoint) {
+    if (isAnalyticsEnabled("skipgc", true)) {
+      const newScript = document.createElement("script");
+      newScript.async = true;
+      newScript.src = src;
+      newScript.dataset.goatcounter = endpoint;
+      if (undefined != document.body) {
+        document.body.appendChild(newScript);
+      } else if (undefined != document.head) {
+        document.head.appendChild(newScript);
+      }
+    }
+  }
+
+  function initVercelAnalytics(src) {
+    if (isAnalyticsEnabled("va-disable", true)) {
+      if (undefined == window.va) {
+        window.va = function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+      }
+      const newScript = document.createElement("script");
+      newScript.async = true;
+      newScript.src = src;
+      if (undefined != document.body) {
+        document.body.appendChild(newScript);
+      } else if (undefined != document.head) {
+        document.head.appendChild(newScript);
+      }
+    }
+  }
+
   function main() {
     initDarkMode();
 
@@ -109,6 +168,11 @@
       initTranslationsButton: initTranslationsButton,
       toggleHeaderMenu: toggleHeaderMenu,
       initKatex: initKatex,
+      isAnalyticsEnabled: isAnalyticsEnabled,
+      enableAnalytics: enableAnalytics,
+      disableAnalytics: disableAnalytics,
+      initGoatCounterAnalytics: initGoatCounterAnalytics,
+      initVercelAnalytics: initVercelAnalytics,
     };
   }
 

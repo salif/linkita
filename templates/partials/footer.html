@@ -43,16 +43,20 @@
     </span>
   </div>
 {%- if not config.extra.disable_javascript %}
-  <!-- Mermaid -->
   {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
+  <!-- Mermaid -->
     {% include "partials/mermaid.html" %}
   {%- endif %}
-  <!-- GoatCounter -->
-  {%- if config.extra.goatcounter.endpoint %}
-    {%- if config.base_url is not starting_with("http://192.168.") and
+  {%- if config.base_url is not starting_with("http://192.168.") and
       config.base_url is not starting_with("http://127.0.0.1") %}
-  <script async data-goatcounter="{{ config.extra.goatcounter.endpoint | escape_xml | safe }}" {% if
-    config.extra.goatcounter.src %}src="{{ config.extra.goatcounter.src | escape_xml | safe }}"{% endif %}></script>
+    {%- if config.extra.goatcounter.endpoint and config.extra.goatcounter.src %}
+  <!-- GoatCounter -->
+  <script>window.linkita.initGoatCounterAnalytics("{{ config.extra.goatcounter.src | escape_xml | safe }}",
+    "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}");</script>
+    {%- endif %}
+    {%- if config.extra.vercel_analytics.src %}
+  <!-- Vercel Web Analytics -->
+  <script>window.linkita.initVercelAnalytics("{{ config.extra.vercel_analytics.src | escape_xml | safe }}");</script>
     {%- endif %}
   {%- endif %}
 {%- endif %}

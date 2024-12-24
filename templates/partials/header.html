@@ -50,7 +50,7 @@
             ><circle cx=\'11\' cy=\'11\' r=\'8\'></circle><line x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'></line></svg>');"
         ></button>
             {%- if not config.extra.disable_javascript %}
-        <script>window.linkita?.initSearchButton(["{{ get_url(path=`elasticlunr.min.js`) }}", "{{ get_url(path=`search_index.`~lang~`.js`) }}"]);</script>
+        <script>window.linkita.initSearchButton(["{{ get_url(path=`elasticlunr.min.js`) }}", "{{ get_url(path=`search_index.`~lang~`.js`) }}"]);</script>
             {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" aria-label="Open page translation" accesskey=";"
@@ -61,7 +61,7 @@
             d=\'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\'></path></svg>');"
         ></button>
             {%- if not config.extra.disable_javascript %}
-        <script>window.linkita?.initTranslationsButton(document.querySelector(".btn-translations"));</script>
+        <script>window.linkita.initTranslationsButton(document.querySelector(".btn-translations"));</script>
             {%- endif %}
           {%- endif %}
         {%- endfor %}
