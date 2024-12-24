@@ -47,13 +47,13 @@ add-git-remotes:
 
 [doc('git commit')]
 [group('git')]
-commit-linkita:
+commit-theme:
     command {{ just }} demo::zola-check format
     command {{ git }} commit
 
 [doc('git push')]
 [group('git')]
-push-linkita:
+push-theme:
     command {{ git }} push codeberg linkita:linkita
     command {{ git }} push github linkita:linkita
 

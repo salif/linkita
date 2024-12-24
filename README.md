@@ -29,10 +29,11 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 ### Linkita features
 
-- i18n
-- Improved SEO
+- Multilingual support
+- Improved search engine optimization
+- Search support (elasticlunr_javascript)
+- More configurability
 - Author profiles
-- Search (elasticlunr_javascript)
 - Keyboard shortcuts
 
 ## Installing
@@ -51,7 +52,7 @@ Alternatively, clone the repository: `git clone https://codeberg.org/salif/linki
 theme = "linkita"
 ```
 
-3. Optionally, you can switch from the `linkita` branch to the latest release:
+3. Optionally, you can switch from the `linkita` branch to the latest stable version:
 
 ```sh
 cd themes/linkita
@@ -61,9 +62,9 @@ npm run switch-to-latest
 ## Updating
 
 ```sh
-git submodule update --merge --remote themes/linkita
-# cd themes/linkita
-# npm run switch-to-latest
+git submodule update --remote themes/linkita
+# Optionally, you can switch to the latest stable version:
+# cd themes/linkita && npm run switch-to-latest
 ```
 
 ## Usage
@@ -711,12 +712,9 @@ See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICE
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
 Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 
-## Blogs using this theme
+## Sites using Linkita
 
 - [Zola Themes Collection](https://salif.github.io/zola-themes-collection/)
 - [salif.eu](https://salif.eu): Personal website
 
 If you use Linkita, feel free to create a pull request to add your site to this list.
-
-See also [Google results](https://www.google.com/search?q=%22Powered+by+Zola+and+Linkita%22+-site%3Ahttps%3A%2F%2Fsalif.github.io%2Flinkita%2F)
-and [Bing results](https://www.bing.com/search?q=%22Powered+by+Zola+and+Linkita%22+-site%3Ahttps%3A%2F%2Fsalif.github.io%2Flinkita%2F).
