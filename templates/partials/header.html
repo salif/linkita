@@ -12,6 +12,7 @@
 {%- elif config.extra.menu %}
   {%- set header_menu = config.extra.menu %}
 {%- endif %}
+{%- set base_url_lang = get_url(path=``, lang=lang) %}
 <header class="{%
   if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
@@ -19,10 +20,10 @@
       <div class="flex items-center">
         {%- for header_button in header_buttons %}
           {%- if header_button == "site_title" and config.title %}
-        <a class="text-2xl font-semibold" href="{{ get_url(path=``, lang=lang) }}" accesskey="!">{{ config.title }}</a>
+        <a class="text-2xl font-semibold" href="{{ base_url_lang }}/" accesskey="!">{{ config.title }}</a>
           {%- elif header_button == "home_button" or header_button == "site_title" %}
         <button type="button" aria-label="Go to home page" accesskey="!"
-          onclick="window.location.href='{{ get_url(path=``, lang=lang) }}';"
+          onclick="window.location.href='{{ base_url_lang }}/';"
           class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
           style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
             fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-home\'><path \
@@ -78,16 +79,11 @@
     <nav class="flex w-full items-center lg:w-auto">
       <menu
         class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0">
-        {%- if lang == config.default_language %}
-          {%- set menu_base_url = config.base_url %}
-        {%- else %}
-          {%- set menu_base_url = config.base_url ~ "/" ~ lang %}
-        {%- endif %}
         {%- for menu in header_menu %}
         <li>
           <a
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
-            href="{{ menu.url | replace(from=`$BASE_URL`, to=menu_base_url) | escape_xml | safe }}">{%
+            href="{{ menu.url | replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}">{%
               if menu.names[lang] %}{{ menu.names[lang] }}{%
               elif menu.names_i18n and trans_data[menu.names_i18n][lang] %}{{
                 trans_data[menu.names_i18n][lang] }}{%

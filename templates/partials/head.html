@@ -17,11 +17,7 @@
   {%- set page_authors = [] %}
 {%- endif %}
 
-{%- if lang == config.default_language %}
-  {%- set base_url_prefix = config.base_url %}
-{%- else %}
-  {%- set base_url_prefix = config.base_url ~ "/" ~ lang %}
-{%- endif %}
+{%- set base_url_lang = get_url(path=``, lang=lang) %}
 {%- set config_title = config.title | default(value="") %}
 {%- set title_separator = config.extra.title_separator | default(value= " | ") %}
 <head prefix="og: https://ogp.me/ns#{% if profile_username %} profile: https://ogp.me/ns/profile#{%
@@ -259,19 +255,19 @@
 {%- endif %}
 {%- if config.extra.footer.license_url %}
   <link rel="license" href="{{ config.extra.footer.license_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.privacy_policy_url %}
   <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.terms_of_service_url %}
   <link rel="terms-of-service" href="{{ config.extra.footer.terms_of_service_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
 {%- endif %}
 {%- if config.extra.footer.search_page_url %}
   <link rel="search" href="{{ config.extra.footer.search_page_url |
-    replace(from=`$BASE_URL`, to=base_url_prefix) | escape_xml | safe }}" />
+    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
 {%- endif %}
 
 {%- if config.generate_feeds or (taxonomy.feed and term.path) %}

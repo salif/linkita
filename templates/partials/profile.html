@@ -20,12 +20,7 @@
 {%- else %}
   {%- set profile_name = profile_username %}
 {%- endif %}
-
-{%- if lang == config.default_language %}
-  {%- set social_base_url = config.base_url %}
-{%- else %}
-  {%- set social_base_url = config.base_url ~ "/" ~ lang %}
-{%- endif %}
+{%- set base_url_lang = get_url(path=``, lang=lang) %}
 <div class="mb-16 flex items-start">
   {%- if profile_data.avatar_url %}
   <div
@@ -53,7 +48,7 @@
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
         style="--url: url({{ macros::get_social_icon(icon=social.name) }})"
-        href="{{ social.url | replace(from=`$BASE_URL`, to=social_base_url) | escape_xml | safe }}"
+        href="{{ social.url | replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         >{{ social.name }}</a>

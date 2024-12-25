@@ -1,14 +1,10 @@
 <footer class="mx-auto flex lg:h-[4rem] max-w-3xl flex-wrap items-center px-8 py-3 text-sm opacity-60">
   <div class="mr-auto basis-full lg:basis-1/2">
-  {%- if lang == config.default_language %}
-    {%- set base_url_prefix = config.base_url %}
-  {%- else %}
-    {%- set base_url_prefix = config.base_url ~ "/" ~ lang %}
-  {%- endif %}
+  {%- set base_url_lang = get_url(path=``, lang=lang) %}
   {%- if config.extra.footer.copyright %}
-    {%- set copyright = config.extra.footer.copyright | replace(from=`$BASE_URL`, to=base_url_prefix)%}
+    {%- set copyright = config.extra.footer.copyright | replace(from=`$BASE_URL`, to=base_url_lang) %}
     {%- if config.extra.footer.license_url %}
-      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_prefix) %}
+      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_lang) %}
       {%- set copyright = copyright | replace(from=`$LICENSE_URL`, to=license_url) %}
     {%- endif %}
   {%- else %}
@@ -19,7 +15,7 @@
       {%- set copyright = "&copy; $YEAR" %}
     {%- endif %}
     {%- if config.extra.footer.license_url %}
-      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_prefix) %}
+      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_lang) %}
       {%- set copyright = "[" ~ copyright ~ "](" ~ license_url ~ ')' %}
     {%- endif %}
   {%- endif %}
@@ -47,17 +43,14 @@
   <!-- Mermaid -->
     {% include "partials/mermaid.html" %}
   {%- endif %}
-  {%- if config.base_url is not starting_with("http://192.168.") and
-      config.base_url is not starting_with("http://127.0.0.1") %}
-    {%- if config.extra.goatcounter.endpoint and config.extra.goatcounter.src %}
+  {%- if config.extra.goatcounter.endpoint and config.extra.goatcounter.src %}
   <!-- GoatCounter -->
   <script>window.linkita.initGoatCounterAnalytics("{{ config.extra.goatcounter.src | escape_xml | safe }}",
     "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}");</script>
-    {%- endif %}
-    {%- if config.extra.vercel_analytics.src %}
+  {%- endif %}
+  {%- if config.extra.vercel_analytics.src %}
   <!-- Vercel Web Analytics -->
   <script>window.linkita.initVercelAnalytics("{{ config.extra.vercel_analytics.src | escape_xml | safe }}");</script>
-    {%- endif %}
   {%- endif %}
 {%- endif %}
   <!-- Footer inject -->
