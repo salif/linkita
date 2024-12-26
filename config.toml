@@ -3,7 +3,7 @@ base_url = "https://salif.github.io/linkita"
 theme = "linkita"
 default_language = "bg"
 author = "your_username"
-minify_html = true
+minify_html = false
 
 title = "Линкита"
 description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
