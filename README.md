@@ -682,7 +682,7 @@ Set only if you use [Vercel Web Analytics](https://vercel.com/docs/analytics).
 src = "/_vercel/insights/script.js"
 ```
 
-### Prevent tracking own pageviews
+#### Prevent tracking own pageviews
 
 Open a page of your site, adding `#disable-analytics` to the page address. Do this once for each browser and device.
 For example, open <http://127.0.0.1:1111/#disable-analytics>.

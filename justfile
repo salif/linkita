@@ -5,7 +5,7 @@ mod? demo "../../justfile"
 just := just_executable() + " --justfile '" + justfile() + "'"
 zola := "zola"
 git := "git"
-npm := "npm"
+pnpm := "pnpm"
 version_major := "0"
 version_minor := `date +%Y_%m_%d`
 version_patch := "0"
@@ -59,8 +59,8 @@ push-theme:
 
 [group('git')]
 release: (release-json version) && (release-git version)
-    command {{ npm }} run build
-    @command {{ git }} add ./static/main.css
+    command {{ pnpm }} build
+    @command {{ git }} add ./static/main.min.css ./static/main.css
     command {{ zola }} check
     command {{ git }} diff --cached --quiet
     @! command {{ git }} show-ref --tags 'v{{ version }}' --quiet

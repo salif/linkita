@@ -299,7 +299,7 @@
     config.extra.style.header_color | default(value='#e4e4e7') | escape_xml | safe }}" />
 
   <!-- CSS & JS -->
-  <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.css`) }}" />
+  <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
   <style>
     :root {
       --bg: {{ config.extra.style.bg_color | default(value="#f4f4f5") }};
@@ -333,9 +333,9 @@
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
-  <script src="{{ get_url(path=`js/linkita.js`) }}"></script>
+  <script src="{{ get_url(path=`js/linkita.js`, cachebust=true) }}"></script>
   {%- if config.build_search_index %}
-  <script src="{{ get_url(path=`js/linkita-search.js`) }}"></script>
+  <script src="{{ get_url(path=`js/linkita-search.js`, cachebust=true) }}"></script>
   {%- endif %}
 
   {%- if page.extra.math | default(value=config.extra.math) %}
