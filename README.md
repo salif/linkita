@@ -656,13 +656,16 @@ date_format_archive = "%m-%d"
 
 #### GoatCounter
 
-| key                        | type    |
-| -------------------------- | ------- |
-| extra.goatcounter.endpoint | string  |
-| extra.goatcounter.src      | string  |
-| extra.goatcounter.noscript | boolean |
+| key                               | type   |
+| --------------------------------- | ------ |
+| extra.goatcounter.endpoint        | string |
+| extra.goatcounter.src             | string |
+| extra.goatcounter.noscript_prefix | string |
 
 Set only if you use [GoatCounter](https://www.goatcounter.com/).
+
+To enable [pixel](https://www.goatcounter.com/help/pixel), set `noscript_prefix` to an empty string.
+If your `base_url` includes a subpath, set `noscript_prefix` to the subpath without a trailing slash.
 
 ```toml
 [extra.goatcounter]
