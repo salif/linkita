@@ -14,8 +14,6 @@
     "url": "https://codeberg.org/salif/linkita.git"
   },
   "scripts": {
-    "dev": "pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify --watch",
-    "build": "pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify && pnpm tailwindcss -i ./static/app.css -o ./static/main.css",
     "switch-to-latest": "git checkout tags/v${npm_package_version}",
     "windows-switch-to-latest": "git checkout tags/v%npm_package_version%"
   },

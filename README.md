@@ -656,10 +656,11 @@ date_format_archive = "%m-%d"
 
 #### GoatCounter
 
-| key                        | type   |
-| -------------------------- | ------ |
-| extra.goatcounter.endpoint | string |
-| extra.goatcounter.src      | string |
+| key                        | type    |
+| -------------------------- | ------- |
+| extra.goatcounter.endpoint | string  |
+| extra.goatcounter.src      | string  |
+| extra.goatcounter.noscript | boolean |
 
 Set only if you use [GoatCounter](https://www.goatcounter.com/).
 

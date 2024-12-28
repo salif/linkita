@@ -47,6 +47,10 @@
   <!-- GoatCounter -->
   <script>window.linkita.initGoatCounterAnalytics("{{ config.extra.goatcounter.src | escape_xml | safe }}",
     "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}");</script>
+    {%- if config.extra.goatcounter.noscript and current_path is defined %}
+  <noscript><img src="{{ config.extra.goatcounter.endpoint | escape_xml | safe
+    }}?p={{ current_path | urlencode | safe }}" alt=""></noscript>
+    {%- endif %}
   {%- endif %}
   {%- if config.extra.vercel_analytics.src %}
   <!-- Vercel Web Analytics -->
