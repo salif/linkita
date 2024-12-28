@@ -196,7 +196,7 @@ art_x_lang = "art-x-uwu"
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
 src = "//gc.zgo.at/count.js"
-noscript = true
+noscript_prefix = "/linkita"
 
 [extra.giscus]
 repo = ""
