@@ -627,7 +627,7 @@ copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 # search_page_url = "$BASE_URL/search/"
 ```
 
-### Locale and Date format
+### Language specific options
 
 | key                                       | type   | default value |
 | ----------------------------------------- | ------ | ------------- |
@@ -637,6 +637,8 @@ copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 | extra.languages[lang].header_menu_name    | string |               |
 | extra.languages[lang].header_buttons      | array of strings |     |
 | extra.languages[lang].art_x_lang          | string |               |
+| extra.languages[lang].taxonomy_list_description   | string |       |
+| extra.languages[lang].taxonomy_single_description | string |       |
 
 For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
 
@@ -650,6 +652,18 @@ date_format_archive = "%m-%d"
 locale = "fr_FR"
 date_format = "%x"
 date_format_archive = "%m-%d"
+```
+
+#### Taxonomy/term description
+
+Taxonomy pages do not have a description by default.
+Optionally you can set a generic description.
+`$NAME` will be automatically replaced.
+
+```toml
+[extra.languages.en]
+taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
+taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
 ```
 
 ### Web analytics

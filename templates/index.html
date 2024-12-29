@@ -1,5 +1,18 @@
 {% import "macros.html" as macros %}
-{%- set trans_data = load_data(path="i18n.json", format="json") -%}
+{%- set g_trans_data = load_data(path="i18n.json", format="json") %}
+{%- if page.extra.profile %}
+  {%- set g_profile_username = page.extra.profile %}
+{%- elif section.extra.profile %}
+  {%- set g_profile_username = section.extra.profile %}
+{%- elif taxonomy.name is defined and taxonomy.name == "authors" and term.name is defined %}
+  {%- set g_profile_username = term.name %}
+{%- endif %}
+{%- if g_profile_username is defined and config.extra.profiles[g_profile_username] %}
+  {%- set g_profile_data = config.extra.profiles[g_profile_username] %}
+{%- endif %}
+{%- set g_is_profile = g_profile_username is defined %}
+{%- set g_is_article = page.date is defined or page.updated is defined %}
+{#- -#}
 <!DOCTYPE html>
 <html class="not-ready overflow-y-scroll lg:text-base"{%
   if config.extra.languages[lang].art_x_lang %} lang="{{ config.extra.languages[lang].art_x_lang | escape_xml | safe }}"{%

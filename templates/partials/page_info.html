@@ -13,7 +13,7 @@
     if info == "date" or (info == "date_on_paginator" and not is_page) or
       (info == "date_on_page" and is_page) %}
       {%- if page.date %}<time
-    datetime="{{ page.date | date(format='%+') }}">{% if config.extra.languages[lang].locale %}{{
+    datetime="{{ page.date | date(format=`%+`) }}">{% if config.extra.languages[lang].locale %}{{
     page.date | date(format=date_format, locale=config.extra.languages[lang].locale) }}{% else %}{{
     page.date | date(format=date_format) }}{% endif %}</time>
       {%- endif %}
@@ -22,7 +22,7 @@
     if info == "date_updated" or (info == "date_updated_on_paginator" and not is_page) or
       (info == "date_updated_on_page" and is_page) %}
       {%- if page.updated and page.updated != page.date %} &lpar;<time
-    datetime="{{ page.updated | date(format='%+') }}">{% if config.extra.languages[lang].locale %}{{
+    datetime="{{ page.updated | date(format=`%+`) }}">{% if config.extra.languages[lang].locale %}{{
     page.updated | date(format=date_format, locale=config.extra.languages[lang].locale) }}{% else %}{{
     page.updated | date(format=date_format) }}{% endif %}</time>&rpar;
       {%- endif %}
@@ -32,12 +32,12 @@
         (info == "reading_time_on_page" and is_page) %}<span class="mx-1">&middot;</span>
     {%- set reading_time_minutes = page.reading_time % 60 %}<time
     datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
-    page.reading_time }} {{ macros::translate(key="word_minutes", language=lang, trans_data=trans_data) }}</time>
+    page.reading_time }} {{ macros::tr(key="word_minutes", lk=lang, td=g_trans_data) }}</time>
     {%- endif %}
   {%- elif info == "word_count" or info == "word_count_on_paginator" or info == "word_count_on_page" %}{%
       if info == "word_count" or (info == "word_count_on_paginator" and not is_page) or
         (info == "word_count_on_page" and is_page) %}<span class="mx-1">&middot;</span><span>{{
-    page.word_count }} {{ macros::translate(key="word_words", language=lang, trans_data=trans_data) }}</span>
+    page.word_count }} {{ macros::tr(key="word_words", lk=lang, td=g_trans_data) }}</span>
     {%- endif %}
   {%- elif info == "authors" or info == "authors_on_paginator" or info == "authors_on_page" %}{%
     if info == "authors" or (info == "authors_on_paginator" and not is_page) or (info == "authors_on_page" and is_page) %}

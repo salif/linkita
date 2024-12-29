@@ -1,15 +1,7 @@
 {% import "macros.html" as macros %}
-{%- if section.extra.profile or page.extra.profile %}
-  {%- set profile_username = page.extra.profile | default(value=section.extra.profile) %}
-{%- elif taxonomy.name and taxonomy.name == "authors" and term.name %}
-  {%- set profile_username = term.name %}
-{%- endif %}
-{%- if profile_username and config.extra.profiles[profile_username] %}
-  {%- set profile_data = config.extra.profiles[profile_username] %}
-{%- endif %}
-{%- if page.taxonomies.authors %}
+{%- if page.taxonomies.authors is defined %}
   {%- set page_authors = page.taxonomies.authors %}
-{%- elif page.authors %}
+{%- elif page.authors is defined %}
   {%- set page_authors = page.authors %}
 {%- elif config.author %}
   {%- set page_authors = [config.author] %}
@@ -17,11 +9,11 @@
   {%- set page_authors = [] %}
 {%- endif %}
 
-{%- set base_url_lang = get_url(path=``, lang=lang) %}
+{%- set base_url_lang = get_url(path="", lang=lang) %}
 {%- set config_title = config.title | default(value="") %}
 {%- set title_separator = config.extra.title_separator | default(value= " | ") %}
-<head prefix="og: https://ogp.me/ns#{% if profile_username %} profile: https://ogp.me/ns/profile#{%
-  elif page.date %} article: https://ogp.me/ns/article#{% endif %}">
+<head prefix="og: https://ogp.me/ns#{% if g_is_profile %} profile: https://ogp.me/ns/profile#{%
+  elif g_is_article %} article: https://ogp.me/ns/article#{% endif %}">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,11 +27,11 @@
   {%- endif %}
 {%- elif taxonomy.name %}
   {%- if taxonomy.name == "tags"%}
-    {%- set page_title = macros::translate(key="taxonomy_tags", language=lang, trans_data=trans_data) %}
+    {%- set page_title = macros::tr(key="taxonomy_tags", lk=lang, td=g_trans_data) %}
   {%- elif taxonomy.name == "categories"%}
-    {%- set page_title = macros::translate(key="taxonomy_categories", language=lang, trans_data=trans_data) %}
+    {%- set page_title = macros::tr(key="taxonomy_categories", lk=lang, td=g_trans_data) %}
   {%- elif taxonomy.name == "authors"%}
-    {%- set page_title = macros::translate(key="taxonomy_authors", language=lang, trans_data=trans_data) %}
+    {%- set page_title = macros::tr(key="taxonomy_authors", lk=lang, td=g_trans_data) %}
   {%- else %}
     {%- set page_title = taxonomy.name %}
   {%- endif %}
@@ -49,6 +41,15 @@
       {%- set page_title = term_name ~ title_separator ~ page_title %}
     {%- else %}
       {%- set page_title = term.name ~ title_separator ~ page_title %}
+    {%- endif %}
+    {%- if config.extra.languages[lang].taxonomy_single_description %}
+      {%- set page_description = config.extra.languages[lang].taxonomy_single_description |
+        replace(from=`$NAME`, to=term.name) %}
+    {%- endif %}
+  {%- else %}
+    {%- if config.extra.languages[lang].taxonomy_list_description %}
+      {%- set page_description = config.extra.languages[lang].taxonomy_list_description |
+        replace(from=`$NAME`, to=taxonomy.name) %}
     {%- endif %}
   {%- endif %}
 {%- elif section.title %}
@@ -60,7 +61,7 @@
   {%- set page_title = config_title %}
   {%- set page_description = config.description | default(value="") %}
 {%- else %}
-  {%- set page_title = macros::translate(key="error_not_found", language=lang, trans_data=trans_data) %}
+  {%- set page_title = macros::tr(key="error_not_found", lk=lang, td=g_trans_data) %}
   {%- set is_404 = true %}
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="{{ get_url(path=`404.html`) }}" />
@@ -79,8 +80,8 @@
   <meta property="og:title" content="{{ page_title | escape_xml | safe }}" />
 {%- endif %}
 {%- if page_description %}
-  <meta name="description" content="{{ page_description | truncate(length=300, end='…') | escape_xml | safe }}" />
-  <meta property="og:description" content="{{ page_description | truncate(length=300, end='…') | escape_xml | safe }}" />
+  <meta name="description" content="{{ page_description | truncate(length=300, end=`…`) | escape_xml | safe }}" />
+  <meta property="og:description" content="{{ page_description | truncate(length=300, end=`…`) | escape_xml | safe }}" />
 {%- endif %}
 {%- if current_url %}
   {%- if page.extra.open_graph.url %}
@@ -92,20 +93,20 @@
 
 {%- endif %}
 
-{%- if page.date %}
+{%- if g_is_article %}
   <meta property="og:type" content="article" />
   {%- if page.date %}
-  <meta property="article:published_time" content="{{ page.date | date(format='%+') }}" />
+  <meta property="article:published_time" content="{{ page.date | date(format=`%+`) }}" />
   {%- endif %}
   {%- if page.updated %}
-  <meta property="article:modified_time" content="{{ page.updated | date(format='%+') }}" />
+  <meta property="article:modified_time" content="{{ page.updated | date(format=`%+`) }}" />
   {%- endif %}
   {%- if page.extra.expiration_time %}
-  <meta property="article:expiration_time" content="{{ page.expiration_time | date(format='%+') }}" />
+  <meta property="article:expiration_time" content="{{ page.expiration_time | date(format=`%+`) }}" />
   {%- endif %}
   {%- if page.taxonomies.authors %}
     {%- for page_author in page.taxonomies.authors %}
-  <meta property="article:author" content="{{ get_taxonomy_url(kind='authors', name=page_author, lang=lang) }}" />
+  <meta property="article:author" content="{{ get_taxonomy_url(kind=`authors`, name=page_author, lang=lang) }}" />
     {%- endfor %}
   {%- endif %}
   {%- if page.extra.open_graph.content_tier %}
@@ -117,31 +118,29 @@
   {%- if page.extra.open_graph.opinion is defined %}
   <meta property="article:opinion" content="{{ page.extra.open_graph.opinion == true }}" />
   {%- endif %}
-
   {%- if page.extra.open_graph.locations %}
     {%- for og_location in page.extra.open_graph.locations %}
   <meta property="article:location" content="{{ og_location | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
-
   {%- if page.extra.open_graph.tags %}
     {%- for og_tag in page.extra.open_graph.tags %}
   <meta property="article:tag" content="{{ og_tag | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
-{%- elif profile_username %}
+{%- elif g_is_profile %}
   <meta property="og:type" content="profile" />
-  {%- if profile_data.open_graph.first_name %}
-  <meta property="profile:first_name" content="{{ profile_data.open_graph.first_name | escape_xml | safe }}" />
+  {%- if g_profile_data.open_graph.first_name %}
+  <meta property="profile:first_name" content="{{ g_profile_data.open_graph.first_name | escape_xml | safe }}" />
   {%- endif %}
-  {%- if profile_data.open_graph.last_name %}
-  <meta property="profile:last_name" content="{{ profile_data.open_graph.last_name | escape_xml | safe }}" />
+  {%- if g_profile_data.open_graph.last_name %}
+  <meta property="profile:last_name" content="{{ g_profile_data.open_graph.last_name | escape_xml | safe }}" />
   {%- endif %}
-  {%- if profile_data.open_graph.username %}
-  <meta property="profile:username" content="{{ profile_data.open_graph.username | escape_xml | safe }}" />
+  {%- if g_profile_data.open_graph.username %}
+  <meta property="profile:username" content="{{ g_profile_data.open_graph.username | escape_xml | safe }}" />
   {%- endif %}
-  {%- if profile_data.open_graph.gender %}
-  <meta property="profile:gender" content="{{ profile_data.open_graph.gender | escape_xml | safe }}" />
+  {%- if g_profile_data.open_graph.gender %}
+  <meta property="profile:gender" content="{{ g_profile_data.open_graph.gender | escape_xml | safe }}" />
   {%- endif %}
 {%- else %}
   <meta property="og:type" content="website" />
@@ -170,7 +169,7 @@
   <link rel="next" href="{{ paginator.next | escape_xml | safe }}" />
 {%- endif %}
 
-{%- if profile_data or (config.author and config.extra.profiles[config.author]) %}
+{%- if g_profile_data or (config.author and config.extra.profiles[config.author]) %}
   {#- order is important #}
   {%- if config.extra.profiles[config.author].open_graph %}
   {%- set profile_og_data = config.extra.profiles[config.author].open_graph %}
@@ -183,32 +182,32 @@
       {%- endfor %}
     {%- endif %}
   {%- endif %}
-  {%- if profile_data.open_graph %}
-    {%- set profile_og_data = profile_data.open_graph %}
+  {%- if g_profile_data.open_graph %}
+    {%- set profile_og_data = g_profile_data.open_graph %}
   {%- endif %}
   {%- if profile_og_data.fediverse_creator.handle and profile_og_data.fediverse_creator.domain %}
   <meta property="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe
-    }}@{{ profile_og_data.fediverse_creator.domain | replace(from='https://', to='') | escape_xml | safe }}" />
+    }}@{{ profile_og_data.fediverse_creator.domain | replace(from=`https://`, to=``) | escape_xml | safe }}" />
     {%- if profile_og_data.fediverse_creator.url %}
   <link rel="me" href="{{ profile_og_data.fediverse_creator.url | escape_xml | safe }}" />
     {%- else %}
-  <link rel="me" href="https://{{ profile_og_data.fediverse_creator.domain | replace(from='https://', to='') |
+  <link rel="me" href="https://{{ profile_og_data.fediverse_creator.domain | replace(from=`https://`, to=``) |
     escape_xml | safe }}/@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe }}" />
     {%- endif %}
   {%- endif %}
 {%- endif %}
 
-{%- if page.extra.cover.image or profile_data.open_graph.image or (
+{%- if page.extra.cover.image or g_profile_data.open_graph.image or (
   config.author and config.extra.profiles[config.author].open_graph.image) %}
   {%- if page.extra.cover.image %}
     {%- set og_image_path = page.extra.cover.image %}
     {%- set og_image_alt = page.extra.cover.alt | default(value="cover") %}
-  {%- elif profile_data.open_graph.image %}
-    {%- set og_image_path = profile_data.open_graph.image %}
-    {%- if profile_data.open_graph.languages[lang].image_alt is defined %}
-      {%- set og_image_alt = profile_data.open_graph.languages[lang].image_alt %}
+  {%- elif g_profile_data.open_graph.image %}
+    {%- set og_image_path = g_profile_data.open_graph.image %}
+    {%- if g_profile_data.open_graph.languages[lang].image_alt is defined %}
+      {%- set og_image_alt = g_profile_data.open_graph.languages[lang].image_alt %}
     {%- else %}
-      {%- set og_image_alt = profile_data.open_graph.image_alt | default(value=profile_username) %}
+      {%- set og_image_alt = g_profile_data.open_graph.image_alt | default(value=g_profile_username) %}
     {%- endif %}
   {%- else %}
     {%- set og_image_path = config.extra.profiles[config.author].open_graph.image %}
@@ -294,9 +293,9 @@
 {%- endif %}
 
   <meta name="theme-color" data-light="{{
-    config.extra.style.header_color | default(value='#e4e4e7') | escape_xml | safe }}" data-dark="{{
-    config.extra.style.header_dark_color | default(value='#27272a') | escape_xml | safe }}" content="{{
-    config.extra.style.header_color | default(value='#e4e4e7') | escape_xml | safe }}" />
+    config.extra.style.header_color | default(value=`#e4e4e7`) | escape_xml | safe }}" data-dark="{{
+    config.extra.style.header_dark_color | default(value=`#27272a`) | escape_xml | safe }}" content="{{
+    config.extra.style.header_color | default(value=`#e4e4e7`) | escape_xml | safe }}" />
 
   <!-- CSS & JS -->
   <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
@@ -315,12 +314,12 @@
     }
   </style>
 
-{%- if profile_data %}
-  {%- if profile_data.avatar_url %}
-  <link rel="preload" as="image" href="{{ get_url(path=profile_data.avatar_url) }}" />
+{%- if g_is_profile %}
+  {%- if g_profile_data.avatar_url %}
+  <link rel="preload" as="image" href="{{ get_url(path=g_profile_data.avatar_url) }}" />
   {%- endif %}
-  {%- if profile_data.social %}
-    {%- for image_social in profile_data.social %}
+  {%- if g_profile_data.social %}
+    {%- for image_social in g_profile_data.social %}
   <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
     {%- endfor %}
   {%- endif %}

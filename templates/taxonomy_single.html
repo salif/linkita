@@ -10,7 +10,7 @@
 {%- elif taxonomy.name == "tags" %}
 <h1 class="mb-16">#{{ term.name }}</h1>
 {%- elif taxonomy.name == "categories" %}
-<h1 class="mb-16">{{ term.name | title }}</h1>
+<h1 class="mb-16">{{ term.name }}</h1>
 {%- else %}
 <h1 class="mb-16">{{ term.name }}</h1>
 {%- endif %}

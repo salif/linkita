@@ -26,12 +26,9 @@
 {%- endif -%}
 {%- endmacro get_profile_name -%}
 
-{%- macro translate(key, language, trans_data) -%}
-{%- if trans_data[key][language] -%}
-{{- trans_data[key][language] -}}
-{%- elif trans_data[key]["en"] -%}
-{{- trans_data[key]["en"] -}}
-{%- else -%}
-{{- trans_data[key][language] -}}
-{%- endif -%}
-{%- endmacro translate -%}
+{%- macro tr(key, lk, td) -%}
+{%- if td[key][lk] %}{{ td[key][lk] }}
+{%- elif td[key]["en"] %}{{ td[key]["en"] }}
+{%- else %}{{ td[key][lk] }}
+{%- endif %}
+{%- endmacro tr -%}

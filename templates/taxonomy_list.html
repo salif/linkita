@@ -2,13 +2,10 @@
 {% block main %}
 <!-- Taxonomy Title -->
 <h1 class="mb-16">{%
-  if taxonomy.name == "tags" %}{{ macros::translate(key="taxonomy_tags",
-    language=lang, trans_data=trans_data) }}{%
-  elif taxonomy.name == "categories" %}{{ macros::translate(key="taxonomy_categories",
-    language=lang, trans_data=trans_data) }}{%
-  elif taxonomy.name == "authors" %}{{ macros::translate(key="taxonomy_authors",
-    language=lang, trans_data=trans_data) }}{%
-  else %}{{ taxonomy.name | title }}{% endif %}</h1>
+  if taxonomy.name == "tags" %}{{ macros::tr(key="taxonomy_tags", lk=lang, td=g_trans_data) }}{%
+  elif taxonomy.name == "categories" %}{{ macros::tr(key="taxonomy_categories", lk=lang, td=g_trans_data) }}{%
+  elif taxonomy.name == "authors" %}{{ macros::tr(key="taxonomy_authors", lk=lang, td=g_trans_data) }}{%
+  else %}{{ taxonomy.name }}{% endif %}</h1>
 <!-- Taxonomies -->
 <div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
   {% for term in terms %}
@@ -17,7 +14,7 @@
       <a class="primary-link" href="{{ term.permalink | escape_xml | safe }}">{%
         if taxonomy.name == "authors" %}{{ macros::get_profile_name(username=term.name) }}{%
         elif taxonomy.name == "tags" %}#{{ term.name }}{%
-        elif taxonomy.name == "categories" %}{{ term.name | title }}{%
+        elif taxonomy.name == "categories" %}{{ term.name }}{%
         else %}{{ term.name }}{% endif %}</a>
       <sup class="opacity-60">{{ term.page_count }}</sup>
     </h3>
@@ -29,7 +26,7 @@
     {% if term.pages | length > 5 %}
     <span class="flex justify-end">
       <a class="secondary-link mt-1 pr-2" href="{{ term.permalink | escape_xml | safe }}">{{
-        macros::translate(key="word_more", language=lang, trans_data=trans_data) }}</a>
+        macros::tr(key="word_more", lk=lang, td=g_trans_data) }}</a>
     </span>
     {% endif %}
   </div>
