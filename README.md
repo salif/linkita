@@ -132,8 +132,6 @@ content_tier = ""
 locations = []
 # A high-level section name. e.g. `Technology`
 section = ""
-# Tag words associated with this article
-tags = [""]
 # Indicates whether the article is an opinion piece or not. e.g. `true` or `false`
 opinion =
 # The URL for the audio

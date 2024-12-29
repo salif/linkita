@@ -85,8 +85,8 @@
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
             href="{{ menu.url | replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}">{%
               if menu.names[lang] %}{{ menu.names[lang] }}{%
-              elif menu.names_i18n and trans_data[menu.names_i18n][lang] %}{{
-                trans_data[menu.names_i18n][lang] }}{%
+              elif menu.names_i18n and g_trans_data[menu.names_i18n][lang] %}{{
+                g_trans_data[menu.names_i18n][lang] }}{%
               elif menu.name %}{{ menu.name }}{%
               else %}{{ menu.url | replace(from=`$BASE_URL`, to="") | escape_xml | safe }}{% endif %}</a>
         </li>

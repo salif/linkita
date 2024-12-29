@@ -123,8 +123,8 @@
   <meta property="article:location" content="{{ og_location | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
-  {%- if page.extra.open_graph.tags %}
-    {%- for og_tag in page.extra.open_graph.tags %}
+  {%- if page.taxonomies.tags %}
+    {%- for og_tag in page.taxonomies.tags %}
   <meta property="article:tag" content="{{ og_tag | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
