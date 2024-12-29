@@ -1,8 +1,8 @@
 +++
 title = "Mallongigoj"
+description = "La mallongigoj de la temo Linkita."
 date = 2022-10-20
 updated = 2024-10-24
-description = "La mallongigoj de la temo Linkita."
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]

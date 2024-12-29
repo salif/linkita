@@ -1,8 +1,8 @@
 +++
 title = "Gvidilo pri Markdown-Sintakso"
+description = "Ekzempla artikolo montrante bazan Markdown-sintakson kaj formatadon por HTML-elementoj."
 date = 2022-10-20
 updated = 2024-10-24
-description = "Ekzempla artikolo montrante bazan Markdown-sintakson kaj formatadon por HTML-elementoj."
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]

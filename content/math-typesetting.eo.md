@@ -1,8 +1,8 @@
 +++
 title = "Matematika Kompostado"
+description = "Mallonga gvidilo por agordi KaTeX."
 date = 2022-10-20
 updated = 2024-10-24
-description = "Mallonga gvidilo por agordi KaTeX."
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

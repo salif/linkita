@@ -1,8 +1,8 @@
 +++
 title = "Шорткодове"
+description = "Шорткодовете на темата Линкита."
 date = 2022-10-20
 updated = 2024-10-24
-description = "Шорткодовете на темата Линкита."
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
 authors = ["kita", "salif"]

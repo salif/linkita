@@ -1,8 +1,8 @@
 +++
 title = "Математика"
+description = "Кратко ръководство за настройване на KaTeX."
 date = 2022-10-20
 updated = 2024-10-24
-description = "Кратко ръководство за настройване на KaTeX."
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

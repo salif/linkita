@@ -1,7 +1,8 @@
 +++
 title = "Shortcodes"
-date = 2022-10-20
 description = "The Linkita theme shortcodes."
+date = 2022-10-20
+# updated =
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita"]

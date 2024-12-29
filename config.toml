@@ -175,6 +175,8 @@ copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 locale = "en_US"
 date_format = "%F"
 date_format_archive = "%m-%d"
+taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
+taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
 
 [extra.languages.bg]
 locale = "bg_BG"

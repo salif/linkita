@@ -1,7 +1,8 @@
 +++
 title = "Markdown Syntax Guide"
-date = 2022-10-20
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+date = 2022-10-20
+# updated =
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita"]
