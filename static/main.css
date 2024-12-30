@@ -1772,11 +1772,6 @@ sup a {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 .duration-100 {
   transition-duration: 100ms;
 }
@@ -2038,16 +2033,16 @@ article {
     margin-left: 1.5rem;
   }
 
+  .lg\:mt-\[1\.25rem\] {
+    margin-top: 1.25rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:h-\[4rem\] {
-    height: 4rem;
   }
 
   .lg\:w-auto {

@@ -12,37 +12,42 @@
 {%- endif %}
 {%- set g_is_profile = g_profile_username is defined %}
 {%- set g_is_article = page.date is defined or page.updated is defined %}
+{%- set g_html_lang = config.extra.languages[lang].art_x_lang | default(value=lang) %}
 {#- -#}
-<!DOCTYPE html>
-<html class="not-ready overflow-y-scroll lg:text-base"{%
-  if config.extra.languages[lang].art_x_lang %} lang="{{ config.extra.languages[lang].art_x_lang | escape_xml | safe }}"{%
-  else %} lang="{{ lang | escape_xml | safe }}"{% endif %}>
+<!doctype html>
+<html class="not-ready overflow-y-scroll lg:text-base" lang="{{ g_html_lang | escape_xml | safe }}">
+
+<head prefix="og: https://ogp.me/ns#{%
+  if g_is_profile %} profile: https://ogp.me/ns/profile#{%
+  elif g_is_article %} article: https://ogp.me/ns/article#{%
+  endif %}">
   {% include "partials/head.html" %}
-  <body class="text-black duration-200 ease-out dark:text-white">
-    {% include "partials/header.html" %}
+  {% include "partials/head_res.html" %}
+  <!-- Head inject -->
+  {% include "injects/head.html" ignore missing %}
+</head>
 
-    <!-- Body Start inject -->
-    {% include "injects/body_start.html" ignore missing %}
-
-    <main tabindex="-1" accesskey="-"
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-4rem)] max-w-3xl break-words px-4 pb-12 pt-28 lg:pt-32 outline-none dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg">
-      {%- if config.build_search_index %}
+<body class="text-black duration-200 ease-out dark:text-white">
+  {% include "partials/header.html" %}
+  <!-- Body Start inject -->
+  {% include "injects/body_start.html" ignore missing %}
+  <main class="prose prose-neutral relative mx-auto min-h-[calc(100%-4rem)]
+    max-w-3xl break-words px-4 pb-12 pt-28 lg:pt-32 dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg">
+    {%- if config.build_search_index %}
       {% include "partials/search.html" %}
-      {%- endif %}
-      {% block main %}
-
+    {%- endif %}
+    {%- block main %}
       <!-- Profile -->
       {%- if paginator is undefined or paginator.current_index == 1 %}
-      {% include "partials/profile.html" %}
+        {% include "partials/profile.html" %}
       {%- endif %}
-
       {% include "partials/page_list.html" %}
-      {% endblock main %}
-    </main>
+    {%- endblock main %}
+  </main>
+  {% include "partials/footer.html" %}
+  {% include "partials/body_res.html" %}
+  <!-- Body End inject -->
+  {% include "injects/body_end.html" ignore missing %}
+</body>
 
-    {% include "partials/footer.html" %}
-
-    <!-- Body End inject -->
-    {% include "injects/body_end.html" ignore missing %}
-  </body>
 </html>

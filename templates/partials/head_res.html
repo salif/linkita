@@ -1,0 +1,56 @@
+{% import "macros.html" as macros %}
+  <meta name="theme-color" data-light="{{
+    config.extra.style.header_color | default(value=`#e4e4e7`) | escape_xml | safe }}" data-dark="{{
+    config.extra.style.header_dark_color | default(value=`#27272a`) | escape_xml | safe }}" content="{{
+    config.extra.style.header_color | default(value=`#e4e4e7`) | escape_xml | safe }}" />
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
+  <style>
+    :root {
+      --bg: {{ config.extra.style.bg_color | default(value="#f4f4f5") }};
+      --bg-dark: {{ config.extra.style.bg_dark_color | default(value="#18181b") }};
+      --header: {{ config.extra.style.header_color | default(value="#e4e4e7") }};
+      --header-dark: {{ config.extra.style.header_dark_color | default(value="#27272a") }};
+    }
+    :root {
+      color-scheme: light;
+    }
+    :root.dark {
+      color-scheme: dark;
+    }
+  </style>
+
+{%- if g_is_profile %}
+  {%- if g_profile_data.avatar_url %}
+  <link rel="preload" as="image" href="{{ get_url(path=g_profile_data.avatar_url) }}" />
+  {%- endif %}
+  {%- if g_profile_data.social %}
+    {%- for image_social in g_profile_data.social %}
+  <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
+    {%- endfor %}
+  {%- endif %}
+{%- endif %}
+
+{%- if not config.extra.disable_default_favicon %}
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
+  <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`) }}" />
+{%- endif %}
+
+{%- if not config.extra.disable_javascript %}
+  <script src="{{ get_url(path=`js/linkita.js`, cachebust=true) }}"></script>
+  {%- if config.build_search_index %}
+  <script src="{{ get_url(path=`js/linkita-search.js`, cachebust=true) }}"></script>
+  {%- endif %}
+
+  {%- if page.extra.math | default(value=config.extra.math) %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+    integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+  <script>document.addEventListener("DOMContentLoaded", window.linkita.initKatex);</script>
+  {%- endif %}
+{%- endif %}

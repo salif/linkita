@@ -1,4 +1,4 @@
-<footer class="mx-auto flex lg:h-[4rem] max-w-3xl flex-wrap items-center px-8 py-3 text-sm opacity-60">
+<footer class="mx-auto flex lg:mt-[1.25rem] max-w-3xl flex-wrap items-center px-8 py-3 text-sm opacity-60">
   <div class="mr-auto basis-full lg:basis-1/2">
   {%- set base_url_lang = get_url(path="", lang=lang) %}
   {%- if config.extra.footer.copyright %}
@@ -32,31 +32,13 @@
   </div>
   <div class="flex basis-full lg:basis-1/2 lg:justify-end">
     <span class="mr-6 lg:ml-6">
-      {%- set powered_by = macros::tr(key="footer_powered_by", lk=lang, td=g_trans_data) | split(pat="$$") %}
-      {{ powered_by | nth(n=0) }}<a class="link underline" href="https://www.getzola.org/" rel="noopener" target="_blank">{{
-      powered_by | nth(n=1) }}</a>{{ powered_by | nth(n=2) }}<a class="link underline" href="https://www.getzola.org/themes/linkita/"
-      rel="noopener" target="_blank">{{ powered_by | nth(n=3) }}</a>{{ powered_by | nth(n=4) }}
+      {{ macros::tr(key="footer_powered_by", lk=lang, td=g_trans_data) }} <a
+      class="link" href="https://www.getzola.org/" target="_blank">{{
+        macros::tr(key="footer_generator_name", lk=lang, td=g_trans_data) }}</a>
     </span>
+    <a class="link" href="https://www.getzola.org/themes/linkita/" target="_blank">&#9998; {{
+      macros::tr(key="footer_theme_name", lk=lang, td=g_trans_data) }}</a>
   </div>
-{%- if not config.extra.disable_javascript %}
-  {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
-  <!-- Mermaid -->
-    {% include "partials/mermaid.html" %}
-  {%- endif %}
-  {%- if config.extra.goatcounter.endpoint and config.extra.goatcounter.src %}
-  <!-- GoatCounter -->
-  <script>window.linkita.initGoatCounterAnalytics("{{ config.extra.goatcounter.src | escape_xml | safe }}",
-    "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}");</script>
-    {%- if config.extra.goatcounter.noscript_prefix is defined and current_path is defined %}
-  <noscript><img src="{{ config.extra.goatcounter.endpoint | escape_xml | safe
-    }}?p={{ config.extra.goatcounter.noscript_prefix ~ current_path | urlencode | safe }}" alt=""></noscript>
-    {%- endif %}
-  {%- endif %}
-  {%- if config.extra.vercel_analytics.src %}
-  <!-- Vercel Web Analytics -->
-  <script>window.linkita.initVercelAnalytics("{{ config.extra.vercel_analytics.src | escape_xml | safe }}");</script>
-  {%- endif %}
-{%- endif %}
   <!-- Footer inject -->
   {% include "injects/footer.html" ignore missing %}
 </footer>

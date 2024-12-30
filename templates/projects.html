@@ -11,7 +11,7 @@
 <h1 class="mb-16">{{ page.title }}</h1>
 {% for project in data.project %}
 <div class="not-prose block-bg my-4 flex w-full flex-col rounded-lg px-5 py-1.5">
-  <h3 class="my-2 text-xl font-bold text-black dark:text-white">{{ project.name }}</h3>
+  <h2 class="my-2 text-xl font-bold text-black dark:text-white">{{ project.name }}</h2>
   <p>{{ project.desc | markdown(inline=true) | safe }}</p>
   <div class="my-2 flex flex-wrap items-center justify-between">
     <div class="flex flex-wrap gap-x-2 text-sm opacity-80">
