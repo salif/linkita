@@ -17,7 +17,7 @@
   if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
-      <div class="flex items-center">
+      <div class="flex items-center min-h-8">
         {%- for header_button in header_buttons %}
           {%- if header_button == "site_title" and config.title %}
         <a class="text-2xl font-semibold" href="{{ base_url_lang | escape_xml | safe }}/" accesskey="!">{{ config.title }}</a>

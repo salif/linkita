@@ -1374,6 +1374,10 @@ sup a {
   height: 100%;
 }
 
+.min-h-8 {
+  min-height: 2rem;
+}
+
 .min-h-\[3\.25rem\] {
   min-height: 3.25rem;
 }
@@ -2015,7 +2019,7 @@ article {
 }
 
 @media (min-width: 768px) {
-  .md\:min-h-\[18rem\] {
+  .md\:min-h-72 {
     min-height: 18rem;
   }
 
@@ -2033,7 +2037,7 @@ article {
     margin-left: 1.5rem;
   }
 
-  .lg\:mt-\[1\.25rem\] {
+  .lg\:mt-5 {
     margin-top: 1.25rem;
   }
 
