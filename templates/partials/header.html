@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 {%- if config.extra.languages[lang].header_buttons is defined %}
   {%- set header_buttons = config.extra.languages[lang].header_buttons %}
 {%- elif config.extra.header_buttons is defined %}
@@ -20,9 +21,10 @@
       <div class="flex items-center min-h-8">
         {%- for header_button in header_buttons %}
           {%- if header_button == "site_title" and config.title %}
-        <a class="text-2xl font-semibold" href="{{ base_url_lang | escape_xml | safe }}/" accesskey="!">{{ config.title }}</a>
+        <a title="{{ macros::tr(key=`act_go_to_home`, lk=lang, td=g_trans_data) }}" accesskey="!"
+          href="{{ base_url_lang | escape_xml | safe }}/" class="text-2xl font-semibold">{{ config.title }}</a>
           {%- elif header_button == "home_button" or header_button == "site_title" %}
-        <button type="button" aria-label="Go to home page" accesskey="!"
+        <button type="button" title="{{ macros::tr(key=`act_go_to_home`, lk=lang, td=g_trans_data) }}" accesskey="!"
           onclick="window.location.href='{{ base_url_lang | escape_xml | safe }}/';"
           class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
           style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
@@ -30,7 +32,7 @@
             d=\'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\'></path><polyline points=\'9 22 9 12 15 12 15 22\'></polyline></svg>');"
         ></button>
           {%- elif header_button == "theme_button" %}
-        <button type="button" aria-label="Toggle dark/light mode" accesskey="$"
+        <button type="button" title="{{ macros::tr(key=`act_switch_color_scheme`, lk=lang, td=g_trans_data) }}" accesskey="$"
           onclick="window.linkita.toggleDarkMode();" ondblclick="window.linkita.resetDarkMode();"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert [background-image:var(--url-dark)] dark:[background-image:var(--url-light)]"
           style="--url-light: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
@@ -43,7 +45,7 @@
             stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-moon\'><path d=\'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\'></path></svg>');"
         ></button>
           {%- elif header_button == "search_button" and config.build_search_index %}
-        <button type="button" aria-label="Search" accesskey="/"
+        <button type="button" title="{{ macros::tr(key=`act_search`, lk=lang, td=g_trans_data) }}" accesskey="/"
           onclick="window.linkita.toggleSearch();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
           style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
@@ -54,7 +56,7 @@
         <script>window.linkita.initSearchButton(["{{ get_url(path=`elasticlunr.min.js`) }}", "{{ get_url(path=`search_index.`~lang~`.js`) }}"]);</script>
             {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
-        <button type="button" aria-label="Open page translation" accesskey=";"
+        <button type="button" title="{{ macros::tr(key=`act_go_to_translation`, lk=lang, td=g_trans_data) }}" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
           style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' \
             viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' \
@@ -68,7 +70,7 @@
         {%- endfor %}
       </div>
       {% if header_menu %}
-      <div aria-label="Menu" role="button" accesskey="+" tabindex="0"
+      <div title="{{ macros::tr(key=`act_menu`, lk=lang, td=g_trans_data) }}" role="button" accesskey="+" tabindex="0"
         class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
         onclick="window.linkita.toggleHeaderMenu();"
         onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || window.linkita.toggleHeaderMenu() : true;"

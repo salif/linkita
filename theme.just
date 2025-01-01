@@ -72,15 +72,16 @@ commit_diff:
 
 [doc('git commit')]
 [group('git')]
-commit_theme: commit_diff
+commit: commit_diff
     zola check
     git commit
 
 [doc('git push')]
 [group('git')]
-push_theme:
+push:
     git push codeberg linkita:linkita
     git push github linkita:linkita
+    git fetch
 
 [doc('git tag')]
 [group('git')]
@@ -89,6 +90,7 @@ release: && confirm (release_json version) (release_git version)
     @printf '%s\n' 'Releasing v{{ version }}'
 
 [confirm]
+[private]
 confirm:
 
 [group('git')]

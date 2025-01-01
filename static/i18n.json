@@ -1,439 +1,439 @@
 {
   "common_about": {
     "en": "About",
-    "uwu": "abowt",
-    "uwu2": "abouwt",
     "bg": "Относно",
     "eo": "Pri",
+    "uwu": "abouwt",
     "glb": "Tem"
   },
   "common_about_me": {
     "en": "About Me",
-    "uwu": "abowt me",
-    "uwu2": "abouwt me",
     "bg": "За мен",
     "eo": "Pri mi",
+    "uwu": "abouwt me",
     "glb": "Tem mi"
   },
   "common_about_us": {
     "en": "About Us",
-    "uwu": "abowt us",
-    "uwu2": "abouwt us",
     "bg": "За нас",
     "eo": "Pri ni",
+    "uwu": "abouwt us",
     "glb": "Tem imi"
   },
   "common_archive": {
     "en": "Archive",
-    "uwu": "awchive",
-    "uwu2": "awchive",
     "bg": "Архив",
     "eo": "Arkivo",
+    "uwu": "awchive",
     "glb": "Arcivo"
   },
   "common_archives": {
     "en": "Archives",
-    "uwu": "awchives",
-    "uwu2": "awchives",
     "bg": "Архиви",
     "eo": "Arkivoj",
+    "uwu": "awchives",
     "glb": "Arcivo"
   },
   "common_article": {
     "en": "Article",
-    "uwu": "awticwe",
-    "uwu2": "awticwe",
     "bg": "Статия",
     "eo": "Artikolo",
+    "uwu": "awticwe",
     "glb": "Makale"
   },
   "common_articles": {
     "en": "Articles",
-    "uwu": "awticwes",
-    "uwu2": "awticwes",
     "bg": "Статии",
     "eo": "Artikoloj",
+    "uwu": "awticwes",
     "glb": "Makale"
   },
   "common_author": {
     "en": "Author",
-    "uwu": "authow-chan",
-    "uwu2": "authow",
     "bg": "Автор",
     "eo": "Aŭtoro",
+    "uwu": "authow-chan",
     "glb": "Eskriyen"
   },
   "common_authors": {
     "en": "Authors",
-    "uwu": "authow-chans",
-    "uwu2": "authows",
     "bg": "Автори",
     "eo": "Aŭtoroj",
+    "uwu": "authow-chans",
     "glb": "Eskriyen"
   },
   "common_blog": {
     "en": "Blog",
-    "uwu": "bwog",
-    "uwu2": "bwog",
     "bg": "Блог",
     "eo": "Blogo",
+    "uwu": "bwog",
     "glb": "Blogu"
   },
   "common_blogs": {
     "en": "Blogs",
-    "uwu": "bwogs",
-    "uwu2": "bwogs",
     "bg": "Блогове",
     "eo": "Blogoj",
+    "uwu": "bwogs",
     "glb": "Blogu"
   },
   "common_category": {
     "en": "Category",
-    "uwu": "categowy",
-    "uwu2": "categowy",
     "bg": "Категория",
     "eo": "Kategorio",
+    "uwu": "categowy",
     "glb": "Klase"
   },
   "common_categories": {
     "en": "Categories",
-    "uwu": "categowies",
-    "uwu2": "categowies",
     "bg": "Категории",
     "eo": "Kategorioj",
+    "uwu": "categowies",
     "glb": "Klase"
   },
   "common_code": {
     "en": "Code",
-    "uwu": "codey-wodey",
-    "uwu2": "code",
     "bg": "Код",
     "eo": "Kodo",
+    "uwu": "codey-wodey",
     "glb": "Kodi"
   },
   "common_comment": {
     "en": "Comment",
-    "uwu": "chatty",
-    "uwu2": "commyent",
     "bg": "Коментар",
     "eo": "Komento",
+    "uwu": "chatty",
+    "uwu2": "commyent",
     "glb": "Komenta"
   },
   "common_comments": {
     "en": "Comments",
-    "uwu": "chatties",
-    "uwu2": "commyents",
     "bg": "Коментари",
     "eo": "Komentoj",
+    "uwu": "chatties",
+    "uwu2": "commyents",
     "glb": "Komenta"
   },
   "common_contacts": {
     "en": "Contacts",
-    "uwu": "fwiend wist",
-    "uwu2": "contwacts",
     "bg": "Контакти",
     "eo": "Kontaktoj",
+    "uwu": "fwiend wist",
+    "uwu2": "contwacts",
     "glb": "Kontato"
   },
   "common_do_contact_me": {
     "en": "Contact Me",
-    "uwu": "say hewwo to me",
-    "uwu2": "contwact me",
     "bg": "Контакти",
     "eo": "Kontakti min",
+    "uwu": "say hewwo to me",
+    "uwu2": "contwact me",
     "glb": "Kontato mi"
   },
   "common_do_contact_us": {
     "en": "Contact Us",
-    "uwu": "say hewwo to us",
-    "uwu2": "contwact us",
     "bg": "Контакти",
     "eo": "Kontakti nin",
+    "uwu": "say hewwo to us",
+    "uwu2": "contwact us",
     "glb": "Kontato imi"
   },
   "common_do_follow": {
     "en": "Follow",
-    "uwu": "befwiend",
-    "uwu2": "fowwow",
     "bg": "Последвайте",
     "eo": "Sekvi",
+    "uwu": "befwiend",
+    "uwu2": "fowwow",
     "glb": "Folo"
   },
   "common_do_install": {
     "en": "Install",
-    "uwu": "instaww",
-    "uwu2": "instaww",
     "bg": "Инсталирайте",
     "eo": "Instali",
+    "uwu": "instaww",
     "glb": "Istala"
   },
   "common_do_read_more": {
     "en": "Read more",
-    "uwu": "wead mowe",
-    "uwu2": "wead mowe",
     "bg": "Прочетете повече",
     "eo": "Legu pli",
+    "uwu": "wead mowe",
     "glb": "Doxo max"
   },
   "common_do_search": {
     "en": "Search",
-    "uwu": "find stuffies",
-    "uwu2": "seawch",
     "bg": "Търсене",
     "eo": "Serĉi",
+    "uwu": "find stuffies",
+    "uwu2": "seawch",
     "glb": "Xerca"
   },
   "common_do_subscribe": {
     "en": "Subscribe",
-    "uwu": "subscwibe",
-    "uwu2": "subscwibe",
     "bg": "Абониране",
     "eo": "Aboni",
+    "uwu": "subscwibe",
     "glb": "Abone"
   },
   "common_feed": {
     "en": "Feed",
-    "uwu": "feedy",
-    "uwu2": "feedy",
     "bg": "Емисия",
-    "eo": "Fluo"
+    "eo": "Fluo",
+    "uwu": "feedy",
+    "glb": ""
   },
   "common_feeds": {
     "en": "Feeds",
-    "uwu": "feeds",
-    "uwu2": "feeds",
     "bg": "Емисии",
-    "eo": "Fluoj"
+    "eo": "Fluoj",
+    "uwu": "feeds",
+    "glb": ""
   },
   "common_forum": {
     "en": "Forum",
-    "uwu": "chatty pwace",
-    "uwu2": "fowum",
     "bg": "Форум",
     "eo": "Forumo",
+    "uwu": "chatty pwace",
+    "uwu2": "fowum",
     "glb": "Forum"
   },
   "common_home": {
     "en": "Home",
-    "uwu": "home sweet home",
-    "uwu2": "home",
     "bg": "Начало",
     "eo": "Hejmo",
+    "uwu": "home sweet home",
     "glb": "Ogar"
   },
   "common_links": {
     "en": "Links",
-    "uwu": "winkies",
-    "uwu2": "winkies",
     "bg": "Връзки",
     "eo": "Ligiloj",
+    "uwu": "winkies",
     "glb": "Linkutul"
   },
   "common_more": {
     "en": "More",
-    "uwu": "mowe pwease",
-    "uwu2": "mowe",
     "bg": "Още",
     "eo": "Pli",
+    "uwu": "mowe pwease",
+    "uwu2": "mowe",
     "glb": "Max to"
   },
   "common_news": {
     "en": "News",
-    "uwu": "nyews",
-    "uwu2": "nyews",
     "bg": "Новини",
     "eo": "Novaĵoj",
+    "uwu": "nyews",
     "glb": "Haberi"
   },
   "common_photos": {
     "en": "Photos",
-    "uwu": "pictwues",
-    "uwu2": "photos uwu",
     "bg": "Снимки",
     "eo": "Fotoj",
+    "uwu": "pictwues",
+    "uwu2": "photos uwu",
     "glb": "Foto"
   },
   "common_preferences": {
     "en": "Preferences",
-    "uwu": "favowite things",
-    "uwu2": "pwefewences",
     "bg": "Предпочитания",
     "eo": "Preferoj",
+    "uwu": "favowite things",
+    "uwu2": "pwefewences",
     "glb": "Preferi"
   },
   "common_project": {
     "en": "Project",
-    "uwu": "pwoject",
-    "uwu2": "pwowject",
     "bg": "Проект",
     "eo": "Projekto",
+    "uwu": "pwoject",
+    "uwu2": "pwowject",
     "glb": "Projeto"
   },
   "common_projects": {
     "en": "Projects",
-    "uwu": "pwojects",
-    "uwu2": "pwowjects",
     "bg": "Проекти",
     "eo": "Projektoj",
+    "uwu": "pwojects",
+    "uwu2": "pwowjects",
     "glb": "Projeto"
   },
   "common_settings": {
     "en": "Settings",
-    "uwu": "customize me",
-    "uwu2": "settin's",
     "bg": "Настройки",
     "eo": "Agordoj",
+    "uwu": "customize me",
+    "uwu2": "settin's",
     "glb": "Setin"
   },
   "common_source_code": {
     "en": "Source code",
+    "bg": "Изходен код",
+    "eo": "Fontkodo",
     "uwu": "magic spewws",
     "uwu2": "souce code",
-    "bg": "Изходен код",
-    "eo": "Fontkodo"
+    "glb": ""
   },
   "common_tag": {
     "en": "Tag",
-    "uwu": "tag",
-    "uwu2": "tag",
     "bg": "Етикет",
     "eo": "Etikedo",
+    "uwu": "tag",
     "glb": "Label"
   },
   "common_tags": {
     "en": "Tags",
-    "uwu": "tags",
-    "uwu2": "tags",
     "bg": "Етикети",
     "eo": "Etikedoj",
+    "uwu": "tags",
     "glb": "Label"
   },
   "common_team": {
     "en": "Team",
-    "uwu": "fwiend gwoup",
-    "uwu2": "teamy",
     "bg": "Екип",
     "eo": "Teamo",
+    "uwu": "fwiend gwoup",
+    "uwu2": "teamy",
     "glb": "Tim"
   },
   "language_names": {
     "en": "English",
-    "uwu": "engwish (uwu)",
-    "uwu2": "Engwish (uwu)",
     "bg": "български",
     "eo": "Esperanto",
+    "uwu": "engwish (uwu)",
     "glb": "Globasa"
   },
   "word_translations": {
     "en": "Translations",
-    "uwu": "twanswations",
-    "uwu2": "twanswations",
     "bg": "Преводи",
     "eo": "Tradukoj",
+    "uwu": "twanswations",
     "glb": "Basatayti"
   },
   "taxonomy_tags": {
     "en": "Tags",
-    "uwu": "tags",
-    "uwu2": "tags",
     "bg": "Етикети",
     "eo": "Etikedoj",
+    "uwu": "tags",
     "glb": "Label"
   },
   "taxonomy_categories": {
     "en": "Categories",
-    "uwu": "categowies",
-    "uwu2": "categowies",
     "bg": "Категории",
     "eo": "Kategorioj",
+    "uwu": "categowies",
     "glb": "Klase"
   },
   "taxonomy_authors": {
     "en": "Authors",
-    "uwu": "authow-chans",
-    "uwu2": "authows",
     "bg": "Автори",
     "eo": "Aŭtoroj",
+    "uwu": "authow-chans",
     "glb": "Eskriyen"
+  },
+  "act_go_to_home": {
+    "en": "Go to home page",
+    "bg": "Отиване към началната страница",
+    "eo": "Iri al ĉefpaĝo",
+    "uwu": "",
+    "glb": ""
+  },
+  "act_switch_color_scheme": {
+    "en": "Switch color scheme",
+    "bg": "Превключване на цветовата схема",
+    "eo": "Ŝanĝi kolorskemon",
+    "uwu": "",
+    "glb": ""
+  },
+  "act_search": {
+    "en": "Search",
+    "bg": "Търсете",
+    "eo": "Serĉi",
+    "uwu": "seawch",
+    "glb": "Xerca"
+  },
+  "act_go_to_translation": {
+    "en": "Go to page translation",
+    "bg": "Отиване към превод на страницата",
+    "eo": "Iri al paĝa traduko",
+    "uwu": "",
+    "glb": ""
+  },
+  "act_menu": {
+    "en": "Menu",
+    "bg": "Меню",
+    "eo": "Menuo",
+    "uwu": "",
+    "glb": "Menu"
   },
   "footer_powered_by": {
     "en": "Powered by",
-    "uwu": "powewed by",
-    "uwu2": "powewed by",
     "bg": "Осъществено чрез",
     "eo": "Funkciigita de",
+    "uwu": "powewed by",
     "glb": ""
   },
   "footer_generator_name": {
     "en": "Zola",
-    "uwu": "zola",
-    "uwu2": "zola",
     "bg": "Зола",
     "eo": "Zola",
+    "uwu": "zola",
     "glb": "Zola"
   },
   "footer_theme_name": {
     "en": "Linkita",
-    "uwu": "linkita",
-    "uwu2": "linkita",
     "bg": "Линкита",
     "eo": "Linkita",
+    "uwu": "linkita",
     "glb": "Linkita"
   },
   "word_prev_page": {
     "en": "Prev Page",
-    "uwu": "pwev page",
-    "uwu2": "Pwev Page",
     "bg": "Предишна страница",
     "eo": "Antaŭa paĝo",
+    "uwu": "pwev page",
     "glb": "sayfa"
   },
   "word_next_page": {
     "en": "Next Page",
-    "uwu": "nyext page",
-    "uwu2": "Nyext Page",
     "bg": "Следваща страница",
     "eo": "Sekva paĝo",
+    "uwu": "nyext page",
     "glb": "sayfa"
   },
   "word_toc": {
     "en": "Table of Contents",
-    "uwu": "tabwe of contyents",
-    "uwu2": "Tabwe of Contyents",
     "bg": "Съдържание",
     "eo": "Enhavtabelo",
+    "uwu": "tabwe of contyents",
     "glb": "Inhare"
   },
   "word_minutes": {
     "en": "min",
-    "uwu": "minnyutes",
-    "uwu2": "minnytes",
     "bg": "мин",
     "eo": "min",
+    "uwu": "minnyutes",
     "glb": "min"
   },
   "word_words": {
     "en": "words",
-    "uwu": "wowds",
-    "uwu2": "wowds",
     "bg": "думи",
     "eo": "vortoj",
+    "uwu": "wowds",
     "glb": "lexi"
   },
   "word_more": {
     "en": "More >>",
-    "uwu": "mowe >>",
-    "uwu2": "Mowe >>",
     "bg": "Още >>",
     "eo": "Pli >>",
+    "uwu": "mowe >>",
     "glb": "Max to >>"
   },
   "error_not_found": {
     "en": "404: Page not found!",
-    "uwu": "404: page got wost in the void!",
-    "uwu2": "404: P-page nyot found! >.<",
     "bg": "404: Страницата не е намерена!",
     "eo": "404: ne trovita!",
+    "uwu": "404: page got wost in the void!",
+    "uwu2": "404: P-page nyot found! >.<",
     "glb": "404"
   }
 }
