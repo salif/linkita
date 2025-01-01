@@ -40,13 +40,13 @@ zola_check:
 
 [doc('git commit')]
 [group('git')]
-commit_demo: zola_check format
+commit: zola_check format
     ! git diff themes/linkita | grep -q -- -dirty
     git commit
 
 [doc('git push')]
 [group('git')]
-push_demo:
+push:
     git push codeberg-demo demo:demo
     git push github demo:demo
 
