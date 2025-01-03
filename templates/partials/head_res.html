@@ -1,29 +1,25 @@
 {% import "macros.html" as macros %}
-  <meta name="theme-color" data-light="{{
-    config.extra.style.header_color | default(value=`#e4e4e7`) | escape_xml | safe }}" data-dark="{{
-    config.extra.style.header_dark_color | default(value=`#27272a`) | escape_xml | safe }}" content="{{
-    config.extra.style.header_color | default(value=`#e4e4e7`) | escape_xml | safe }}" />
+{%- set style_bg_color = config.extra.style.bg_color | default(value="#f4f4f5") %}
+{%- set style_bg_dark_color = config.extra.style.bg_dark_color | default(value="#18181b") %}
+{%- set style_header_color = config.extra.style.header_color | default(value="#e4e4e7") %}
+{%- set style_header_dark_color = config.extra.style.header_dark_color | default(value="#27272a") %}
+  <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
+    style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
 
   <!-- CSS & JS -->
   <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
   <style>
     :root {
-      --bg: {{ config.extra.style.bg_color | default(value="#f4f4f5") }};
-      --bg-dark: {{ config.extra.style.bg_dark_color | default(value="#18181b") }};
-      --header: {{ config.extra.style.header_color | default(value="#e4e4e7") }};
-      --header-dark: {{ config.extra.style.header_dark_color | default(value="#27272a") }};
+      --bg: {{ style_bg_color | escape_xml | safe }}; --bg-dark: {{ style_bg_dark_color | escape_xml | safe }};
+      --header: {{ style_header_color | escape_xml | safe }}; --header-dark: {{ style_header_dark_color | escape_xml | safe }};
     }
-    :root {
-      color-scheme: light;
-    }
-    :root.dark {
-      color-scheme: dark;
-    }
+    :root {color-scheme: light;}
+    :root.dark {color-scheme: dark;}
   </style>
 
 {%- if g_is_profile %}
   {%- if g_profile_data.avatar_url %}
-  <link rel="preload" as="image" href="{{ get_url(path=g_profile_data.avatar_url) }}" />
+  <link rel="preload" as="image" href="{{ get_url(path=g_profile_data.avatar_url, cachebust=true) }}" />
   {%- endif %}
   {%- if g_profile_data.social %}
     {%- for image_social in g_profile_data.social %}

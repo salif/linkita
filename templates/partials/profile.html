@@ -20,7 +20,7 @@
     class="not-prose mr-5 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow dark:bg-white/[15%]">
     <img
       class="{% if g_profile_data.avatar_invert %}dark:invert{% endif %} my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin"
-      src="{{ get_url(path=g_profile_data.avatar_url) }}"{%
+      src="{{ get_url(path=g_profile_data.avatar_url, cachebust=true) }}"{%
         if g_profile_data.languages[lang].avatar_alt is defined %} alt="{{ g_profile_data.languages[lang].avatar_alt | escape_xml | safe }}"{%
         elif g_profile_data.avatar_alt is defined %} alt="{{ g_profile_data.avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
