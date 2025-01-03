@@ -198,13 +198,13 @@
   config.author and config.extra.profiles[config.author].open_graph.image) %}
   {%- if page.extra.cover.image %}
     {%- set og_image_path = page.extra.cover.image %}
-    {%- set og_image_alt = page.extra.cover.alt | default(value="cover") %}
+    {%- set og_image_alt = page.extra.cover.alt | default(value="") %}
   {%- elif g_profile_data.open_graph.image %}
     {%- set og_image_path = g_profile_data.open_graph.image %}
     {%- if g_profile_data.open_graph.languages[lang].image_alt is defined %}
       {%- set og_image_alt = g_profile_data.open_graph.languages[lang].image_alt %}
     {%- else %}
-      {%- set og_image_alt = g_profile_data.open_graph.image_alt | default(value=g_profile_username) %}
+      {%- set og_image_alt = g_profile_data.open_graph.image_alt | default(value="") %}
     {%- endif %}
   {%- else %}
     {%- set og_image_path = config.extra.profiles[config.author].open_graph.image %}

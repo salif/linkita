@@ -25,17 +25,17 @@
         elif g_profile_data.avatar_alt is defined %} alt="{{ g_profile_data.avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
   {%- endif %}
-
-  {% if profile_name %}
   <div>
+    {%- if profile_name is defined %}
     <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
-    {%- if profile_bio %}
+    {%- endif %}
+    {%- if profile_bio is defined %}
     <div class="mb-2 break-words">
       {{ profile_bio | markdown(inline=true) | safe }}
     </div>
     {%- endif %}
 
-    {%- if g_profile_data.social %}
+    {%- if g_profile_data.social is defined %}
     <nav class="flex justify-start space-x-3 dark:invert">
       {%- for social in g_profile_data.social %}
       <a
@@ -49,6 +49,5 @@
     </nav>
     {%- endif %}
   </div>
-  {%- endif %}
 </div>
 {%- endif %}
