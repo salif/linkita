@@ -38,7 +38,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 ## Installing
 
-1. Add this theme as a submodule:
+1. Add this theme as a submodule.
 
 ```sh
 git submodule add https://codeberg.org/salif/linkita.git themes/linkita
@@ -52,20 +52,22 @@ Alternatively, clone the repository: `git clone https://codeberg.org/salif/linki
 theme = "linkita"
 ```
 
-3. Optionally, you can switch from the `linkita` branch to the latest stable version:
+## Managing versions
 
-```sh
-cd themes/linkita
-npm run switch-to-latest
-```
-
-## Updating
+To update the theme, run:
 
 ```sh
 git submodule update --remote themes/linkita
-# Optionally, you can switch to the latest stable version:
-# cd themes/linkita && npm run switch-to-latest
 ```
+
+Optionally, switch from the `linkita` branch to the latest stable version:
+
+```sh
+cd themes/linkita
+git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+```
+
+Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md) for all versions after the one you are using; there may be breaking changes that require manual involvement.
 
 ## Usage
 

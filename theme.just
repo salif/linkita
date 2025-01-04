@@ -97,8 +97,11 @@ confirm:
 [private]
 release_git version:
     @if ! git diff --quiet -- package.json; then \
-        git add package.json; git commit; fi;
-    git diff --cached --quiet
+        git add package.json; fi;
+    @if ! git diff --quiet -- CHANGELOG.md; then \
+        git add CHANGELOG.md; fi;
+    ! git diff --cached --quiet
+    git commit -m 'Release v{{ version }}'
     git tag -s -a 'v{{ version }}' -m 'Release v{{ version }}'
     git push --follow-tags
 

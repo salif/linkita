@@ -13,10 +13,6 @@
     "type": "git",
     "url": "https://codeberg.org/salif/linkita.git"
   },
-  "scripts": {
-    "switch-to-latest": "git checkout tags/v${npm_package_version}",
-    "windows-switch-to-latest": "git checkout tags/v%npm_package_version%"
-  },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "prettier": "^3.3.3",
