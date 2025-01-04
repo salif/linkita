@@ -4,7 +4,7 @@ set unstable := true
 
 this_file := source_file()
 this := just_executable() + " -f " + quote(this_file)
-version_major := "0"
+version_major := "1"
 version_minor := `date +%Y_%m_%d`
 version_patch := "0"
 version := version_major + "." + version_minor + "." + version_patch
@@ -103,7 +103,6 @@ release_git version:
     ! git diff --cached --quiet
     git commit -m 'Release v{{ version }}'
     git tag -s -a 'v{{ version }}' -m 'Release v{{ version }}'
-    git push --follow-tags
 
 [group('git')]
 [private]
