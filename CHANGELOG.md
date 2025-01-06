@@ -7,6 +7,8 @@ All notable changes to this theme will be documented in this file.
 ### Internal changes
 
 - Refactor css vars for body and header.
+- Use objects for JS function arguments.
+- Rename the local storage key for the color scheme.
 
 ## [v1.2025_01_04.0](https://codeberg.org/salif/linkita/compare/v0.2024_11_01.0..v1.2025_01_04.0)
 

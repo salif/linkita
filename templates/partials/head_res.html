@@ -5,7 +5,6 @@
 {%- set style_header_dark_color = config.extra.style.header_dark_color | default(value="#27272a") %}
   <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
     style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
-  <!-- CSS & JS -->
   <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
   <style>
     :root {
@@ -17,7 +16,7 @@
       --bg: {{ style_bg_dark_color | escape_xml | safe }};
       --header: {{ style_header_dark_color | escape_xml | safe }};
       color-scheme: dark;
-    }
+    }/**/
   </style>
 
 {%- if g_is_profile %}

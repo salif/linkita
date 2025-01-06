@@ -73,8 +73,8 @@
     });
   }
 
-  function initSearchButton(filenames) {
-    searchFiles = filenames;
+  function initSearchButton({scripts}) {
+    searchFiles = scripts;
   }
 
   if (null == window.linkita) window.linkita = {};

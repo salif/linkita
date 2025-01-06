@@ -3,6 +3,7 @@
   const htmlClass = document.documentElement.classList;
   const themeColorTag = document.head.querySelector('meta[name="theme-color"]');
   const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const colorSchemeKey = "linkita-color-scheme";
 
   function applyDarkMode(isDark, doDispatchEvent) {
     if (isDark) {
@@ -21,7 +22,7 @@
   }
 
   function initDarkMode() {
-    const darkVal = localStorage.getItem("dark");
+    const darkVal = localStorage.getItem(colorSchemeKey);
     if (darkVal) {
       applyDarkMode(darkVal === "dark", false);
     } else if (htmlClass.contains("dark")) {
@@ -40,15 +41,15 @@
   function toggleDarkMode() {
     const isDark = !htmlClass.contains("dark");
     applyDarkMode(isDark, true);
-    localStorage.setItem("dark", isDark ? "dark" : "light");
+    localStorage.setItem(colorSchemeKey, isDark ? "dark" : "light");
   }
 
   function resetDarkMode() {
-    localStorage.removeItem("dark");
+    localStorage.removeItem(colorSchemeKey);
     applyDarkMode(darkScheme.matches, true);
   }
 
-  function initTranslationsButton(btn) {
+  function initTranslationsButton({btn}) {
     let userLanguages = [];
     if (navigator.languages) {
       userLanguages = navigator.languages;
@@ -101,24 +102,24 @@
     })
   }
 
-  function enableAnalytics(key) {
+  function enableAnalytics({key}) {
     return localStorage.removeItem(key)
   }
 
-  function disableAnalytics(key) {
+  function disableAnalytics({key}) {
     return localStorage.setItem(key, "t")
   }
 
-  function isAnalyticsEnabled(key, init) {
+  function isAnalyticsEnabled({key, init}) {
     if (init) {
       if (window.location.hash === "#enable-analytics") {
         if (localStorage.getItem(key) === 't') {
-          enableAnalytics(key);
+          enableAnalytics({key});
           alert("Analytics is now ENABLED in this browser. To disable analytics, load #disable-analytics.");
         }
       } else if (window.location.hash === "#disable-analytics") {
         if (localStorage.getItem(key) !== 't') {
-          disableAnalytics(key);
+          disableAnalytics({key});
           alert("Analytics is now DISABLED in this browser. To enable analytics, load #enable-analytics.");
         }
       }
@@ -126,8 +127,8 @@
     return localStorage.getItem(key) !== 't'
   }
 
-  function initGoatCounterAnalytics(src, endpoint) {
-    if (isAnalyticsEnabled("skipgc", true)) {
+  function initGoatCounterAnalytics({src, endpoint}) {
+    if (isAnalyticsEnabled({key: "skipgc", init: true})) {
       const newScript = document.createElement("script");
       newScript.async = true;
       newScript.src = src;
@@ -140,8 +141,8 @@
     }
   }
 
-  function initVercelAnalytics(src) {
-    if (isAnalyticsEnabled("va-disable", true)) {
+  function initVercelAnalytics({src}) {
+    if (isAnalyticsEnabled({key: "va-disable", init: true})) {
       if (undefined == window.va) {
         window.va = function () {
           (window.vaq = window.vaq || []).push(arguments);
