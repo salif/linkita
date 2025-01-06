@@ -3,9 +3,11 @@
 A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
 - The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita).
-- Live preview in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/). See [demo source code](https://codeberg.org/salif/linkita-demo).
-- Screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png), [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
 - For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
+- Screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png), [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
+- See [sites using Linkita](#sites-using-linkita) and [demo source code](https://codeberg.org/salif/linkita-demo).
+- Live preview in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/).
+- Incomplete live preview in [Globasa](https://salif.github.io/linkita/glb/), [Arabic](https://salif.github.io/linkita/ar/).
 
 ## Features
 

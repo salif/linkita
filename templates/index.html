@@ -21,13 +21,13 @@
   if g_is_profile %} profile: https://ogp.me/ns/profile#{%
   elif g_is_article %} article: https://ogp.me/ns/article#{%
   endif %}">
-  {% include "partials/head.html" %}
-  {% include "partials/head_res.html" %}
+  {%- include "partials/head.html" %}
+  {%- include "partials/head_res.html" %}
   <!-- Head inject -->
   {% include "injects/head.html" ignore missing %}
 </head>
 
-<body class="text-black duration-200 ease-out dark:text-white">
+<body class="text-black duration-200 ease-out bg-[var(--bg)] dark:text-white">
   {% include "partials/header.html" %}
   <!-- Body Start inject -->
   {% include "injects/body_start.html" ignore missing %}

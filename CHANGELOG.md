@@ -4,6 +4,10 @@ All notable changes to this theme will be documented in this file.
 
 ## [Unreleased](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..linkita)
 
+### Internal changes
+
+- Refactor css vars for body and header.
+
 ## [v1.2025_01_04.0](https://codeberg.org/salif/linkita/compare/v0.2024_11_01.0..v1.2025_01_04.0)
 
 See git commits.

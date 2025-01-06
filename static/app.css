@@ -9,19 +9,12 @@
   }
 
   html {
-    --bg: transparent;
-    --bg-dark: transparent;
+    --bg: transparent
     --header: transparent;
-    --header-dark: transparent;
   }
 
   body {
     -webkit-tap-highlight-color: transparent;
-    background: var(--bg);
-  }
-
-  .dark body {
-    background: var(--bg-dark);
   }
 
   *,
@@ -111,14 +104,6 @@
 
   article {
     @apply text-lg;
-  }
-
-  .header {
-    background-color: var(--header);
-  }
-
-  .dark .header {
-    background: var(--header-dark);
   }
 
   .blur-header {

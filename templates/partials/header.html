@@ -15,7 +15,7 @@
 {%- endif %}
 {%- set base_url_lang = get_url(path="", lang=lang) %}
 <header class="{%
-  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
+  if config.extra.style.header_blur %}blur-header{% else %}bg-[var(--header)]{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center min-h-8">

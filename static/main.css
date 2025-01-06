@@ -560,19 +560,12 @@ html,
 }
 
 html {
-  --bg: transparent;
-  --bg-dark: transparent;
-  --header: transparent;
-  --header-dark: transparent;
+  --bg: transparent
+    --header: transparent;
 }
 
 body {
   -webkit-tap-highlight-color: transparent;
-  background: var(--bg);
-}
-
-.dark body {
-  background: var(--bg-dark);
 }
 
 *,
@@ -1552,6 +1545,14 @@ sup a {
   background-color: var(--admonition-bg);
 }
 
+.bg-\[var\(--bg\)\] {
+  background-color: var(--bg);
+}
+
+.bg-\[var\(--header\)\] {
+  background-color: var(--header);
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1841,14 +1842,6 @@ sup a {
 article {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.header {
-  background-color: var(--header);
-}
-
-.dark .header {
-  background: var(--header-dark);
 }
 
 .blur-header {

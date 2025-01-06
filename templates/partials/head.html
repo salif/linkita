@@ -183,7 +183,7 @@
     {%- set profile_og_data = g_profile_data.open_graph %}
   {%- endif %}
   {%- if profile_og_data.fediverse_creator.handle and profile_og_data.fediverse_creator.domain %}
-  <meta property="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe
+  <meta name="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe
     }}@{{ profile_og_data.fediverse_creator.domain | replace(from=`https://`, to=``) | escape_xml | safe }}" />
     {%- if profile_og_data.fediverse_creator.url %}
   <link rel="me" href="{{ profile_og_data.fediverse_creator.url | escape_xml | safe }}" />
