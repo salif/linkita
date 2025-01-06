@@ -1,6 +1,6 @@
 +++
 title = "Pri mi"
-# description = ""
+#description = ""
 path = "/eo/about"
 +++
 

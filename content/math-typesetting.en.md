@@ -2,7 +2,7 @@
 title = "Math Typesetting"
 description = "A brief guide to setup KaTeX."
 date = 2022-10-20
-# updated =
+#updated =
 [taxonomies]
 authors = ["kita"]
 [extra]

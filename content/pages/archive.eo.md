@@ -1,6 +1,6 @@
 +++
 title = "Arkivo"
-# description = ""
+#description = ""
 path = "/eo/archive"
 template = "archive.html"
 [extra]

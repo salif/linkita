@@ -1,6 +1,6 @@
 +++
 title = "За мен"
-# description = ""
+#description = ""
 path = "about"
 +++
 

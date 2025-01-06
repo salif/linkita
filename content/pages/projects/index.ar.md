@@ -1,6 +1,6 @@
 +++
-title = "My Projects"
+title = "مشاريعي"
 #description = ""
-path = "/en/projects"
+path = "/ar/projects"
 template = "projects.html"
 +++

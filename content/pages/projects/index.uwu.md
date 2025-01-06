@@ -1,6 +1,6 @@
 +++
 title = "pwojects"
-# description = ""
+#description = ""
 path = "/uwu/projects"
 template = "projects.html"
 +++

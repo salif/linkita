@@ -2,7 +2,7 @@
 title = "Markdown Syntax Guide"
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 date = 2022-10-20
-# updated =
+#updated =
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita"]

@@ -1,6 +1,6 @@
 +++
 title = "Tem mi"
-# description = ""
+#description = ""
 path = "/glb/about"
 +++
 

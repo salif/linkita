@@ -1,6 +1,6 @@
 +++
 title = "Miaj projektoj"
-# description = ""
+#description = ""
 path = "/eo/projects"
 template = "projects.html"
 +++

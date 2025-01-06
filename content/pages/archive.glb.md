@@ -1,6 +1,6 @@
 +++
 title = "Arcivo"
-# description = ""
+#description = ""
 path = "/glb/archive"
 template = "archive.html"
 [extra]

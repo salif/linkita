@@ -39,8 +39,8 @@ taxonomies = [
 title = "Linkita"
 generate_feeds = false
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = false, paginate_by = 5 },
+  { name = "authors", feed = false, paginate_by = 5 },
 ]
 
 [languages.uwu]
@@ -48,8 +48,17 @@ title = "Linkita"
 generate_feeds = false
 description = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = false, paginate_by = 5 },
+  { name = "authors", feed = false, paginate_by = 5 },
+]
+
+[languages.ar]
+title = "لينكيتا"
+generate_feeds = false
+description = "لينكيتا هو قالب مدونة زولا."
+taxonomies = [
+  { name = "tags", feed = false, paginate_by = 5 },
+  { name = "authors", feed = false, paginate_by = 5 },
 ]
 
 [markdown]
@@ -79,10 +88,11 @@ main = [
   { url = "$BASE_URL/tags/", name = "Tags", names_i18n = "common_tags" },
   { url = "$BASE_URL/about/", name = "About", names_i18n = "common_about" },
 ]
-main_glb = [
-  { url = "$BASE_URL/projects/", name = "Projects", names_i18n = "common_projects" },
-  { url = "$BASE_URL/archive/", name = "Archive", names_i18n = "common_archive" },
-  { url = "$BASE_URL/about/", name = "About", names_i18n = "common_about" },
+main_ar = [
+  { url = "$BASE_URL/projects/", name = "مشاريعي" },
+  { url = "$BASE_URL/archive/", name = "أرشيف" },
+  { url = "$BASE_URL/tags/", name = "العلامات" },
+  { url = "$BASE_URL/about/", name = "ْعَنِّي" },
 ]
 
 [extra.profiles]
@@ -115,6 +125,10 @@ avatar_alt = "Demoprofila avataro."
 [extra.profiles.your_username.languages.uwu]
 name = "Linkita"
 bio = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
+[extra.profiles.your_username.languages.ar]
+name = "لينكيتا - قوالب مدونة زولا"
+bio = "لينكيتا هو قالب مدونة زولا."
+avatar_alt = "الصورة الرمزية للملف الشخصي التجريبي"
 [extra.profiles.your_username.open_graph]
 image = "images/screenshot.png"
 image_alt = "A screenshot of this website."
@@ -190,10 +204,12 @@ date_format_archive = "%d %b"
 
 [extra.languages.glb]
 art_x_lang = "art-x-globasa"
-header_menu_name = "main_glb"
 
 [extra.languages.uwu]
 art_x_lang = "art-x-uwu"
+
+[extra.languages.ar]
+header_menu_name = "main_ar"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
