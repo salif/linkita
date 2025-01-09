@@ -64,7 +64,7 @@ taxonomies = [
 [markdown]
 highlight_code = true
 extra_syntaxes_and_themes = []
-highlight_theme = "monokai"
+highlight_theme = "material-dark"
 
 [extra]
 math = false
