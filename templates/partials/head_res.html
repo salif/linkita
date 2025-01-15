@@ -38,7 +38,7 @@
 
 {%- if not config.extra.disable_javascript %}
   <script src="{{ get_url(path=`js/linkita.js`, cachebust=true) }}"></script>
-  {%- if config.build_search_index %}
+  {%- if g_is_search_enabled %}
   <script src="{{ get_url(path=`js/linkita-search.js`, cachebust=true) }}"></script>
   {%- endif %}
 

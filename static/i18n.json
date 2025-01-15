@@ -428,6 +428,13 @@
     "uwu": "mowe >>",
     "glb": "Max to >>"
   },
+  "info_search_input": {
+    "en": "Search this site. Results will load as you type.",
+    "bg": "Търсете в този сайт. Резултатите ще се зареждат, докато пишете.",
+    "eo": "Serĉu ĉi tiun retejon. Rezultoj ŝargiĝos dum vi tajpas.",
+    "uwu": "",
+    "glb": ""
+  },
   "error_not_found": {
     "en": "404: Page not found!",
     "bg": "404: Страницата не е намерена!",

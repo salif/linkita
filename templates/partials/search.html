@@ -1,3 +1,32 @@
-<div id="linkita-search-wrapper" class="hidden">
-  <ul id="linkita-search-results"></ul>
-</div>
+{% import "macros.html" as macros %}
+<search class="hidden search-container">
+  <input type="search" name="searchEnter" class="block"
+    placeholder="{{ macros::tr(key=`info_search_input`, lk=lang, td=g_trans_data) }} &crarr; &#9166;" />
+  <ul class="search-results__items"></ul>
+</search>
+{%- if not config.extra.disable_javascript and config.search.index_format %}
+  {%- if config.search.index_format == "elasticlunr_javascript" %}
+    {%- set search_scripts = [get_url(path=`elasticlunr.min.js`), get_url(path=`search_index.`~lang~`.js`)] %}
+    {%- set search_scripts_json = "" %}
+  {%- elif config.search.index_format == "elasticlunr_json" %}
+    {%- set search_scripts = [get_url(path=`elasticlunr.min.js`)] %}
+    {%- set search_scripts_json = get_url(path=`search_index.`~lang~`.json`) %}
+  {%- elif config.search.index_format == "fuse_javascript" %}
+    {%- set search_scripts = ["https://cdn.jsdelivr.net/npm/fuse.js@7.0.0", get_url(path=`search_index.`~lang~`.js`)] %}
+    {%- set search_scripts_json = "" %}
+  {%- elif config.search.index_format == "fuse_json" %}
+    {%- set search_scripts = ["https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"] %}
+    {%- set search_scripts_json = get_url(path=`search_index.`~lang~`.json`) %}
+  {%- else %}
+    {{- throw(message="Search index format is not supported: " ~ config.search.index_format) }}
+  {%- endif %}
+  <script>
+  window.linkita.initSearchButton({
+      scripts: ["{{ search_scripts | join(sep=`", "`) | safe }}"],
+      scriptsJson: "{{ search_scripts_json | escape_xml | safe }}",
+      searchContainer: document.querySelector(".search-container"),
+      searchResults: document.querySelector(".search-results__items"),
+      indexFormat: "{{ config.search.index_format | escape_xml | safe }}"
+    });
+  </script>
+{%- endif %}

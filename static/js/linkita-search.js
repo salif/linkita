@@ -2,9 +2,15 @@
 (function () {
   let searchFiles;
   let mySearchIndex;
+  let initSearch;
 
   function toggleSearch() {
-    const searchWrapperEl = document.getElementById("linkita-search-wrapper");
+    if (window.linkita.searchContainer.classList.contains("hidden")) {
+      window.linkita.searchContainer.classList.remove("hidden");
+    } else {
+      window.linkita.searchContainer.classList.add("hidden");
+    }
+    return;
     const searchResultsEl = document.getElementById("linkita-search-results");
     if (null == searchWrapperEl || null == searchResultsEl) {
       console.error("searchWrapper is null");
@@ -73,7 +79,24 @@
     });
   }
 
-  function initSearchButton({scripts}) {
+  function debounce(fn, delay) {
+    let timeout = null;
+    return function () {
+      const ctx = this, args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        timeout = null;
+        fn.apply(ctx, args);
+      }, delay);
+    };
+  }
+
+  function initSearchButton({ scripts, scriptsJson, searchContainer, searchResults, indexFormat }) {
+    window.linkita.searchContainer = searchContainer;
+    initSearch = function () {
+
+    }
+    if (indexFormat === "elasticlunr_javascript") { }
     searchFiles = scripts;
   }
 

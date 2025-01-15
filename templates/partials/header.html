@@ -44,7 +44,7 @@
             xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' \
             stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-moon\'><path d=\'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\'></path></svg>');"
         ></button>
-          {%- elif header_button == "search_button" and config.build_search_index %}
+          {%- elif header_button == "search_button" and g_is_search_enabled %}
         <button type="button" title="{{ macros::tr(key=`act_search`, lk=lang, td=g_trans_data) }}" accesskey="/"
           onclick="window.linkita.toggleSearch();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
@@ -52,11 +52,6 @@
             fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-search\' \
             ><circle cx=\'11\' cy=\'11\' r=\'8\'></circle><line x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'></line></svg>');"
         ></button>
-            {%- if not config.extra.disable_javascript %}
-        <script>window.linkita.initSearchButton({
-          scripts: ["{{ get_url(path=`elasticlunr.min.js`) }}", "{{ get_url(path=`search_index.`~lang~`.js`) }}"]
-        });</script>
-            {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" title="{{ macros::tr(key=`act_go_to_translation`, lk=lang, td=g_trans_data) }}" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
