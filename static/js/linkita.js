@@ -49,38 +49,47 @@
     applyDarkMode(darkScheme.matches, true);
   }
 
-  function initTranslationsButton({btn}) {
-    let userLanguages = [];
-    if (navigator.languages) {
-      userLanguages = navigator.languages;
-    } else if (navigator.language) {
-      userLanguages = [navigator.language];
-    } else if (navigator.userLanguage) {
-      userLanguages = [navigator.userLanguage];
-    }
+  function initTranslationsButton({ btn }) {
     const pageLanguage = document.documentElement.getAttribute("lang");
-    const pageTranslations = new Map();
-    document.head.querySelectorAll("link[rel='alternate'][hreflang]").forEach(el => {
+    const pageTranslations = document.head.querySelectorAll("link[rel='alternate'][hreflang]");
+
+    let userLanguages = [];
+    if (pageTranslations.length < 2) return;
+    else if (pageTranslations.length === 2) userLanguages = [
+      pageTranslations[0].getAttribute("hreflang"), pageTranslations[1].getAttribute("hreflang")];
+    else if (navigator.languages) userLanguages = navigator.languages;
+    else if (navigator.language != undefined) userLanguages = [navigator.language];
+    else if (navigator.userLanguage != undefined) userLanguages = [navigator.userLanguage];
+
+    const pageTranslationsLinks = new Map();
+    pageTranslations.forEach(el => {
       const hreflang = el.getAttribute("hreflang");
       const href = el.getAttribute("href");
       if (hreflang !== pageLanguage) {
-        pageTranslations.set(hreflang, href);
+        pageTranslationsLinks.set(hreflang, href);
         const hreflangcode = hreflang.split("-")[0];
-        if (!pageTranslations.has(hreflangcode)) {
-          pageTranslations.set(hreflangcode, href);
+        if (!pageTranslationsLinks.has(hreflangcode)) {
+          pageTranslationsLinks.set(hreflangcode, href);
         }
       }
     });
+
+    const pageTranslationLink = getPageTranslationLink(userLanguages, pageTranslationsLinks);
+    if (undefined != pageTranslationLink) {
+      btn.classList.remove("hidden");
+      btn.addEventListener("click", () => {
+        window.location.href = pageTranslationLink;
+      });
+    }
+  }
+
+  function getPageTranslationLink(userLanguages, pageTranslationsLinks) {
     for (let i = 0; i < userLanguages.length; i++) {
       const userLanguage = userLanguages[i];
-      const pageTranslation = pageTranslations.get(userLanguage) ||
-        pageTranslations.get(userLanguage.split("-")[0]);
-      if (undefined != pageTranslation) {
-        btn.classList.remove("hidden");
-        btn.addEventListener("click", () => {
-          window.location.href = pageTranslation;
-        });
-        break;
+      const pageTranslationLink = pageTranslationsLinks.get(userLanguage) ||
+        pageTranslationsLinks.get(userLanguage.split("-")[0]);
+      if (undefined != pageTranslationLink) {
+        return pageTranslationLink;
       }
     }
   }
@@ -91,44 +100,41 @@
 
   function initKatex() {
     window.renderMathInElement(document.body, {
-      // customised options
-      // • auto-render specific keys, e.g.:
       delimiters: [
         { left: "$$", right: "$$", display: true },
         { left: "$", right: "$", display: false },
       ],
-      // • rendering keys, e.g.:
       throwOnError: false,
-    })
+    });
   }
 
-  function enableAnalytics({key}) {
-    return localStorage.removeItem(key)
+  function enableAnalytics({ key }) {
+    return localStorage.removeItem(key);
   }
 
-  function disableAnalytics({key}) {
-    return localStorage.setItem(key, "t")
+  function disableAnalytics({ key }) {
+    return localStorage.setItem(key, "t");
   }
 
-  function isAnalyticsEnabled({key, init}) {
+  function isAnalyticsEnabled({ key, init }) {
     if (init) {
       if (window.location.hash === "#enable-analytics") {
         if (localStorage.getItem(key) === 't') {
-          enableAnalytics({key});
+          enableAnalytics({ key });
           alert("Analytics is now ENABLED in this browser. To disable analytics, load #disable-analytics.");
         }
       } else if (window.location.hash === "#disable-analytics") {
         if (localStorage.getItem(key) !== 't') {
-          disableAnalytics({key});
+          disableAnalytics({ key });
           alert("Analytics is now DISABLED in this browser. To enable analytics, load #enable-analytics.");
         }
       }
     }
-    return localStorage.getItem(key) !== 't'
+    return localStorage.getItem(key) !== 't';
   }
 
-  function initGoatCounterAnalytics({src, endpoint}) {
-    if (isAnalyticsEnabled({key: "skipgc", init: true})) {
+  function initGoatCounterAnalytics({ src, endpoint }) {
+    if (isAnalyticsEnabled({ key: "skipgc", init: true })) {
       const newScript = document.createElement("script");
       newScript.async = true;
       newScript.src = src;
@@ -141,8 +147,8 @@
     }
   }
 
-  function initVercelAnalytics({src}) {
-    if (isAnalyticsEnabled({key: "va-disable", init: true})) {
+  function initVercelAnalytics({ src }) {
+    if (isAnalyticsEnabled({ key: "va-disable", init: true })) {
       if (undefined == window.va) {
         window.va = function () {
           (window.vaq = window.vaq || []).push(arguments);
