@@ -19,12 +19,12 @@
     }/**/
   </style>
 
-{%- if g_is_profile %}
-  {%- if g_profile_data.avatar_url %}
-  <link rel="preload" as="image" href="{{ get_url(path=g_profile_data.avatar_url, cachebust=true) }}" />
+{%- if g_profile is defined %}
+  {%- if g_profile.avatar_url %}
+  <link rel="preload" as="image" href="{{ get_url(path=g_profile.avatar_url, cachebust=true) }}" />
   {%- endif %}
-  {%- if g_profile_data.social %}
-    {%- for image_social in g_profile_data.social %}
+  {%- if g_profile.social %}
+    {%- for image_social in g_profile.social %}
   <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
     {%- endfor %}
   {%- endif %}

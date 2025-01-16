@@ -4,10 +4,11 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 - The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita).
 - For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
+- Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - Screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png), [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
 - See [sites using Linkita](#sites-using-linkita) and [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/).
-- Incomplete live preview in [Globasa](https://salif.github.io/linkita/glb/), [Arabic](https://salif.github.io/linkita/ar/).
+- Incomplete live preview in [Arabic](https://salif.github.io/linkita/ar/), [Globasa](https://salif.github.io/linkita/glb/).
 
 ## Features
 
@@ -73,7 +74,7 @@ Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHAN
 
 ## Usage
 
-All options for the frontmatter and for the `config.toml` file are optional.
+All variables for the frontmatter and for the `config.toml` file are optional.
 Set the ones you need.
 
 ### TOML frontmatter
@@ -121,7 +122,7 @@ extra:
 ---
 ```
 
-### Open Graph frontmatter options
+### Open Graph frontmatter variables
 
 ```toml
 [extra.open_graph]
@@ -172,7 +173,7 @@ video_height =
 url = ""
 ```
 
-### Sitemap frontmatter options
+### Sitemap frontmatter variables
 
 ```toml
 [extra.sitemap]
@@ -205,49 +206,9 @@ For French, the file name is `content/_index.fr.md`.
 
 ### Profiles for authors
 
-Add `extra.profiles.author_username` table in your `config.toml` file for each author.
+Add `extra.profiles.author_username` table in your `config.toml` file for each author in your blog.
 Replace `author_username` with author's username.
 See [Profiles](#profiles).
-
-### Authors
-
-#### Option 1: Using `page.authors`
-
-You don't need to set `page.authors` in the frontmatter if you are the only author.
-
-Otherwise, set `page.authors`:
-
-```toml
-+++
-authors = ["author_username", "author2_username"]
-+++
-```
-
-#### Option 2: Using Taxonomies
-
-If you choose this option you should set taxonomies in each post.
-
-Examples:
-
-**If the blog is your personal blog**:
-
-```toml
-+++
-[taxonomies]
-authors = ["your_username"]
-+++
-```
-
-**If the blog has a team of multiple authors**:
-
-```toml
-+++
-[taxonomies]
-authors = ["author_username"]
-# or:
-# authors = ["author_username", "author2_username"]
-+++
-```
 
 ### Non-post pages
 
@@ -287,6 +248,32 @@ title = "About me"
 +++
 ```
 
+### Page authors
+
+#### Option 1: Using `page.authors`
+
+You don't need to set `page.authors` in the frontmatter if you are the only author of the post.
+
+Otherwise, set `page.authors`:
+
+```toml
++++
+authors = ["author_username"]
++++
+```
+
+#### Option 2: Using Taxonomies
+
+Useful if the blog has a team of several authors.
+If you choose this option you should set taxonomies in each page.
+
+```toml
++++
+[taxonomies]
+authors = ["author_username", "author2_username"]
++++
+```
+
 ### Inject support
 
 You can easily use inject to add new features to your side without modifying the theme itself.
@@ -307,12 +294,11 @@ The available inject points are: `head`, `header_nav`, `body_start`, `body_end`,
 | Go to next page   | <kbd>Alt</kbd>+<kbd>\.</kbd> |
 | Table of contents | <kbd>Alt</kbd>+<kbd>\=</kbd> |
 | Skip to footer    | <kbd>Alt</kbd>+<kbd>\_</kbd> |
-| Skip to main      | <kbd>Alt</kbd>+<kbd>\-</kbd> |
 
 ## Configuring
 
 Copy and paste the examples into your `config.toml` file
-and comment out the options you don't use instead of setting empty values.
+and comment out the variables you don't use instead of setting empty values.
 
 ```toml
 # The default language. (type: string;)
@@ -728,7 +714,6 @@ See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICE
 ## Contributing
 
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
-Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 
 ## Sites using Linkita
 

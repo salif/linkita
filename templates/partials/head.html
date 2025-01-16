@@ -125,19 +125,19 @@
   <meta property="article:tag" content="{{ og_tag | escape_xml | safe }}" />
     {%- endfor %}
   {%- endif %}
-{%- elif g_is_profile %}
+{%- elif g_profile is defined %}
   <meta property="og:type" content="profile" />
-  {%- if g_profile_data.open_graph.first_name %}
-  <meta property="profile:first_name" content="{{ g_profile_data.open_graph.first_name | escape_xml | safe }}" />
+  {%- if g_profile.open_graph.first_name %}
+  <meta property="profile:first_name" content="{{ g_profile.open_graph.first_name | escape_xml | safe }}" />
   {%- endif %}
-  {%- if g_profile_data.open_graph.last_name %}
-  <meta property="profile:last_name" content="{{ g_profile_data.open_graph.last_name | escape_xml | safe }}" />
+  {%- if g_profile.open_graph.last_name %}
+  <meta property="profile:last_name" content="{{ g_profile.open_graph.last_name | escape_xml | safe }}" />
   {%- endif %}
-  {%- if g_profile_data.open_graph.username %}
-  <meta property="profile:username" content="{{ g_profile_data.open_graph.username | escape_xml | safe }}" />
+  {%- if g_profile.open_graph.username %}
+  <meta property="profile:username" content="{{ g_profile.open_graph.username | escape_xml | safe }}" />
   {%- endif %}
-  {%- if g_profile_data.open_graph.gender %}
-  <meta property="profile:gender" content="{{ g_profile_data.open_graph.gender | escape_xml | safe }}" />
+  {%- if g_profile.open_graph.gender %}
+  <meta property="profile:gender" content="{{ g_profile.open_graph.gender | escape_xml | safe }}" />
   {%- endif %}
 {%- else %}
   <meta property="og:type" content="website" />
@@ -166,7 +166,7 @@
   <link rel="next" href="{{ paginator.next | escape_xml | safe }}" />
 {%- endif %}
 
-{%- if g_profile_data or (config.author and config.extra.profiles[config.author]) %}
+{%- if g_profile is defined or (config.author and config.extra.profiles[config.author]) %}
   {#- order is important #}
   {%- if config.extra.profiles[config.author].open_graph %}
   {%- set profile_og_data = config.extra.profiles[config.author].open_graph %}
@@ -179,8 +179,8 @@
       {%- endfor %}
     {%- endif %}
   {%- endif %}
-  {%- if g_profile_data.open_graph %}
-    {%- set profile_og_data = g_profile_data.open_graph %}
+  {%- if g_profile.open_graph %}
+    {%- set profile_og_data = g_profile.open_graph %}
   {%- endif %}
   {%- if profile_og_data.fediverse_creator.handle and profile_og_data.fediverse_creator.domain %}
   <meta name="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe
@@ -194,17 +194,17 @@
   {%- endif %}
 {%- endif %}
 
-{%- if page.extra.cover.image or g_profile_data.open_graph.image or (
+{%- if page.extra.cover.image or g_profile.open_graph.image or (
   config.author and config.extra.profiles[config.author].open_graph.image) %}
   {%- if page.extra.cover.image %}
     {%- set og_image_path = page.extra.cover.image %}
     {%- set og_image_alt = page.extra.cover.alt | default(value="") %}
-  {%- elif g_profile_data.open_graph.image %}
-    {%- set og_image_path = g_profile_data.open_graph.image %}
-    {%- if g_profile_data.open_graph.languages[lang].image_alt is defined %}
-      {%- set og_image_alt = g_profile_data.open_graph.languages[lang].image_alt %}
+  {%- elif g_profile.open_graph.image %}
+    {%- set og_image_path = g_profile.open_graph.image %}
+    {%- if g_profile.open_graph.languages[lang].image_alt is defined %}
+      {%- set og_image_alt = g_profile.open_graph.languages[lang].image_alt %}
     {%- else %}
-      {%- set og_image_alt = g_profile_data.open_graph.image_alt | default(value="") %}
+      {%- set og_image_alt = g_profile.open_graph.image_alt | default(value="") %}
     {%- endif %}
   {%- else %}
     {%- set og_image_path = config.extra.profiles[config.author].open_graph.image %}

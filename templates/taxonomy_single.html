@@ -1,11 +1,9 @@
 {% extends "index.html" %}
 {% block main %}
 <!-- Term Title -->
-{%- if taxonomy.name == "authors" %}
+{%- if g_profile is defined %}
   {%- if paginator is undefined or paginator.current_index == 1 %}
-{% include "partials/profile.html" %}
-  {%- else %}
-<h1 class="mb-16">{{ macros::get_profile_name(username=term.name) }}</h1>
+    {% include "partials/profile.html" %}
   {%- endif %}
 {%- elif taxonomy.name == "tags" %}
 <h1 class="mb-16">#{{ term.name }}</h1>
