@@ -126,9 +126,6 @@ extra:
 
 ```toml
 [extra.open_graph]
-# MIME type of the cover image. e.g. `image/jpeg`, `image/gif`, `image/png`.
-#  (type: string; default value: uses `get_image_metadata()`;)
-cover_type = ""
 # Width of the cover image in pixels.
 #  (type: number; default value: uses `get_image_metadata()`;)
 cover_width =

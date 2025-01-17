@@ -14,6 +14,13 @@
     {%- set g_profile = load_data(literal='{"name": "'~profile_username~'"}', format="json") %}
   {%- endif %}
 {%- endif %}
+{%- if page.extra.cover_width is defined or page.extra.cover_height is defined %}
+  {%- set g_image_data = load_data(literal='{"width": '~page.extra.cover_width~
+    ',"height": '~page.extra.cover_height~'}', format="json") %}
+{%- elif page.extra.cover.image %}
+  {%- set g_image_path = page.extra.cover.image %}
+  {%- set g_image_data = get_image_metadata(path=g_image_path, allow_missing=true) %}
+{%- endif %}
 {%- set g_is_article = page.date is defined or page.updated is defined %}
 {%- set g_html_lang = config.extra.languages[lang].art_x_lang | default(value=lang) %}
 {#- -#}

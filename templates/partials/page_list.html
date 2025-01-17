@@ -16,7 +16,10 @@
     <img
       class="h-auto w-full rounded-lg"
       src="{{ get_url(path=page.extra.cover.image) }}"
-      {% if page.extra.cover.alt is defined %}alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %} />
+      {% if page.extra.cover.alt is defined %}alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
+      {% if page.extra.cover_width is defined %}width="{{ page.extra.cover_width | int }}"{% endif %}
+      {% if page.extra.cover_height is defined %}height="{{ page.extra.cover_height | int }}"{% endif %}
+    />
   </figure>
   {% endif %}
 

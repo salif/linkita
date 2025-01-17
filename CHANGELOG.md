@@ -5,6 +5,7 @@ All notable changes to this theme will be documented in this file.
 ## [Unreleased](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..linkita)
 
 - Add support for `extra.profile` frontmatter variable in the `pages.html` and `archive.html` templates.
+- Remove `extra.open_graph.cover_type` frontmatter variable and refactor cover image metadata code.
 
 ### Internal changes
 

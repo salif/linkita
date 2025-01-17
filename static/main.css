@@ -560,8 +560,8 @@ html,
 }
 
 html {
-  --bg: transparent
-    --header: transparent;
+  --bg: transparent;
+  --header: transparent;
 }
 
 body {
