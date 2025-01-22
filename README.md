@@ -70,7 +70,8 @@ cd themes/linkita
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 ```
 
-Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md) for all versions after the one you are using; there may be breaking changes that require manual involvement.
+Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md)
+for all versions after the one you are using; there may be breaking changes that require manual involvement.
 
 ## Usage
 
@@ -379,10 +380,10 @@ title_separator = " | "
 header_menu_name = "menu_name"
 
 # (type: boolean; default value: false;)
-# disable_default_favicon = true
+disable_default_favicon = false
 
 # (type: boolean; default value: false;)
-# disable_javascript = true
+disable_javascript = false
 
 # You can reorder the strings, remove them, or replace them.
 #  For example, you can replace `site_title` with `home_button`.
@@ -465,11 +466,11 @@ avatar_alt = ""
 # (type: boolean; default value: `false`;)
 avatar_invert = false
 
-# Profile name for all languages.
+# Profile name.
 # (type: string; default value: the username;)
 name = ""
 
-# Profile bio for all languages.
+# Profile bio.
 # (type: string; supports markdown; no default value;)
 bio = ""
 
@@ -646,8 +647,6 @@ Set only if you use [GoatCounter](https://www.goatcounter.com/).
 [extra.goatcounter]
 # (type: string; no default value;)
 endpoint = "https://MYCODE.goatcounter.com/count"
-# (type: string; no default value;)
-src = "//gc.zgo.at/count.js"
 # (type: string; no default value;)
 # noscript_prefix = ""
 ```

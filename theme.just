@@ -30,20 +30,33 @@ css_build:
 css_watch:
     pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify --watch
 
+[group('update_assets')]
 [extension('.mjs')]
-update_social_icons:
+update_simple_icons:
     #!/usr/bin/env node
     import fs from "fs"
-    import stream from "node:stream"
-    const icons = ["bluesky", "codeberg", "git", "github"]
+    const icons = ["bluesky", "codeberg", "git", "github", "mastodon", "matrix", "youtube"]
     for (const icon of icons) {
-        const resp = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons/icons/${icon}.svg`)
-        if (resp.ok) {
-            const iconFile = fs.createWriteStream(`static/icons/${icon}.svg`)
-            stream.Readable.fromWeb(resp.body).pipe(iconFile)
-            iconFile.on("finish", () => console.log(`Saved ${iconFile.path}`))
-        }
+        fs.copyFileSync(`./node_modules/simple-icons/icons/${icon}.svg`, `./static/icons/${icon}.svg`)
     }
+
+[group('update_assets')]
+[script]
+update_instantpage:
+    cd node_modules/instant.page/
+    pnpm run minify
+    cd -
+    cp node_modules/instant.page/instantpage.min.js static/js/instantpage.min.js
+
+[group('update_assets')]
+[script]
+update_katex:
+    rm -rf static/katex
+    mkdir static/katex static/katex/fonts static/katex/contrib
+    cp node_modules/katex/dist/README.md static/katex/
+    cp node_modules/katex/dist/*.min.* static/katex/
+    cp node_modules/katex/dist/contrib/*.min.* static/katex/contrib/
+    cp node_modules/katex/dist/fonts/*.woff2 static/katex/fonts/
 
 [group('git')]
 [private]
