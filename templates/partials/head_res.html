@@ -37,9 +37,9 @@
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
-  <script src="{{ get_url(path=`js/linkita.js`, cachebust=true) }}"></script>
+  <script src="{{ get_url(path=`js/linkita.min.js`, cachebust=true) }}"></script>
   {%- if config.build_search_index %}
-  <script src="{{ get_url(path=`js/linkita-search.js`, cachebust=true) }}"></script>
+  <script src="{{ get_url(path=`js/linkita-search.min.js`, cachebust=true) }}"></script>
   {%- endif %}
 
   {%- if page.extra.math | default(value=config.extra.math) %}

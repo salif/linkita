@@ -10,7 +10,7 @@
     {%- elif config.extra.use_cdn %}
       {%- set goatcounter_src = "//gc.zgo.at/count.js" %}
     {%- else %}
-      {%- set goatcounter_src = get_url(path=`js/gc.v4.js`, cachebust=true) %}
+      {%- set goatcounter_src = get_url(path=`js/gc.min.js`, cachebust=true) %}
     {%- endif %}
   <!-- GoatCounter -->
   <script>window.linkita.initGoatCounterAnalytics({
@@ -18,8 +18,8 @@
     endpoint: "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}"
   });</script>
     {%- if config.extra.goatcounter.noscript_prefix is defined and current_path is defined %}
-  <noscript><img src="{{ config.extra.goatcounter.endpoint | escape_xml | safe
-    }}?p={{ config.extra.goatcounter.noscript_prefix ~ current_path | urlencode | safe }}" alt=""></noscript>
+  <noscript><img src="{{ config.extra.goatcounter.endpoint | escape_xml | safe }}?p={{
+    config.extra.goatcounter.noscript_prefix ~ current_path | urlencode | safe }}" alt=""></noscript>
     {%- endif %}
   {%- endif %}
   {%- if config.extra.vercel_analytics.src %}

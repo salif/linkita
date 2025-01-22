@@ -22,13 +22,23 @@ format:
     {{ this }} --fmt --unstable
 
 [group('dev')]
-css_build:
-    pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify
-    pnpm tailwindcss -i ./static/app.css -o ./static/main.css
+build_css:
+    pnpm tailwindcss -i ./src/app.css -o ./static/main.min.css --minify
+    pnpm tailwindcss -i ./src/app.css -o ./src/main.css
 
 [group('dev')]
-css_watch:
-    pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify --watch
+watch_css:
+    pnpm tailwindcss -i ./src/app.css -o ./static/main.min.css --minify --watch
+
+[group('dev')]
+build_js:
+    terser ./src/linkita.js -o ./static/js/linkita.min.js
+    terser ./src/linkita-search.js -o ./static/js/linkita-search.min.js
+    terser ./src/gc.js -o ./static/js/gc.min.js
+
+[group('dev')]
+build_js_file filename:
+    terser "./src/{{ filename }}.js" -o "./static/js/{{ filename }}.min.js"
 
 [group('update_assets')]
 [extension('.mjs')]
@@ -71,12 +81,12 @@ add_git_remotes:
 commit_diff:
     set -eux
     if ! git diff --quiet --cached -- templates; then
-        {{ this }} css_build format;
+        {{ this }} build_css format;
         if ! git diff --quiet -- static/main.min.css; then
             git add static/main.min.css;
         fi
-        if ! git diff --quiet -- static/main.css; then
-            git add static/main.css;
+        if ! git diff --quiet -- src/main.css; then
+            git add src/main.css;
         fi
         if ! git diff --quiet -- {{ quote(this_file) }}; then
             git add {{ quote(this_file) }};
