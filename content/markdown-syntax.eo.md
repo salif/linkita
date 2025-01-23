@@ -7,8 +7,11 @@ updated = 2024-10-24
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]
 [extra]
-cover.image = "images/markdown-syntax.png"
-cover.alt = "Markdown-emblemo"
+[extra.cover]
+image = "images/markdown-syntax.png"
+alt = "Markdown-emblemo"
+width = 1600
+height = 800
 +++
 
 Ĉi tiu artikolo proponas ekzemplon de baza Markdown-sintakso, kiu uzeblas en Zola-enhavo-dosieroj, kaj ankaŭ montras ĉu bazaj HTML-elementoj estas ornamitaj per CSS en Linkita temo.

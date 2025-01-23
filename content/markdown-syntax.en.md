@@ -7,8 +7,11 @@ date = 2022-10-20
 tags = ["markdown", "css", "html"]
 authors = ["kita"]
 [extra]
-cover.image = "images/markdown-syntax.png"
-cover.alt = "A Markdown logo"
+[extra.cover]
+image = "images/markdown-syntax.png"
+alt = "A Markdown logo"
+width = 1600
+height = 800
 +++
 
 This article offers a sample of basic Markdown syntax that can be used in Zola content files, also it shows whether basic HTML elements are decorated with CSS in a Linkita theme.

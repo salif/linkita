@@ -1,6 +1,6 @@
 +++
 title = "My Projects"
 #description = ""
-path = "/en/projects"
+path = "en/projects"
 template = "projects.html"
 +++

@@ -1,7 +1,7 @@
 +++
 title = "Pri mi"
 #description = ""
-path = "/eo/about"
+path = "eo/about"
 +++
 
 ## Saluton, mondo!

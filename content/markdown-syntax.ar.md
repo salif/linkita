@@ -7,8 +7,11 @@ updated = 2025-01-05
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]
 [extra]
-cover.image = "images/markdown-syntax.png"
-cover.alt = "شعار ماركداون"
+[extra.cover]
+image = "images/markdown-syntax.png"
+alt = "شعار ماركداون"
+width = 1600
+height = 800
 +++
 
 تقدم هذه المقالة عينة من تنسيق ماركداون الأساسي الذي يمكن استخدامه في ملفات محتوى Zola، كما توضح ما إذا كانت عناصر HTML الأساسية مزينة بـ CSS في سمة لينكيتا.

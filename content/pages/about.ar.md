@@ -1,7 +1,7 @@
 +++
 title = "ْعَنِّي"
 #description = ""
-path = "/ar/about"
+path = "ar/about"
 +++
 
 ## مرحبا بالعالم!

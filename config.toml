@@ -1,12 +1,13 @@
 base_url = "https://salif.github.io/linkita"
 
 theme = "linkita"
+# Default language is Bulgarian
 default_language = "bg"
-author = "your_username"
+author = "sample_username"
 minify_html = false
 
 title = "Линкита"
-description = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+description = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
@@ -61,6 +62,17 @@ taxonomies = [
   { name = "authors", feed = false, paginate_by = 5 },
 ]
 
+[languages.tr]
+title = "Linkita"
+build_search_index = true
+generate_feeds = false
+description = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
+feed_filenames = ["atom.xml"]
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
+
 [markdown]
 highlight_code = true
 extra_syntaxes_and_themes = []
@@ -71,7 +83,7 @@ math = false
 mermaid = false
 comment = false
 title_separator = " | "
-header_menu_name = "main"
+header_menu_name = "sample_header_menu_name"
 disable_javascript = false
 
 [extra.style]
@@ -82,23 +94,31 @@ disable_javascript = false
 # header_dark_color = ""
 
 [extra.menus]
-main = [
+sample_header_menu_name = [
   { url = "$BASE_URL/projects/", name = "Projects", names_i18n = "common_projects" },
   { url = "$BASE_URL/archive/", name = "Archive", names_i18n = "common_archive" },
   { url = "$BASE_URL/tags/", name = "Tags", names_i18n = "common_tags" },
   { url = "$BASE_URL/about/", name = "About", names_i18n = "common_about" },
 ]
-main_ar = [
+# Arabic is not i18n.json yet
+header_menu_for_arabic = [
   { url = "$BASE_URL/projects/", name = "مشاريعي" },
   { url = "$BASE_URL/archive/", name = "أرشيف" },
   { url = "$BASE_URL/tags/", name = "العلامات" },
   { url = "$BASE_URL/about/", name = "ْعَنِّي" },
 ]
+# Turkish is not i18n.json yet
+header_menu_for_turkish = [
+  { url = "$BASE_URL/projects/", name = "Projelerim" },
+  { url = "$BASE_URL/archive/", name = "Arşiv" },
+  { url = "$BASE_URL/tags/", name = "Etiketler" },
+  { url = "$BASE_URL/about/", name = "Hakkında" },
+]
 
 [extra.profiles]
 
-# Your profile
-[extra.profiles.your_username]
+# Linkita's profile
+[extra.profiles.sample_username]
 avatar_url = "icons/github.svg"
 avatar_invert = true
 # avatar_alt = "Default alt text"
@@ -109,40 +129,47 @@ social = [
   { name = "github", url = "https://github.com/salif/linkita" },
   { name = "rss", url = "$BASE_URL/atom.xml" },
 ]
-[extra.profiles.your_username.languages]
-[extra.profiles.your_username.languages.en]
+
+[extra.profiles.sample_username.languages]
+[extra.profiles.sample_username.languages.en]
 name = "Linkita - Zola Theme"
 bio = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
 avatar_alt = "Demo profile avatar."
-[extra.profiles.your_username.languages.bg]
+[extra.profiles.sample_username.languages.bg]
 name = "Линкита - Тема за Зола"
-bio = "Линкита е многоезична, SEO оптимизирана, изчистена и елегантна блог тема за Zola."
+bio = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 avatar_alt = "Демонстративен аватар за профила."
-[extra.profiles.your_username.languages.eo]
+[extra.profiles.sample_username.languages.eo]
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 avatar_alt = "Demoprofila avataro."
-[extra.profiles.your_username.languages.uwu]
+[extra.profiles.sample_username.languages.uwu]
 name = "Linkita"
 bio = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
-[extra.profiles.your_username.languages.ar]
+[extra.profiles.sample_username.languages.ar]
 name = "لينكيتا - قوالب مدونة زولا"
 bio = "لينكيتا هو قالب مدونة زولا."
 avatar_alt = "الصورة الرمزية للملف الشخصي التجريبي"
-[extra.profiles.your_username.open_graph]
+[extra.profiles.sample_username.languages.tr]
+name = "Linkita - Zola için Tema"
+bio = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
+avatar_alt = "Demo profil avatarı."
+
+[extra.profiles.sample_username.open_graph]
 image = "images/screenshot.png"
 image_alt = "A screenshot of this website."
 # fb_app_id = ""
 # fb_admins = ["USER_ID"]
-[extra.profiles.your_username.open_graph.languages]
+[extra.profiles.sample_username.open_graph.languages]
 bg = { image_alt = "Екранна снимка на този сайт." }
 eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
+ar = { image_alt = "لقطة شاشة لهذا الموقع." }
+tr = { image_alt = "Bu web sitesinin ekran görüntüsü." }
 
-# My profile
+# Salif's profile
 [extra.profiles.salif]
 name = "Salif"
 bio = "Hi! I'm the author."
-email = "mail@salif.eu"
 url = "https://salif.eu"
 social = [
   { name = "codeberg", url = "https://codeberg.org/salif" },
@@ -150,6 +177,7 @@ social = [
   { name = "bluesky", url = "https://bsky.app/profile/bg.salif.eu" },
   { name = "rss", url = "$BASE_URL/authors/salif/atom.xml" },
 ]
+
 [extra.profiles.salif.languages]
 [extra.profiles.salif.languages.bg]
 name = "Салиф"
@@ -159,6 +187,14 @@ url = "https://salif.eu/bg/"
 name = "Salif"
 bio = "Saluton! Mi estas la aŭtoro."
 url = "https://salif.eu/eo/"
+[extra.profiles.salif.languages.ar]
+name = "ساليف"
+bio = "مرحبًا! انا المؤلف."
+[extra.profiles.salif.languages.tr]
+name = "Salif"
+bio = "Merhaba! Ben yazarım."
+url = "https://salif.eu/tr/"
+
 [extra.profiles.salif.open_graph]
 first_name = "Salif"
 last_name = "Mehmed"
@@ -167,9 +203,9 @@ gender = "male"
 [extra.profiles.salif.open_graph.fediverse_creator]
 handle = "bg.salif.eu"
 domain = "bsky.brid.gy"
-url = "https://bsky.brid.gy/r/https://bsky.app/profile/bg.salif.eu"
+url = "https://bsky.brid.gy/ap/did:plc:3ebgy675tgwzqudufqvifpxv"
 
-# Kita Theme's profile
+# Kita's profile
 [extra.profiles.kita]
 name = "Kita"
 bio = "Kita is the theme on which Linkita is based."
@@ -209,11 +245,16 @@ art_x_lang = "art-x-globasa"
 art_x_lang = "art-x-uwu"
 
 [extra.languages.ar]
-header_menu_name = "main_ar"
+header_menu_name = "header_menu_for_arabic"
+
+[extra.languages.tr]
+locale = "tr_TR"
+date_format = "%d %b %Y"
+date_format_archive = "%d %b"
+header_menu_name = "header_menu_for_turkish"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
-src = "//gc.zgo.at/count.js"
 noscript_prefix = "/linkita"
 
 [extra.giscus]

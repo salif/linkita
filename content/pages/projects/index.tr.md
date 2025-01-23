@@ -1,6 +1,6 @@
 +++
-title = "Misu projeto"
+title = "Projelerim"
 #description = ""
-path = "glb/projects"
+path = "tr/projects"
 template = "projects.html"
 +++

@@ -7,8 +7,11 @@ updated = 2024-10-24
 tags = ["маркдаун", "css", "html"]
 authors = ["kita", "salif"]
 [extra]
-cover.image = "images/markdown-syntax.png"
-cover.alt = "Логото на Маркдаун"
+[extra.cover]
+image = "images/markdown-syntax.png"
+alt = "Логото на Маркдаун"
+width = 1600
+height = 800
 +++
 
 Тази статия предлага пример за основния синтаксис на Маркдаун, който може да се използва във файлове със съдържание в Зола, също така показва дали основните HTML елементи са декорирани със CSS в темата Линкита.
