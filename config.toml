@@ -73,6 +73,15 @@ taxonomies = [
   { name = "authors", feed = true, paginate_by = 5 },
 ]
 
+[languages.zh]
+title = "林基塔"
+description = "林基塔 是一款适用于 佐拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
+generate_feeds = false
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 5 },
+  { name = "authors", feed = true, paginate_by = 5 },
+]
+
 [markdown]
 highlight_code = true
 extra_syntaxes_and_themes = []
@@ -114,6 +123,13 @@ header_menu_for_turkish = [
   { url = "$BASE_URL/tags/", name = "Etiketler" },
   { url = "$BASE_URL/about/", name = "Hakkında" },
 ]
+# Chinese is not i18n.json yet
+header_menu_for_chinese = [
+  { url = "$BASE_URL/projects/", name = "项目" },
+  { url = "$BASE_URL/archive/", name = "档案" },
+  { url = "$BASE_URL/tags/", name = "标签" },
+  { url = "$BASE_URL/about/", name = "关于" },
+]
 
 [extra.profiles]
 
@@ -154,6 +170,10 @@ avatar_alt = "الصورة الرمزية للملف الشخصي التجريب
 name = "Linkita - Zola için Tema"
 bio = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
 avatar_alt = "Demo profil avatarı."
+[extra.profiles.sample_username.languages.zh]
+name = "林基塔 - 佐拉的主题"
+bio = "林基塔 是一款适用于 佐拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
+avatar_alt = "演示个人资料头像。"
 
 [extra.profiles.sample_username.open_graph]
 image = "images/screenshot.png"
@@ -165,6 +185,7 @@ bg = { image_alt = "Екранна снимка на този сайт." }
 eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
 ar = { image_alt = "لقطة شاشة لهذا الموقع." }
 tr = { image_alt = "Bu web sitesinin ekran görüntüsü." }
+zh = { image_alt = "该网站的截图。" }
 
 # Salif's profile
 [extra.profiles.salif]
@@ -194,6 +215,9 @@ bio = "مرحبًا! انا المؤلف."
 name = "Salif"
 bio = "Merhaba! Ben yazarım."
 url = "https://salif.eu/tr/"
+[extra.profiles.salif.languages.zh]
+name = "萨利夫"
+bio = "您好！我是作者。"
 
 [extra.profiles.salif.open_graph]
 first_name = "Salif"
@@ -252,6 +276,12 @@ locale = "tr_TR"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
 header_menu_name = "header_menu_for_turkish"
+
+[extra.languages.zh]
+locale = "zh_CN"
+date_format = "%F"
+date_format_archive = "%m-%d"
+header_menu_name = "header_menu_for_chinese"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
