@@ -285,6 +285,7 @@ header_menu_name = "header_menu_for_chinese"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
+src = "//gc.zgo.at/count.js"
 noscript_prefix = "/linkita"
 
 [extra.giscus]
