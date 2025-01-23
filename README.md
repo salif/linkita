@@ -6,9 +6,9 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
 - Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - Screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png), [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
-- See [sites using Linkita](#sites-using-linkita) and [demo source code](https://codeberg.org/salif/linkita-demo).
+- See [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/).
-- Incomplete live preview in [Arabic](https://salif.github.io/linkita/ar/), [Globasa](https://salif.github.io/linkita/glb/).
+- Incomplete live preview in [Chinese](https://salif.github.io/linkita/zh/), [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Globasa](https://salif.github.io/linkita/glb/).
 
 ## Features
 
@@ -70,11 +70,12 @@ cd themes/linkita
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 ```
 
-Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md) for all versions after the one you are using; there may be breaking changes that require manual involvement.
+Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md)
+for all versions after the one you are using; there may be breaking changes that require manual involvement.
 
 ## Usage
 
-All variables for the frontmatter and for the `config.toml` file are optional.
+All variables are optional.
 Set the ones you need.
 
 ### TOML frontmatter
@@ -296,6 +297,7 @@ The available inject points are: `head`, `header_nav`, `body_start`, `body_end`,
 
 Copy and paste the examples into your `config.toml` file
 and comment out the variables you don't use instead of setting empty values.
+All variables are optional.
 
 ```toml
 # The default language. (type: string;)
@@ -379,10 +381,10 @@ title_separator = " | "
 header_menu_name = "menu_name"
 
 # (type: boolean; default value: false;)
-# disable_default_favicon = true
+disable_default_favicon = false
 
 # (type: boolean; default value: false;)
-# disable_javascript = true
+disable_javascript = false
 
 # You can reorder the strings, remove them, or replace them.
 #  For example, you can replace `site_title` with `home_button`.
@@ -465,11 +467,11 @@ avatar_alt = ""
 # (type: boolean; default value: `false`;)
 avatar_invert = false
 
-# Profile name for all languages.
+# Profile name.
 # (type: string; default value: the username;)
 name = ""
 
-# Profile bio for all languages.
+# Profile bio.
 # (type: string; supports markdown; no default value;)
 bio = ""
 
@@ -714,7 +716,7 @@ Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and 
 
 ## Sites using Linkita
 
-- [Zola Themes Collection](https://salif.github.io/zola-themes-collection/)
-- [salif.eu](https://salif.eu): Personal website
+- [Zola Themes Collection](https://github.com/salif/zola-themes-collection)
+- [salif.eu](https://github.com/salif/personal-web-page): Personal website
 
-If you use Linkita, feel free to create a pull request to add your site to this list.
+If your blog uses Linkita and is open source, feel free to create a pull request to add it to this list.
