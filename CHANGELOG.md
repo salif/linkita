@@ -6,6 +6,7 @@ All notable changes to this theme will be documented in this file.
 
 - Add support for `extra.profile` frontmatter variable in the `pages.html` and `archive.html` templates.
 - Remove `extra.open_graph.cover_type` frontmatter variable and refactor cover image metadata code.
+- Add localization for Simplified Chinese, Turkish, Arabic, Korean, Japanese, French, and Spanish.
 
 ### Internal changes
 
