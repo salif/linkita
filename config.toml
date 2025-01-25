@@ -46,8 +46,8 @@ taxonomies = [
 
 [languages.uwu]
 title = "Linkita"
-generate_feeds = false
 description = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
+generate_feeds = false
 taxonomies = [
   { name = "tags", feed = false, paginate_by = 5 },
   { name = "authors", feed = false, paginate_by = 5 },
@@ -55,8 +55,9 @@ taxonomies = [
 
 [languages.ar]
 title = "لينكيتا"
-generate_feeds = false
 description = "لينكيتا هو قالب مدونة زولا."
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 taxonomies = [
   { name = "tags", feed = false, paginate_by = 5 },
   { name = "authors", feed = false, paginate_by = 5 },
@@ -64,9 +65,9 @@ taxonomies = [
 
 [languages.tr]
 title = "Linkita"
-build_search_index = true
-generate_feeds = false
 description = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
+build_search_index = true
+generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
   { name = "tags", feed = true, paginate_by = 5 },
@@ -76,7 +77,8 @@ taxonomies = [
 [languages.zh]
 title = "林基塔"
 description = "林基塔 是一款适用于 佐拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
-generate_feeds = false
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 taxonomies = [
   { name = "tags", feed = true, paginate_by = 5 },
   { name = "authors", feed = true, paginate_by = 5 },
@@ -108,27 +110,6 @@ sample_header_menu_name = [
   { url = "$BASE_URL/archive/", name = "Archive", names_i18n = "common_archive" },
   { url = "$BASE_URL/tags/", name = "Tags", names_i18n = "common_tags" },
   { url = "$BASE_URL/about/", name = "About", names_i18n = "common_about" },
-]
-# Arabic is not i18n.json yet
-header_menu_for_arabic = [
-  { url = "$BASE_URL/projects/", name = "مشاريعي" },
-  { url = "$BASE_URL/archive/", name = "أرشيف" },
-  { url = "$BASE_URL/tags/", name = "العلامات" },
-  { url = "$BASE_URL/about/", name = "ْعَنِّي" },
-]
-# Turkish is not i18n.json yet
-header_menu_for_turkish = [
-  { url = "$BASE_URL/projects/", name = "Projelerim" },
-  { url = "$BASE_URL/archive/", name = "Arşiv" },
-  { url = "$BASE_URL/tags/", name = "Etiketler" },
-  { url = "$BASE_URL/about/", name = "Hakkında" },
-]
-# Chinese is not i18n.json yet
-header_menu_for_chinese = [
-  { url = "$BASE_URL/projects/", name = "项目" },
-  { url = "$BASE_URL/archive/", name = "档案" },
-  { url = "$BASE_URL/tags/", name = "标签" },
-  { url = "$BASE_URL/about/", name = "关于" },
 ]
 
 [extra.profiles]
@@ -269,19 +250,19 @@ art_x_lang = "art-x-globasa"
 art_x_lang = "art-x-uwu"
 
 [extra.languages.ar]
-header_menu_name = "header_menu_for_arabic"
+locale = "ar_EG"
+date_format = "%x"
+date_format_archive = "%m-%d"
 
 [extra.languages.tr]
 locale = "tr_TR"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
-header_menu_name = "header_menu_for_turkish"
 
 [extra.languages.zh]
 locale = "zh_CN"
-date_format = "%F"
+date_format = "%x"
 date_format_archive = "%m-%d"
-header_menu_name = "header_menu_for_chinese"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"

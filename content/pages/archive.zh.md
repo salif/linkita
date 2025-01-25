@@ -1,5 +1,5 @@
 +++
-title = "档案"
+title = "归档"
 #description = ""
 path = "zh/archive"
 template = "archive.html"

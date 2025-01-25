@@ -1,5 +1,5 @@
 +++
-title = "أرشيف"
+title = "الارشيفات"
 #description = ""
 path = "ar/archive"
 template = "archive.html"

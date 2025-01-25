@@ -1,5 +1,5 @@
 +++
-title = "ْعَنِّي"
+title = "عن"
 #description = ""
 path = "ar/about"
 +++
