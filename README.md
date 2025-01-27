@@ -649,8 +649,6 @@ Set only if you use [GoatCounter](https://www.goatcounter.com/).
 # (type: string; no default value;)
 endpoint = "https://MYCODE.goatcounter.com/count"
 # (type: string; no default value;)
-src = "//gc.zgo.at/count.js"
-# (type: string; no default value;)
 # noscript_prefix = ""
 ```
 
