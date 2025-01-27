@@ -11,7 +11,8 @@
     "fr": "À propos",
     "es": "Sobre",
     "uwu": "abouwt",
-    "glb": "Tem"
+    "glb": "Tem",
+    "cs": "O stránce"
   },
   "common_about_me": {
     "en": "About Me",
@@ -25,7 +26,8 @@
     "fr": "",
     "es": "Sobre mí",
     "uwu": "abouwt me",
-    "glb": "Tem mi"
+    "glb": "Tem mi",
+    "cs": "O mně"
   },
   "common_about_us": {
     "en": "About Us",
@@ -39,7 +41,8 @@
     "fr": "",
     "es": "",
     "uwu": "abouwt us",
-    "glb": "Tem imi"
+    "glb": "Tem imi",
+    "cs": "O nás"
   },
   "common_archive": {
     "en": "Archive",
@@ -53,7 +56,8 @@
     "fr": "Archive",
     "es": "Archivo",
     "uwu": "awchive",
-    "glb": "Arcivo"
+    "glb": "Arcivo",
+    "cs": "Archiv"
   },
   "common_articles": {
     "en": "Articles",
@@ -67,7 +71,8 @@
     "fr": "Articles",
     "es": "Artículos",
     "uwu": "awticwes",
-    "glb": "Makale"
+    "glb": "Makale",
+    "cs": "Články"
   },
   "common_authors": {
     "en": "Authors",
@@ -81,7 +86,8 @@
     "fr": "Auteurs",
     "es": "Autores",
     "uwu": "authow-chans",
-    "glb": "Eskriyen"
+    "glb": "Eskriyen",
+    "cs": "Autoři"
   },
   "common_blog": {
     "en": "Blog",
@@ -95,7 +101,8 @@
     "fr": "Blog",
     "es": "Blog",
     "uwu": "bwog",
-    "glb": "Blogu"
+    "glb": "Blogu",
+    "cs": "Blog"
   },
   "common_blogs": {
     "en": "Blogs",
@@ -109,7 +116,8 @@
     "fr": "",
     "es": "",
     "uwu": "bwogs",
-    "glb": "Blogu"
+    "glb": "Blogu",
+    "cs": "Blogy"
   },
   "common_category": {
     "en": "Category",
@@ -123,7 +131,8 @@
     "fr": "Catégorie",
     "es": "Categoria",
     "uwu": "categowy",
-    "glb": "Klase"
+    "glb": "Klase",
+    "cs": "Kategorie"
   },
   "common_categories": {
     "en": "Categories",
@@ -137,7 +146,8 @@
     "fr": "Catégories",
     "es": "Categorias",
     "uwu": "categowies",
-    "glb": "Klase"
+    "glb": "Klase",
+    "cs": "Kategorie"
   },
   "common_code": {
     "en": "Code",
@@ -151,7 +161,8 @@
     "fr": "",
     "es": "",
     "uwu": "codey-wodey",
-    "glb": "Kodi"
+    "glb": "Kodi",
+    "cs": "Kód"
   },
   "common_comments": {
     "en": "Comments",
@@ -166,7 +177,8 @@
     "es": "Comentarios",
     "uwu": "chatties",
     "uwu2": "commyents",
-    "glb": "Komenta"
+    "glb": "Komenta",
+    "cs": "Komentáře"
   },
   "common_contacts": {
     "en": "Contacts",
@@ -181,7 +193,8 @@
     "es": "Contactos",
     "uwu": "fwiend wist",
     "uwu2": "contwacts",
-    "glb": "Kontato"
+    "glb": "Kontato",
+    "cs": "Kontakty"
   },
   "common_do_contact_me": {
     "en": "Contact Me",
@@ -196,7 +209,8 @@
     "es": "",
     "uwu": "say hewwo to me",
     "uwu2": "contwact me",
-    "glb": "Kontato mi"
+    "glb": "Kontato mi",
+    "cs": "Kontaktujte mě"
   },
   "common_do_contact_us": {
     "en": "Contact Us",
@@ -211,7 +225,8 @@
     "es": "",
     "uwu": "say hewwo to us",
     "uwu2": "contwact us",
-    "glb": "Kontato imi"
+    "glb": "Kontato imi",
+    "cs": "Kontaktujte nás"
   },
   "common_do_follow": {
     "en": "Follow",
@@ -226,7 +241,8 @@
     "es": "Seguir",
     "uwu": "befwiend",
     "uwu2": "fowwow",
-    "glb": "Folo"
+    "glb": "Folo",
+    "cs": "Sledovat"
   },
   "common_do_install": {
     "en": "Install",
@@ -240,7 +256,8 @@
     "fr": "",
     "es": "",
     "uwu": "instaww",
-    "glb": "Istala"
+    "glb": "Istala",
+    "cs": "Instalovat"
   },
   "common_do_read_more": {
     "en": "Read more",
@@ -254,7 +271,8 @@
     "fr": "Lire plus",
     "es": "Leer más",
     "uwu": "wead mowe",
-    "glb": "Doxo max"
+    "glb": "Doxo max",
+    "cs": "Přečíst více"
   },
   "common_do_search": {
     "en": "Search",
@@ -268,7 +286,8 @@
     "fr": "Rechercher",
     "es": "Buscar",
     "uwu": "seawch",
-    "glb": "Xerca"
+    "glb": "Xerca",
+    "cs": "Hledat"
   },
   "common_do_subscribe": {
     "en": "Subscribe",
@@ -282,7 +301,8 @@
     "fr": "",
     "es": "",
     "uwu": "subscwibe",
-    "glb": "Abone"
+    "glb": "Abone",
+    "cs": "Odebírat"
   },
   "common_feed": {
     "en": "Feed",
@@ -296,7 +316,8 @@
     "fr": "Flux",
     "es": "",
     "uwu": "feedy",
-    "glb": ""
+    "glb": "",
+    "cs": "Feed"
   },
   "common_feeds": {
     "en": "Feeds",
@@ -310,7 +331,8 @@
     "fr": "",
     "es": "",
     "uwu": "feeds",
-    "glb": ""
+    "glb": "",
+    "cs": "Feedy"
   },
   "common_forum": {
     "en": "Forum",
@@ -325,7 +347,8 @@
     "es": "",
     "uwu": "chatty pwace",
     "uwu2": "fowum",
-    "glb": "Forum"
+    "glb": "Forum",
+    "cs": "Fórum"
   },
   "common_home": {
     "en": "Home",
@@ -339,7 +362,8 @@
     "fr": "Accueil",
     "es": "Inicio",
     "uwu": "home",
-    "glb": "Ogar"
+    "glb": "Ogar",
+    "cs": "Domů"
   },
   "common_more": {
     "en": "More",
@@ -354,7 +378,8 @@
     "es": "",
     "uwu": "mowe pwease",
     "uwu2": "mowe",
-    "glb": "Max to"
+    "glb": "Max to",
+    "cs": "Více"
   },
   "common_news": {
     "en": "News",
@@ -368,7 +393,8 @@
     "fr": "",
     "es": "",
     "uwu": "nyews",
-    "glb": "Haberi"
+    "glb": "Haberi",
+    "cs": "Zprávy"
   },
   "common_photos": {
     "en": "Photos",
@@ -383,7 +409,8 @@
     "es": "",
     "uwu": "pictwues",
     "uwu2": "photos uwu",
-    "glb": "Foto"
+    "glb": "Foto",
+    "cs": "Fotografie"
   },
   "common_preferences": {
     "en": "Preferences",
@@ -398,7 +425,8 @@
     "es": "",
     "uwu": "favowite things",
     "uwu2": "pwefewences",
-    "glb": "Preferi"
+    "glb": "Preferi",
+    "cs": "Předvolby"
   },
   "common_projects": {
     "en": "Projects",
@@ -413,7 +441,8 @@
     "es": "Proyectos",
     "uwu": "pwojects",
     "uwu2": "pwowjects",
-    "glb": "Projeto"
+    "glb": "Projeto",
+    "cs": "Projekty"
   },
   "common_settings": {
     "en": "Settings",
@@ -428,7 +457,8 @@
     "es": "",
     "uwu": "customize me",
     "uwu2": "settin's",
-    "glb": "Setin"
+    "glb": "Setin",
+    "cs": "Nastavení"
   },
   "common_source_code": {
     "en": "Source code",
@@ -443,7 +473,8 @@
     "es": "",
     "uwu": "magic spewws",
     "uwu2": "souce code",
-    "glb": ""
+    "glb": "",
+    "cs": "Zdrojový kód"
   },
   "common_tags": {
     "en": "Tags",
@@ -457,7 +488,8 @@
     "fr": "Tags",
     "es": "Etiquetas",
     "uwu": "tags",
-    "glb": "Label"
+    "glb": "Label",
+    "cs": "Štítky"
   },
   "common_team": {
     "en": "Team",
@@ -472,7 +504,8 @@
     "es": "",
     "uwu": "fwiend gwoup",
     "uwu2": "teamy",
-    "glb": "Tim"
+    "glb": "Tim",
+    "cs": "Tým"
   },
   "common_sitemap": {
     "en": "Sitemap",
@@ -486,7 +519,8 @@
     "fr": "Plan du site",
     "es": "Mapa del sitio",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "Mapa stránek"
   },
   "language_names": {
     "en": "English",
@@ -500,7 +534,8 @@
     "fr": "français",
     "es": "español",
     "uwu": "engwish (uwu)",
-    "glb": "Globasa"
+    "glb": "Globasa",
+    "cs": "čeština"
   },
   "word_translations": {
     "en": "Translations",
@@ -514,7 +549,8 @@
     "fr": "Traductions",
     "es": "Traducciones",
     "uwu": "twanswations",
-    "glb": "Basatayti"
+    "glb": "Basatayti",
+    "cs": "Překlady"
   },
   "taxonomy_tags": {
     "en": "Tags",
@@ -528,7 +564,8 @@
     "fr": "Tags",
     "es": "Etiquetas",
     "uwu": "tags",
-    "glb": "Label"
+    "glb": "Label",
+    "cs": "Štítky"
   },
   "taxonomy_categories": {
     "en": "Categories",
@@ -542,7 +579,8 @@
     "fr": "Catégories",
     "es": "Categorias",
     "uwu": "categowies",
-    "glb": "Klase"
+    "glb": "Klase",
+    "cs": "Kategorie"
   },
   "taxonomy_authors": {
     "en": "Authors",
@@ -556,7 +594,8 @@
     "fr": "Auteurs",
     "es": "Autores",
     "uwu": "authow-chans",
-    "glb": "Eskriyen"
+    "glb": "Eskriyen",
+    "cs": "Autoři"
   },
   "act_go_to_home": {
     "en": "Go to home page",
@@ -570,7 +609,8 @@
     "fr": "Vers la page d'accueil",
     "es": "Ir al inicio",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "Přejít na domovskou stránku"
   },
   "act_switch_color_scheme": {
     "en": "Switch color scheme",
@@ -584,7 +624,8 @@
     "fr": "Changer le jeu de couleurs",
     "es": "Cambiar esquema de color",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "Přepnout barevné schéma"
   },
   "act_search": {
     "en": "Search",
@@ -598,7 +639,8 @@
     "fr": "Rechercher",
     "es": "Buscar",
     "uwu": "seawch",
-    "glb": "Xerca"
+    "glb": "Xerca",
+    "cs": "Vyhledávání"
   },
   "act_go_to_translation": {
     "en": "Go to page translation",
@@ -612,7 +654,8 @@
     "fr": "",
     "es": "",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "Přejít na stránku překladu"
   },
   "act_menu": {
     "en": "Menu",
@@ -626,7 +669,8 @@
     "fr": "Menu",
     "es": "Menú",
     "uwu": "menu",
-    "glb": "Menu"
+    "glb": "Menu",
+    "cs": "Menu"
   },
   "footer_powered_by": {
     "en": "Powered by",
@@ -640,7 +684,8 @@
     "fr": "Propulsé par",
     "es": "Impulsado por",
     "uwu": "powewed by",
-    "glb": ""
+    "glb": "",
+    "cs": "Poháněno pomocí"
   },
   "footer_generator_name": {
     "en": "Zola",
@@ -654,7 +699,8 @@
     "fr": "Zola",
     "es": "Zola",
     "uwu": "zola",
-    "glb": "Zola"
+    "glb": "Zola",
+    "cs": "Zola"
   },
   "footer_theme_name": {
     "en": "Linkita",
@@ -668,7 +714,8 @@
     "fr": "Linkita",
     "es": "Linkita",
     "uwu": "linkita",
-    "glb": "Linkita"
+    "glb": "Linkita",
+    "cs": "Linkita"
   },
   "word_prev_page": {
     "en": "Prev Page",
@@ -682,7 +729,8 @@
     "fr": "Précédent",
     "es": "Previo",
     "uwu": "pwev page",
-    "glb": "sayfa"
+    "glb": "sayfa",
+    "cs": "Předchozí stránka"
   },
   "word_next_page": {
     "en": "Next Page",
@@ -696,7 +744,8 @@
     "fr": "Suivant",
     "es": "Siguiente",
     "uwu": "nyext page",
-    "glb": "sayfa"
+    "glb": "sayfa",
+    "cs": "Další stránka"
   },
   "word_toc": {
     "en": "Table of Contents",
@@ -710,7 +759,8 @@
     "fr": "Table des matières",
     "es": "Contenidos",
     "uwu": "tabwe of contyents",
-    "glb": "Inhare"
+    "glb": "Inhare",
+    "cs": "Obsah"
   },
   "word_minute": {
     "en": "min",
@@ -724,7 +774,8 @@
     "fr": "min",
     "es": "min",
     "uwu": "min",
-    "glb": "min"
+    "glb": "min",
+    "cs": "min"
   },
   "word_minutes": {
     "en": "min",
@@ -738,7 +789,8 @@
     "fr": "min",
     "es": "min",
     "uwu": "min",
-    "glb": "min"
+    "glb": "min",
+    "cs": "min"
   },
   "word_words": {
     "en": "words",
@@ -752,7 +804,8 @@
     "fr": "mots",
     "es": "palabras",
     "uwu": "wowds",
-    "glb": "lexi"
+    "glb": "lexi",
+    "cs": "slova"
   },
   "word_more": {
     "en": "More >>",
@@ -766,7 +819,8 @@
     "fr": "Plus >>",
     "es": "Más >>",
     "uwu": "mowe >>",
-    "glb": "Max to >>"
+    "glb": "Max to >>",
+    "cs": "Více >>"
   },
   "error_not_found": {
     "en": "404: Page not found",
@@ -781,7 +835,8 @@
     "es": "404: Página no encontrada",
     "uwu": "404: page got wost in the void",
     "uwu2": "404: P-page nyot found >.<",
-    "glb": "404"
+    "glb": "404",
+    "cs": "404: Stránka nebyla nalezena"
   },
   "future_back_to_top": {
     "en": "Back to Top",
@@ -795,7 +850,8 @@
     "fr": "Retour en Haut",
     "es": "Volver arriba",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "Zpět na začátek"
   },
   "future_copy": {
     "en": "copy",
@@ -809,7 +865,8 @@
     "fr": "copier",
     "es": "copiar",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "kopírovat"
   },
   "future_copied": {
     "en": "copied!",
@@ -823,6 +880,7 @@
     "fr": "copié!",
     "es": "¡copiado!",
     "uwu": "",
-    "glb": ""
+    "glb": "",
+    "cs": "zkopírováno!"
   }
 }
