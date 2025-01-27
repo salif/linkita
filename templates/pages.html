@@ -11,5 +11,9 @@
   {%- endif %}
 
   <section>{{ page.content | safe }}</section>
+  {%- if page.extra.post_navigation is defined %}
+  <!-- Post Nav -->
+  {% include "partials/post_navigation.html" %}
+  {%- endif %}
 </article>
 {% endblock main %}

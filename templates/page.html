@@ -9,7 +9,7 @@
     {% include "partials/page_info.html" %}
   </header>
 
-  {% if page.extra.cover.image %}
+  {%- if page.extra.cover.image %}
   <figure class="mb-12 mt-0">
     <img
       class="h-auto w-full rounded-lg"
@@ -19,7 +19,7 @@
       {% if g_image_data.height is defined %}height="{{ g_image_data.height | int }}"{% endif %}
     />
   </figure>
-  {% endif %}
+  {%- endif %}
 
   <!-- TOC -->
   {% include "partials/toc.html" %}
@@ -31,10 +31,10 @@
   {% include "partials/post_taxonomies.html" %}
   <!-- Post Nav -->
   {% include "partials/post_navigation.html" %}
+  {%- if page.extra.comment | default(value=config.extra.comment) %}
   <!-- Comment -->
-  {% if page.extra.comment | default(value=config.extra.comment) %}
   {% include "partials/comment.html" %}
-  {% endif %}
+  {%- endif %}
   <!-- Page End inject -->
   {% include "injects/page_end.html" ignore missing %}
 </article>

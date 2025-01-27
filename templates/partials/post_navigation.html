@@ -1,16 +1,26 @@
-{% if page.lower or page.higher %}
+{%- if config.extra.post_navigation is undefined %}
+  {%- set prev_page = page.lower %}
+  {%- set next_page = page.higher %}
+{%- elif config.extra.post_navigation == "reversed" %}
+  {%- set prev_page = page.higher %}
+  {%- set next_page = page.lower %}
+{%- elif config.extra.post_navigation != "disabled" %}
+  {%- set prev_page = page.lower %}
+  {%- set next_page = page.higher %}
+{%- endif %}
+{%- if prev_page or next_page %}
 <nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
-  {% if page.higher %}
+  {% if prev_page %}
   <a
     class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
-    href="{{ page.higher.permalink | escape_xml | safe }}" accesskey=","
-    ><span class="mr-1.5">&#8249;</span><span>{{ page.higher.title }}</span></a>
+    href="{{ prev_page.permalink | escape_xml | safe }}" accesskey=","
+    ><span class="mr-1.5">&#8249;</span><span>{{ prev_page.title }}</span></a>
   {% endif %}
-  {% if page.lower %}
+  {% if next_page %}
   <a
     class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
-    href="{{ page.lower.permalink | escape_xml | safe }}" accesskey="."
-    ><span>{{ page.lower.title }}</span><span class="ml-1.5">&#8250;</span></a>
+    href="{{ next_page.permalink | escape_xml | safe }}" accesskey="."
+    ><span>{{ next_page.title }}</span><span class="ml-1.5">&#8250;</span></a>
   {% endif %}
 </nav>
-{% endif %}
+{%- endif %}
