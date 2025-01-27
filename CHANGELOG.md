@@ -13,7 +13,8 @@ All notable changes to this theme will be documented in this file.
 - Reverse post navigation direction. It can be reverted by setting `extra.post_navigation = "reversed"` config variable.
 - Deprecate `extra.goatcounter.src` config variable.
 - Add social icons for `linkedin`, `mastodon`, `matrix`, `youtube`.
-- Self-host KaTeX, instantpage, and gc.
+- Self-host KaTeX, instantpage, and gc. It can be reverted by setting `extra.use_cdn = true` config variable.
+- Rename `extra.open_graph.cover_width` frontmatter variable to `extra.cover.width`, and `extra.open_graph.cover_height` to `extra.cover.height`.
 
 ### Internal changes
 

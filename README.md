@@ -94,7 +94,6 @@ authors = []
 # comment = true
 # math = true
 # mermaid = true
-# page_info = []
 [extra.cover]
 # image = ""
 # alt = ""
@@ -123,16 +122,24 @@ extra:
 ---
 ```
 
+### Extra frontmatter variables
+
+```toml
+[extra]
+# page_info = []
+[extra.cover]
+# Width of the cover image in pixels.
+#  (type: number; default value: uses `get_image_metadata()`;)
+# width =
+# Height of the cover image in pixels.
+#  (type: number; default value: uses `get_image_metadata()`;)
+# height =
+```
+
 ### Open Graph frontmatter variables
 
 ```toml
 [extra.open_graph]
-# Width of the cover image in pixels.
-#  (type: number; default value: uses `get_image_metadata()`;)
-cover_width =
-# Height of the cover image in pixels.
-#  (type: number; default value: uses `get_image_metadata()`;)
-cover_height =
 # When the article is out of date after. e.g. `2024-02-29`.
 #  (type: datetime; no default value;)
 expiration_time =
@@ -385,6 +392,9 @@ disable_default_favicon = false
 
 # (type: boolean; default value: false;)
 disable_javascript = false
+
+# (type: boolean; default value: false;)
+use_cdn = false
 
 # You can reorder the strings, remove them, or replace them.
 #  For example, you can replace `site_title` with `home_button`.

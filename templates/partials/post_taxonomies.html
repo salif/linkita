@@ -1,4 +1,4 @@
-{% if page.taxonomies %}
+{%- if page.taxonomies %}
 <footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- set_global term_names = [] %}
   {%- for term_name, terms in page.taxonomies %}
@@ -21,4 +21,4 @@
   </div>
   {% endfor %}
 </footer>
-{% endif %}
+{%- endif %}

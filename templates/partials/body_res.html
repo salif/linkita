@@ -4,7 +4,6 @@
     {% include "partials/mermaid.html" %}
   {%- endif %}
   {%- if config.extra.goatcounter.endpoint %}
-    {# Keep .src for backward compatibility #}
     {%- if config.extra.goatcounter.src %}
       {%- set goatcounter_src = config.extra.goatcounter.src %}
     {%- elif config.extra.use_cdn %}

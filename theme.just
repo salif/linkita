@@ -40,8 +40,8 @@ build_js:
 build_js_file filename:
     terser "./src/{{ filename }}.js" -o "./static/js/{{ filename }}.min.js"
 
-[group('update_assets')]
 [extension('.mjs')]
+[group('update_assets')]
 update_simple_icons:
     #!/usr/bin/env node
     import fs from "fs"

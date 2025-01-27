@@ -98,8 +98,8 @@
   {%- if page.updated %}
   <meta property="article:modified_time" content="{{ page.updated | date(format=`%+`) }}" />
   {%- endif %}
-  {%- if page.extra.expiration_time %}
-  <meta property="article:expiration_time" content="{{ page.expiration_time | date(format=`%+`) }}" />
+  {%- if page.extra.open_graph.expiration_time %}
+  <meta property="article:expiration_time" content="{{ page.open_graph.expiration_time | date(format=`%+`) }}" />
   {%- endif %}
   {%- if page.taxonomies.authors %}
     {%- for page_author in page.taxonomies.authors %}
@@ -215,9 +215,9 @@
     {%- endif %}
   {%- endif %}
   {%- if g_image_data is undefined %}
-    {%- if page.extra.cover_width is defined or page.extra.cover_height is defined %}
-      {%- set g_image_data = load_data(literal='{"width": '~page.extra.cover_width~
-        ',"height": '~page.extra.cover_height~'}', format="json") %}
+    {%- if page.extra.cover.width is defined or page.extra.cover.height is defined %}
+      {%- set g_image_data = load_data(literal='{"width": '~page.extra.cover.width~
+        ',"height": '~page.extra.cover.height~'}', format="json") %}
     {%- else %}
       {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=true) %}
     {%- endif %}
