@@ -95,6 +95,8 @@ mermaid = false
 comment = false
 title_separator = " | "
 header_menu_name = "sample_header_menu_name"
+post_navigation = "enabled"
+use_cdn = false
 disable_javascript = false
 
 [extra.style]
@@ -266,7 +268,6 @@ date_format_archive = "%m-%d"
 
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
-src = "//gc.zgo.at/count.js"
 noscript_prefix = "/linkita"
 
 [extra.giscus]
