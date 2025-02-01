@@ -445,12 +445,12 @@ menu_name = [
 
 # Example multilingual menu.
 multilingual_menu_name = [
-  {url = "$BASE_URL/pages/about/", names = {en = "About", fr = "About in French"}},
-  {url = "$BASE_URL/pages/projects/", names = {en = "Projects", fr = "Projects in French"}},
-  {url = "$BASE_URL/pages/archive/", names = {en = "Archive", fr = "Archive in French"}},
-  {url = "$BASE_URL/categories/", names = {en = "Categories", fr = "Categories in French"}},
-  {url = "$BASE_URL/tags/", names = {en = "Tags", fr = "Tags in French"}},
-  {url = "$BASE_URL/authors/", names = {en = "Authors", fr = "Authors in French"}},
+  {url = "$BASE_URL/pages/about/", names = {en = "About", fr = "About in French"} },
+  {url = "$BASE_URL/pages/projects/", names = {en = "Projects", fr = "Projects in French"} },
+  {url = "$BASE_URL/pages/archive/", names = {en = "Archive", fr = "Archive in French"} },
+  {url = "$BASE_URL/categories/", names = {en = "Categories", fr = "Categories in French"} },
+  {url = "$BASE_URL/tags/", names = {en = "Tags", fr = "Tags in French"} },
+  {url = "$BASE_URL/authors/", names = {en = "Authors", fr = "Authors in French"} },
 ]
 ```
 
