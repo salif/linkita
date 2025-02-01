@@ -76,7 +76,7 @@ taxonomies = [
 
 [languages.zh]
 title = "林基塔"
-description = "林基塔 是一款适用于 佐拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
+description = "林基塔 是一款适用于 左拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
@@ -154,8 +154,8 @@ name = "Linkita - Zola için Tema"
 bio = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
 avatar_alt = "Demo profil avatarı."
 [extra.profiles.sample_username.languages.zh]
-name = "林基塔 - 佐拉的主题"
-bio = "林基塔 是一款适用于 佐拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
+name = "林基塔 - 左拉的主题"
+bio = "林基塔 是一款适用于 左拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
 avatar_alt = "演示个人资料头像。"
 
 [extra.profiles.sample_username.open_graph]
