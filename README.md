@@ -8,7 +8,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - See [demo source code](https://codeberg.org/salif/linkita-demo) and screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png) and [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
 - Live preview in:
   - [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/).
-  - [Chinese](https://salif.github.io/linkita/zh/), [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Globasa](https://salif.github.io/linkita/glb/).
+  - [Chinese](https://salif.github.io/linkita/zh/), [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Globasa](https://salif.github.io/linkita/gb/).
 
 ## Features
 
@@ -632,7 +632,7 @@ date_format_archive = "%m-%d"
 # header_buttons = []
 
 # IETF tag for artificial languages. (type: string; no default value;)
-# art_x_lang = "art-x-code"
+# language_code = "art-x-code"
 
 # Taxonomy/term pages do not have a description by default.
 # Optionally you can set a generic description. `$NAME` will be automatically replaced.
