@@ -1,11 +1,12 @@
 base_url = "https://salif.github.io/linkita"
-
 theme = "linkita"
+
 # Default language is Bulgarian
 default_language = "bg"
 author = "sample_username"
 minify_html = false
 
+[languages.bg]
 title = "Линкита"
 description = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 generate_feeds = true
@@ -26,6 +27,16 @@ taxonomies = [
   { name = "authors", feed = true, paginate_by = 5 },
 ]
 
+[languages.ar]
+title = "لينكيتا"
+description = "لينكيتا هو قالب مدونة زولا."
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+taxonomies = [
+  { name = "tags", feed = false, paginate_by = 5 },
+  { name = "authors", feed = false, paginate_by = 5 },
+]
+
 [languages.eo]
 title = "Linkita"
 description = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
@@ -36,28 +47,9 @@ taxonomies = [
   { name = "authors", feed = true, paginate_by = 5 },
 ]
 
-[languages.glb]
+[languages.gb]
 title = "Linkita"
 generate_feeds = false
-taxonomies = [
-  { name = "tags", feed = false, paginate_by = 5 },
-  { name = "authors", feed = false, paginate_by = 5 },
-]
-
-[languages.uwu]
-title = "Linkita"
-description = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
-generate_feeds = false
-taxonomies = [
-  { name = "tags", feed = false, paginate_by = 5 },
-  { name = "authors", feed = false, paginate_by = 5 },
-]
-
-[languages.ar]
-title = "لينكيتا"
-description = "لينكيتا هو قالب مدونة زولا."
-generate_feeds = true
-feed_filenames = ["atom.xml"]
 taxonomies = [
   { name = "tags", feed = false, paginate_by = 5 },
   { name = "authors", feed = false, paginate_by = 5 },
@@ -130,25 +122,22 @@ social = [
 ]
 
 [extra.profiles.sample_username.languages]
-[extra.profiles.sample_username.languages.en]
-name = "Linkita - Zola Theme"
-bio = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
-avatar_alt = "Demo profile avatar."
 [extra.profiles.sample_username.languages.bg]
 name = "Линкита - Тема за Зола"
 bio = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 avatar_alt = "Демонстративен аватар за профила."
-[extra.profiles.sample_username.languages.eo]
-name = "Linkita - Temo por Zola"
-bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
-avatar_alt = "Demoprofila avataro."
-[extra.profiles.sample_username.languages.uwu]
-name = "Linkita"
-bio = "a cwean and ewegant bwog theme fow Zowa. Winkita is based on Kita and Hugo-Papew and is muwtiwinguaw and SEO fwiendwy. *nuzzles*"
+[extra.profiles.sample_username.languages.en]
+name = "Linkita - Zola Theme"
+bio = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
+avatar_alt = "Demo profile avatar."
 [extra.profiles.sample_username.languages.ar]
 name = "لينكيتا - قوالب مدونة زولا"
 bio = "لينكيتا هو قالب مدونة زولا."
 avatar_alt = "الصورة الرمزية للملف الشخصي التجريبي"
+[extra.profiles.sample_username.languages.eo]
+name = "Linkita - Temo por Zola"
+bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
+avatar_alt = "Demoprofila avataro."
 [extra.profiles.sample_username.languages.tr]
 name = "Linkita - Zola için Tema"
 bio = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
@@ -165,8 +154,8 @@ image_alt = "A screenshot of this website."
 # fb_admins = ["USER_ID"]
 [extra.profiles.sample_username.open_graph.languages]
 bg = { image_alt = "Екранна снимка на този сайт." }
-eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
 ar = { image_alt = "لقطة شاشة لهذا الموقع." }
+eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
 tr = { image_alt = "Bu web sitesinin ekran görüntüsü." }
 zh = { image_alt = "该网站的截图。" }
 
@@ -187,13 +176,16 @@ social = [
 name = "Салиф"
 bio = "Здравейте! Аз съм авторът тук."
 url = "https://salif.eu/bg/"
+[extra.profiles.salif.languages.ar]
+name = "ساليف"
+bio = "مرحبًا! انا المؤلف."
 [extra.profiles.salif.languages.eo]
 name = "Salif"
 bio = "Saluton! Mi estas la aŭtoro."
 url = "https://salif.eu/eo/"
-[extra.profiles.salif.languages.ar]
-name = "ساليف"
-bio = "مرحبًا! انا المؤلف."
+[extra.profiles.salif.languages.gb]
+name = "Salif"
+bio = "Salom! Mi sen eskriyen."
 [extra.profiles.salif.languages.tr]
 name = "Salif"
 bio = "Merhaba! Ben yazarım."
@@ -240,21 +232,18 @@ locale = "bg_BG"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
 
+[extra.languages.ar]
+locale = "ar_EG"
+date_format = "%x"
+date_format_archive = "%m-%d"
+
 [extra.languages.eo]
 locale = "eo"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
 
-[extra.languages.glb]
-art_x_lang = "art-x-globasa"
-
-[extra.languages.uwu]
-art_x_lang = "art-x-uwu"
-
-[extra.languages.ar]
-locale = "ar_EG"
-date_format = "%x"
-date_format_archive = "%m-%d"
+[extra.languages.gb]
+language_code = "art-x-globasa"
 
 [extra.languages.tr]
 locale = "tr_TR"

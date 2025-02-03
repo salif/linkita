@@ -1,8 +1,8 @@
 +++
 title = "Arcivo"
 #description = ""
-path = "glb/archive"
+path = "gb/archive"
 template = "archive.html"
 [extra]
-section = "_index.glb.md"
+section = "_index.gb.md"
 +++

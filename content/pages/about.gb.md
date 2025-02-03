@@ -1,7 +1,7 @@
 +++
 title = "Tem mi"
 #description = ""
-path = "glb/about"
+path = "gb/about"
 +++
 
 ## Salom!
