@@ -6,7 +6,6 @@ default_language = "bg"
 author = "sample_username"
 minify_html = false
 
-[languages.bg]
 title = "Линкита"
 description = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 generate_feeds = true
