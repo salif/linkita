@@ -2,5 +2,6 @@
 title = "My Projects"
 #description = ""
 path = "en/projects"
-template = "projects.html"
 +++
+
+{{ projects(path="data.toml", format="toml") }}
