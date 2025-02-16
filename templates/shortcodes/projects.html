@@ -1,0 +1,38 @@
+{%- if url is defined %}
+  {%- set projects = load_data(url=url, format=format) %}
+{%- else %}
+  {%- set projects = load_data(path=page.colocated_path~path, format=format, required=false) %}
+  {%- if projects is not object %}
+    {%- set projects = load_data(path=data, format=format, required=true) %}
+  {% endif %}
+{%- endif %}
+{%- set base_url_lang = get_url(path="", lang=lang) %}
+
+{%- for project in projects.project %}
+  {%- set name = project.languages[lang].name | default(value=project.name) %}
+  {%- set desc = project.languages[lang].desc | default(value=project.desc) %}
+  {%- set tags = project.languages[lang].tags | default(value=project.tags) %}
+  {%- set links = project.links %}
+<div class="not-prose block-bg my-4 flex w-full flex-col rounded-lg px-5 py-1.5">
+  <h2 class="my-2 text-xl font-bold text-black dark:text-white">{{ name }}</h2>
+  <p>{{ desc | markdown(inline=true) | safe }}</p>
+  <div class="my-2 flex flex-wrap items-center justify-between">
+    <div class="flex flex-wrap gap-x-2 text-sm opacity-80">
+      {%- for tag in tags %}
+      <span>#{{ tag }}</span>
+      {%- endfor %}
+    </div>
+    <div class="flex flex-wrap gap-x-2">
+      {%- for link in links %}
+      <a
+        class="underline"
+        href="{{ link.url | replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}"
+        rel="noopener"
+        target="_blank"
+        >{{ link.name }}</a
+      >
+      {%- endfor %}
+    </div>
+  </div>
+</div>
+{%- endfor %}

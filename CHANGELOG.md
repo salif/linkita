@@ -16,6 +16,7 @@ All notable changes to this theme will be documented in this file.
 - Self-host KaTeX, instantpage, and gc. It can be reverted by setting `extra.use_cdn = true` config variable.
 - Rename `extra.open_graph.cover_width` frontmatter variable to `extra.cover.width`, and `extra.open_graph.cover_height` to `extra.cover.height`.
 - Rename `extra.languages[lang].art_x_lang` config variable to `extra.languages[lang].language_code`.
+- Convert the project template to shortcode. Use the `pages.html` template instead and use `projects(path="data.toml", format="toml")` shortcode.
 
 ### Internal changes
 
