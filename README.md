@@ -51,7 +51,7 @@ Alternatively, clone the repository: `git clone https://codeberg.org/salif/linki
 
 2. Set `linkita` as your theme in your `config.toml` file.
 
-```toml
+```toml ,name=config.toml
 theme = "linkita"
 ```
 
@@ -80,7 +80,7 @@ Set the ones you need.
 
 ### TOML frontmatter
 
-```toml
+```toml ,name=frontmatter
 +++
 title = ""
 description = ""
@@ -102,7 +102,7 @@ authors = []
 
 ### YAML frontmatter
 
-```yaml
+```yaml ,name=frontmatter
 ---
 title: ""
 description: ""
@@ -124,7 +124,7 @@ extra:
 
 ### Extra frontmatter variables
 
-```toml
+```toml ,name=frontmatter
 [extra]
 # page_info = []
 [extra.cover]
@@ -138,7 +138,7 @@ extra:
 
 ### Open Graph frontmatter variables
 
-```toml
+```toml ,name=frontmatter
 [extra.open_graph]
 # When the article is out of date after. e.g. `2024-02-29`.
 #  (type: datetime; no default value;)
@@ -180,7 +180,7 @@ url = ""
 
 ### Sitemap frontmatter variables
 
-```toml
+```toml ,name=frontmatter
 [extra.sitemap]
 # Set only if different from `page.updated`.
 #  (type: string; default value: page.updated;)
@@ -197,7 +197,7 @@ priority =
 
 Create `content/_index.md` file in your blog and set `extra.profile` to your username:
 
-```toml
+```toml ,name=content/_index.md
 +++
 sort_by = "date"
 paginate_by = 5
@@ -219,7 +219,7 @@ See [Profiles](#profiles).
 
 Create `content/pages/_index.md` file in your blog:
 
-```toml
+```toml ,name=content/pages/_index.md
 +++
 render = false
 page_template = "pages.html"
@@ -230,7 +230,7 @@ page_template = "pages.html"
 
 Create `content/pages/archive.md` file in your blog:
 
-```toml
+```toml ,name=content/pages/archive.md
 +++
 title = "Archive"
 # description = ""
@@ -245,7 +245,7 @@ section = "_index.md"
 
 Create `content/pages/about.md` file in your blog:
 
-```toml
+```toml ,name=content/pages/about.md
 +++
 title = "About me"
 # description = ""
@@ -261,7 +261,7 @@ You don't need to set `page.authors` in the frontmatter if you are the only auth
 
 Otherwise, set `page.authors`:
 
-```toml
+```toml ,name=frontmatter
 +++
 authors = ["author_username"]
 +++
@@ -272,7 +272,7 @@ authors = ["author_username"]
 Useful if the blog has a team of several authors.
 If you choose this option you should set taxonomies in each page.
 
-```toml
+```toml ,name=frontmatter
 +++
 [taxonomies]
 authors = ["author_username", "author2_username"]
@@ -306,7 +306,7 @@ Copy and paste the examples into your `config.toml` file
 and comment out the variables you don't use instead of setting empty values.
 All variables are optional.
 
-```toml
+```toml ,name=config.toml
 # The default language. (type: string;)
 default_language = "en"
 
@@ -332,7 +332,7 @@ build_search_index = true
 
 Taxonomies with translated names are `tags`, `categories`, and `authors`.
 
-```toml
+```toml ,name=config.toml
 [[taxonomies]]
 name = "categories"
 feed = true
@@ -351,7 +351,7 @@ paginate_by = 5
 
 Add more languages ​​by replacing `fr` from the example with the language code.
 
-```toml
+```toml ,name=config.toml
 [languages.fr]
 title = "Site title in French"
 description = "Site description in French"
@@ -365,7 +365,7 @@ taxonomies = [
 
 ### General config
 
-```toml
+```toml ,name=config.toml
 [extra]
 # Enable KaTeX math formula support globally.
 # (type: boolean; default value: `false`;)
@@ -414,7 +414,7 @@ use_cdn = false
 
 ### Style config
 
-```toml
+```toml ,name=config.toml
 [extra.style]
 # The custom background color. (type: string;)
 bg_color = "#f4f4f5"
@@ -435,7 +435,7 @@ header_dark_color = "#27272a"
 ### Menus
 
 ```toml
-[extra.menus]
+[extra.menus] ,name=config.toml
 menu_name = [
   {url = "$BASE_URL/pages/archive/", name = "Archive"},
   {url = "$BASE_URL/categories", name = "Categories"},
@@ -462,7 +462,7 @@ set `names_i18n` to a `common_` key.
 
 ### Profiles
 
-```toml
+```toml ,name=config.toml
 # Replace `your_username` with your username.
 [extra.profiles.your_username]
 # The URL of avatar.
@@ -506,7 +506,7 @@ social = [
 
 ### Profile translations
 
-```toml
+```toml ,name=config.toml
 # For French. Replace `your_username` with your username.
 [extra.profiles.your_username.languages.fr]
 # Profile name.
@@ -530,7 +530,7 @@ avatar_alt = ""
 
 See [the Open Graph protocol](https://ogp.me/).
 
-```toml
+```toml ,name=config.toml
 # Replace `your_username` with your username.
 [extra.profiles.your_username.open_graph]
 # The URL of social image. (type: string; no default value;)
@@ -558,7 +558,7 @@ gender = "" # "female" or "male"
 In addition, `image` and `image_alt` of the profile will be used as a
 fallback open graph image for all pages.
 
-```toml
+```toml ,name=config.toml
 # Replace `your_username` with your username.
 [extra.profiles.your_username.open_graph]
 # (type: string; no default value;)
@@ -569,7 +569,7 @@ fb_admins = ["YOUR_USER_ID"]
 
 #### Open Graph translations
 
-```toml
+```toml ,name=config.toml
 # For French. Replace `your_username` with your username.
 [extra.profiles.your_username.open_graph.languages.fr]
 # A description of what is in the social image.
@@ -579,7 +579,7 @@ image_alt = ""
 
 ### The page footer
 
-```toml
+```toml ,name=config.toml
 [extra.footer]
 # Replace with the correct year.
 # (type: number; default value: current year;)
@@ -613,7 +613,7 @@ Option `copyright` supports Markdown and:
 
 For date format, see [chrono docs](https://docs.rs/chrono/0.4/chrono/format/strftime/index.html).
 
-```toml
+```toml ,name=config.toml
 # For English
 [extra.languages.en]
 # (type: string; no default value;)
@@ -640,7 +640,7 @@ date_format_archive = "%m-%d"
 # taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
 ```
 
-```toml
+```toml ,name=config.toml
 # For French
 [extra.languages.fr]
 locale = "fr_FR"
@@ -654,7 +654,7 @@ date_format_archive = "%m-%d"
 
 Set only if you use [GoatCounter](https://www.goatcounter.com/).
 
-```toml
+```toml ,name=config.toml
 [extra.goatcounter]
 # (type: string; no default value;)
 endpoint = "https://MYCODE.goatcounter.com/count"
@@ -669,7 +669,7 @@ If your `base_url` includes a subpath, set `noscript_prefix` to the subpath with
 
 Set only if you use [Vercel Web Analytics](https://vercel.com/docs/analytics).
 
-```toml
+```toml ,name=config.toml
 [extra.vercel_analytics]
 # (type: string; no default value;)
 src = "/_vercel/insights/script.js"
@@ -686,7 +686,7 @@ For example, open <http://127.0.0.1:1111/#disable-analytics>.
 See [giscus.app](https://giscus.app/).
 Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to `true`.
 
-```toml
+```toml ,name=config.toml
 [extra.giscus]
 # (type: string; no default value;)
 repo = ""

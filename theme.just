@@ -96,7 +96,7 @@ commit_diff:
 [doc('git commit')]
 [group('git')]
 commit: commit_diff
-    zola check
+    zola check --skip-external-links
     git commit
 
 [doc('git push')]
