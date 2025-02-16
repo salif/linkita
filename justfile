@@ -36,7 +36,7 @@ serve: serve_and
 
 [group('dev')]
 zola_check:
-    zola check
+    zola check --skip-external-links
 
 [doc('git commit')]
 [group('git')]
