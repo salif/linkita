@@ -17,7 +17,7 @@
       <div class="my-2 flex items-center justify-between">
         <a class="secondary-link" href="{{ post.permalink | escape_xml | safe }}">{{ post.title }}</a>
         {%- set date_format_archive = config.extra.languages[lang].date_format_archive | default(value="%m-%d") %}
-        <time class="font-mono text-sm opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{%
+        <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{%
           if config.extra.languages[lang].locale %}{{ post.date | date(format=date_format_archive,
             locale=config.extra.languages[lang].locale) }}{%
           else %}{{ post.date | date(format=date_format_archive) }}{% endif %}</time>

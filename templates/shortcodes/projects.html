@@ -13,7 +13,7 @@
   {%- set desc = project.languages[lang].desc | default(value=project.desc) %}
   {%- set tags = project.languages[lang].tags | default(value=project.tags) %}
   {%- set links = project.links %}
-<div class="not-prose block-bg my-4 flex w-full flex-col rounded-lg px-5 py-1.5">
+<div class="not-prose text-base leading-7 block-bg my-4 flex w-full flex-col rounded-lg px-5 py-1.5">
   <h2 class="my-2 text-xl font-bold text-black dark:text-white">{{ name }}</h2>
   <p>{{ desc | markdown(inline=true) | safe }}</p>
   <div class="my-2 flex flex-wrap items-center justify-between">

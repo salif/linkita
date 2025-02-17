@@ -1709,6 +1709,11 @@ sup a {
   font-size: 0;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1738,6 +1743,10 @@ sup a {
 
 .\!leading-none {
   line-height: 1 !important;
+}
+
+.leading-7 {
+  line-height: 1.75rem;
 }
 
 .text-black {
@@ -1809,6 +1818,10 @@ sup a {
   .btn-menu:is(.dark *)::after {
   --tw-invert: invert(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.open {
+  overflow: hidden;
 }
 
 .open .btn-menu::before {
@@ -2009,6 +2022,12 @@ article {
 
 .dark\:\[background-image\:var\(--url-light\)\]:is(.dark *) {
   background-image: var(--url-light);
+}
+
+@media not all and (min-width: 768px) {
+  .max-md\:flex-none {
+    flex: none;
+  }
 }
 
 @media (min-width: 768px) {

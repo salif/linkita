@@ -1,6 +1,14 @@
-{% if page.toc %}
+{%- if page.extra.toc is defined %}
+  {%- set page_toc = page.extra.toc %}
+{%- elif config.extra.toc is defined %}
+  {%- set page_toc = config.extra.toc %}
+{%- else %}
+  {%- set page_toc = true %}
+{%- endif %}
+
+{%- if page.toc and page_toc %}
 <div class="block-bg mb-12 rounded-lg p-2 text-lg">
-  <details>
+  <details {%- if page_toc is object and page_toc.open %} open{% endif %}>
     <summary class="select-none py-0.5 lg:py-1 pl-4" accesskey="=">
       <span class="cursor-pointer">{{ macros::tr(key="word_toc", lk=lang, td=g_trans_data) }}</span>
     </summary>
@@ -24,4 +32,4 @@
     </div>
   </details>
 </div>
-{% endif %}
+{%- endif %}
