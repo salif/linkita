@@ -580,6 +580,8 @@ body {
 pre mark {
   display: block;
   color: inherit;
+  margin: 0 -18px;
+  padding: 0 18px;
 }
 
 pre table {
