@@ -18,6 +18,7 @@ All notable changes to this theme will be documented in this file.
 - Rename `extra.languages[lang].art_x_lang` config variable to `extra.languages[lang].language_code`.
 - Convert the project template to shortcode. Use the `pages.html` template instead and use `projects(path="data.toml", format="toml")` shortcode.
 - Add `extra.toc` config and frontmatter variable. Table of contents can be disabled by setting to `false`. It can be expanded by default by setting `toc = { open = true }`.
+- Add `head_end` inject point and put `injects/head` before js and css files. You may need to rename your `injects/head.html` file to `injects/head_end.html`.
 
 ### Internal changes
 

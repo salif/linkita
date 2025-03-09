@@ -32,9 +32,10 @@
   elif g_is_article %} article: https://ogp.me/ns/article#{%
   endif %}">
   {%- include "partials/head.html" %}
+  {% include "injects/head.html" ignore missing %}
   {%- include "partials/head_res.html" %}
   <!-- Head inject -->
-  {% include "injects/head.html" ignore missing %}
+  {% include "injects/head_end.html" ignore missing %}
 </head>
 
 <body class="text-black duration-200 ease-out bg-[var(--bg)] dark:text-white">

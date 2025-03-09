@@ -285,7 +285,7 @@ You can easily use inject to add new features to your side without modifying the
 
 To use inject, you need to add some HTML files to the `templates/injects` directory.
 
-The available inject points are: `head`, `header_nav`, `body_start`, `body_end`, `page_start`, `page_end`, `footer`.
+The available inject points are: `head`, `head_end`, `header_nav`, `body_start`, `body_end`, `page_start`, `page_end`, `footer`.
 
 ### Keyboard shortcuts
 
