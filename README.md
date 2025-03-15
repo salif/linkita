@@ -434,8 +434,8 @@ header_dark_color = "#27272a"
 
 ### Menus
 
-```toml
-[extra.menus] ,name=config.toml
+```toml ,name=config.toml
+[extra.menus]
 menu_name = [
   {url = "$BASE_URL/pages/archive/", name = "Archive"},
   {url = "$BASE_URL/categories", name = "Categories"},
@@ -721,6 +721,8 @@ See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICE
 ## Contributing
 
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
+
+If you notice even the slightest ambiguity or bug in this repo, report it IMMEDIATELY before it breeds and takes over the entire project!
 
 ## Sites using Linkita
 
