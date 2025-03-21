@@ -728,5 +728,6 @@ If you notice even the slightest ambiguity or bug in this repo, report it IMMEDI
 
 - [Zola Themes Collection](https://github.com/salif/zola-themes-collection)
 - [salif.eu](https://github.com/salif/personal-web-page): Personal website
+- [Rratic's blog](https://github.com/Rratic/rratic.github.io): Personal website
 
 If your blog uses Linkita and is open source, feel free to create a pull request to add it to this list.
