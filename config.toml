@@ -86,7 +86,6 @@ mermaid = false
 comment = false
 title_separator = " | "
 header_menu_name = "sample_header_menu_name"
-post_navigation = "enabled"
 use_cdn = false
 disable_javascript = false
 
@@ -201,6 +200,7 @@ gender = "male"
 [extra.profiles.salif.open_graph.fediverse_creator]
 handle = "bg.salif.eu"
 domain = "bsky.brid.gy"
+# Set url because I'm using bridge instead of a real mastodon account
 url = "https://bsky.brid.gy/ap/did:plc:3ebgy675tgwzqudufqvifpxv"
 
 # Kita's profile
@@ -254,6 +254,7 @@ locale = "zh_CN"
 date_format = "%x"
 date_format_archive = "%m-%d"
 
+# If you copy this file to your site, remove this:
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
 noscript_prefix = "/linkita"
