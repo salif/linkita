@@ -1,10 +1,7 @@
-{%- if config.extra.post_navigation is undefined %}
-  {%- set prev_page = page.lower %}
-  {%- set next_page = page.higher %}
-{%- elif config.extra.post_navigation == "reversed" %}
+{%- if config.extra.invert_page_navigation %}
   {%- set prev_page = page.higher %}
   {%- set next_page = page.lower %}
-{%- elif config.extra.post_navigation != "disabled" %}
+{%- else %}
   {%- set prev_page = page.lower %}
   {%- set next_page = page.higher %}
 {%- endif %}

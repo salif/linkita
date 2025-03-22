@@ -91,12 +91,16 @@ categories = []
 tags = []
 authors = []
 [extra]
-# comment = true
-# math = true
-# mermaid = true
+# Enable comments
+comment = false
+# Enable KaTeX support
+math = false
+# Enable Mermaid support
+mermaid = false
 [extra.cover]
-# image = ""
-# alt = ""
+image = ""
+# A description of the cover image
+alt = ""
 +++
 ```
 
@@ -107,7 +111,7 @@ authors = []
 title: ""
 description: ""
 date: 
-# updated: 
+updated: 
 taxonomies:
   categories:
   tags:
@@ -122,74 +126,73 @@ extra:
 ---
 ```
 
-### Extra frontmatter variables
+### Other extra frontmatter variables
 
 ```toml ,name=frontmatter
 [extra]
-# page_info = []
+# See `config.extra.page_info`.
+# (type: array of strings; default value: config.extra.page_info;)
+page_info = []
+# See `config.extra.toc`.
+# (type: boolean or object; default value: config.extra.toc;)
+toc = true
 [extra.cover]
 # Width of the cover image in pixels.
-#  (type: number; default value: uses `get_image_metadata()`;)
-# width =
+# (type: number; default value: uses `get_image_metadata()`;)
+width =
 # Height of the cover image in pixels.
-#  (type: number; default value: uses `get_image_metadata()`;)
-# height =
-```
+# (type: number; default value: uses `get_image_metadata()`;)
+height =
 
-### Open Graph frontmatter variables
-
-```toml ,name=frontmatter
+# Open Graph frontmatter variables
 [extra.open_graph]
 # When the article is out of date after. e.g. `2024-02-29`.
-#  (type: datetime; no default value;)
+# (type: datetime; no default value;)
 expiration_time =
 # Describes the tier status for an article. e.g. `free`, `locked`, or `metered`.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 content_tier = ""
 # Defines the location to target for the article. e.g. `["county:COUNTY"]` or `["city:CITY,COUNTY"]`.
-#  (type: array of strings; no default value;)
+# (type: array of strings; no default value;)
 locations = []
 # A high-level section name. e.g. `Technology`.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 section = ""
 # Indicates whether the article is an opinion piece or not. e.g. `true` or `false`.
-#  (type: boolean; no default value;)
+# (type: boolean; no default value;)
 opinion =
 # The URL for the audio.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 audio = ""
 # MIME type of the audio. e.g. `audio/vnd.facebook.bridge`, `audio/mpeg`.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 audio_type = ""
 # The URL for the video.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 video = ""
 # MIME type of the video. e.g. `application/x-shockwave-flash`, `video/mp4`.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 video_type = ""
 # Width of the video in pixels.
-#  (type: number; no default value;)
+# (type: number; no default value;)
 video_width =
 # Height of the video in pixels.
-#  (type: number; no default value;)
+# (type: number; no default value;)
 video_height =
 # Set only if different from canonical page URL.
-#  (type: string; default value: current_url;)
+# (type: string; default value: current_url;)
 url = ""
-```
 
-### Sitemap frontmatter variables
-
-```toml ,name=frontmatter
+# Sitemap frontmatter variables
 [extra.sitemap]
 # Set only if different from `page.updated`.
-#  (type: string; default value: page.updated;)
+# (type: string; default value: page.updated;)
 updated =
 # Valid values are `always`, `hourly`, `daily`, `weekly`, `monthly`, `yearly`, `never`.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 changefreq =
 # Valid values range from 0.0 to 1.0. The default priority of a page is 0.5.
-#  (type: string; no default value;)
+# (type: string; no default value;)
 priority =
 ```
 
@@ -216,6 +219,9 @@ Replace `author_username` with author's username.
 See [Profiles](#profiles).
 
 ### Non-post pages
+
+The default page template `page.html` is for blog posts.
+For pages that are not blog posts, create a `pages` directory and use the `pages.html` template.
 
 Create `content/pages/_index.md` file in your blog:
 
@@ -255,7 +261,9 @@ title = "About me"
 
 ### Page authors
 
-#### Option 1: Using `page.authors`
+Choose one of the following options or skip if you don't know what you're doing:
+
+#### Option A: Using `page.authors`
 
 You don't need to set `page.authors` in the frontmatter if you are the only author of the post.
 
@@ -267,7 +275,7 @@ authors = ["author_username"]
 +++
 ```
 
-#### Option 2: Using Taxonomies
+#### Option B: Using Taxonomies
 
 Useful if the blog has a team of several authors.
 If you choose this option you should set taxonomies in each page.
@@ -310,13 +318,18 @@ All variables are optional.
 # The default language. (type: string;)
 default_language = "en"
 
-# The default author for pages. See `extra.profiles`. (type: string;)
+# The default author for pages.
+# See `extra.profiles`. (type: string;)
 author = "your_username"
 
-# The site title. (type: string;)
+# The site title. Will be in all page titles.
+# (type: string;)
 title = ""
 
-# The site description. (type: string;)
+# The site description.
+# If set, will be used as a fallback description
+# when no description is set in the frontmatter.
+# (type: string;)
 description = ""
 
 # Automatically generate a feed. (type: boolean;)
@@ -326,7 +339,7 @@ generate_feeds = true
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 
 # Build a search index from the pages and section content
-#  for `default_language`. (type: boolean;)
+# for `default_language`. (type: boolean;)
 build_search_index = true
 ```
 
@@ -387,18 +400,22 @@ title_separator = " | "
 # (type: string; no default value;)
 header_menu_name = "menu_name"
 
-# (type: boolean; default value: false;)
+# If you disable default favicons, you can use
+# the inject support to set your own favicons.
+# (type: boolean; default value: `false`;)
 disable_default_favicon = false
 
-# (type: boolean; default value: false;)
+# If you want to reimplement the JS code
+# yourself, set to true and use the inject support.
+# (type: boolean; default value: `false`;)
 disable_javascript = false
 
-# (type: boolean; default value: false;)
+# (type: boolean; default value: `false`;)
 use_cdn = false
 
 # You can reorder the strings, remove them, or replace them.
-#  For example, you can replace `site_title` with `home_button`.
-#  (type: array of strings; default value: `["site_title", "theme_button", "search_button", "translations_button"]`;)
+# For example, you can replace `site_title` with `home_button`.
+# (type: array of strings; default value: `["site_title", "theme_button", "search_button", "translations_button"]`;)
 # header_buttons = []
 
 # Valid values:
@@ -408,8 +425,18 @@ use_cdn = false
 #  `word_count`, `word_count_on_page`, `word_count_on_paginator`,
 #  `authors`, `authors_on_page`, `authors_on_paginator`,
 #  `tags`, `tags_on_page`, `tags_on_paginator`.
-#  (type: array of strings; default value: `["date", "date_updated_on_page", "reading_time", "authors"]`;)
+# (type: array of strings; default value: `["date", "date_updated_on_page", "reading_time", "authors"]`;)
 # page_info = []
+
+# Enable table of contents on all pages.
+# If not set, toc is enabled only on post pages.
+# If set to false, toc is disabled on all pages.
+# (type: boolean or object;)
+# toc = true
+
+# Reverse the order of prev and next post links.
+# (type: boolean; default value: `false`;)
+# invert_page_navigation = false
 ```
 
 ### Style config
@@ -425,10 +452,10 @@ bg_dark_color = "#18181b"
 header_blur = false
 
 # The custom header color, only available
-#  when `header_blur` is false. (type: string;)
+# when `header_blur` is false. (type: string;)
 header_color = "#e4e4e7"
 # The custom header color in dark mode, only available
-#  when `header_blur` is false. (type: string;)
+# when `header_blur` is false. (type: string;)
 header_dark_color = "#27272a"
 ```
 
@@ -437,20 +464,20 @@ header_dark_color = "#27272a"
 ```toml ,name=config.toml
 [extra.menus]
 menu_name = [
-  {url = "$BASE_URL/pages/archive/", name = "Archive"},
-  {url = "$BASE_URL/categories", name = "Categories"},
-  {url = "$BASE_URL/tags/", name = "Tags"},
-  {url = "$BASE_URL/pages/about/", name = "About"},
+  { url = "$BASE_URL/pages/archive/", name = "Archive" },
+  { url = "$BASE_URL/categories", name = "Categories" },
+  { url = "$BASE_URL/tags/", name = "Tags" },
+  { url = "$BASE_URL/pages/about/", name = "About" },
 ]
 
 # Example multilingual menu.
 multilingual_menu_name = [
-  {url = "$BASE_URL/pages/about/", names = {en = "About", fr = "About in French"} },
-  {url = "$BASE_URL/pages/projects/", names = {en = "Projects", fr = "Projects in French"} },
-  {url = "$BASE_URL/pages/archive/", names = {en = "Archive", fr = "Archive in French"} },
-  {url = "$BASE_URL/categories/", names = {en = "Categories", fr = "Categories in French"} },
-  {url = "$BASE_URL/tags/", names = {en = "Tags", fr = "Tags in French"} },
-  {url = "$BASE_URL/authors/", names = {en = "Authors", fr = "Authors in French"} },
+  { url = "$BASE_URL/pages/about/", names = { en = "About", fr = "About in French" } },
+  { url = "$BASE_URL/pages/projects/", names = { en = "Projects", fr = "Projects in French" } },
+  { url = "$BASE_URL/pages/archive/", names = { en = "Archive", fr = "Archive in French" } },
+  { url = "$BASE_URL/categories/", names = { en = "Categories", fr = "Categories in French" } },
+  { url = "$BASE_URL/tags/", names = { en = "Tags", fr = "Tags in French" } },
+  { url = "$BASE_URL/authors/", names = { en = "Authors", fr = "Authors in French" } },
 ]
 ```
 
@@ -634,10 +661,10 @@ date_format_archive = "%m-%d"
 # IETF tag for artificial languages. (type: string; no default value;)
 # language_code = "art-x-code"
 
-# Taxonomy/term pages do not have a description by default.
-# Optionally you can set a generic description. `$NAME` will be automatically replaced.
-# taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
-# taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
+# Set a generic description for taxonomy/term pages.
+# `$NAME` will be automatically replaced.
+taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
+taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
 ```
 
 ```toml ,name=config.toml
@@ -696,21 +723,21 @@ repo_id = ""
 category = ""
 # (type: string; no default value;)
 category_id = ""
-# (type: string; default value: `pathname`)
+# (type: string; default value: `pathname`;)
 mapping = "pathname"
-# (type: number; default value: `1`)
+# (type: number; default value: `1`;)
 strict = 1
-# (type: number; default value: `0`)
+# (type: number; default value: `0`;)
 reactions_enabled = 0
-# (type: number; default value: `0`)
+# (type: number; default value: `0`;)
 emit_metadata = 0
-# (type: string; default value: `top`)
+# (type: string; default value: `top`;)
 input_position = "top"
-# (type: string; default value: `light`)
+# (type: string; default value: `light`;)
 theme = "light"
-# (type: string; default value: `en`)
+# (type: string; default value: `en`;)
 lang = "en"
-# (type: string; default value: `lazy`)
+# (type: string; default value: `lazy`;)
 loading = "lazy"
 ```
 
@@ -722,7 +749,8 @@ See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICE
 
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
 
-If you notice even the slightest ambiguity or bug in this repo, report it IMMEDIATELY before it breeds and takes over the entire project!
+If you notice even the slightest ambiguity or bug in this repo,
+report it IMMEDIATELY, before it breeds and takes over the entire project!
 
 ## Sites using Linkita
 

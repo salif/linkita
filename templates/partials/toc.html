@@ -2,10 +2,7 @@
   {%- set page_toc = page.extra.toc %}
 {%- elif config.extra.toc is defined %}
   {%- set page_toc = config.extra.toc %}
-{%- else %}
-  {%- set page_toc = true %}
 {%- endif %}
-
 {%- if page.toc and page_toc %}
 <div class="block-bg mb-12 rounded-lg p-2 text-lg">
   <details {%- if page_toc is object and page_toc.open %}{{ ` open` }}{% endif %}>

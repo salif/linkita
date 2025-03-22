@@ -67,6 +67,7 @@ update_katex:
     cp node_modules/katex/dist/*.min.* static/katex/
     cp node_modules/katex/dist/contrib/*.min.* static/katex/contrib/
     cp node_modules/katex/dist/fonts/*.woff2 static/katex/fonts/
+    mv static/katex/README.md static/katex/KaTeX.md
 
 [group('git')]
 [private]

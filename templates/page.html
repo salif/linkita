@@ -8,7 +8,6 @@
     <h1 class="!my-0 pb-2.5">{{ page.title }}</h1>
     {% include "partials/page_info.html" %}
   </header>
-
   {%- if page.extra.cover.image %}
   <figure class="mb-12 mt-0">
     <img
@@ -20,22 +19,21 @@
     />
   </figure>
   {%- endif %}
-
-  <!-- TOC -->
+  {%- set page_toc = true %}
+  {#- Table of contents #}
   {% include "partials/toc.html" %}
-
-  <!-- Content -->
+  {#- Content #}
   <section>{{ page.content | safe }}</section>
   <hr />
-  <!-- Post Taxonomies -->
+  {#- Post Taxonomies #}
   {% include "partials/post_taxonomies.html" %}
-  <!-- Post Nav -->
+  {#- Post Nav #}
   {% include "partials/post_navigation.html" %}
   {%- if page.extra.comment | default(value=config.extra.comment) %}
-  <!-- Comment -->
+  {#- Comment #}
   {% include "partials/comment.html" %}
   {%- endif %}
-  <!-- Page End inject -->
+  {#- Page End inject #}
   {% include "injects/page_end.html" ignore missing %}
 </article>
 {% endblock main %}
