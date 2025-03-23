@@ -6,10 +6,18 @@
 {%- else %}
   {%- set header_buttons = ["site_title", "theme_button", "search_button", "translations_button"] %}
 {%- endif %}
-{%- if config.extra.languages[lang].header_menu_name and config.extra.menus[config.extra.languages[lang].header_menu_name] is defined %}
-  {%- set header_menu = config.extra.menus[config.extra.languages[lang].header_menu_name] %}
-{%- elif config.extra.header_menu_name and config.extra.menus[config.extra.header_menu_name] is defined %}
-  {%- set header_menu = config.extra.menus[config.extra.header_menu_name] %}
+{%- if config.extra.languages[lang].header_menu_name %}
+  {%- if config.extra.menus[config.extra.languages[lang].header_menu_name] is defined %}
+    {%- set header_menu = config.extra.menus[config.extra.languages[lang].header_menu_name] %}
+  {%- else %}
+    {{ throw(message="The '" ~ config.extra.languages[lang].header_menu_name ~ "' menu is not defined!") }}
+  {%- endif %}
+{%- elif config.extra.header_menu_name %}
+  {%- if config.extra.menus[config.extra.header_menu_name] is defined %}
+    {%- set header_menu = config.extra.menus[config.extra.header_menu_name] %}
+  {%- else %}
+    {{ throw(message="The '" ~ config.extra.header_menu_name ~ "' menu is not defined!") }}
+  {%- endif %}
 {%- elif config.extra.menu %}
   {%- set header_menu = config.extra.menu %}
 {%- endif %}

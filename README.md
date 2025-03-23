@@ -37,6 +37,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - Improved search engine optimization
 - Improved configurability
 - Author profiles
+- Projects shortcode
 - Keyboard shortcuts
 
 ## Installing
@@ -47,7 +48,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 git submodule add https://codeberg.org/salif/linkita.git themes/linkita
 ```
 
-Alternatively, clone the repository: `git clone https://codeberg.org/salif/linkita.git themes/linkita`.
+Alternatively, clone the repository: `git clone https://codeberg.org/salif/linkita.git themes/linkita`
 
 2. Set `linkita` as your theme in your `config.toml` file.
 
@@ -402,7 +403,7 @@ feed = true
 paginate_by = 5
 ```
 
-Add more languages ​​by replacing `fr` from the example with the language code:
+Add more languages by replacing `fr` from the example with the language code:
 
 ```toml ,name=config.toml
 [languages.fr]
