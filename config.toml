@@ -85,9 +85,9 @@ math = false
 mermaid = false
 comment = false
 title_separator = " | "
-header_menu_name = "sample_header_menu_name"
+header_menu_name = "sample_header"
 use_cdn = false
-disable_javascript = false
+disable_default_favicon = false
 
 [extra.style]
 # bg_color = ""
@@ -97,7 +97,7 @@ disable_javascript = false
 # header_dark_color = ""
 
 [extra.menus]
-sample_header_menu_name = [
+sample_header = [
   { url = "$BASE_URL/projects/", name = "Projects", names_i18n = "common_projects" },
   { url = "$BASE_URL/archive/", name = "Archive", names_i18n = "common_archive" },
   { url = "$BASE_URL/tags/", name = "Tags", names_i18n = "common_tags" },
@@ -161,33 +161,23 @@ zh = { image_alt = "该网站的截图。" }
 [extra.profiles.salif]
 name = "Salif"
 bio = "Hi! I'm the author."
-url = "https://salif.eu"
-social = [
-  { name = "codeberg", url = "https://codeberg.org/salif" },
-  { name = "github", url = "https://github.com/salif" },
-  { name = "bluesky", url = "https://bsky.app/profile/bg.salif.eu" },
-  { name = "rss", url = "$BASE_URL/authors/salif/atom.xml" },
-]
 
 [extra.profiles.salif.languages]
 [extra.profiles.salif.languages.bg]
 name = "Салиф"
 bio = "Здравейте! Аз съм авторът тук."
-url = "https://salif.eu/bg/"
 [extra.profiles.salif.languages.ar]
 name = "ساليف"
 bio = "مرحبًا! انا المؤلف."
 [extra.profiles.salif.languages.eo]
 name = "Salif"
 bio = "Saluton! Mi estas la aŭtoro."
-url = "https://salif.eu/eo/"
 [extra.profiles.salif.languages.gb]
 name = "Salif"
 bio = "Salom! Mi sen eskriyen."
 [extra.profiles.salif.languages.tr]
 name = "Salif"
 bio = "Merhaba! Ben yazarım."
-url = "https://salif.eu/tr/"
 [extra.profiles.salif.languages.zh]
 name = "萨利夫"
 bio = "您好！我是作者。"
@@ -203,13 +193,34 @@ domain = "bsky.brid.gy"
 # Set url because I'm using bridge instead of a real mastodon account
 url = "https://bsky.brid.gy/ap/did:plc:3ebgy675tgwzqudufqvifpxv"
 
+[[extra.profiles.salif.social]]
+name = "codeberg"
+url = "https://codeberg.org/salif"
+[[extra.profiles.salif.social]]
+name = "github"
+url = "https://github.com/salif"
+[[extra.profiles.salif.social]]
+name = "home"
+url = "https://salif.eu/"
+[extra.profiles.salif.social.urls]
+bg = "https://salif.eu/bg/"
+eo = "https://salif.eu/eo/"
+tr = "https://salif.eu/tr/"
+[[extra.profiles.salif.social]]
+name = "bluesky"
+url = "https://bsky.app/profile/bg.salif.eu"
+[[extra.profiles.salif.social]]
+name = "rss"
+url = "$BASE_URL/authors/salif/atom.xml"
+
 # Kita's profile
 [extra.profiles.kita]
 name = "Kita"
-bio = "Kita is the theme on which Linkita is based."
-url = "https://st1020.github.io/kita/"
+bio = "Linkita is based on st1020's Kita theme."
 social = [
-  { name = "github", url = "https://github.com/st1020/kita" }
+  { name = "github", url = "https://github.com/st1020/kita" },
+  { name = "home", url = "https://kita-zola.pages.dev/" },
+  { name = "rss", url = "$BASE_URL/authors/kita/atom.xml" },
 ]
 
 [extra.footer]
@@ -230,6 +241,8 @@ taxonomy_single_description = "Browse articles related to $NAME. Start exploring
 locale = "bg_BG"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
+taxonomy_list_description = "Разгледайте всички $NAME на този сайт!"
+taxonomy_single_description = "Списък на страниците отнасящи се до $NAME."
 
 [extra.languages.ar]
 locale = "ar_EG"
