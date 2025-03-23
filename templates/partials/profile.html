@@ -8,6 +8,16 @@
 {%- elif g_profile.bio %}
   {%- set profile_bio = g_profile.bio %}
 {%- endif %}
+{%- if g_profile.languages[lang].social %}
+  {%- set profile_social = g_profile.languages[lang].social %}
+{%- elif g_profile.social %}
+  {%- set profile_social = g_profile.social %}
+{%- endif %}
+{%- if g_profile.languages[lang].avatar_alt %}
+  {%- set profile_avatar_alt = g_profile.languages[lang].avatar_alt %}
+{%- elif g_profile.avatar_alt %}
+  {%- set profile_avatar_alt = g_profile.avatar_alt %}
+{%- endif %}
 {%- set base_url_lang = get_url(path="", lang=lang) %}
 <div class="mb-16 flex items-start">
   {%- if g_profile.avatar_url %}
@@ -16,8 +26,7 @@
     <img
       class="{% if g_profile.avatar_invert %}dark:invert{% endif %} my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin"
       src="{{ get_url(path=g_profile.avatar_url, cachebust=true) }}"{%
-        if g_profile.languages[lang].avatar_alt is defined %} alt="{{ g_profile.languages[lang].avatar_alt | escape_xml | safe }}"{%
-        elif g_profile.avatar_alt is defined %} alt="{{ g_profile.avatar_alt | escape_xml | safe }}"{% endif %} />
+        if profile_avatar_alt is defined %} alt="{{ profile_avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
   {%- endif %}
   <div>
@@ -30,9 +39,9 @@
     </div>
     {%- endif %}
 
-    {%- if g_profile.social is defined %}
+    {%- if profile_social is defined %}
     <nav class="flex justify-start space-x-3 dark:invert">
-      {%- for social in g_profile.social %}
+      {%- for social in profile_social %}
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
         style="--url: url({{ macros::get_social_icon(icon=social.name) }})"

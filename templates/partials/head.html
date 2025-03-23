@@ -169,8 +169,8 @@
 {%- if g_profile is defined or (config.author and config.extra.profiles[config.author]) %}
   {#- order is important #}
   {%- if config.extra.profiles[config.author].open_graph %}
-  {%- set profile_og_data = config.extra.profiles[config.author].open_graph %}
-  {%- if profile_og_data.fb_app_id %}
+    {%- set profile_og_data = config.extra.profiles[config.author].open_graph %}
+    {%- if profile_og_data.fb_app_id %}
   <meta property="fb:app_id" content="{{ profile_og_data.fb_app_id | escape_xml | safe }}" />
     {%- endif %}
     {%- if profile_og_data.fb_admins %}

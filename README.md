@@ -84,12 +84,17 @@ Set the ones you need.
 +++
 title = ""
 description = ""
-# date = 
-# updated = 
+# The date of the post
+date = 2025-12-30
+# The last updated date of the post,
+# if different from the date
+updated = 2025-12-31
+
 [taxonomies]
 categories = []
 tags = []
 authors = []
+
 [extra]
 # Enable comments
 comment = false
@@ -202,6 +207,8 @@ Create `content/_index.md` file in your blog and set `extra.profile` to your use
 
 ```toml ,name=content/_index.md
 +++
+# title = ""
+# description = ""
 sort_by = "date"
 paginate_by = 5
 [extra]
@@ -212,11 +219,7 @@ profile = "your_username"
 Do it for each language in your blog.
 For French, the file name is `content/_index.fr.md`.
 
-### Profiles for authors
-
-Add `extra.profiles.author_username` table in your `config.toml` file for each author in your blog.
-Replace `author_username` with author's username.
-See [Profiles](#profiles).
+See [Profiles](#profiles) for more.
 
 ### Non-post pages
 
@@ -230,6 +233,20 @@ Create `content/pages/_index.md` file in your blog:
 render = false
 page_template = "pages.html"
 +++
+```
+
+#### About you page
+
+Create `content/pages/about.md` file in your blog:
+
+```toml ,name=content/pages/about.md
++++
+title = "About me"
+# description = ""
+# path = "about"
++++
+
+## Hello, world!
 ```
 
 #### Archive page
@@ -247,16 +264,31 @@ section = "_index.md"
 +++
 ```
 
-#### About you page
+#### Projects page
 
-Create `content/pages/about.md` file in your blog:
+Create `content/pages/projects/index.md` file in your blog:
 
-```toml ,name=content/pages/about.md
+```toml ,name=content/pages/projects/index.md
 +++
-title = "About me"
+title = "My Projects"
 # description = ""
-# path = "about"
+# path = "projects"
 +++
+```
+
+Include the following shortcode too: \{\{ projects(path="data.toml", format="toml") \}\}
+
+Create `content/pages/projects/data.toml` file in your blog:
+
+```toml ,name=content/pages/projects/data.toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]
 ```
 
 ### Page authors
@@ -315,27 +347,34 @@ and comment out the variables you don't use instead of setting empty values.
 All variables are optional.
 
 ```toml ,name=config.toml
-# The default language. (type: string;)
+# The URL the site will be built for
+base_url = "https://example.com"
+
+# The site theme to use.
+theme = "linkita"
+
+# The default language.
 default_language = "en"
 
 # The default author for pages.
-# See `extra.profiles`. (type: string;)
+# See `extra.profiles`.
+# (type: string;)
 author = "your_username"
 
 # The site title. Will be in all page titles.
 # (type: string;)
 title = ""
 
-# The site description.
-# If set, will be used as a fallback description
-# when no description is set in the frontmatter.
+# The site description. Used in feeds by default.
 # (type: string;)
 description = ""
 
-# Automatically generate a feed. (type: boolean;)
+# Automatically generate a feed.
+# (type: boolean;)
 generate_feeds = true
 
-# The filenames to use for the feeds. (type: array of strings;)
+# The filenames to use for the feeds.
+# (type: array of strings;)
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 
 # Build a search index from the pages and section content
@@ -343,7 +382,8 @@ feed_filenames = ["atom.xml"] # or ["rss.xml"]
 build_search_index = true
 ```
 
-Taxonomies with translated names are `tags`, `categories`, and `authors`.
+Zola has built-in support for taxonomies.
+Taxonomies on Linkita with translated names are `tags`, `categories`, and `authors`.
 
 ```toml ,name=config.toml
 [[taxonomies]]
@@ -362,7 +402,7 @@ feed = true
 paginate_by = 5
 ```
 
-Add more languages ​​by replacing `fr` from the example with the language code.
+Add more languages ​​by replacing `fr` from the example with the language code:
 
 ```toml ,name=config.toml
 [languages.fr]
@@ -372,7 +412,7 @@ generate_feeds = true
 feed_filenames = ["atom.xml"] # or ["rss.xml"]
 build_search_index = true
 taxonomies = [
-    { name = "authors", feed = true, paginate_by = 5 }
+    { name = "tags", feed = true, paginate_by = 5 }
 ]
 ```
 
@@ -512,14 +552,6 @@ name = ""
 # (type: string; supports markdown; no default value;)
 bio = ""
 
-# Profile email.
-# (type: string; no default value;)
-# email = ""
-
-# Profile website.
-# (type: string; no default value;)
-# url = ""
-
 # Social icons.
 # The `name` should be the file name of `static/icons/*.svg` or the icon name of https://simpleicons.org/
 # The `url` supports `$BASE_URL`.
@@ -536,21 +568,21 @@ social = [
 ```toml ,name=config.toml
 # For French. Replace `your_username` with your username.
 [extra.profiles.your_username.languages.fr]
+# A description of what is in the avatar.
+# (type: string; default avatar: extra.profiles.your_username.avatar_alt;)
+avatar_alt = ""
+
 # Profile name.
-# (type: string; default value: extra.profiles.your_username.url;)
+# (type: string; default value: extra.profiles.your_username.name;)
 name = ""
 
 # Profile bio.
 # (type: string; supports markdown; default value: extra.profiles.your_username.bio;)
 bio = ""
 
-# Profile website.
-# (type: string; default value: extra.profiles.your_username.url;)
-url = ""
-
-# A description of what is in the avatar.
-# (type: string; default avatar: extra.profiles.your_username.avatar_alt;)
-avatar_alt = ""
+# Social icons.
+# (type: array of tables; default value: extra.profiles.your_username.social;)
+social = []
 ```
 
 ### Open Graph for profiles
@@ -577,8 +609,9 @@ gender = "" # "female" or "male"
 #  handle - Your Fediverse handle. (type: string; no default value;)
 #  domain - Your Fediverse instance. (type: string; no default value;)
 #  url - Your Fediverse account URL. (type: string; optional;)
-# Example for @user@mastodon.social:
-# fediverse_creator = { handle = "user", domain = "mastodon.social" }
+# Example for @me@mastodon.social:
+# fediverse_creator = { handle = "me", domain = "mastodon.social" }
+fediverse_creator = { handle = "", domain = "" }
 ```
 
 `fb_app_id` and `fb_admins` are only allowed in the default author's profile.
@@ -652,6 +685,11 @@ date_format = "%x"
 # (type: string; default value: `%m-%d`;)
 date_format_archive = "%m-%d"
 
+# Set a generic description for taxonomy/term pages.
+# `$NAME` will be automatically replaced.
+taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
+taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
+
 # (type: string; default value: extra.header_menu_name;)
 # header_menu_name = "menu_name"
 
@@ -660,11 +698,6 @@ date_format_archive = "%m-%d"
 
 # IETF tag for artificial languages. (type: string; no default value;)
 # language_code = "art-x-code"
-
-# Set a generic description for taxonomy/term pages.
-# `$NAME` will be automatically replaced.
-taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
-taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
 ```
 
 ```toml ,name=config.toml
