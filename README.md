@@ -686,11 +686,6 @@ date_format = "%x"
 # (type: string; default value: `%m-%d`;)
 date_format_archive = "%m-%d"
 
-# Set a generic description for taxonomy/term pages.
-# `$NAME` will be automatically replaced.
-taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
-taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
-
 # (type: string; default value: extra.header_menu_name;)
 # header_menu_name = "menu_name"
 
@@ -699,6 +694,19 @@ taxonomy_single_description = "Browse articles related to $NAME. Start exploring
 
 # IETF tag for artificial languages. (type: string; no default value;)
 # language_code = "art-x-code"
+
+# Set a description for taxonomy pages.
+[extra.languages.en.taxonomy_descriptions]
+categories = "A map of all categories on this site. Start exploring!"
+tags = "A map of all tags on this site. Start exploring!"
+authors = "A map of all authors on this site. Start exploring!"
+
+# Set a description for term pages.
+# `$NAME` will be automatically replaced.
+[extra.languages.en.term_descriptions]
+categories = "Browse articles related to $NAME. Start exploring!"
+tags = "Browse articles related to $NAME. Start exploring!"
+authors = "Browse articles written by $NAME. Start exploring!"
 ```
 
 ```toml ,name=config.toml

@@ -35,18 +35,17 @@
   {%- if term.name %}
     {%- if taxonomy.name == "authors" %}
       {%- set term_name = macros::get_profile_name(username=term.name) %}
-      {%- set page_title = term_name ~ title_separator ~ page_title %}
     {%- else %}
-      {%- set page_title = term.name ~ title_separator ~ page_title %}
+      {%- set term_name = term.name %}
     {%- endif %}
-    {%- if config.extra.languages[lang].taxonomy_single_description %}
-      {%- set page_description = config.extra.languages[lang].taxonomy_single_description |
-        replace(from=`$NAME`, to=term.name) %}
+    {%- set page_title = term_name ~ title_separator ~ page_title %}
+    {%- if config.extra.languages[lang].term_descriptions[taxonomy.name] %}
+      {%- set page_description = config.extra.languages[lang].term_descriptions[taxonomy.name] |
+        replace(from=`$NAME`, to=term_name) %}
     {%- endif %}
   {%- else %}
-    {%- if config.extra.languages[lang].taxonomy_list_description %}
-      {%- set page_description = config.extra.languages[lang].taxonomy_list_description |
-        replace(from=`$NAME`, to=taxonomy.name) %}
+    {%- if config.extra.languages[lang].taxonomy_descriptions[taxonomy.name] %}
+      {%- set page_description = config.extra.languages[lang].taxonomy_descriptions[taxonomy.name] %}
     {%- endif %}
   {%- endif %}
 {%- elif section.title %}
