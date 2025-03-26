@@ -148,8 +148,6 @@ avatar_alt = "演示个人资料头像。"
 [extra.profiles.sample_username.open_graph]
 image = "images/screenshot.png"
 image_alt = "A screenshot of this website."
-# fb_app_id = ""
-# fb_admins = ["USER_ID"]
 [extra.profiles.sample_username.open_graph.languages]
 bg = { image_alt = "Екранна снимка на този сайт." }
 ar = { image_alt = "لقطة شاشة لهذا الموقع." }
@@ -234,15 +232,25 @@ copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 locale = "en_US"
 date_format = "%F"
 date_format_archive = "%m-%d"
-taxonomy_list_description = "A map of all $NAME on this site. Start exploring!"
-taxonomy_single_description = "Browse articles related to $NAME. Start exploring!"
+
+[extra.languages.en.taxonomy_descriptions]
+tags = "A map of all tags on this site. Start exploring!"
+authors = "A map of all authors on this site. Start exploring!"
+[extra.languages.en.term_descriptions]
+tags = "Browse articles related to $NAME. Start exploring!"
+authors = "Browse articles written by $NAME. Start exploring!"
 
 [extra.languages.bg]
 locale = "bg_BG"
 date_format = "%d %b %Y"
 date_format_archive = "%d %b"
-taxonomy_list_description = "Разгледайте всички $NAME на този сайт!"
-taxonomy_single_description = "Списък на страниците отнасящи се до $NAME."
+
+[extra.languages.bg.taxonomy_descriptions]
+tags = "Разгледайте всички етикети на този сайт!"
+authors = "Разгледайте всички автори на този сайт!"
+[extra.languages.bg.term_descriptions]
+tags = "Списък на страниците отнасящи се до $NAME."
+authors = "Списък на страниците написани от $NAME."
 
 [extra.languages.ar]
 locale = "ar_EG"
