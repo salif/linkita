@@ -838,6 +838,22 @@
     "gb": "404",
     "cs": "404: Stránka nebyla nalezena"
   },
+  "future_search_input": {
+    "en": "Search this site. Results will load as you type.",
+    "bg": "Търсете в този сайт. Резултатите ще се зареждат, докато пишете.",
+    "eo": "Serĉu ĉi tiun retejon. Rezultoj ŝargiĝos dum vi tajpas.",
+    "zh": "",
+    "tr": "",
+    "ar": "",
+    "ko": "",
+    "ja": "",
+    "fr": "",
+    "es": "",
+    "uwu": "",
+    "uwu2": "",
+    "gb": "",
+    "cs": ""
+  },
   "future_back_to_top": {
     "en": "Back to Top",
     "bg": "Обратно към началото",

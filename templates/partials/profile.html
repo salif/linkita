@@ -40,7 +40,9 @@
     {%- endif %}
 
     {%- if profile_social is defined %}
-    <nav class="flex justify-start space-x-3 dark:invert">
+    <nav class="flex justify-start {%
+    if profile_social | length > 5 %}flex-row flex-wrap gap-x-3{%
+    else %}space-x-3{% endif %} dark:invert">
       {%- for social in profile_social %}
         {%- if social.urls[lang] %}
           {%- set social_url = social.urls[lang] %}
