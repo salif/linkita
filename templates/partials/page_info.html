@@ -10,60 +10,71 @@
 {%- set date_format = config.extra.languages[lang].date_format | default(value="%F") %}
 {%- for info in page_info %}
   {%- if info == "date" or info == "date_on_paginator" or info == "date_on_page" %}{%
-    if info == "date" or (info == "date_on_paginator" and not is_page) or
-      (info == "date_on_page" and is_page) %}
-      {%- if page.date %}<time
-    datetime="{{ page.date | date(format=`%+`) }}">{% if config.extra.languages[lang].locale %}{{
-    page.date | date(format=date_format, locale=config.extra.languages[lang].locale) }}{% else %}{{
-    page.date | date(format=date_format) }}{% endif %}</time>
+    if info == "date" or (info == "date_on_paginator" and not is_page) or (info == "date_on_page" and is_page) %}{%
+      if page.date %}<time
+        datetime="{{ page.date | date(format=`%+`) }}">{%
+        if config.extra.languages[lang].locale %}{{
+          page.date | date(format=date_format, locale=config.extra.languages[lang].locale) }}{%
+        else %}{{ page.date | date(format=date_format) }}{% endif %}</time>
+        {%- if not loop.last %}<span
+          class="mx-1">&middot;</span>{% endif %}
       {%- endif %}
     {%- endif %}
   {%- elif info == "date_updated" or info == "date_updated_on_paginator" or info == "date_updated_on_page" %}{%
     if info == "date_updated" or (info == "date_updated_on_paginator" and not is_page) or
-      (info == "date_updated_on_page" and is_page) %}
-      {%- if page.updated and page.updated != page.date %} &lpar;<time
-    datetime="{{ page.updated | date(format=`%+`) }}">{% if config.extra.languages[lang].locale %}{{
-    page.updated | date(format=date_format, locale=config.extra.languages[lang].locale) }}{% else %}{{
-    page.updated | date(format=date_format) }}{% endif %}</time>&rpar;
+      (info == "date_updated_on_page" and is_page) %}{%
+      if page.updated and page.updated != page.date %}&lpar;<time
+        datetime="{{ page.updated | date(format=`%+`) }}">{%
+        if config.extra.languages[lang].locale %}{{
+          page.updated | date(format=date_format, locale=config.extra.languages[lang].locale) }}{%
+        else %}{{ page.updated | date(format=date_format) }}{% endif %}</time>&rpar;
+        {%- if not loop.last %}<span
+          class="mx-1">&middot;</span>{% endif %}
       {%- endif %}
     {%- endif %}
   {%- elif info == "reading_time" or info == "reading_time_on_paginator" or info == "reading_time_on_page" %}{%
-      if info == "reading_time" or (info == "reading_time_on_paginator" and not is_page) or
-        (info == "reading_time_on_page" and is_page) %}<span class="mx-1">&middot;</span>
-    {%- set reading_time_minutes = page.reading_time % 60 %}<time
-    datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
-    page.reading_time }} {{ macros::tr(key="word_minutes", lk=lang, td=g_trans_data) }}</time>
+    if info == "reading_time" or (info == "reading_time_on_paginator" and not is_page) or
+      (info == "reading_time_on_page" and is_page) %}{%
+      set reading_time_minutes = page.reading_time % 60 %}<time
+      datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
+        page.reading_time }}&nbsp;{{ macros::tr(key="word_minutes", lk=lang, td=g_trans_data) }}</time>
+      {%- if not loop.last %}<span
+        class="mx-1">&middot;</span>{% endif %}
     {%- endif %}
   {%- elif info == "word_count" or info == "word_count_on_paginator" or info == "word_count_on_page" %}{%
-      if info == "word_count" or (info == "word_count_on_paginator" and not is_page) or
-        (info == "word_count_on_page" and is_page) %}<span class="mx-1">&middot;</span><span>{{
-    page.word_count }} {{ macros::tr(key="word_words", lk=lang, td=g_trans_data) }}</span>
+    if info == "word_count" or (info == "word_count_on_paginator" and not is_page) or
+      (info == "word_count_on_page" and is_page) %}<span>{{
+        page.word_count }}&nbsp;{{ macros::tr(key="word_words", lk=lang, td=g_trans_data) }}</span>
+      {%- if not loop.last %}<span
+        class="mx-1">&middot;</span>{% endif %}
     {%- endif %}
   {%- elif info == "authors" or info == "authors_on_paginator" or info == "authors_on_page" %}{%
-    if info == "authors" or (info == "authors_on_paginator" and not is_page) or (info == "authors_on_page" and is_page) %}
-      {%- if page.taxonomies.authors %}
-        {%- set page_authors = page.taxonomies.authors %}
-      {%- elif page.authors %}
-        {%- set page_authors = page.authors %}
-      {%- elif config.author %}
-        {%- set page_authors = [config.author] %}
-      {%- else %}
-        {%- set page_authors = [] %}
+    if info == "authors" or (info == "authors_on_paginator" and not is_page) or (info == "authors_on_page" and is_page) %}{%
+      if page.taxonomies.authors %}{% set page_authors = page.taxonomies.authors %}{%
+      elif page.authors %}{% set page_authors = page.authors %}{%
+      elif config.author %}{% set page_authors = [config.author] %}{%
+      else %}{% endif %}{%
+      if page_authors %}{%
+        for page_author in page_authors %}{%
+          if not loop.first %},&nbsp;{% endif %}<span>{{
+            macros::get_profile_name(username=page_author) }}</span>
+        {%- endfor %}
+        {%- if not loop.last %}<span
+          class="mx-1">&middot;</span>{% endif %}
       {%- endif %}
-      {%- for page_author in page_authors %}<span class="mx-1">&middot;</span><span>{{
-        macros::get_profile_name(username=page_author) }}</span>
-      {%- endfor %}
     {%- endif %}
   {%- elif info == "tags" or info == "tags_on_paginator" or info == "tags_on_page" %}{%
-    if info == "tags" or (info == "tags_on_paginator" and not is_page) or (info == "tags_on_page" and is_page) %}
-      {%- if page.taxonomies.tags %}
-        {%- for page_tag in page.taxonomies.tags %}<span
-        class="mx-1">&middot;</span><span>#{{ page_tag }}</span>
+    if info == "tags" or (info == "tags_on_paginator" and not is_page) or (info == "tags_on_page" and is_page) %}{%
+      if page.taxonomies.tags %}{%
+        for page_tag in page.taxonomies.tags %}{%
+          if not loop.first %}&nbsp;{% endif %}<span>#{{ page_tag }}</span>
         {%- endfor %}
+        {%- if not loop.last %}<span
+          class="mx-1">&middot;</span>{% endif %}
       {%- endif %}
     {%- endif %}
-  {%- else %}
-    {{ info }}
+  {%- else %}{{
+    info }}
   {%- endif %}
 {%- endfor %}
 </div>
