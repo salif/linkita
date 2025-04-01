@@ -90,9 +90,6 @@ commit_diff:
         if ! git diff --quiet -- src/main.css; then
             git add src/main.css;
         fi
-        if ! git diff --quiet -- {{ quote(this_file) }}; then
-            git add {{ quote(this_file) }};
-        fi
     fi
 
 [doc('git commit')]

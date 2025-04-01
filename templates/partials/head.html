@@ -21,15 +21,7 @@
     {%- set page_description = page.summary | linebreaksbr | striptags %}
   {%- endif %}
 {%- elif taxonomy.name %}
-  {%- if taxonomy.name == "tags"%}
-    {%- set page_title = m_i18n::tr(key=`taxonomy_tags`, lk=g_lang_k, d=g_trans_d) %}
-  {%- elif taxonomy.name == "categories"%}
-    {%- set page_title = m_i18n::tr(key=`taxonomy_categories`, lk=g_lang_k, d=g_trans_d) %}
-  {%- elif taxonomy.name == "authors"%}
-    {%- set page_title = m_i18n::tr(key=`taxonomy_authors`, lk=g_lang_k, d=g_trans_d) %}
-  {%- else %}
-    {%- set page_title = taxonomy.name %}
-  {%- endif %}
+  {%- set page_title = m_i18n::get_taxonomy_title(key=taxonomy.name, lk=g_lang_k, d=g_trans_d) %}
   {%- if term.name %}
     {%- if taxonomy.name == "authors" %}
       {%- set term_name = m_profiles::get_name(username=term.name) %}

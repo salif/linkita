@@ -1,22 +1,19 @@
 <!-- Taxonomies -->
 {%- if page.taxonomies %}
 <footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
-  {%- set_global term_names = [] %}
-  {%- for term_name, terms in page.taxonomies %}
-  {%- set_global term_names = term_names | concat(with=term_name) %}
+  {%- set_global taxonomy_names = [] %}
+  {%- for taxonomy_name, _ in page.taxonomies %}
+  {%- set_global taxonomy_names = taxonomy_names | concat(with=taxonomy_name) %}
   {%- endfor %}
-  {% for term_name in term_names | sort %}
+  {%- for taxonomy_name in taxonomy_names | sort %}
   <div class="mb-2 flex flex-wrap">
-    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{%
-      if term_name == "tags" %}{{ m_i18n::tr(key=`taxonomy_tags`, lk=g_lang_k, d=g_trans_d) }}{%
-      elif term_name == "categories" %}{{ m_i18n::tr(key=`taxonomy_categories`, lk=g_lang_k, d=g_trans_d) }}{%
-      elif term_name == "authors" %}{{ m_i18n::tr(key=`taxonomy_authors`, lk=g_lang_k, d=g_trans_d) }}{%
-      else %}{{ term_name }}{% endif %}</span>
-    {% for term in page.taxonomies[term_name] %}
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{{
+      m_i18n::get_taxonomy_title(key=taxonomy_name, lk=g_lang_k, d=g_trans_d) }}</span>
+    {% for term in page.taxonomies[taxonomy_name] %}
     <a
       class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
-      href="{{ get_taxonomy_url(kind=term_name, name=term, lang=lang) }}">{%
-        if term_name == "authors" %}{{ m_profiles::get_name(username=term) }}{%
+      href="{{ get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang) }}">{%
+        if taxonomy_name == "authors" %}{{ m_profiles::get_name(username=term) }}{%
         else %}{{ term }}{% endif %}</a>
     {% endfor %}
   </div>

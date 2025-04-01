@@ -4,3 +4,11 @@
 {%- else %}{{ throw(message="No translation for key: " ~ key ~ ", language: " ~ lk) }}
 {%- endif %}
 {%- endmacro tr -%}
+
+{%- macro get_taxonomy_title(key, lk, d) -%}
+{%- if key == "tags" %}{{ self::tr(key=`taxonomy_tags`, lk=lk, d=d) }}
+{%- elif key == "categories" %}{{ self::tr(key=`taxonomy_categories`, lk=lk, d=d) }}
+{%- elif key == "authors" %}{{ self::tr(key=`taxonomy_authors`, lk=lk, d=d) }}
+{%- else %}{{ key }}
+{%- endif %}
+{%- endmacro get_taxonomy_title -%}
