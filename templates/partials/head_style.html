@@ -1,0 +1,11 @@
+  <style>
+  :root {
+    --bg: {{ style_bg_color | escape_xml | safe
+    }}; --header: {{ style_header_color | escape_xml | safe
+    }}; color-scheme: light; }
+  :root.dark {
+    --bg: {{ style_bg_dark_color | escape_xml | safe
+    }}; --header: {{ style_header_dark_color | escape_xml | safe
+    }}; color-scheme: dark; }
+  </style>
+  {#- -#}

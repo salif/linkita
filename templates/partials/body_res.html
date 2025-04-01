@@ -1,6 +1,5 @@
 {%- if not config.extra.disable_javascript %}
   {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
-  <!-- Mermaid -->
     {% include "partials/mermaid.html" %}
   {%- endif %}
   {%- if config.extra.goatcounter.endpoint %}

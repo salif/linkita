@@ -1341,10 +1341,6 @@ sup a {
   display: grid;
 }
 
-.contents {
-  display: contents;
-}
-
 .hidden {
   display: none;
 }
@@ -1939,7 +1935,7 @@ article {
 
 /* Linkita */
 
-.width-scroll {
+.horizontal-scroll {
   overflow-x: auto;
 }
 

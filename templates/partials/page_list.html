@@ -1,3 +1,4 @@
+<!-- Page List -->
 {%- if pages is defined %}
 {%- elif paginator is defined %}
   {%- set pages = paginator.pages %}
@@ -39,20 +40,19 @@
 </section>
 {%- endfor %}
 
-<!-- Main Nav -->
 {%- if paginator is defined %}
 <nav class="mt-16 flex">
   {%- if paginator.previous %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ paginator.previous | escape_xml | safe }}" accesskey=","
-    >&#8249; {{ macros::tr(key="word_prev_page", lk=lang, td=g_trans_data) }}</a>
+    >&#8249; {{ m_i18n::tr(key=`word_prev_page`, lk=g_lang_k, d=g_trans_d) }}</a>
   {%- endif %}
   {%- if paginator.next %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ paginator.next | escape_xml | safe }}" accesskey="."
-    >{{ macros::tr(key="word_next_page", lk=lang, td=g_trans_data) }} &#8250;</a>
+    >{{ m_i18n::tr(key=`word_next_page`, lk=g_lang_k, d=g_trans_d) }} &#8250;</a>
   {%- endif %}
 </nav>
 {%- endif %}

@@ -1,3 +1,4 @@
+<!-- Post Nav -->
 {%- if config.extra.invert_page_navigation %}
   {%- set prev_page = page.higher %}
   {%- set next_page = page.lower %}
@@ -7,17 +8,17 @@
 {%- endif %}
 {%- if prev_page or next_page %}
 <nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
-  {% if prev_page %}
+  {%- if prev_page %}
   <a
     class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
     href="{{ prev_page.permalink | escape_xml | safe }}" accesskey=","
     ><span class="mr-1.5">&#8249;</span><span>{{ prev_page.title }}</span></a>
-  {% endif %}
-  {% if next_page %}
+  {%- endif %}
+  {%- if next_page %}
   <a
     class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
     href="{{ next_page.permalink | escape_xml | safe }}" accesskey="."
     ><span>{{ next_page.title }}</span><span class="ml-1.5">&#8250;</span></a>
-  {% endif %}
+  {%- endif %}
 </nav>
 {%- endif %}

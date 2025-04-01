@@ -7,8 +7,6 @@
 {%- else %}
   {%- set page_authors = [] %}
 {%- endif %}
-
-{%- set base_url_lang = get_url(path="", lang=lang) %}
 {%- set config_title = config.title | default(value="") %}
 {%- set title_separator = config.extra.title_separator | default(value= " | ") %}
   <meta charset="utf-8" />
@@ -24,17 +22,17 @@
   {%- endif %}
 {%- elif taxonomy.name %}
   {%- if taxonomy.name == "tags"%}
-    {%- set page_title = macros::tr(key="taxonomy_tags", lk=lang, td=g_trans_data) %}
+    {%- set page_title = m_i18n::tr(key=`taxonomy_tags`, lk=g_lang_k, d=g_trans_d) %}
   {%- elif taxonomy.name == "categories"%}
-    {%- set page_title = macros::tr(key="taxonomy_categories", lk=lang, td=g_trans_data) %}
+    {%- set page_title = m_i18n::tr(key=`taxonomy_categories`, lk=g_lang_k, d=g_trans_d) %}
   {%- elif taxonomy.name == "authors"%}
-    {%- set page_title = macros::tr(key="taxonomy_authors", lk=lang, td=g_trans_data) %}
+    {%- set page_title = m_i18n::tr(key=`taxonomy_authors`, lk=g_lang_k, d=g_trans_d) %}
   {%- else %}
     {%- set page_title = taxonomy.name %}
   {%- endif %}
   {%- if term.name %}
     {%- if taxonomy.name == "authors" %}
-      {%- set term_name = macros::get_profile_name(username=term.name) %}
+      {%- set term_name = m_profiles::get_name(username=term.name) %}
     {%- else %}
       {%- set term_name = term.name %}
     {%- endif %}
@@ -57,7 +55,7 @@
   {%- set page_title = config_title %}
   {%- set page_description = config.description | default(value="") %}
 {%- else %}
-  {%- set page_title = macros::tr(key="error_not_found", lk=lang, td=g_trans_data) %}
+  {%- set page_title = m_i18n::tr(key=`error_not_found`, lk=g_lang_k, d=g_trans_d) %}
   {%- set is_404 = true %}
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="{{ get_url(path=`404.html`) }}" />
@@ -140,22 +138,6 @@
   {%- endif %}
 {%- else %}
   <meta property="og:type" content="website" />
-{%- endif %}
-
-{%- if page.translations or section.translations %}
-  {%- set page_translations = page.translations | default(value=section.translations) | sort(attribute="lang") %}
-  {%- for page_translation in page_translations %}
-    {%- if page_translation.lang == lang and config.extra.languages[lang].locale %}
-  <meta property="og:locale" content="{{ config.extra.languages[lang].locale | escape_xml | safe }}" />
-    {%- elif config.extra.languages[page_translation.lang].locale %}
-  <meta property="og:locale:alternate" content="{{
-    config.extra.languages[page_translation.lang].locale | escape_xml | safe }}" />
-    {%- endif %}
-  <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
-    if config.extra.languages[page_translation.lang].language_code %}{{
-      config.extra.languages[page_translation.lang].language_code | escape_xml | safe }}{%
-    else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}" />
-  {%- endfor %}
 {%- endif %}
 
 {%- if paginator.previous %}
@@ -248,24 +230,22 @@
   {%- endif %}
 {%- endif %}
 
-{%- if config.extra.webmanifest %}
-  <link rel="manifest" href="{{ get_url(path=config.extra.webmanifest, lang=lang) }}">
-{%- endif %}
-{%- if config.extra.footer.license_url %}
-  <link rel="license" href="{{ config.extra.footer.license_url |
-    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
-{%- endif %}
-{%- if config.extra.footer.privacy_policy_url %}
-  <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |
-    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
-{%- endif %}
-{%- if config.extra.footer.terms_of_service_url %}
-  <link rel="terms-of-service" href="{{ config.extra.footer.terms_of_service_url |
-    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
-{%- endif %}
-{%- if config.extra.footer.search_page_url %}
-  <link rel="search" href="{{ config.extra.footer.search_page_url |
-    replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}" />
+{%- if page.translations or section.translations %}
+  {%- set page_translations = page.translations | default(value=section.translations) | sort(attribute=`lang`) %}
+  {%- for page_translation in page_translations %}
+    {%- if page_translation.lang == lang and config.extra.languages[lang].locale %}
+  <meta property="og:locale" content="{{ config.extra.languages[lang].locale | escape_xml | safe }}" />
+    {%- elif config.extra.languages[page_translation.lang].locale %}
+  <meta property="og:locale:alternate" content="{{
+    config.extra.languages[page_translation.lang].locale | escape_xml | safe }}" />
+    {%- else %}
+  <!-- No locale for {{ page_translation.lang }} -->
+    {%- endif %}
+  <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
+    if config.extra.languages[page_translation.lang].language_code %}{{
+      config.extra.languages[page_translation.lang].language_code | escape_xml | safe }}{%
+    else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}" />
+  {%- endfor %}
 {%- endif %}
 
 {%- if config.generate_feeds or (taxonomy.feed and term.path) %}
@@ -290,3 +270,24 @@
     {%- endif %}
   {%- endfor %}
 {%- endif %}
+
+{%- if config.extra.webmanifest %}
+  <link rel="manifest" href="{{ get_url(path=config.extra.webmanifest, lang=lang) }}">
+{%- endif %}
+{%- if config.extra.footer.license_url %}
+  <link rel="license" href="{{ config.extra.footer.license_url |
+    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+{%- endif %}
+{%- if config.extra.footer.privacy_policy_url %}
+  <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |
+    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+{%- endif %}
+{%- if config.extra.footer.terms_of_service_url %}
+  <link rel="terms-of-service" href="{{ config.extra.footer.terms_of_service_url |
+    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+{%- endif %}
+{%- if config.extra.footer.search_page_url %}
+  <link rel="search" href="{{ config.extra.footer.search_page_url |
+    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+{%- endif %}
+{#- -#}

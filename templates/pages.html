@@ -10,10 +10,9 @@
   </header>
   {%- endif %}
   {%- set page_toc = false %}
-  {#- Table of contents #}
   {% include "partials/toc.html" %}
+  <!-- Content -->
   <section>{{ page.content | safe }}</section>
-  {#- Post Nav #}
   {% include "partials/post_navigation.html" %}
 </article>
 {% endblock main %}

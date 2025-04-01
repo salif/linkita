@@ -1,4 +1,5 @@
-{% if config.extra.giscus.repo and not config.extra.disable_javascript %}
+<!-- Comment -->
+{%- if config.extra.giscus.repo and not config.extra.disable_javascript %}
 <div class="giscus mt-12"></div>
 <script
   src="https://giscus.app/client.js"
@@ -17,4 +18,4 @@
   crossorigin="anonymous"
   async
 ></script>
-{% endif %}
+{%- endif %}

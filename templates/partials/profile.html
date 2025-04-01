@@ -1,3 +1,4 @@
+<!-- Profile -->
 {%- if g_profile.languages[lang].name %}
   {%- set profile_name = g_profile.languages[lang].name %}
 {%- elif g_profile.name %}
@@ -18,7 +19,6 @@
 {%- elif g_profile.avatar_alt %}
   {%- set profile_avatar_alt = g_profile.avatar_alt %}
 {%- endif %}
-{%- set base_url_lang = get_url(path="", lang=lang) %}
 <div class="mb-16 flex items-start">
   {%- if g_profile.avatar_url %}
   <div
@@ -51,8 +51,8 @@
         {%- endif %}
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
-        style="--url: url({{ macros::get_social_icon(icon=social.name) }})"
-        href="{{ social_url | replace(from=`$BASE_URL`, to=base_url_lang) | escape_xml | safe }}"
+        style="--url: url({{ m_icons::get_social_icon(icon=social.name) }});"
+        href="{{ social_url | replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         >{{ social.name }}</a>

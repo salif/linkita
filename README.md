@@ -692,8 +692,11 @@ date_format_archive = "%m-%d"
 # (type: array of strings; default value: extra.header_buttons;)
 # header_buttons = []
 
-# IETF tag for artificial languages. (type: string; no default value;)
+# IETF tag for artificial languages. (type: string;)
 # language_code = "art-x-code"
+
+# To use a different interface language, e.g. English. (type: string;)
+# i18n_code = "en"
 
 # Set a description for taxonomy pages.
 [extra.languages.en.taxonomy_descriptions]

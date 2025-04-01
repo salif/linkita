@@ -1,3 +1,4 @@
+<!-- Taxonomies -->
 {%- if page.taxonomies %}
 <footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- set_global term_names = [] %}
@@ -7,15 +8,15 @@
   {% for term_name in term_names | sort %}
   <div class="mb-2 flex flex-wrap">
     <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{%
-      if term_name == "tags" %}{{ macros::tr(key="taxonomy_tags", lk=lang, td=g_trans_data) }}{%
-      elif term_name == "categories" %}{{ macros::tr(key="taxonomy_categories", lk=lang, td=g_trans_data) }}{%
-      elif term_name == "authors" %}{{ macros::tr(key="taxonomy_authors", lk=lang, td=g_trans_data) }}{%
+      if term_name == "tags" %}{{ m_i18n::tr(key=`taxonomy_tags`, lk=g_lang_k, d=g_trans_d) }}{%
+      elif term_name == "categories" %}{{ m_i18n::tr(key=`taxonomy_categories`, lk=g_lang_k, d=g_trans_d) }}{%
+      elif term_name == "authors" %}{{ m_i18n::tr(key=`taxonomy_authors`, lk=g_lang_k, d=g_trans_d) }}{%
       else %}{{ term_name }}{% endif %}</span>
     {% for term in page.taxonomies[term_name] %}
     <a
       class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
       href="{{ get_taxonomy_url(kind=term_name, name=term, lang=lang) }}">{%
-        if term_name == "authors" %}{{ macros::get_profile_name(username=term) }}{%
+        if term_name == "authors" %}{{ m_profiles::get_name(username=term) }}{%
         else %}{{ term }}{% endif %}</a>
     {% endfor %}
   </div>

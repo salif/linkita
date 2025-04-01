@@ -1,4 +1,4 @@
-{% import "macros.html" as macros %}
+{% import "macros/icons.html" as m_icons %}
 {%- set style_bg_color = config.extra.style.bg_color | default(value="#f4f4f5") %}
 {%- set style_bg_dark_color = config.extra.style.bg_dark_color | default(value="#18181b") %}
 {%- set style_header_color = config.extra.style.header_color | default(value="#e4e4e7") %}
@@ -6,18 +6,7 @@
   <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
     style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
   <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
-  <style>
-    :root {
-      --bg: {{ style_bg_color | escape_xml | safe }};
-      --header: {{ style_header_color | escape_xml | safe }};
-      color-scheme: light;
-    }
-    :root.dark {
-      --bg: {{ style_bg_dark_color | escape_xml | safe }};
-      --header: {{ style_header_dark_color | escape_xml | safe }};
-      color-scheme: dark;
-    }/**/
-  </style>
+{% include "partials/head_style.html" %}
 
 {%- if g_profile is defined %}
   {%- if g_profile.avatar_url %}
@@ -25,15 +14,15 @@
   {%- endif %}
   {%- if g_profile.social %}
     {%- for image_social in g_profile.social %}
-  <link rel="preload" as="image" href="{{ macros::get_social_icon(icon=image_social.name) }}" />
+  <link rel="preload" as="image" href="{{ m_icons::get_social_icon(icon=image_social.name) }}" />
     {%- endfor %}
   {%- endif %}
 {%- endif %}
 
 {%- if not config.extra.disable_default_favicon %}
   <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
-  <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`) }}" />
-  <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`) }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`, cachebust=true) }}" />
+  <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`, cachebust=true) }}" />
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
@@ -58,3 +47,4 @@
   <script>document.addEventListener("DOMContentLoaded", window.linkita.initKatex);</script>
   {%- endif %}
 {%- endif %}
+{#- -#}

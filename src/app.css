@@ -134,7 +134,7 @@
 
   /* Linkita */
 
-  .width-scroll {
+  .horizontal-scroll {
     @apply overflow-x-auto;
   }
 }

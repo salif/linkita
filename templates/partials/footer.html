@@ -1,22 +1,22 @@
+<!-- Footer -->
 <footer class="mx-auto flex lg:mt-5 max-w-3xl flex-wrap items-center px-8 py-3 text-sm opacity-60">
   <div class="mr-auto basis-full lg:basis-1/2">
-  {%- set base_url_lang = get_url(path="", lang=lang) %}
   {%- if config.extra.footer.copyright %}
-    {%- set copyright = config.extra.footer.copyright | replace(from=`$BASE_URL`, to=base_url_lang) %}
+    {%- set copyright = config.extra.footer.copyright | replace(from=`$BASE_URL`, to=g_lang_base_url) %}
     {%- if config.extra.footer.license_url %}
-      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_lang) %}
+      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=g_lang_base_url) %}
       {%- set copyright = copyright | replace(from=`$LICENSE_URL`, to=license_url) %}
     {%- endif %}
   {%- else %}
     {%- if config.author %}
-      {%- set author_name = macros::get_profile_name(username=config.author) %}
+      {%- set author_name = m_profiles::get_name(username=config.author) %}
       {%- set copyright = "&copy; $YEAR " ~ author_name %}
     {%- else %}
       {%- set copyright = "&copy; $YEAR" %}
     {%- endif %}
     {%- if config.extra.footer.license_url %}
-      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=base_url_lang) %}
-      {%- set copyright = "[" ~ copyright ~ "](" ~ license_url ~ ')' %}
+      {%- set license_url = config.extra.footer.license_url | replace(from=`$BASE_URL`, to=g_lang_base_url) %}
+      {%- set copyright = '[' ~ copyright ~ '](' ~ license_url ~ ')' %}
     {%- endif %}
   {%- endif %}
   {%- set current_year = now() | date(format="%Y") | int %}
@@ -32,13 +32,14 @@
   </div>
   <div class="flex basis-full lg:basis-1/2 lg:justify-end">
     <span class="mr-6 lg:ml-6">
-      {{ macros::tr(key="footer_powered_by", lk=lang, td=g_trans_data) }} <a
+      {{ m_i18n::tr(key=`footer_powered_by`, lk=g_lang_k, d=g_trans_d) }} <a
       class="link" href="https://www.getzola.org/" target="_blank">{{
-        macros::tr(key="footer_generator_name", lk=lang, td=g_trans_data) }}</a>
+        m_i18n::tr(key=`footer_generator_name`, lk=g_lang_k, d=g_trans_d) }}</a>
     </span>
     <a class="link" href="https://www.getzola.org/themes/linkita/" target="_blank">&#9998; {{
-      macros::tr(key="footer_theme_name", lk=lang, td=g_trans_data) }}</a>
+      m_i18n::tr(key=`footer_theme_name`, lk=g_lang_k, d=g_trans_d) }}</a>
   </div>
-  <!-- Footer inject -->
+  <!-- Begin Footer inject -->
   {% include "injects/footer.html" ignore missing %}
+  <!-- End Footer inject -->
 </footer>

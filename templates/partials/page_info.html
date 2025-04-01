@@ -1,3 +1,4 @@
+<!-- Page Info -->
 <div class="text-sm antialiased opacity-80">
 {%- if page.extra.page_info is defined %}
   {%- set page_info = page.extra.page_info %}
@@ -37,14 +38,14 @@
       (info == "reading_time_on_page" and is_page) %}{%
       set reading_time_minutes = page.reading_time % 60 %}<time
       datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
-        page.reading_time }}&nbsp;{{ macros::tr(key="word_minutes", lk=lang, td=g_trans_data) }}</time>
+        page.reading_time }}&nbsp;{{ m_i18n::tr(key=`word_minutes`, lk=g_lang_k, d=g_trans_d) }}</time>
       {%- if not loop.last %}<span
         class="mx-1">&middot;</span>{% endif %}
     {%- endif %}
   {%- elif info == "word_count" or info == "word_count_on_paginator" or info == "word_count_on_page" %}{%
     if info == "word_count" or (info == "word_count_on_paginator" and not is_page) or
       (info == "word_count_on_page" and is_page) %}<span>{{
-        page.word_count }}&nbsp;{{ macros::tr(key="word_words", lk=lang, td=g_trans_data) }}</span>
+        page.word_count }}&nbsp;{{ m_i18n::tr(key=`word_words`, lk=g_lang_k, d=g_trans_d) }}</span>
       {%- if not loop.last %}<span
         class="mx-1">&middot;</span>{% endif %}
     {%- endif %}
@@ -57,7 +58,7 @@
       if page_authors %}{%
         for page_author in page_authors %}{%
           if not loop.first %},&nbsp;{% endif %}<span>{{
-            macros::get_profile_name(username=page_author) }}</span>
+            m_profiles::get_name(username=page_author) }}</span>
         {%- endfor %}
         {%- if not loop.last %}<span
           class="mx-1">&middot;</span>{% endif %}

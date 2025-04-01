@@ -1,0 +1,6 @@
+{%- macro tr(key, lk, d) -%}
+{%- if d[key][lk] %}{{ d[key][lk] }}
+{%- elif d[key]["en"] %}{{ d[key]["en"] }}
+{%- else %}{{ throw(message="No translation for key: " ~ key ~ ", language: " ~ lk) }}
+{%- endif %}
+{%- endmacro tr -%}

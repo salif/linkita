@@ -1,5 +1,10 @@
-{% import "macros.html" as macros %}
-{%- set g_trans_data = load_data(path="i18n.json", format="json") %}
+{% import "macros/i18n.html" as m_i18n %}
+{% import "macros/profiles.html" as m_profiles %}
+{% import "macros/icons.html" as m_icons %}
+{%- set g_trans_d = load_data(path=`i18n.json`, format=`json`) %}
+{%- set g_lang_k = config.extra.languages[lang].i18n_code | default(value=lang) %}
+{%- set g_html_lang = config.extra.languages[lang].language_code | default(value=lang) %}
+{%- set g_lang_base_url = get_url(path=``, lang=lang) %}
 {%- if page.extra.profile %}
   {%- set profile_username = page.extra.profile %}
 {%- elif section.extra.profile %}
@@ -22,7 +27,6 @@
   {%- set g_image_data = get_image_metadata(path=g_image_path, allow_missing=true) %}
 {%- endif %}
 {%- set g_is_article = page.date is defined or page.updated is defined %}
-{%- set g_html_lang = config.extra.languages[lang].language_code | default(value=lang) %}
 {#- -#}
 <!doctype html>
 <html class="not-ready overflow-y-scroll lg:text-base" lang="{{ g_html_lang | escape_xml | safe }}">
@@ -32,33 +36,37 @@
   elif g_is_article %} article: https://ogp.me/ns/article#{%
   endif %}">
   {%- include "partials/head.html" %}
+  <!-- Begin Head inject -->
   {% include "injects/head.html" ignore missing %}
+  <!-- End Head inject -->
   {%- include "partials/head_res.html" %}
-  <!-- Head inject -->
+  <!-- Begin Head End inject -->
   {% include "injects/head_end.html" ignore missing %}
+  <!-- End Head End inject -->
 </head>
 
 <body class="text-black duration-200 ease-out bg-[var(--bg)] dark:text-white">
   {% include "partials/header.html" %}
-  <!-- Body Start inject -->
+  <!-- Begin Body Start inject -->
   {% include "injects/body_start.html" ignore missing %}
+  <!-- End Body Start inject -->
   <main class="prose prose-neutral relative mx-auto min-h-[calc(100%-4rem)]
     max-w-3xl break-words px-4 pb-12 pt-28 lg:pt-32 dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg">
     {%- if config.build_search_index %}
       {% include "partials/search.html" %}
     {%- endif %}
-    {%- block main %}
-      <!-- Profile -->
+    {% block main %}
       {%- if g_profile is defined and (paginator is undefined or paginator.current_index == 1) %}
         {% include "partials/profile.html" %}
       {%- endif %}
       {% include "partials/page_list.html" %}
-    {%- endblock main %}
+    {% endblock main %}
   </main>
   {% include "partials/footer.html" %}
   {% include "partials/body_res.html" %}
-  <!-- Body End inject -->
+  <!-- Begin Body End inject -->
   {% include "injects/body_end.html" ignore missing %}
+  <!-- End Body End inject -->
 </body>
 
 </html>
