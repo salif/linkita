@@ -64,13 +64,6 @@ To update the theme, run:
 git submodule update --remote themes/linkita
 ```
 
-Optionally, switch from the `linkita` branch to the latest stable version:
-
-```sh
-cd themes/linkita
-git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
-```
-
 Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md)
 for all versions after the one you are using; there may be breaking changes that require manual involvement.
 

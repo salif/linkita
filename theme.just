@@ -2,7 +2,6 @@
 
 set unstable := true
 
-export NODE_PATH := source_directory() / "node_modules"
 this_file := source_file()
 this := just_executable() + " -f " + quote(this_file)
 version_major := "1"
@@ -136,35 +135,3 @@ release_json version:
     const packageJson = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
     packageJson.version = "{{ version }}";
     fs.writeFileSync(jsonPath, JSON.stringify(packageJson, null, 2) + "\n", "utf8");
-
-[group('user')]
-[no-cd]
-check_config_toml path:
-    #!/usr/bin/env node
-    const fs = require('fs')
-    const path = require('path')
-    const TOML = require('@iarna/toml')
-    const c = TOML.parse(fs.readFileSync(path.resolve('{{ path }}'), 'utf8'))
-    const warn = (str) => console.warn('Warning: ' + str)
-    if (c['theme'] != 'linkita') warn('`theme` is not set to "linkita"')
-    const check_undef_and_empty = (val) => {
-        if (val in c) {
-            if (c[val].length == 0) {
-                warn(val + ' is empty')
-            } else {
-                return true
-            }
-        } else {
-            warn(val + ' is undefined')
-        }
-        return false
-    }
-    const def = (val) => val in c
-    if (check_undef_and_empty('base_url')) {
-        if(!c.base_url.startsWith('https://')) warn('`base_url` does start with "https://"')
-    }
-    check_undef_and_empty('default_language')
-    check_undef_and_empty('author')
-    if (def('generate_feeds') && def('feed_filenames')) {
-        if (c.generate_feeds && c.feed_filenames.length < 1) warn('`generate_feeds` is true, but `feed_filenames` is an empty array')
-    }
