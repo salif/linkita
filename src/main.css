@@ -1435,6 +1435,10 @@ sup a {
           user-select: none;
 }
 
+.scroll-pt-14 {
+  scroll-padding-top: 3.5rem;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
