@@ -2,7 +2,9 @@
 
 All notable changes to this theme will be documented in this file.
 
-## [Unreleased](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..linkita)
+## [Unreleased](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..linkita)
+
+## [v2.2025_04_02.0](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..v2.2025_04_02.0)
 
 - Rename the local storage key for the color scheme.
 - Always show translation button on bilingual pages.
