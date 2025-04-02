@@ -88,6 +88,8 @@ title_separator = " | "
 header_menu_name = "sample_header"
 use_cdn = false
 disable_default_favicon = false
+page_summary_on_paginator = false
+invert_page_navigation = false
 
 [extra.style]
 # bg_color = ""
