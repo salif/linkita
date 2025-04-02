@@ -7,18 +7,18 @@
 {%- else %}
   {%- set page_authors = [] %}
 {%- endif %}
-{%- set config_title = config.title | default(value="") %}
+{%- set config_title = config.title | default(value="") | truncate(length=64) %}
 {%- set title_separator = config.extra.title_separator | default(value= " | ") %}
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="generator" content="Zola" />
 {%- if page.title %}
-  {%- set page_title = page.title %}
+  {%- set page_title = page.title | truncate(length=150) %}
   {%- if page.description %}
     {%- set page_description = page.description %}
   {%- elif page.summary %}
-    {%- set page_description = page.summary | linebreaksbr | striptags %}
+    {%- set page_description = page.summary | linebreaksbr | striptags | trim_end_matches(pat=`.`) %}
   {%- endif %}
 {%- elif taxonomy.name %}
   {%- set page_title = m_i18n::get_taxonomy_title(key=taxonomy.name, lk=g_lang_k, d=g_trans_d) %}
@@ -39,7 +39,7 @@
     {%- endif %}
   {%- endif %}
 {%- elif section.title %}
-  {%- set page_title = section.title %}
+  {%- set page_title = section.title | truncate(length=150) %}
   {%- if section.description %}
     {%- set page_description = section.description %}
   {%- endif %}
@@ -59,15 +59,15 @@
     if page_title == config_title %}{{ page_title }}{%
     else %}{{ page_title ~ title_separator ~ config_title }}{%
     endif %}</title>
-  <meta property="og:site_name" content="{{ config_title | escape_xml | safe }}" />
+  <meta property="og:site_name" content="{{ config_title | linebreaksbr | truncate(length=150) | escape_xml | safe }}" />
   {%- else %}
   <title>{{ page_title }}</title>
   {%- endif %}
-  <meta property="og:title" content="{{ page_title | escape_xml | safe }}" />
+  <meta property="og:title" content="{{ page_title | linebreaksbr | truncate(length=150) | escape_xml | safe }}" />
 {%- endif %}
 {%- if page_description %}
-  <meta name="description" content="{{ page_description | truncate(length=300, end=`…`) | escape_xml | safe }}" />
-  <meta property="og:description" content="{{ page_description | truncate(length=300, end=`…`) | escape_xml | safe }}" />
+  <meta name="description" content="{{ page_description | linebreaksbr | truncate(length=150, end=`…`) | escape_xml | safe }}" />
+  <meta property="og:description" content="{{ page_description | linebreaksbr | truncate(length=300, end=`…`) | escape_xml | safe }}" />
 {%- endif %}
 {%- if current_url %}
   {%- if page.extra.open_graph.url %}
@@ -196,7 +196,7 @@
     {%- endif %}
   {%- endif %}
   <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
-  <meta property="og:image:alt" content="{{ og_image_alt | escape_xml | safe }}" />
+  <meta property="og:image:alt" content="{{ og_image_alt | linebreaksbr | truncate(length=300) | escape_xml | safe }}" />
   {%- if g_image_data.width is defined and g_image_data.height is defined %}
   <meta property="og:image:width" content="{{ g_image_data.width | int }}" />
   <meta property="og:image:height" content="{{ g_image_data.height | int }}" />

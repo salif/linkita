@@ -28,6 +28,8 @@ All notable changes to this theme will be documented in this file.
 - Remove the `email` and `url` config variables of `extra.profiles.your_username` as they are not used anywhere.
 - Replace `taxonomy_list_description` with `taxonomy_descriptions[taxonomy.name]` and `taxonomy_single_description` with `term_descriptions[taxonomy.name]`.
 - Rename the `width-scroll` class to `horizontal-scroll`.
+- Apply linebreaksbr and truncate to title and description in head.
+- Add `extra.page_summary_on_paginator` config and frontmatter variable to prioritize summary over description.
 
 ## [v1.2025_01_04.0](https://codeberg.org/salif/linkita/compare/v0.2024_11_01.0..v1.2025_01_04.0)
 

@@ -139,6 +139,9 @@ extra:
 # See `config.extra.page_info`.
 # (type: array of strings; default value: config.extra.page_info;)
 page_info = []
+# See `config.extra.page_summary_on_paginator`.
+# (type: boolean; default value: config.extra.page_summary_on_paginator;)
+page_summary_on_paginator = true
 # See `config.extra.toc`.
 # (type: boolean or object; default value: config.extra.toc;)
 toc = true
@@ -468,6 +471,10 @@ use_cdn = false
 #  `tags`, `tags_on_page`, `tags_on_paginator`.
 # (type: array of strings; default value: `["date", "date_updated_on_page", "reading_time", "authors"]`;)
 # page_info = []
+
+# Prioritize summary over description.
+# (type: boolean; default value: `false`;)
+# page_summary_on_paginator = true
 
 # Enable table of contents on all pages.
 # If not set, toc is enabled only on post pages.

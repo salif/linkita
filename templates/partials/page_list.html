@@ -26,17 +26,34 @@
 
   <h2 class="!my-0 pb-1 font-bold !leading-none">{{ page.title }}</h2>
 
-  <div class="not-prose my-1 truncate">
-  {%- if page.description %}
-    <p>{{ page.description }}</p>
-  {%- elif page.summary %}
-    {{ page.summary | striptags | safe }}
+  {%- if not page.summary %}
+    {%- set use_summary = false %}
+  {%- elif not page.description %}
+    {%- set use_summary = true %}
+  {%- elif page.extra.page_summary_on_paginator is defined %}
+    {%- set use_summary = page.extra.page_summary_on_paginator %}
+  {%- elif section.extra.page_summary_on_paginator is defined %}
+    {%- set use_summary = section.extra.page_summary_on_paginator %}
+  {%- elif config.extra.page_summary_on_paginator is defined %}
+    {%- set use_summary = config.extra.page_summary_on_paginator %}
+  {%- else %}
+    {%- set use_summary = false %}
   {%- endif %}
+  {%- if use_summary %}
+  <div class="not-prose my-1">
+    {{ page.summary | striptags | trim_end | trim_end_matches(pat=`&hellip;`) | trim_end_matches(pat=`.`) | safe }}{{
+      m_i18n::tr(key=`hellip`, lk=g_lang_k, d=g_trans_d) }}
   </div>
+  {%- elif page.description %}
+  <div class="not-prose my-1 truncate">
+    <p>{{ page.description }}</p>
+  </div>
+  {%- endif %}
 
   {% include "partials/page_info.html" %}
 
-  <a class="absolute inset-0 text-[0]" href="{{ page.permalink | escape_xml | safe }}">{{ page.title }}</a>
+  <a class="absolute inset-0 text-[0]" href="{{ page.permalink | escape_xml | safe }}{%
+    if use_summary %}#continue-reading{% endif %}">{{ page.title }}</a>
 </section>
 {%- endfor %}
 
