@@ -4,7 +4,7 @@ description = "Кратко ръководство за настройване �
 date = 2022-10-20
 updated = 2024-10-24
 [taxonomies]
-authors = ["kita", "salif"]
+authors = ["salif"]
 [extra]
 math = true
 +++

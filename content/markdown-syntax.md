@@ -5,7 +5,7 @@ date = 2022-10-20
 updated = 2024-10-24
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
-authors = ["kita", "salif"]
+authors = ["salif"]
 [extra]
 [extra.cover]
 image = "images/markdown-syntax.png"

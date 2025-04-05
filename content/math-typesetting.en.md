@@ -4,7 +4,7 @@ description = "A brief guide to setup KaTeX."
 date = 2022-10-20
 #updated =
 [taxonomies]
-authors = ["kita"]
+authors = ["salif"]
 [extra]
 math = true
 +++

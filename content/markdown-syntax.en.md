@@ -5,7 +5,7 @@ date = 2022-10-20
 #updated =
 [taxonomies]
 tags = ["markdown", "css", "html"]
-authors = ["kita"]
+authors = ["salif"]
 [extra]
 [extra.cover]
 image = "images/markdown-syntax.png"
