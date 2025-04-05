@@ -23,7 +23,7 @@
   {%- set header_menu = config.extra.menu %}
 {%- endif %}
 <header class="{%
-  if config.extra.style.header_blur %}blur-header{% else %}bg-[var(--header)]{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full">
+  if config.extra.style.header_blur %}blur-header{% else %}bg-[var(--header)]{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full header-icons">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center min-h-8">
@@ -34,31 +34,17 @@
           {%- elif header_button == "home_button" or header_button == "site_title" %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_home`, lk=g_lang_k, d=g_trans_d) }}" accesskey="!"
           onclick="window.location.href='{{ g_lang_base_url | escape_xml | safe }}/';"
-          class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
-          style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
-            fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-home\'><path \
-            d=\'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\'></path><polyline points=\'9 22 9 12 15 12 15 22\'></polyline></svg>');"
+          class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-home)] dark:invert"
         ></button>
           {%- elif header_button == "theme_button" %}
         <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, lk=g_lang_k, d=g_trans_d) }}" accesskey="$"
           onclick="window.linkita.toggleDarkMode();" ondblclick="window.linkita.resetDarkMode();"
-          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert [background-image:var(--url-dark)] dark:[background-image:var(--url-light)]"
-          style="--url-light: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
-            fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-sun\' \
-            ><circle cx=\'12\' cy=\'12\' r=\'5\'></circle><line x1=\'12\' y1=\'1\' x2=\'12\' y2=\'3\'></line><line x1=\'12\' y1=\'21\' x2=\'12\' y2=\'23\' \
-            ></line><line x1=\'4.22\' y1=\'4.22\' x2=\'5.64\' y2=\'5.64\'></line><line x1=\'18.36\' y1=\'18.36\' x2=\'19.78\' y2=\'19.78\'></line><line \
-            x1=\'1\' y1=\'12\' x2=\'3\' y2=\'12\'></line><line x1=\'21\' y1=\'12\' x2=\'23\' y2=\'12\'></line><line x1=\'4.22\' y1=\'19.78\' x2=\'5.64\' \
-            y2=\'18.36\'></line><line x1=\'18.36\' y1=\'5.64\' x2=\'19.78\' y2=\'4.22\'></line></svg>'); --url-dark: url('data:image/svg+xml;utf8,<svg \
-            xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' \
-            stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-moon\'><path d=\'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\'></path></svg>');"
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert [background-image:var(--icon-theme-dark)] dark:[background-image:var(--icon-theme-light)]"
         ></button>
           {%- elif header_button == "search_button" and config.build_search_index %}
         <button type="button" title="{{ m_i18n::tr(key=`act_search`, lk=g_lang_k, d=g_trans_d) }}" accesskey="/"
           onclick="window.linkita.toggleSearch();"
-          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
-          style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' \
-            fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-search\' \
-            ><circle cx=\'11\' cy=\'11\' r=\'8\'></circle><line x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'></line></svg>');"
+          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
         <script>window.linkita.initSearchButton({
@@ -67,11 +53,7 @@
             {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, lk=g_lang_k, d=g_trans_d) }}" accesskey=";"
-          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover dark:invert"
-          style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' \
-            viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' \
-            class=\'feather feather-globe\'><circle cx=\'12\' cy=\'12\' r=\'10\'></circle><line x1=\'2\' y1=\'12\' x2=\'22\' y2=\'12\'></line><path \
-            d=\'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\'></path></svg>');"
+          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
         <script>window.linkita.initTranslationsButton({btn: document.querySelector(".btn-translations")});</script>

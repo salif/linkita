@@ -1,4 +1,4 @@
-<!-- Taxonomies -->
+<!-- Post Taxonomies -->
 {%- if page.taxonomies %}
 <footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- set_global taxonomy_names = [] %}
@@ -17,6 +17,6 @@
         else %}{{ term }}{% endif %}</a>
     {% endfor %}
   </div>
-  {% endfor %}
+  {%- endfor %}
 </footer>
 {%- endif %}

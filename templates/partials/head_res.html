@@ -1,13 +1,6 @@
 {% import "macros/icons.html" as m_icons %}
-{%- set style_bg_color = config.extra.style.bg_color | default(value="#f4f4f5") %}
-{%- set style_bg_dark_color = config.extra.style.bg_dark_color | default(value="#18181b") %}
-{%- set style_header_color = config.extra.style.header_color | default(value="#e4e4e7") %}
-{%- set style_header_dark_color = config.extra.style.header_dark_color | default(value="#27272a") %}
-  <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
-    style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
-  <link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
-{% include "partials/head_style.html" %}
-
+<link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
+{%- include "partials/head_style.html" %}
 {%- if g_profile is defined %}
   {%- if g_profile.avatar_url %}
   <link rel="preload" as="image" href="{{ get_url(path=g_profile.avatar_url, cachebust=true) }}" />

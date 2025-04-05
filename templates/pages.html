@@ -13,6 +13,7 @@
   {% include "partials/toc.html" %}
   <!-- Content -->
   <section>{{ page.content | safe }}</section>
+  {%- if page.lower or page.higher %}<hr />{% endif %}
   {% include "partials/post_navigation.html" %}
 </article>
 {% endblock main %}

@@ -80,14 +80,12 @@ title = ""
 description = ""
 # The date of the post
 date = 2025-12-30
-# The last updated date of the post,
-# if different from the date
+# The last updated date of the post
 updated = 2025-12-31
 
 [taxonomies]
 categories = []
 tags = []
-authors = []
 
 [extra]
 # Enable comments
@@ -97,6 +95,7 @@ math = false
 # Enable Mermaid support
 mermaid = false
 [extra.cover]
+# Path to the cover image
 image = ""
 # A description of the cover image
 alt = ""
@@ -114,7 +113,6 @@ updated:
 taxonomies:
   categories:
   tags:
-  authors:
 extra:
   comment: false
   math: false
@@ -554,12 +552,14 @@ name = ""
 bio = ""
 
 # Social icons.
-# The `name` should be the file name of `static/icons/*.svg` or the icon name of https://simpleicons.org/
-# The `url` supports `$BASE_URL`.
+# `name` should be the file name of `static/icons/*.svg` or the icon name of https://simpleicons.org/
+# `url` supports `$BASE_URL`.
+# Other: `urls`, `title`, `titles`.
 # (type: array of tables; no default value;)
 social = [
-    { name = "github", url = "https://github.com/username" },
     { name = "bluesky", url = "https://bsky.app/profile/username" },
+    { name = "github", url = "https://github.com/username" },
+    { name = "email", url = "mailto:example@example.com" },
     { name = "rss", url = "$BASE_URL/atom.xml" },
 ]
 ```
@@ -692,8 +692,10 @@ date_format_archive = "%m-%d"
 # (type: array of strings; default value: extra.header_buttons;)
 # header_buttons = []
 
-# IETF tag for artificial languages. (type: string;)
-# language_code = "art-x-code"
+# To set a different `lang` attribute of the document.
+# You can set IETF tag for artificial languages, e.g. `art-x-code`.
+# (type: string;)
+# language_code = ""
 
 # To use a different interface language, e.g. English. (type: string;)
 # i18n_code = "en"

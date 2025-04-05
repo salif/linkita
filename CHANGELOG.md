@@ -4,6 +4,9 @@ All notable changes to this theme will be documented in this file.
 
 ## [Unreleased](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..linkita)
 
+- Add frontmatter variables to override the `extra.style` config variable:
+  `extra.style.bg_color`, `extra.style.bg_dark_color`, `extra.style.header_color`, `extra.style.header_dark_color`.
+
 ## [v2.2025_04_02.0](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..v2.2025_04_02.0)
 
 - Rename the local storage key for the color scheme.

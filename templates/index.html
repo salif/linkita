@@ -39,7 +39,7 @@
   <!-- Begin Head inject -->
   {% include "injects/head.html" ignore missing %}
   <!-- End Head inject -->
-  {%- include "partials/head_res.html" %}
+  {% include "partials/head_res.html" %}
   <!-- Begin Head End inject -->
   {% include "injects/head_end.html" ignore missing %}
   <!-- End Head End inject -->
@@ -56,8 +56,12 @@
       {% include "partials/search.html" %}
     {%- endif %}
     {% block main %}
-      {%- if g_profile is defined and (paginator is undefined or paginator.current_index == 1) %}
-        {% include "partials/profile.html" %}
+      {%- if g_profile is defined %}
+        {%- if paginator is undefined or paginator.current_index == 1 %}
+          {% include "partials/profile.html" %}
+        {%- endif %}
+      {%- elif section.title %}
+      <h1 class="mb-16">{{ section.title }}</h1>
       {%- endif %}
       {% include "partials/page_list.html" %}
     {% endblock main %}

@@ -1,5 +1,7 @@
 {% extends "index.html" %}
 {% block main %}
+{%- if section.title %}
 <h1 class="mb-16">{{ section.title }}</h1>
+{%- endif %}
 {% include "partials/page_list.html" %}
 {% endblock main %}
