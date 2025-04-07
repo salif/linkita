@@ -26,7 +26,9 @@
   <section>{{ page.content | safe }}</section>
   <hr />
   {% include "partials/post_taxonomies.html" %}
+  {%- if page.lower or page.higher %}
   {% include "partials/post_navigation.html" %}
+  {%- endif %}
   {%- if page.extra.comment | default(value=config.extra.comment) %}
   {% include "partials/comment.html" %}
   {%- endif %}

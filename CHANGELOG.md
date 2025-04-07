@@ -6,6 +6,7 @@ All notable changes to this theme will be documented in this file.
 
 - Add frontmatter variables to override the `extra.style` config variable:
   `extra.style.bg_color`, `extra.style.bg_dark_color`, `extra.style.header_color`, `extra.style.header_dark_color`.
+- Allow `pages.html` and `archive.html` to be used in a section.
 
 ## [v2.2025_04_02.0](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..v2.2025_04_02.0)
 

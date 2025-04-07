@@ -11,13 +11,13 @@
   {%- if config.extra.menus[config.extra.languages[lang].header_menu_name] is defined %}
     {%- set header_menu = config.extra.menus[config.extra.languages[lang].header_menu_name] %}
   {%- else %}
-    {{- throw(message="The '" ~ config.extra.languages[lang].header_menu_name ~ "' menu is not defined!") }}
+    {{- throw(message="The '" ~ config.extra.languages[lang].header_menu_name ~ "' menu is undefined!") }}
   {%- endif %}
 {%- elif config.extra.header_menu_name %}
   {%- if config.extra.menus[config.extra.header_menu_name] is defined %}
     {%- set header_menu = config.extra.menus[config.extra.header_menu_name] %}
   {%- else %}
-    {{- throw(message="The '" ~ config.extra.header_menu_name ~ "' menu is not defined!") }}
+    {{- throw(message="The '" ~ config.extra.header_menu_name ~ "' menu is undefined!") }}
   {%- endif %}
 {%- elif config.extra.menu %}
   {%- set header_menu = config.extra.menu %}

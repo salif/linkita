@@ -6,14 +6,24 @@
 <article>
   {%- if g_profile is undefined %}
   <header class="mb-16">
+    {%- if page.title %}
     <h1 class="!my-0">{{ page.title }}</h1>
+    {%- elif section.title %}
+    <h1 class="!my-0">{{ section.title }}</h1>
+    {%- endif %}
   </header>
   {%- endif %}
   {%- set page_toc = false %}
   {% include "partials/toc.html" %}
   <!-- Content -->
+  {%- if page.content is defined %}
   <section>{{ page.content | safe }}</section>
-  {%- if page.lower or page.higher %}<hr />{% endif %}
+  {%- elif section.content is defined %}
+  <section>{{ section.content | safe }}</section>
+  {%- endif %}
+  {%- if page.lower or page.higher %}
+  <hr />
   {% include "partials/post_navigation.html" %}
+  {%- endif %}
 </article>
 {% endblock main %}

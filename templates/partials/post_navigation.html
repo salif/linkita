@@ -6,7 +6,6 @@
   {%- set prev_page = page.lower %}
   {%- set next_page = page.higher %}
 {%- endif %}
-{%- if prev_page or next_page %}
 <nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
   {%- if prev_page %}
   <a
@@ -21,4 +20,3 @@
     ><span>{{ next_page.title }}</span><span class="ml-1.5">&#8250;</span></a>
   {%- endif %}
 </nav>
-{%- endif %}
