@@ -1,10 +1,18 @@
 {%- if url is defined %}
   {%- set projects = load_data(url=url, format=format) %}
+{%- elif path is starting_with("/") %}
+  {%- set projects = load_data(path=path, format=format, required=true) %}
+{%- elif page.colocated_path | default(value=section.colocated_path) %}
+  {%- set path_colocated = page.colocated_path | default(value=section.colocated_path) %}
+  {%- set projects = load_data(path=path_colocated~path, format=format, required=true) %}
 {%- else %}
-  {%- set projects = load_data(path=page.colocated_path~path, format=format, required=false) %}
-  {%- if projects is not object %}
-    {%- set projects = load_data(path=data, format=format, required=true) %}
-  {% endif %}
+  {% set path_assets = page.assets | default(value=section.assets) %}
+  {%- for asset in path_assets %}
+    {%- if asset is ending_with(path) %}
+      {%- set_global projects = load_data(path=asset, format=format, required=true) %}
+      {%- break %}
+    {%- endif %}
+  {%- endfor %}
 {%- endif %}
 {%- set lang_base_url = get_url(path=``, lang=lang) %}
 
@@ -27,7 +35,6 @@
       <a
         class="underline"
         href="{{ link.url | replace(from=`$BASE_URL`, to=lang_base_url) | escape_xml | safe }}"
-        rel="noopener"
         target="_blank"
         >{{ link.name }}</a
       >

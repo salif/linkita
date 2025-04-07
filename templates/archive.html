@@ -8,6 +8,13 @@
 {%- elif section.title %}
 <h1 class="mb-16">{{ section.title }}</h1>
 {%- endif %}
+
+{%- if page.content %}
+<section>{{ page.content | safe }}</section>
+{%- elif section.content %}
+<section>{{ section.content | safe }}</section>
+{%- endif %}
+
 {%- if page.extra.section is defined %}
   {%- set section = get_section(path=page.extra.section) %}
 {%- elif paginator.pages is defined %}
@@ -16,6 +23,7 @@
 {%- if section is undefined %}
   {{- throw(message="The archive page is missing the extra.section frontmatter variable!") }}
 {%- endif %}
+
 {%- for year, posts in section.pages | group_by(attribute=`year`) %}
 <h2>{{ year }} <sup class="opacity-60">{{ posts | length }}</sup></h2>
 

@@ -61,13 +61,13 @@
   {%- if paginator.previous %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ paginator.previous | escape_xml | safe }}" accesskey=","
+    href="{{ paginator.previous | escape_xml | safe }}" rel="prev" accesskey=","
     >&#8249; {{ m_i18n::tr(key=`word_prev_page`, lk=g_lang_k, d=g_trans_d) }}</a>
   {%- endif %}
   {%- if paginator.next %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ paginator.next | escape_xml | safe }}" accesskey="."
+    href="{{ paginator.next | escape_xml | safe }}" rel="next" accesskey="."
     >{{ m_i18n::tr(key=`word_next_page`, lk=g_lang_k, d=g_trans_d) }} &#8250;</a>
   {%- endif %}
 </nav>

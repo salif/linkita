@@ -123,13 +123,6 @@
   <meta property="og:type" content="website" />
 {%- endif %}
 
-{%- if paginator.previous %}
-  <link rel="prev" href="{{ paginator.previous | escape_xml | safe }}" />
-{%- endif %}
-{%- if paginator.next %}
-  <link rel="next" href="{{ paginator.next | escape_xml | safe }}" />
-{%- endif %}
-
 {%- if g_profile is defined or (config.author and config.extra.profiles[config.author]) %}
   {#- order is important #}
   {%- if config.extra.profiles[config.author].open_graph %}

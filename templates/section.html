@@ -3,5 +3,8 @@
 {%- if section.title %}
 <h1 class="mb-16">{{ section.title }}</h1>
 {%- endif %}
+{%- if section.content %}
+<section>{{ section.content | safe }}</section>
+{%- endif %}
 {% include "partials/page_list.html" %}
 {% endblock main %}
