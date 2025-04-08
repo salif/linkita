@@ -61,7 +61,7 @@
         style="--url: url({{ m_icons::get_social_icon(icon=social.name) }});"
         href="{{ social_url | replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}"
         target="_blank"
-        rel="{% if social.name == `rss` %}alternate{% else %}me opener{% endif %}"
+        rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         title="{{ social_title }}"
         >{{ social.name }}</a>
       {%- endfor %}

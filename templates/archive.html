@@ -2,7 +2,7 @@
 {% block main %}
 {%- set date_format_archive = config.extra.languages[lang].date_format_archive | default(value=`%m-%d`) %}
 {%- if g_profile is defined %}
-  {% include "partials/profile.html" %}
+{% include "partials/profile.html" %}
 {%- elif page.title %}
 <h1 class="mb-16">{{ page.title }}</h1>
 {%- elif section.title %}

@@ -732,12 +732,12 @@ Set only if you use [GoatCounter](https://www.goatcounter.com/).
 [extra.goatcounter]
 # (type: string; no default value;)
 endpoint = "https://MYCODE.goatcounter.com/count"
+# To enable tracking pixel, set `noscript_prefix` to an empty string.
+# If your `base_url` includes a subpath, set `noscript_prefix` to
+# the subpath without a trailing slash.
 # (type: string; no default value;)
 # noscript_prefix = ""
 ```
-
-To enable [pixel](https://www.goatcounter.com/help/pixel), set `noscript_prefix` to an empty string.
-If your `base_url` includes a subpath, set `noscript_prefix` to the subpath without a trailing slash.
 
 #### Vercel Analytics
 

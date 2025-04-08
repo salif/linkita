@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {% block main %}
 {%- if g_profile is defined %}
-  {% include "partials/profile.html" %}
+{% include "partials/profile.html" %}
 {%- endif %}
 <article>
   {%- if g_profile is undefined %}
