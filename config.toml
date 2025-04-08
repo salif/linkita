@@ -281,7 +281,6 @@ date_format_archive = "%m-%d"
 # If you copy this file to your site, remove this:
 [extra.goatcounter]
 endpoint = "https://sgi.goatcounter.com/count"
-noscript_prefix = "/linkita"
 
 [extra.giscus]
 repo = ""
