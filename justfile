@@ -28,7 +28,7 @@ _check_commands:
 [private]
 serve_and args='':
     zola serve {{ args }} --interface 0.0.0.0 --base-url \
-        "$(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')"
+        "$(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')"
 
 [doc('Serve the demo site')]
 [group('dev')]
@@ -57,7 +57,7 @@ format:
 
 [group('dev')]
 [linux]
-set_screenshot_mode mode='light' schema='org.x.apps.portal':
+screenshot_set_mode mode schema='org.x.apps.portal':
     #!/usr/bin/env bash
     if [[ "{{ mode }}" == "light" ]]; then
         if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-light'" ]]; then
@@ -67,10 +67,22 @@ set_screenshot_mode mode='light' schema='org.x.apps.portal':
             gsettings set {{ schema }} color-scheme 'prefer-dark'; fi
     fi
 
+[private]
+screenshot_do mode screenshot_url=screenshot_url browser='chromium':
+    command {{ browser }} --headless --disable-gpu --screenshot=/tmp/screenshot-{{ mode }}.png \
+        --window-size=1400,936 --hide-scrollbars --force-device-scale-factor=1.27 "{{ screenshot_url }}/en/"
+    magick /tmp/screenshot-{{ mode }}.png -gravity north -crop '1360x765+0+0' /tmp/screenshot-{{ mode }}.png
+
 [group('dev')]
-update_screenshot screenshot_url=screenshot_url browser='chromium':
-    command {{ browser }} --headless --disable-gpu --screenshot=static/images/screenshot.png \
-        --window-size=1400,936 --hide-scrollbars --force-device-scale-factor=1.2 "{{ screenshot_url }}/en/"
-    magick static/images/screenshot.png -gravity north -crop '1360x765+0+0' static/images/screenshot.png
-    -mat2 --inplace static/images/screenshot.png
-    cp static/images/screenshot.png ./themes/linkita/screenshot.png
+screenshot_do_light: (screenshot_do 'light')
+
+[group('dev')]
+screenshot_do_dark: (screenshot_do 'dark')
+
+[group('dev')]
+screenshot_update:
+    magick -size 1360x765 xc:black -fill white -draw "polygon 0,0 1360,0 0,765" /tmp/linkita-mask.png
+    magick /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png -composite ./static/images/screenshot.png
+    -mat2 --inplace ./static/images/screenshot.png
+    cp ./static/images/screenshot.png ./themes/linkita/screenshot.png
+    rm -f /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png
