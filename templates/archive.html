@@ -32,7 +32,7 @@
     {%- for post in posts %}
     <li>
       <div class="my-2 flex items-center justify-between">
-        <a class="secondary-link" href="{{ post.permalink | escape_xml | safe }}">{{ post.title }}</a>
+        <a class="secondary-link" href="{{ m_url::rel(there=post.permalink, here=g_here, base=g_base) }}">{{ post.title }}</a>
         <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{%
           if config.extra.languages[lang].locale %}{{ post.date | date(format=date_format_archive,
             locale=config.extra.languages[lang].locale) }}{%

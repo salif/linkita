@@ -10,13 +10,13 @@
   {%- if prev_page %}
   <a
     class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
-    href="{{ prev_page.permalink | escape_xml | safe }}" accesskey=","
+    href="{{ m_url::rel(there=prev_page.permalink, here=g_here, base=g_base) }}" accesskey=","
     ><span class="mr-1.5">&#8249;</span><span>{{ prev_page.title }}</span></a>
   {%- endif %}
   {%- if next_page %}
   <a
     class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
-    href="{{ next_page.permalink | escape_xml | safe }}" accesskey="."
+    href="{{ m_url::rel(there=next_page.permalink, here=g_here, base=g_base) }}" accesskey="."
     ><span>{{ next_page.title }}</span><span class="ml-1.5">&#8250;</span></a>
   {%- endif %}
 </nav>

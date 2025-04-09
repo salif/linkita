@@ -25,7 +25,7 @@
     class="not-prose mr-5 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow dark:bg-white/[15%]">
     <img
       class="{% if g_profile.avatar_invert %}dark:invert{% endif %} my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin"
-      src="{{ get_url(path=g_profile.avatar_url, cachebust=true) }}"{%
+      src="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}"{%
         if profile_avatar_alt is defined %} alt="{{ profile_avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
   {%- endif %}
@@ -58,8 +58,8 @@
         {%- endif %}
       <a
         class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
-        style="--url: url({{ m_icons::get_social_icon(icon=social.name) }});"
-        href="{{ social_url | replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}"
+        style="--url: url({{ m_url::rel(there=m_icons::get_social_icon(icon=social.name), here=g_here, base=g_base) }});"
+        href="{{ m_url::rel(there=m_url::get(url=social_url), here=g_here, base=g_base) }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         title="{{ social_title }}"

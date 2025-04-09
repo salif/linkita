@@ -14,12 +14,14 @@
       <ul>
         {%- for h1 in page.toc %}
         <li>
-          <a class="no-underline hover:underline" href="{{ h1.permalink | escape_xml | safe }}">{{ h1.title }}</a>
+          <a class="no-underline hover:underline" href="{{
+            m_url::rel(there=h1.permalink, here=g_here, base=g_base) }}">{{ h1.title }}</a>
           {%- if h1.children %}
           <ul>
             {%- for h2 in h1.children %}
             <li>
-              <a class="no-underline hover:underline" href="{{ h2.permalink | escape_xml | safe }}">{{ h2.title }}</a>
+              <a class="no-underline hover:underline" href="{{
+                m_url::rel(there=h2.permalink, here=g_here, base=g_base) }}">{{ h2.title }}</a>
             </li>
             {%- endfor %}
           </ul>

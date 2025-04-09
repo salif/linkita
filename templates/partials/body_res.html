@@ -8,7 +8,7 @@
     {%- elif config.extra.use_cdn %}
       {%- set goatcounter_src = "//gc.zgo.at/count.js" %}
     {%- else %}
-      {%- set goatcounter_src = get_url(path=`js/gc.min.js`, cachebust=true) %}
+      {%- set goatcounter_src = m_url::rel(there=get_url(path=`js/gc.min.js`, cachebust=true), here=g_here, base=g_base) %}
     {%- endif %}
   <!-- GoatCounter -->
   <script>window.linkita.initGoatCounterAnalytics({

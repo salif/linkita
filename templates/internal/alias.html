@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="canonical" href="{{ url | safe }}">
+<title>Redirect</title>
+<script>
+  window.location.replace("{{ url | safe }}" + (window.location.search || "") + (window.location.hash || ""));
+</script>
+<noscript>
+  <meta http-equiv="refresh" content="0; url={{ url | safe }}">
+</noscript>
+<p><a href="{{ url | safe }}">Click here</a> to be redirected.</p>

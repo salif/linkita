@@ -427,6 +427,10 @@ mermaid = false
 # (type: boolean; default value: `false`;)
 comment = false
 
+# Use relative urls.
+# (type: boolean; default value: `false`;)
+relative_urls = false
+
 # Title separator.
 # (type: string; default value: ` | `;)
 title_separator = " | "

@@ -1,3 +1,4 @@
+{% import "macros/url.html" as m_url %}
 {%- set config_title = config.title | default(value="") | truncate(length=100) %}
 {%- set title_separator = config.extra.title_separator | default(value= " | ") %}
   <meta charset="utf-8" />
@@ -41,7 +42,6 @@
   {%- set page_title = m_i18n::tr(key=`error_not_found`, lk=g_lang_k, d=g_trans_d) %}
   {%- set is_404 = true %}
   <meta name="robots" content="noindex" />
-  <link rel="canonical" href="{{ get_url(path=`404.html`) }}" />
 {%- endif %}
 
 {%- if page_title %}
@@ -243,34 +243,33 @@
     {%- endif %}
     {%- if feed_filename is ending_with("atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title | escape_xml | safe }}Atom" />
+    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base) }}"
+    title="{{ feed_title | escape_xml | safe }}Atom" />
     {%- elif feed_filename is ending_with("rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    get_url(path=feed_filename, lang=lang) }}" title="{{ feed_title | escape_xml | safe }}RSS" />
+    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base) }}"
+    title="{{ feed_title | escape_xml | safe }}RSS" />
     {%- else %}
-  <link rel="alternate" title="{{ feed_title ~ feed_filename | escape_xml | safe }}" href="{{
-    get_url(path=feed_filename, lang=lang) }}" />
+  <link rel="alternate" href="{{
+    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base) }}"
+    title="{{ feed_title ~ feed_filename | escape_xml | safe }}" />
     {%- endif %}
   {%- endfor %}
 {%- endif %}
 
 {%- if config.extra.webmanifest %}
-  <link rel="manifest" href="{{ get_url(path=config.extra.webmanifest, lang=lang) }}">
+  <link rel="manifest" href="{{ m_url::rel(there=m_url::get(url=config.extra.webmanifest), here=g_here, base=g_base) }}">
 {%- endif %}
 {%- if config.extra.footer.license_url %}
-  <link rel="license" href="{{ config.extra.footer.license_url |
-    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+  <link rel="license" href="{{ m_url::rel(there=m_url::get(url=config.extra.footer.license_url), here=g_here, base=g_base) }}" />
 {%- endif %}
 {%- if config.extra.footer.privacy_policy_url %}
-  <link rel="privacy-policy" href="{{ config.extra.footer.privacy_policy_url |
-    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+  <link rel="privacy-policy" href="{{ m_url::rel(there=m_url::get(url=config.extra.footer.privacy_policy_url), here=g_here, base=g_base) }}" />
 {%- endif %}
 {%- if config.extra.footer.terms_of_service_url %}
-  <link rel="terms-of-service" href="{{ config.extra.footer.terms_of_service_url |
-    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+  <link rel="terms-of-service" href="{{ m_url::rel(there=m_url::get(url=config.extra.footer.terms_of_service_url), here=g_here, base=g_base) }}" />
 {%- endif %}
 {%- if config.extra.footer.search_page_url %}
-  <link rel="search" href="{{ config.extra.footer.search_page_url |
-    replace(from=`$BASE_URL`, to=g_lang_base_url) | escape_xml | safe }}" />
+  <link rel="search" href="{{ m_url::rel(there=m_url::get(url=config.extra.footer.search_page_url), here=g_here, base=g_base) }}" />
 {%- endif %}
 {#- -#}

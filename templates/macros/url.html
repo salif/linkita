@@ -1,0 +1,27 @@
+{%- macro rel(there, here, base) -%}
+{%- if config.extra.relative_urls %}
+  {%- if there is starting_with(base) and here %}
+    {%- for _ in here | split(pat=`/`) %}
+      {%- if not loop.first and not loop.last %}
+        {{- "../" | safe }}
+      {%- endif %}
+    {%- endfor %}
+    {{- there | trim_start_matches(pat=base) | safe }}
+  {%- else %}
+    {{- there | safe }}
+  {%- endif %}
+{%- else %}
+  {{- there | safe }}
+{%- endif %}
+{%- endmacro rel -%}
+
+{%- macro get(url, bu="") -%}
+{%- if url is starting_with("@") %}
+  {{- get_url(path=url) }}
+{%- elif url is starting_with("$BASE_URL") %}
+  {%- if bu == "" %}{% set bu = get_url(path=``, lang=lang) %}{% endif %}
+  {{- bu | safe }}{{ url | trim_start_matches(pat="$BASE_URL") | safe }}
+{%- else %}
+  {{- url | safe }}
+{%- endif %}
+{%- endmacro get -%}

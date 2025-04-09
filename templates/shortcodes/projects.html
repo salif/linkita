@@ -1,3 +1,4 @@
+{% import "macros/url.html" as m_url %}
 {%- if url is defined %}
   {%- set projects = load_data(url=url, format=format) %}
 {%- elif path is starting_with("/") %}
@@ -14,7 +15,6 @@
     {%- endif %}
   {%- endfor %}
 {%- endif %}
-{%- set lang_base_url = get_url(path=``, lang=lang) %}
 
 {%- for project in projects.project %}
   {%- set name = project.languages[lang].name | default(value=project.name) %}
@@ -34,7 +34,7 @@
       {%- for link in links %}
       <a
         class="underline"
-        href="{{ link.url | replace(from=`$BASE_URL`, to=lang_base_url) | escape_xml | safe }}"
+        href="{{ m_url::get(url=link.url) }}"
         target="_blank"
         >{{ link.name }}</a
       >

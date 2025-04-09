@@ -12,7 +12,7 @@
     {% for term in page.taxonomies[taxonomy_name] %}
     <a
       class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
-      href="{{ get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang) }}">{%
+      href="{{ m_url::rel(there=get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang), here=g_here, base=g_base) }}">{%
         if taxonomy_name == "authors" %}{{ m_profiles::get_name(username=term) }}{%
         else %}{{ term }}{% endif %}</a>
     {% endfor %}

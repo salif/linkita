@@ -1,10 +1,13 @@
+{% import "macros/url.html" as m_url %}
+{%- set g_here = page.path %}
+{%- set g_base = get_url(path=``) ~ "/" %}
 <div class="not-prose flex flex-wrap gap-2">
 {% for asset in page.assets -%}
   {%- if asset is matching("[.](jpg|png)$") %}
     {%- set image = resize_image(path=asset, width=240, height=180) %}
     {%- set asset_name = asset | split(pat="/") | slice(start=-1) | join(sep="/") %}
-  <a href="{{ get_url(path=page.path ~ asset_name) }}" target="_blank">
-    <img class="rounded-lg" src="{{ image.url | escape_xml | safe }}"{%
+  <a href="{{ m_url::rel(there=get_url(path=page.path ~ asset_name), here=g_here, base=g_base) }}" target="_blank">
+    <img class="rounded-lg" src="{{ m_url::rel(there=image.url, here=g_here, base=g_base) }}"{%
       if alts[asset_name] is defined %} alt="{{ alts[asset_name] | escape_xml | safe }}"{%
       elif alt is defined %} alt="{{ alt | escape_xml | safe }}"{% endif %} />
   </a>

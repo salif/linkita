@@ -1,10 +1,12 @@
 {% import "macros/i18n.html" as m_i18n %}
-{% import "macros/profiles.html" as m_profiles %}
+{% import "macros/url.html" as m_url %}
 {% import "macros/icons.html" as m_icons %}
+{% import "macros/profiles.html" as m_profiles %}
 {%- set g_trans_d = load_data(path=`i18n.json`, format=`json`) %}
 {%- set g_lang_k = config.extra.languages[lang].i18n_code | default(value=lang) %}
 {%- set g_html_lang = config.extra.languages[lang].language_code | default(value=lang) %}
-{%- set g_lang_base_url = get_url(path=``, lang=lang) %}
+{%- set g_here = current_path | default(value="") %}
+{%- set g_base = get_url(path=``) ~ "/" %}
 {%- if page.extra.profile %}
   {%- set profile_username = page.extra.profile %}
 {%- elif section.extra.profile %}

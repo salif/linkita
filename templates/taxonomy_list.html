@@ -5,7 +5,7 @@
   {% for term in terms %}
   <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-72">
     <h2 class="my-4 text-xl font-bold text-black dark:text-white">
-      <a class="primary-link" href="{{ term.permalink | escape_xml | safe }}">{%
+      <a class="primary-link" href="{{ m_url::rel(there=term.permalink, here=g_here, base=g_base) }}">{%
         if taxonomy.name == "authors" %}{{ m_profiles::get_name(username=term.name) }}{%
         elif taxonomy.name == "tags" %}#{{ term.name }}{%
         elif taxonomy.name == "categories" %}{{ term.name }}{%
@@ -14,12 +14,12 @@
     </h2>
 
     {% for page in term.pages | slice(end=5) %}
-    <a class="secondary-link my-0.5" href="{{ page.permalink | escape_xml | safe }}">{{ page.title }}</a>
+    <a class="secondary-link my-0.5" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{{ page.title }}</a>
     {% endfor %}
 
     {%- if term.pages | length > 5 %}
     <span class="flex justify-end">
-      <a class="secondary-link mt-1 pr-2" href="{{ term.permalink | escape_xml | safe }}">{{
+      <a class="secondary-link mt-1 pr-2" href="{{ m_url::rel(there=term.permalink, here=g_here, base=g_base) }}">{{
         m_i18n::tr(key=`word_more`, lk=g_lang_k, d=g_trans_d) }}</a>
     </span>
     {%- endif %}

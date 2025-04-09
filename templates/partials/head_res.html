@@ -1,27 +1,28 @@
+{% import "macros/url.html" as m_url %}
 {% import "macros/icons.html" as m_icons %}
-<link rel="preload stylesheet" as="style" href="{{ get_url(path=`main.min.css`, cachebust=true) }}" />
+<link rel="preload stylesheet" as="style" href="{{ m_url::rel(there=get_url(path=`main.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
 {%- include "partials/head_style.html" %}
 {%- if g_profile is defined %}
   {%- if g_profile.avatar_url %}
-  <link rel="preload" as="image" href="{{ get_url(path=g_profile.avatar_url, cachebust=true) }}" />
+  <link rel="preload" as="image" href="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}" />
   {%- endif %}
   {%- if g_profile.social %}
     {%- for image_social in g_profile.social %}
-  <link rel="preload" as="image" href="{{ m_icons::get_social_icon(icon=image_social.name) }}" />
+  <link rel="preload" as="image" href="{{ m_url::rel(there=m_icons::get_social_icon(icon=image_social.name), here=g_here, base=g_base) }}" />
     {%- endfor %}
   {%- endif %}
 {%- endif %}
 
 {%- if not config.extra.disable_default_favicon %}
-  <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ get_url(path=`favicon.ico`) }}" />
-  <link rel="apple-touch-icon" type="image/png" href="{{ get_url(path=`apple-touch-icon.png`, cachebust=true) }}" />
-  <link rel="icon" type="image/png" href="{{ get_url(path=`android-icon.png`, cachebust=true) }}" />
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ m_url::rel(there=get_url(path=`favicon.ico`), here=g_here, base=g_base) }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{ m_url::rel(there=get_url(path=`apple-touch-icon.png`, cachebust=true), here=g_here, base=g_base) }}" />
+  <link rel="icon" type="image/png" href="{{ m_url::rel(there=get_url(path=`android-icon.png`, cachebust=true), here=g_here, base=g_base) }}" />
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
-  <script src="{{ get_url(path=`js/linkita.min.js`, cachebust=true) }}"></script>
+  <script src="{{ m_url::rel(there=get_url(path=`js/linkita.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
   {%- if config.build_search_index %}
-  <script src="{{ get_url(path=`js/linkita-search.min.js`, cachebust=true) }}"></script>
+  <script src="{{ m_url::rel(there=get_url(path=`js/linkita-search.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
   {%- endif %}
 
   {%- if page.extra.math | default(value=config.extra.math) %}
@@ -33,9 +34,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
     integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
     {%- else %}
-  <link rel="stylesheet" href="{{ get_url(path=`katex/katex.min.css`, cachebust=true) }}" />
-  <script defer src="{{ get_url(path=`katex/katex.min.js`, cachebust=true) }}"></script>
-  <script defer src="{{ get_url(path=`katex/contrib/auto-render.min.js`, cachebust=true) }}"></script>
+  <link rel="stylesheet" href="{{ m_url::rel(there=get_url(path=`katex/katex.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
+  <script defer src="{{ m_url::rel(there=get_url(path=`katex/katex.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+  <script defer src="{{ m_url::rel(there=get_url(path=`katex/contrib/auto-render.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
     {%- endif %}
   <script>document.addEventListener("DOMContentLoaded", window.linkita.initKatex);</script>
   {%- endif %}

@@ -16,7 +16,7 @@
   <figure class="mb-4 mt-0">
     <img
       class="h-auto w-full rounded-lg"
-      src="{{ get_url(path=page.extra.cover.image) }}"
+      src="{{ m_url::rel(there=get_url(path=page.extra.cover.image), here=g_here, base=g_base) }}"
       {% if page.extra.cover.alt is defined %}alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
       {% if page.extra.cover.width is defined %}width="{{ page.extra.cover.width | int }}"{% endif %}
       {% if page.extra.cover.height is defined %}height="{{ page.extra.cover.height | int }}"{% endif %}
@@ -52,7 +52,7 @@
   {% include "partials/page_info.html" %}
 
   {#- {% if use_summary %}#continue-reading{% endif %} #}
-  <a class="absolute inset-0 text-[0]" href="{{ page.permalink | escape_xml | safe }}">{{ page.title }}</a>
+  <a class="absolute inset-0 text-[0]" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{{ page.title }}</a>
 </section>
 {%- endfor %}
 
@@ -61,13 +61,13 @@
   {%- if paginator.previous %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ paginator.previous | escape_xml | safe }}" rel="prev" accesskey=","
+    href="{{ m_url::rel(there=paginator.previous, here=g_here, base=g_base) }}" rel="prev" accesskey=","
     >&#8249; {{ m_i18n::tr(key=`word_prev_page`, lk=g_lang_k, d=g_trans_d) }}</a>
   {%- endif %}
   {%- if paginator.next %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-100 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ paginator.next | escape_xml | safe }}" rel="next" accesskey="."
+    href="{{ m_url::rel(there=paginator.next, here=g_here, base=g_base) }}" rel="next" accesskey="."
     >{{ m_i18n::tr(key=`word_next_page`, lk=g_lang_k, d=g_trans_d) }} &#8250;</a>
   {%- endif %}
 </nav>
