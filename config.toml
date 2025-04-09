@@ -85,6 +85,7 @@ highlight_theme = "material-dark"
 math = false
 mermaid = false
 comment = false
+relative_urls = false
 title_separator = " | "
 header_menu_name = "sample_header"
 use_cdn = false
