@@ -5,7 +5,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita).
 - For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
 - Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
-- See [demo source code](https://codeberg.org/salif/linkita-demo) and screenshots for [light mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.png) and [dark mode](https://codeberg.org/salif/linkita/src/branch/linkita/screenshot.dark.png).
+- See [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in:
   - [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/).
   - [Chinese](https://salif.github.io/linkita/zh/), [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Globasa](https://salif.github.io/linkita/gb/).
@@ -795,9 +795,6 @@ See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICE
 ## Contributing
 
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
-
-If you notice even the slightest ambiguity or bug in this repo,
-report it IMMEDIATELY, before it breeds and takes over the entire project!
 
 ## Sites using Linkita
 
