@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "instant.page": "^5.2.0",
-    "katex": "^0.16.21",
-    "simple-icons": "^14.12.0"
+    "katex": "^0.16.22",
+    "simple-icons": "^14.12.1"
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
@@ -25,6 +25,6 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.17",
     "terser": "^5.39.0",
-    "zx": "^8.5.0"
+    "zx": "^8.5.2"
   }
 }

@@ -82,7 +82,7 @@
 
   .btn-menu::before,
   .btn-menu::after {
-    @apply block h-[2px] w-5 bg-black duration-200 content-[''] dark:invert;
+    @apply block h-[2px] w-5 bg-black duration-100 content-[''] dark:invert;
   }
 
   .open {

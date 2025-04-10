@@ -1805,8 +1805,8 @@ sup a {
   transition-duration: 100ms;
 }
 
-.duration-200 {
-  transition-duration: 200ms;
+.duration-75 {
+  transition-duration: 75ms;
 }
 
 .ease-out {
@@ -1824,7 +1824,7 @@ sup a {
   width: 1.25rem;
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
-  transition-duration: 200ms;
+  transition-duration: 100ms;
   --tw-content: '';
   content: var(--tw-content);
 }
