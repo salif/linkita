@@ -49,7 +49,7 @@
     applyDarkMode(darkScheme.matches, true);
   }
 
-  function initTranslationsButton({ btn }) {
+  function initTranslationsButton({ btn, rel }) {
     const pageLanguage = document.documentElement.getAttribute("lang");
     const pageTranslations = document.head.querySelectorAll("link[rel='alternate'][hreflang]");
 
@@ -64,7 +64,7 @@
     const pageTranslationsLinks = new Map();
     pageTranslations.forEach(el => {
       const hreflang = el.getAttribute("hreflang");
-      const href = el.getAttribute("href");
+      const href = rel === "true" ? el.dataset.href : el.getAttribute("href");
       if (hreflang !== pageLanguage) {
         pageTranslationsLinks.set(hreflang, href);
         const hreflangcode = hreflang.split("-")[0];

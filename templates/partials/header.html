@@ -57,7 +57,7 @@
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
-        <script>window.linkita.initTranslationsButton({btn: document.querySelector(".btn-translations")});</script>
+        <script>window.linkita.initTranslationsButton({btn: document.querySelector(".btn-translations"), rel: "{{ config.extra.relative_urls | default(value=false) }}"});</script>
             {%- endif %}
           {%- endif %}
         {%- endfor %}

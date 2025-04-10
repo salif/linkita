@@ -220,7 +220,9 @@
   <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
     if config.extra.languages[page_translation.lang].language_code %}{{
       config.extra.languages[page_translation.lang].language_code | escape_xml | safe }}{%
-    else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}" />
+    else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}"{%
+      if config.extra.relative_urls %} data-href="{{
+    m_url::rel(there=page_translation.permalink, here=g_here, base=g_base) }}"{% endif %} />
   {%- endfor %}
 {%- endif %}
 
@@ -243,16 +245,16 @@
     {%- endif %}
     {%- if feed_filename is ending_with("atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base) }}"
-    title="{{ feed_title | escape_xml | safe }}Atom" />
+    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base)
+    }}" title="{{ feed_title ~ `Atom` | escape_xml | safe }}" />
     {%- elif feed_filename is ending_with("rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base) }}"
-    title="{{ feed_title | escape_xml | safe }}RSS" />
+    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base)
+    }}" title="{{ feed_title ~ `RSS` | escape_xml | safe }}" />
     {%- else %}
   <link rel="alternate" href="{{
-    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base) }}"
-    title="{{ feed_title ~ feed_filename | escape_xml | safe }}" />
+    m_url::rel(there=get_url(path=feed_filename, lang=lang), here=g_here, base=g_base)
+    }}" title="{{ feed_title ~ feed_filename | escape_xml | safe }}" />
     {%- endif %}
   {%- endfor %}
 {%- endif %}

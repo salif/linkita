@@ -1,14 +1,13 @@
 {%- macro rel(there, here, base) -%}
-{%- if here %}
-  {%- if there is starting_with(base) %}
-    {%- for _ in here %}
-      {%- if not loop.last %}
-        {{- "../" | safe }}
-      {%- endif %}
-    {%- endfor %}
-    {{- there | trim_start_matches(pat=base) | safe }}
-  {%- else %}
-    {{- there | safe }}
+{%- if here and there is starting_with(base) %}
+  {%- for _ in here %}
+    {%- if not loop.last %}
+      {{- "../" | safe }}
+    {%- endif %}
+  {%- endfor %}
+  {{- there | trim_start_matches(pat=base) | safe }}
+  {%- if config.extra.urls_to_index_html and there is ending_with("/") %}
+    {{- "index.html" }}
   {%- endif %}
 {%- else %}
   {{- there | safe }}
@@ -25,3 +24,17 @@
   {{- url | safe }}
 {%- endif %}
 {%- endmacro get -%}
+
+{%- macro social_icon(icon, prl=false) -%}
+{%- set icon_path = "icons/" ~ icon ~ ".svg" %}
+{%- set meta = get_image_metadata(path=icon_path, allow_missing=true) %}
+{%- if meta %}
+  {%- if prl %}
+    {{- get_url(path=icon_path) }}
+  {%- else %}
+    {{- icon_path | safe }}
+  {%- endif %}
+{%- else %}
+  {{- "https://cdn.jsdelivr.net/npm/simple-icons/icons/" ~ icon ~ ".svg" | safe }}
+{%- endif %}
+{%- endmacro social_icon -%}

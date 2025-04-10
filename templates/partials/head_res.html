@@ -1,14 +1,13 @@
 {% import "macros/url.html" as m_url %}
-{% import "macros/icons.html" as m_icons %}
 <link rel="preload stylesheet" as="style" href="{{ m_url::rel(there=get_url(path=`main.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
 {%- include "partials/head_style.html" %}
-{%- if g_profile is defined %}
+{%- if g_profile is defined and not config.extra.urls_to_index_html %}
   {%- if g_profile.avatar_url %}
   <link rel="preload" as="image" href="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}" />
   {%- endif %}
   {%- if g_profile.social %}
     {%- for image_social in g_profile.social %}
-  <link rel="preload" as="image" href="{{ m_url::rel(there=m_icons::get_social_icon(icon=image_social.name), here=g_here, base=g_base) }}" />
+  <link rel="preload" as="image" href="{{ m_url::rel(there=m_url::social_icon(icon=image_social.name, prl=true), here=g_here, base=g_base) }}" />
     {%- endfor %}
   {%- endif %}
 {%- endif %}

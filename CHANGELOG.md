@@ -8,6 +8,7 @@ All notable changes to this theme will be documented in this file.
   `extra.style.bg_color`, `extra.style.bg_dark_color`, `extra.style.header_color`, `extra.style.header_dark_color`.
 - Allow `pages.html` and `archive.html` to be used in a section.
 - Add `extra.relative_urls` config variable to use relative urls that do not contain the base url.
+- Add `extra.urls_to_index_html` config variable to browse the site without a webserver.
 
 ## [v2.2025_04_02.0](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..v2.2025_04_02.0)
 

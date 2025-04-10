@@ -1,6 +1,5 @@
 {% import "macros/i18n.html" as m_i18n %}
 {% import "macros/url.html" as m_url %}
-{% import "macros/icons.html" as m_icons %}
 {% import "macros/profiles.html" as m_profiles %}
 {%- set g_trans_d = load_data(path=`i18n.json`, format=`json`) %}
 {%- set g_lang_k = config.extra.languages[lang].i18n_code | default(value=lang) %}

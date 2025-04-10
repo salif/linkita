@@ -428,10 +428,6 @@ mermaid = false
 # (type: boolean; default value: `false`;)
 comment = false
 
-# Use relative urls.
-# (type: boolean; default value: `false`;)
-relative_urls = false
-
 # Title separator.
 # (type: string; default value: ` | `;)
 title_separator = " | "
@@ -452,6 +448,15 @@ disable_javascript = false
 
 # (type: boolean; default value: `false`;)
 use_cdn = false
+
+# Use relative urls.
+# (type: boolean; default value: `false`;)
+relative_urls = false
+
+# If you want to view the site without a webserver
+# set this and `relative_urls` to true.
+# (type: boolean; default value: `false`;)
+urls_to_index_html = false
 
 # You can reorder the strings, remove them, or replace them.
 # For example, you can replace `site_title` with `home_button`.
