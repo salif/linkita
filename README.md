@@ -39,6 +39,7 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - Author profiles
 - Projects shortcode
 - Keyboard shortcuts
+- Relative URLs support
 
 ## Installing
 

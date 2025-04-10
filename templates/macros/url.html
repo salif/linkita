@@ -1,8 +1,8 @@
 {%- macro rel(there, here, base) -%}
-{%- if config.extra.relative_urls %}
-  {%- if there is starting_with(base) and here %}
-    {%- for _ in here | split(pat=`/`) %}
-      {%- if not loop.first and not loop.last %}
+{%- if here %}
+  {%- if there is starting_with(base) %}
+    {%- for _ in here %}
+      {%- if not loop.last %}
         {{- "../" | safe }}
       {%- endif %}
     {%- endfor %}
