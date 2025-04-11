@@ -55,6 +55,10 @@ push:
 format:
     {{ this }} --fmt --unstable
 
+[linux]
+[private]
+screenshot_do_all: (screenshot_set_mode 'light') screenshot_do_light (screenshot_set_mode 'dark') screenshot_do_dark screenshot_update
+
 [group('dev')]
 [linux]
 screenshot_set_mode mode schema='org.x.apps.portal':
