@@ -6,8 +6,7 @@ this_file := source_file()
 this := just_executable() + " -f " + quote(this_file)
 version_major := "2"
 version_minor := `date +%Y_%m_%d`
-version_patch := "0"
-version := version_major + "." + version_minor + "." + version_patch
+version := version_major + "." + version_minor
 
 _:
     @{{ this }} --list --unsorted
