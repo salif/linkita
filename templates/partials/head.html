@@ -226,14 +226,7 @@
   {%- endfor %}
 {%- endif %}
 
-{%- if section.generate_feeds is defined %}
-  {%- set generate_feeds = section.generate_feeds %}
-{%- elif term.path and taxonomy.feed is defined %}
-  {%- set generate_feeds = taxonomy.feed %}
-{%- elif config.generate_feeds is defined %}
-  {%- set generate_feeds = config.generate_feeds %}
-{%- endif %}
-{%- if generate_feeds %}
+{%- if config.generate_feeds or section.generate_feeds or (taxonomy.feed and term.path) %}
   {%- for feed_filename in config.feed_filenames %}
     {%- if taxonomy.feed and term.path %}
       {%- set feed_title = page_title ~ title_separator %}
