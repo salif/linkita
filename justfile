@@ -73,8 +73,9 @@ screenshot_set_mode mode schema='org.x.apps.portal':
 
 [private]
 screenshot_do mode screenshot_url=screenshot_url browser='chromium':
-    command {{ browser }} --headless --disable-gpu --screenshot=/tmp/screenshot-{{ mode }}.png \
-        --window-size=1400,936 --hide-scrollbars --force-device-scale-factor=1.27 "{{ screenshot_url }}/en/"
+    command {{ browser }} --headless --disable-gpu \
+        --system-font-family="Lato" --screenshot=/tmp/screenshot-{{ mode }}.png \
+        --window-size=1400,936 --hide-scrollbars --force-device-scale-factor=1.25 "{{ screenshot_url }}/en/"
     magick /tmp/screenshot-{{ mode }}.png -gravity north -crop '1360x765+0+0' /tmp/screenshot-{{ mode }}.png
 
 [group('dev')]
