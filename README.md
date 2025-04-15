@@ -226,15 +226,17 @@ links = [
 ]
 ```
 
-### Set page authors
+### Setting page authors
 
 Choose one of the following options or skip if you don't know what you're doing:
 
-#### Option A: Using `page.authors`
+#### Option A: Using `page.authors` and `config.author`
 
-You don't need to set `page.authors` in the frontmatter if you are the only author of the post.
+The default author for pages is set using the `author` variable in the `config.toml` file.
 
-Otherwise, set `page.authors`:
+You don't need to set `authors` in the frontmatter if the default author is the only author of the post.
+
+Otherwise, set `authors`:
 
 ```toml ,name=frontmatter
 +++
@@ -262,6 +264,8 @@ To use inject, you need to add some HTML files to the `templates/injects` direct
 
 The available inject points are: `head.html`, `head_end.html`, `header_nav.html`,
 `body_start.html`, `body_end.html`, `page_start.html`, `page_end.html`, `footer.html`.
+
+For example, you can add JavaScript files and CSS stylesheets in the `templates/injects/head_end.html` file.
 
 ### Keyboard shortcuts
 
@@ -474,6 +478,8 @@ To use a menu, set `extra.header_menu_name`.
 `$BASE_URL` in `url` will be automatically replaced with the language specific base url.
 You can use `names_i18n` instead of `names`, see the `static/i18n.json` file,
 set `names_i18n` to a `common_` key.
+
+You can use [Internal links](https://www.getzola.org/documentation/content/linking/#internal-links) instead of `$BASE_URL`.
 
 ### Profiles
 

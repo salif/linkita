@@ -1,5 +1,5 @@
 {% import "macros/url.html" as m_url %}
-<link rel="preload stylesheet" as="style" href="{{ m_url::rel(there=get_url(path=`main.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
+<link rel="stylesheet" href="{{ m_url::rel(there=get_url(path=`main.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
 {%- include "partials/head_style.html" %}
 {%- if g_profile is defined and not config.extra.urls_to_index_html %}
   {%- if g_profile.avatar_url %}

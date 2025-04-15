@@ -15,14 +15,12 @@
   elif config.extra.style.header_dark_color is defined %}{% set style_header_dark_color = config.extra.style.header_dark_color %}{%
   else %}{% set style_header_dark_color = "#27272a" %}{% endif %}
   <style>
-  :root {
-    --bg: {{ style_bg_color | escape_xml | safe
+  :root{--bg: {{ style_bg_color | escape_xml | safe
     }}; --header: {{ style_header_color | escape_xml | safe
-    }}; color-scheme: light; }
-  :root.dark {
-    --bg: {{ style_bg_dark_color | escape_xml | safe
+    }}; color-scheme: light;}
+  :root.dark{--bg: {{ style_bg_dark_color | escape_xml | safe
     }}; --header: {{ style_header_dark_color | escape_xml | safe
-    }}; color-scheme: dark; }
+    }}; color-scheme: dark;}
   </style>
   <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
     style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />

@@ -17,9 +17,11 @@
     <img
       class="h-auto w-full rounded-lg"
       src="{{ m_url::rel(there=get_url(path=page.extra.cover.image), here=g_here, base=g_base) }}"
-      {% if page.extra.cover.alt is defined %}alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
-      {% if page.extra.cover.width is defined %}width="{{ page.extra.cover.width | int }}"{% endif %}
-      {% if page.extra.cover.height is defined %}height="{{ page.extra.cover.height | int }}"{% endif %}
+      {%- if page.extra.cover.alt is defined %}
+      alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
+      {%- if page.extra.cover.width is defined or page.extra.cover.height is defined %}
+      width="{{ page.extra.cover.width | int }}"
+      height="{{ page.extra.cover.height | int }}"{% endif %}
     />
   </figure>
   {%- endif %}
@@ -47,6 +49,8 @@
   <div class="not-prose my-1 truncate">
     <p>{{ page.description }}</p>
   </div>
+  {%- else %}
+  <div class="my-1"></div>
   {%- endif %}
 
   {% include "partials/page_info.html" %}
