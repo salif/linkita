@@ -4,7 +4,12 @@ theme = "linkita"
 # Default language is Bulgarian
 default_language = "bg"
 author = "sample_username"
+compile_sass = false
 minify_html = false
+exclude_paginated_pages_in_sitemap = "all"
+hard_link_static = false
+generate_sitemap = true
+generate_robots_txt = true
 
 # [languages.bg]
 title = "Линкита"
@@ -78,8 +83,12 @@ taxonomies = [
 
 [markdown]
 highlight_code = true
-extra_syntaxes_and_themes = []
-highlight_theme = "material-dark"
+error_on_missing_highlight = false
+highlight_theme = "boron"
+render_emoji = false
+smart_punctuation = false
+definition_list = true
+bottom_footnotes = true
 
 [extra]
 math = false
@@ -87,6 +96,8 @@ mermaid = false
 comment = false
 title_separator = " | "
 header_menu_name = "sample_header"
+page_info = [{ when="date" }, { when="date_updated", prepend="(", append=")" }, { when="reading_time" }]
+page_info_on_paginator = [{ when="date" }, { when="reading_time" }, { when="authors" }]
 use_cdn = false
 relative_urls = false
 urls_to_index_html = false
@@ -236,7 +247,6 @@ copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 [extra.languages.en]
 locale = "en_US"
 date_format = "%F"
-date_format_archive = "%m-%d"
 
 [extra.languages.en.taxonomy_descriptions]
 tags = "A map of all tags on this site. Start exploring!"
@@ -248,7 +258,6 @@ authors = "Browse articles written by $NAME. Start exploring!"
 [extra.languages.bg]
 locale = "bg_BG"
 date_format = "%d %b %Y"
-date_format_archive = "%d %b"
 
 [extra.languages.bg.taxonomy_descriptions]
 tags = "Разгледайте всички етикети на този сайт!"
@@ -260,12 +269,10 @@ authors = "Списък на страниците написани от $NAME."
 [extra.languages.ar]
 locale = "ar_EG"
 date_format = "%x"
-date_format_archive = "%m-%d"
 
 [extra.languages.eo]
 locale = "eo"
 date_format = "%d %b %Y"
-date_format_archive = "%d %b"
 
 [extra.languages.gb]
 language_code = "art-x-globasa"
@@ -273,12 +280,10 @@ language_code = "art-x-globasa"
 [extra.languages.tr]
 locale = "tr_TR"
 date_format = "%d %b %Y"
-date_format_archive = "%d %b"
 
 [extra.languages.zh]
 locale = "zh_CN"
 date_format = "%x"
-date_format_archive = "%m-%d"
 
 # If you copy this file to your site, remove this:
 [extra.goatcounter]

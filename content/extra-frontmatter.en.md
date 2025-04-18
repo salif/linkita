@@ -22,7 +22,8 @@ mermaid = true
 # Default value: config.extra.page_summary_on_paginator
 page_summary_on_paginator = true
 
-# Default value: config.extra.page_info
+# Default value:
+#  config.extra.page_info or config.extra.page_info_on_paginator
 page_info = []
 
 # Default value: config.extra.toc
