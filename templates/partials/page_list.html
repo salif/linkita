@@ -7,6 +7,7 @@
 {%- elif section is defined %}
   {%- set pages = section.pages %}
 {%- endif %}
+{%- set hellip = m_i18n::tr(key=`hellip`, lk=g_lang_k, d=g_trans_d) %}
 
 {%- for page in pages %}
 <section
@@ -42,8 +43,7 @@
   {%- endif %}
   {%- if use_summary %}
   <div class="not-prose my-1">
-    {{ page.summary | striptags | trim_end | trim_end_matches(pat=`&hellip;`) | trim_end_matches(pat=`.`) | safe }}{{
-      m_i18n::tr(key=`hellip`, lk=g_lang_k, d=g_trans_d) }}
+    {{ page.summary | striptags | trim_end | trim_end_matches(pat=`&hellip;`) | trim_end_matches(pat=`.`) | safe }}{{ hellip | safe }}
   </div>
   {%- elif page.description %}
   <div class="not-prose my-1 truncate">

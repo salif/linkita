@@ -2,7 +2,8 @@
 {% block main %}
 <h1 class="mb-16">{{ m_i18n::get_taxonomy_title(key=taxonomy.name, lk=g_lang_k, d=g_trans_d) }}</h1>
 <div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
-  {% for term in terms %}
+  {%- set word_more = m_i18n::tr(key=`word_more`, lk=g_lang_k, d=g_trans_d) %}
+  {%- for term in terms %}
   <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-72">
     <h2 class="my-4 text-xl font-bold text-black dark:text-white">
       <a class="primary-link" href="{{ m_url::rel(there=term.permalink, here=g_here, base=g_base) }}">{%
@@ -13,17 +14,16 @@
       <sup class="opacity-60">{{ term.page_count }}</sup>
     </h2>
 
-    {% for page in term.pages | slice(end=5) %}
+    {%- for page in term.pages | slice(end=5) %}
     <a class="secondary-link my-0.5" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{{ page.title }}</a>
-    {% endfor %}
+    {%- endfor %}
 
     {%- if term.pages | length > 5 %}
     <span class="flex justify-end">
-      <a class="secondary-link mt-1 pr-2" href="{{ m_url::rel(there=term.permalink, here=g_here, base=g_base) }}">{{
-        m_i18n::tr(key=`word_more`, lk=g_lang_k, d=g_trans_d) }}</a>
+      <a class="secondary-link mt-1 pr-2" href="{{ m_url::rel(there=term.permalink, here=g_here, base=g_base) }}">{{ word_more }}</a>
     </span>
     {%- endif %}
   </div>
-  {% endfor %}
+  {%- endfor %}
 </div>
 {% endblock main %}

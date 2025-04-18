@@ -20,7 +20,7 @@
   {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "date_updated", "prepend": "(", "append": ")"}, {"when": "reading_time"}]`, format=`json`) %}
 {%- endif %}
 {%- set date_format = config.extra.languages[lang].date_format | default(value="%F") %}
-{%- set info_sep = "&middot;" %}
+{%- set info_sep = m_i18n::tr(key=`middot`, lk=g_lang_k, d=g_trans_d) %}
 
 {%- for info in page_info %}
   {%- if info.when == "date" %}{%
