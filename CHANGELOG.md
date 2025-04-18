@@ -9,6 +9,11 @@ All notable changes to this theme will be documented in this file.
 - Allow `pages.html` and `archive.html` to be used in a section.
 - Add `extra.relative_urls` config variable to use relative urls that do not contain the base url.
 - Add `extra.urls_to_index_html` config variable to browse the site without a webserver.
+- Remove the `date_format_archive` config variable and add `extra.date_format`
+  frontmatter variable for the `archive.html` template.
+- Change the `extra.page_info` variable to an array of objects.
+- Add `extra.page_info_on_paginator` config variable. The frontmatter variable is `extra.page_info`,
+  but its default value is not the `extra.page_info` config variable.
 
 ## [v2.2025_04_02.0](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..v2.2025_04_02.0)
 
@@ -34,7 +39,8 @@ All notable changes to this theme will be documented in this file.
   You may need to rename your `injects/head.html` file to `injects/head_end.html`.
 - Remove the `extra.post_navigation` config variable and add `extra.invert_page_navigation` config variable.
 - Remove the `email` and `url` config variables of `extra.profiles.your_username` as they are not used anywhere.
-- Replace `taxonomy_list_description` with `taxonomy_descriptions[taxonomy.name]` and `taxonomy_single_description` with `term_descriptions[taxonomy.name]`.
+- Replace `taxonomy_list_description` with `taxonomy_descriptions[taxonomy.name]` and
+  `taxonomy_single_description` with `term_descriptions[taxonomy.name]`.
 - Rename the `width-scroll` class to `horizontal-scroll`.
 - Apply linebreaksbr and truncate to title and description in head.
 - Add `extra.page_summary_on_paginator` config and frontmatter variable to prioritize summary over description.

@@ -1,6 +1,12 @@
 {% extends "index.html" %}
 {% block main %}
-{%- set date_format_archive = config.extra.languages[lang].date_format_archive | default(value=`%m-%d`) %}
+{%- if page.extra.date_format %}
+  {%- set date_format_archive = page.extra.date_format %}
+{%- elif section.extra.date_format %}
+  {%- set date_format_archive = section.extra.date_format %}
+  {%- else %}
+  {%- set date_format_archive = `%m-%d` %}
+{%- endif %}
 {%- if g_profile is defined %}
 {% include "partials/profile.html" %}
 {%- elif page.title %}

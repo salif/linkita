@@ -196,6 +196,7 @@ title = "Archive"
 template = "archive.html"
 [extra]
 section = "_index.md"
+date_format = "%m-%d"
 +++
 ```
 
@@ -393,6 +394,7 @@ disable_javascript = false
 use_cdn = false
 
 # Use relative urls.
+# It doesn't apply for content yet.
 # Default value: false
 relative_urls = false
 
@@ -414,15 +416,12 @@ invert_page_navigation = false
 # Default value: ["site_title", "theme_button", "search_button", "translations_button"]
 # header_buttons = []
 
-# Valid values:
-#  "date", "date_on_page", "date_on_paginator",
-#  "date_updated", "date_updated_on_page", "date_updated_on_paginator",
-#  "reading_time", "reading_time_on_page", "reading_time_on_paginator",
-#  "word_count", "word_count_on_page", "word_count_on_paginator",
-#  "authors", "authors_on_page", "authors_on_paginator",
-#  "tags", "tags_on_page", "tags_on_paginator".
-# Default value: ["date", "date_updated_on_page", "reading_time", "authors"]
-# page_info = []
+# Valid "when" values:
+#  "date", "date_updated", "reading_time", "word_count", "authors", "tags", "".
+# The "prepend" and "append" are used when the value of "when" is defined for the page.
+# e.g. [{when="", prepend="Page Info: "},{when="date",prepend="Published on "},{when="authors",prepend="By "}]
+# page_info = [{ when="date" }, { when="date_updated", prepend="(", append=")" }, { when="reading_time" }]
+# page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 
 # Enable table of contents on all pages.
 # If not set, toc is enabled only on posts.
@@ -635,8 +634,11 @@ locale = "en_US"
 # Default value: "%F"
 date_format = "%x"
 
-# Default value: "%m-%d"
-date_format_archive = "%m-%d"
+# Default value: extra.page_info
+# page_info = []
+
+# Default value: extra.page_info_on_paginator
+# page_info_on_paginator = []
 
 # Default value: extra.header_menu_name
 # header_menu_name = "menu_name"
@@ -670,7 +672,6 @@ authors = "Browse articles written by $NAME. Start exploring!"
 [extra.languages.fr]
 locale = "fr_FR"
 date_format = "%x"
-date_format_archive = "%m-%d"
 ```
 
 ### Web analytics

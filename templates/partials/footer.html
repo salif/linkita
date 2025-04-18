@@ -20,7 +20,7 @@
       {%- set copyright = '[' ~ copyright ~ '](' ~ license_url ~ ')' %}
     {%- endif %}
   {%- endif %}
-  {%- set current_year = now() | date(format="%Y") | int %}
+  {%- set current_year = now() | date(format=`%Y`) | int %}
   {%- if config.extra.footer.since and config.extra.footer.since != current_year %}
     {%- set copyright_years = '<time datetime="' ~ config.extra.footer.since ~ '">' ~
       config.extra.footer.since ~ '</time> - <time datetime="' ~ current_year ~ '">' ~

@@ -173,8 +173,8 @@
   {%- endif %}
   {%- if g_image_data is undefined %}
     {%- if page.extra.cover.width is defined or page.extra.cover.height is defined %}
-      {%- set g_image_data = load_data(literal='{"width": '~page.extra.cover.width~
-        ',"height": '~page.extra.cover.height~'}', format="json") %}
+      {%- set g_image_data = load_data(literal=`{"width": `~page.extra.cover.width~
+        `,"height": `~page.extra.cover.height~`}`, format=`json`) %}
     {%- else %}
       {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=true) %}
     {%- endif %}
