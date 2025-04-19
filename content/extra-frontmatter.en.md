@@ -29,6 +29,9 @@ page_info = []
 # Default value: config.extra.toc
 toc = true
 
+# For the archive.html template.
+section = "_index.md"
+
 [extra.cover]
 
 # Path to the cover image.
