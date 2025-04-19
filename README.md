@@ -43,7 +43,15 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 
 ## Installing
 
-1. Add this theme as a git submodule.
+0. Create a new Zola site if you haven't already:
+
+```sh
+zola init myblog
+cd myblog
+git init
+```
+
+1. Add the theme as a git submodule:
 
 ```sh
 git submodule add https://codeberg.org/salif/linkita.git themes/linkita
@@ -51,11 +59,13 @@ git submodule add https://codeberg.org/salif/linkita.git themes/linkita
 
 If you don't want to use git submodules, you can clone the repository instead: `git clone https://codeberg.org/salif/linkita.git themes/linkita`
 
-2. Set `linkita` as your theme in your `config.toml` file.
+2. Enable the theme in your `config.toml` file:
 
 ```toml ,name=config.toml
 theme = "linkita"
 ```
+
+Place it near the `base_url` variable, not under `[extra]`.
 
 ## Managing versions
 
@@ -68,7 +78,7 @@ git submodule update --remote themes/linkita
 Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md)
 for all versions after the one you are using. There may be breaking changes that require manual involvement.
 
-If you use Tailwind classes in your templates directory, run:
+If and only if you use Tailwind classes in your templates directory, run:
 
 ```sh
 cd themes/linkita
@@ -77,7 +87,7 @@ pnpm tailwindcss -i ./src/app.css -o ../../static/main.min.css --minify
 
 ## Usage
 
-Linkita uses the following frontmatter variables.
+Linkita uses the following front matter variables.
 All variables are optional.
 Set the ones you need.
 
@@ -104,9 +114,8 @@ extra:
 
 ### TOML frontmatter
 
-Put the variables between the opening and closing `+++`.
-
 ```toml ,name=frontmatter
++++
 title = ""
 description = ""
 # The date of the post
@@ -130,15 +139,18 @@ mermaid = false
 image = ""
 # A description of the cover image
 alt = ""
++++
 ```
 
-### Other extra frontmatter variables
+### Other extra front matter variables
 
 Linkita supports [more extra variables, listed here](https://salif.github.io/linkita/en/extra-frontmatter/).
 
-### Home page profile
+### Pages and Posts
 
-Create `content/_index.md` file in your blog and set `extra.profile` to your username:
+#### Home page
+
+Create a `content/_index.md` file and set `extra.profile` to your username:
 
 ```toml ,name=content/_index.md
 +++
@@ -156,12 +168,44 @@ For French, the file name is `content/_index.fr.md`.
 
 See [Profiles](#profiles) for more.
 
-### Non-post pages
+#### Posts
+
+In the `content` directory, create a subdirectory named `blog` or another name of your choice.
+
+Create a `content/blog/_index.md` file:
+
+```toml ,name=content/blog/_index.md
++++
+title = "Blog"
+template = "archive.html"
+transparent = true
+[extra]
+date_format = "%m-%d"
++++
+```
+
+Create a `content/blog/hello.md` file:
+
+```toml ,name=content/blog/hello.md
++++
+title = "Title"
+# description = ""
+date = 2025-12-30
+# taxonomies.tags = ["welcome"]
++++
+
+Summary <!-- more -->
+
+## Hello, world!
+```
+
+### Pages
 
 The default page template `page.html` is for blog posts.
-For pages that are not blog posts, you can make `content/pages` directory and use the `pages.html` template.
+For pages that are not blog posts you can use the `pages.html` template.
 
-Create `content/pages/_index.md` file in your blog:
+In the `content` directory, create a subdirectory named `pages` and
+create a `content/pages/_index.md` file:
 
 ```toml ,name=content/pages/_index.md
 +++
@@ -172,37 +216,23 @@ page_template = "pages.html"
 
 #### About you page
 
-Create `content/pages/about.md` file in your blog:
+Create a `content/pages/about.md` file:
 
 ```toml ,name=content/pages/about.md
 +++
 title = "About me"
 # description = ""
-# path = "about"
+path = "about"
 +++
 
 ## Hello, world!
 ```
 
-#### Archive page
-
-Create `content/pages/archive.md` file in your blog:
-
-```toml ,name=content/pages/archive.md
-+++
-title = "Archive"
-# description = ""
-# path = "archive"
-template = "archive.html"
-[extra]
-section = "_index.md"
-date_format = "%m-%d"
-+++
-```
-
 #### Projects page
 
-Create `content/pages/projects/index.md` file in your blog:
+Optionally, you can make a page for your projects.
+
+Create a `content/pages/projects/index.md` file:
 
 ```toml ,name=content/pages/projects/index.md
 +++
@@ -212,9 +242,10 @@ title = "My Projects"
 +++
 ```
 
-Include the following shortcode too: \{\{ projects(path="data.toml", format="toml") \}\}
+Include the following shortcode too:
+\{\{ projects(path="data.toml", format="toml") \}\}
 
-Create `content/pages/projects/data.toml` file in your blog:
+Create a `content/pages/projects/data.toml` file:
 
 ```toml ,name=content/pages/projects/data.toml
 [[project]]
@@ -233,11 +264,9 @@ Choose one of the following options or skip if you don't know what you're doing:
 
 #### Option A: Using `page.authors` and `config.author`
 
-The default author for pages is set using the `author` variable in the `config.toml` file.
+The default author for posts is set using the `author` variable in the `config.toml` file.
 
-You don't need to set `authors` in the frontmatter if the default author is the only author of the post.
-
-Otherwise, set `authors`:
+You don't need to set `authors` in the front matter if the default author is the only author of the post. Otherwise, set `authors`:
 
 ```toml ,name=frontmatter
 +++
@@ -248,7 +277,7 @@ authors = ["author_username"]
 #### Option B: Using Taxonomies
 
 Useful if the blog has a team of several authors.
-If you choose this option you should set taxonomies in each page.
+If you choose this option you should set taxonomies in each post.
 
 ```toml ,name=frontmatter
 +++
@@ -320,7 +349,7 @@ feed_filenames = ["atom.xml"]
 
 # Build a search index from the pages and section content
 # for "default_language".
-build_search_index = true
+# build_search_index = true
 ```
 
 Zola has built-in support for taxonomies.
@@ -455,17 +484,17 @@ header_dark_color = "#27272a"
 ```toml ,name=config.toml
 [extra.menus]
 menu_name = [
-  { url = "$BASE_URL/pages/archive/", name = "Archive" },
-  { url = "$BASE_URL/categories", name = "Categories" },
+  { url = "$BASE_URL/blog/", name = "Archive" },
+  { url = "$BASE_URL/categories/", name = "Categories" },
   { url = "$BASE_URL/tags/", name = "Tags" },
-  { url = "$BASE_URL/pages/about/", name = "About" },
+  { url = "$BASE_URL/about/", name = "About" },
 ]
 
 # Example multilingual menu.
 multilingual_menu_name = [
   { url = "$BASE_URL/pages/about/", names = { en = "About", fr = "About in French" } },
   { url = "$BASE_URL/pages/projects/", names = { en = "Projects", fr = "Projects in French" } },
-  { url = "$BASE_URL/pages/archive/", names = { en = "Archive", fr = "Archive in French" } },
+  { url = "$BASE_URL/blog/", names = { en = "Archive", fr = "Archive in French" } },
   { url = "$BASE_URL/categories/", names = { en = "Categories", fr = "Categories in French" } },
   { url = "$BASE_URL/tags/", names = { en = "Tags", fr = "Tags in French" } },
   { url = "$BASE_URL/authors/", names = { en = "Authors", fr = "Authors in French" } },
@@ -710,7 +739,7 @@ For example, open <http://127.0.0.1:1111/#disable-analytics>.
 ### Comments
 
 See [giscus.app](https://giscus.app/).
-Only available when `extra.comment` in the frontmatter or `extra.comment` in the config is set to true.
+Only available when `extra.comment` in the front matter or `extra.comment` in the config is set to true.
 
 ```toml ,name=config.toml
 [extra.giscus]
