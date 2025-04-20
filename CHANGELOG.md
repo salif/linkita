@@ -15,7 +15,7 @@ All notable changes to this theme will be documented in this file.
 - Add `extra.page_info_on_paginator` config variable. The frontmatter variable is `extra.page_info`,
   but its default value is not the `extra.page_info` config variable.
 - Remove `extra.open_graph.video` and `extra.open_graph.audio` frontmatter variables.
-- Use page slug in archive.html and taxonomy_list.html when page title is empty.
+- Use page slug in `archive.html` and `taxonomy_list.html` when page title is empty.
 
 ## [v2.2025_04_02.0](https://codeberg.org/salif/linkita/compare/v1.2025_01_04.0..v2.2025_04_02.0)
 

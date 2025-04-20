@@ -38,3 +38,12 @@
   {{- "https://cdn.jsdelivr.net/npm/simple-icons/icons/" ~ icon ~ ".svg" | safe }}
 {%- endif %}
 {%- endmacro social_icon -%}
+
+{%- macro cover_image(path, assets) -%}
+{%- for asset in assets %}
+  {%- if asset is ending_with(path) %}
+    {{- asset | safe }}
+    {%- break %}
+  {%- endif %}
+{%- endfor %}
+{%- endmacro cover_image -%}

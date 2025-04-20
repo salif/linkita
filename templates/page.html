@@ -9,11 +9,11 @@
     <h1 class="!my-0 pb-2.5">{{ page.title }}</h1>
     {% include "partials/page_info.html" %}
   </header>
-  {%- if g_image_path %}
+  {%- if g_image_url %}
   <figure class="mb-12 mt-0">
     <img
       class="h-auto w-full rounded-lg"
-      src="{{ m_url::rel(there=get_url(path=g_image_path), here=g_here, base=g_base) }}"
+      src="{{ m_url::rel(there=g_image_url, here=g_here, base=g_base) }}"
       {%- if page.extra.cover.alt is defined %}
       alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
       {%- if g_image_data.width is defined %}

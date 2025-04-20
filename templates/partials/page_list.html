@@ -8,7 +8,12 @@
   <figure class="mb-4 mt-0">
     <img
       class="h-auto w-full rounded-lg"
+      {%- set cover_image = m_url::cover_image(path=page.extra.cover.image, assets=page.assets) %}
+      {%- if cover_image %}
+      src="{{ m_url::rel(there=get_url(path=(cover_image | trim_start_matches(pat=`/`)), lang=lang), here=g_here, base=g_base) }}"
+      {%- else %}
       src="{{ m_url::rel(there=get_url(path=page.extra.cover.image), here=g_here, base=g_base) }}"
+      {%- endif %}
       {%- if page.extra.cover.alt is defined %}
       alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
       {%- if page.extra.cover.width is defined %}

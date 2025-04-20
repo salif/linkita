@@ -153,10 +153,9 @@
   {%- endif %}
 {%- endif %}
 
-{%- if g_image_path or g_profile.open_graph.image or (
+{%- if g_image_url or g_profile.open_graph.image or (
   config.author and config.extra.profiles[config.author].open_graph.image) %}
-  {%- if g_image_path %}
-    {%- set og_image_path = g_image_path %}
+  {%- if g_image_url %}
     {%- set og_image_alt = page.extra.cover.alt | default(value=(section.extra.cover.alt | default(value=""))) %}
   {%- elif g_profile.open_graph.image %}
     {%- set og_image_path = g_profile.open_graph.image %}
@@ -173,10 +172,12 @@
       {%- set og_image_alt = config.extra.profiles[config.author].open_graph.image_alt | default(value=config.author) %}
     {%- endif %}
   {%- endif %}
-  {%- if g_image_data is undefined %}
-    {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=true) %}
-  {%- endif %}
+  {%- if g_image_url %}
+  <meta property="og:image" content="{{ g_image_url | escape_xml | safe }}" />
+  {%- else %}
+    {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=false) %}
   <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
+  {%- endif %}
   <meta property="og:image:alt" content="{{ og_image_alt | linebreaksbr | truncate(length=500) | escape_xml | safe }}" />
   {%- if g_image_data.width is defined and g_image_data.height is defined %}
   <meta property="og:image:width" content="{{ g_image_data.width | int }}" />
