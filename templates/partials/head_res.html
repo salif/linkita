@@ -24,7 +24,7 @@
   <script src="{{ m_url::rel(there=get_url(path=`js/linkita-search.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
   {%- endif %}
 
-  {%- if page.extra.math | default(value=config.extra.math) %}
+  {%- if page.extra.math | default(value=(section.extra.math | default(value=config.extra.math))) %}
     {%- if config.extra.use_cdn %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
     integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous" />

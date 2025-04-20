@@ -13,18 +13,16 @@
     "type": "git",
     "url": "https://codeberg.org/salif/linkita.git"
   },
-  "dependencies": {
-    "instant.page": "^5.2.0",
-    "katex": "^0.16.22",
-    "simple-icons": "^14.12.1"
-  },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
     "@tailwindcss/typography": "^0.5.16",
+    "instant.page": "^5.2.0",
+    "katex": "^0.16.22",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "simple-icons": "^14.12.3",
     "tailwindcss": "^3.4.17",
     "terser": "^5.39.0",
-    "zx": "^8.5.2"
+    "zx": "^8.5.3"
   }
 }

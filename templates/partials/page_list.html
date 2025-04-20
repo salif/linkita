@@ -1,15 +1,6 @@
 <!-- Page List -->
-{%- if pages is defined %}
-{%- elif paginator is defined %}
-  {%- set pages = paginator.pages %}
-{%- elif term is defined %}
-  {%- set pages = term.pages %}
-{%- elif section is defined %}
-  {%- set pages = section.pages %}
-{%- endif %}
 {%- set hellip = m_i18n::tr(key=`hellip`, lk=g_lang_k, d=g_trans_d) %}
-
-{%- for page in pages %}
+{%- for page in paginator.pages | default(value=(section.pages | default(value=term.pages))) %}
 <section
   class="block-bg relative mb-4 rounded-lg p-4 first-of-type:mt-0 last-of-type:mb-0 active:scale-95 lg:mb-6 lg:p-6"
 >
@@ -20,8 +11,9 @@
       src="{{ m_url::rel(there=get_url(path=page.extra.cover.image), here=g_here, base=g_base) }}"
       {%- if page.extra.cover.alt is defined %}
       alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
-      {%- if page.extra.cover.width is defined or page.extra.cover.height is defined %}
-      width="{{ page.extra.cover.width | int }}"
+      {%- if page.extra.cover.width is defined %}
+      width="{{ page.extra.cover.width | int }}"{% endif %}
+      {%- if page.extra.cover.height is defined %}
       height="{{ page.extra.cover.height | int }}"{% endif %}
     />
   </figure>

@@ -1,19 +1,19 @@
-{%- if page.extra.style.bg_color is defined %}{% set style_bg_color = page.extra.style.bg_color %}{%
-  elif section.extra.style.bg_color is defined %}{% set style_bg_color = section.extra.style.bg_color %}{%
-  elif config.extra.style.bg_color is defined %}{% set style_bg_color = config.extra.style.bg_color %}{%
-  else %}{% set style_bg_color = "#f4f4f5" %}{% endif %}
-{%- if page.extra.style.bg_dark_color is defined %}{% set style_bg_dark_color = page.extra.style.bg_dark_color %}{%
-  elif section.extra.style.bg_dark_color is defined %}{% set style_bg_dark_color = section.extra.style.bg_dark_color %}{%
-  elif config.extra.style.bg_dark_color is defined %}{% set style_bg_dark_color = config.extra.style.bg_dark_color %}{%
-  else %}{% set style_bg_dark_color = "#18181b" %}{% endif %}
-{%- if page.extra.style.header_color is defined %}{% set style_header_color = page.extra.style.header_color %}{%
-  elif section.extra.style.header_color is defined %}{% set style_header_color = section.extra.style.header_color %}{%
-  elif config.extra.style.header_color is defined %}{% set style_header_color = config.extra.style.header_color %}{%
-  else %}{% set style_header_color = "#e4e4e7" %}{% endif %}
-{%- if page.extra.style.header_dark_color is defined %}{% set style_header_dark_color = page.extra.style.header_dark_color %}{%
-  elif section.extra.style.header_dark_color is defined %}{% set style_header_dark_color = section.extra.style.header_dark_color %}{%
-  elif config.extra.style.header_dark_color is defined %}{% set style_header_dark_color = config.extra.style.header_dark_color %}{%
-  else %}{% set style_header_dark_color = "#27272a" %}{% endif %}
+{%- set style_bg_color = page.extra.style.bg_color |
+  default(value=(section.extra.style.bg_color |
+  default(value=(config.extra.style.bg_color |
+  default(value="#f4f4f5"))))) %}
+{%- set style_bg_dark_color = page.extra.style.bg_dark_color |
+  default(value=(section.extra.style.bg_dark_color |
+  default(value=(config.extra.style.bg_dark_color |
+  default(value="#18181b"))))) %}
+{%- set style_header_color = page.extra.style.header_color |
+  default(value=(section.extra.style.header_color |
+  default(value=(config.extra.style.header_color |
+  default(value="#e4e4e7"))))) %}
+{%- set style_header_dark_color = page.extra.style.header_dark_color |
+  default(value=(section.extra.style.header_dark_color |
+  default(value=(config.extra.style.header_dark_color |
+  default(value="#27272a"))))) %}
   <style>
   :root{--bg: {{ style_bg_color | escape_xml | safe
     }}; --header: {{ style_header_color | escape_xml | safe
@@ -22,6 +22,7 @@
     }}; --header: {{ style_header_dark_color | escape_xml | safe
     }}; color-scheme: dark;}
   </style>
+  {%- if not config.extra.style.header_blur %}
   <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
     style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
-  {#- -#}
+  {%- endif -%}

@@ -15,7 +15,8 @@
     </h2>
 
     {%- for page in term.pages | slice(end=5) %}
-    <a class="secondary-link my-0.5" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{{ page.title }}</a>
+    <a class="secondary-link my-0.5" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{%
+      if page.title %}{{ page.title }}{% else %}{{ page.slug }}{% endif %}</a>
     {%- endfor %}
 
     {%- if term.pages | length > 5 %}

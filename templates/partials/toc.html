@@ -1,10 +1,12 @@
 <!-- TOC -->
 {%- if page.extra.toc is defined %}
   {%- set page_toc = page.extra.toc %}
+{%- elif section.extra.toc is defined %}
+  {%- set page_toc = section.extra.toc %}
 {%- elif config.extra.toc is defined %}
   {%- set page_toc = config.extra.toc %}
 {%- endif %}
-{%- if page.toc and page_toc %}
+{%- if page_toc and (page.toc or section.toc) %}
 <div class="block-bg mb-12 rounded-lg p-2 text-lg">
   <details {%- if page_toc is object and page_toc.open %}{{ ` open` }}{% endif %}>
     <summary class="select-none py-0.5 lg:py-1 pl-4" accesskey="=">
@@ -12,7 +14,7 @@
     </summary>
     <div class="px-2">
       <ul>
-        {%- for h1 in page.toc %}
+        {%- for h1 in page.toc | default(value=section.toc) %}
         <li>
           <a class="no-underline hover:underline" href="{{
             m_url::rel(there=h1.permalink, here=g_here, base=g_base) }}">{{ h1.title }}</a>

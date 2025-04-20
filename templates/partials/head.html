@@ -63,6 +63,8 @@
 {%- if current_url %}
   {%- if page.extra.open_graph.url %}
   <meta property="og:url" content="{{ page.extra.open_graph.url | escape_xml | safe }}" />
+  {%- elif section.extra.open_graph.url %}
+  <meta property="og:url" content="{{ section.extra.open_graph.url | escape_xml | safe }}" />
   {%- else %}
   <meta property="og:url" content="{{ current_url | escape_xml | safe }}" />
   {%- endif %}
@@ -151,11 +153,11 @@
   {%- endif %}
 {%- endif %}
 
-{%- if page.extra.cover.image or g_profile.open_graph.image or (
+{%- if g_image_path or g_profile.open_graph.image or (
   config.author and config.extra.profiles[config.author].open_graph.image) %}
-  {%- if page.extra.cover.image %}
-    {%- set og_image_path = page.extra.cover.image %}
-    {%- set og_image_alt = page.extra.cover.alt | default(value="") %}
+  {%- if g_image_path %}
+    {%- set og_image_path = g_image_path %}
+    {%- set og_image_alt = page.extra.cover.alt | default(value=(section.extra.cover.alt | default(value=""))) %}
   {%- elif g_profile.open_graph.image %}
     {%- set og_image_path = g_profile.open_graph.image %}
     {%- if g_profile.open_graph.languages[lang].image_alt is defined %}
@@ -172,12 +174,7 @@
     {%- endif %}
   {%- endif %}
   {%- if g_image_data is undefined %}
-    {%- if page.extra.cover.width is defined or page.extra.cover.height is defined %}
-      {%- set g_image_data = load_data(literal=`{"width": `~page.extra.cover.width~
-        `,"height": `~page.extra.cover.height~`}`, format=`json`) %}
-    {%- else %}
-      {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=true) %}
-    {%- endif %}
+    {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=true) %}
   {%- endif %}
   <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
   <meta property="og:image:alt" content="{{ og_image_alt | linebreaksbr | truncate(length=500) | escape_xml | safe }}" />
@@ -187,22 +184,6 @@
   {%- endif %}
   {%- if g_image_data.mime is defined %}
   <meta property="og:image:type" content="{{ g_image_data.mime | escape_xml | safe }}" />
-  {%- endif %}
-{%- endif %}
-
-{%- if page.extra.open_graph.audio %}
-  <meta property="og:audio" content="{{ page.extra.open_graph.audio | escape_xml | safe }}" />
-  {%- if page.extra.open_graph.audio_type %}
-  <meta property="og:audio:type" content="{{ page.extra.open_graph.audio_type | escape_xml | safe }}" />
-  {%- endif %}
-{%- endif %}
-
-{%- if page.extra.open_graph.video %}
-  <meta property="og:video" content="{{ page.extra.open_graph.video | escape_xml | safe }}" />
-  {%- if page.extra.open_graph.video_type %}
-  <meta property="og:video:type" content="{{ page.extra.open_graph.video_type | escape_xml | safe }}" />
-  <meta property="og:video:width" content="{{ page.extra.open_graph.video_width | int }}" />
-  <meta property="og:video:height" content="{{ page.extra.open_graph.video_height | int }}" />
   {%- endif %}
 {%- endif %}
 

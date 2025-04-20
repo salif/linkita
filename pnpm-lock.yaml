@@ -7,16 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      instant.page:
-        specifier: ^5.2.0
-        version: 5.2.0
-      katex:
-        specifier: ^0.16.22
-        version: 0.16.22
-      simple-icons:
-        specifier: ^14.12.1
-        version: 14.12.1
     devDependencies:
       '@iarna/toml':
         specifier: ^2.2.5
@@ -24,12 +14,21 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@3.4.17)
+      instant.page:
+        specifier: ^5.2.0
+        version: 5.2.0
+      katex:
+        specifier: ^0.16.22
+        version: 0.16.22
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
         version: 0.6.11(prettier@3.5.3)
+      simple-icons:
+        specifier: ^14.12.3
+        version: 14.12.3
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -37,8 +36,8 @@ importers:
         specifier: ^5.39.0
         version: 5.39.0
       zx:
-        specifier: ^8.5.2
-        version: 8.5.2
+        specifier: ^8.5.3
+        version: 8.5.3
 
 packages:
 
@@ -496,8 +495,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@14.12.1:
-    resolution: {integrity: sha512-9BYt6kvNs4n0asXZx4/h8MkcI+5qSnpYhtYVRnD1Clf0Vlh9Lfd4cRVjo/DbnosqsUGcq2M+clr/h4valZeg+Q==}
+  simple-icons@14.12.3:
+    resolution: {integrity: sha512-P85Pqak4picfTzdujmGL7+pFfsd32K/tDjHPQ8vvJcr2Xk380A9kBVIW5QH86qWqa+YJgFa5huLcUuwmW+YBPQ==}
     engines: {node: '>=0.12.18'}
 
   source-map-js@1.2.1:
@@ -581,8 +580,8 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  zx@8.5.2:
-    resolution: {integrity: sha512-eIxjTkCtlzvDNRhw3RD1gGBPA4nxOTn6PafpKl+MW4eE2jR/u/R6mqq7oyUCXwarM5DSP96kWtq6XkrL2kSFrg==}
+  zx@8.5.3:
+    resolution: {integrity: sha512-TsGLAt8Ngr4wDXLZmN9BT+6FWVLFbqdQ0qpXkV3tIfH7F+MgN/WUeSY7W4nNqAntjWunmnRaznpyxtJRPhCbUQ==}
     engines: {node: '>= 12.17.0'}
     hasBin: true
 
@@ -942,7 +941,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@14.12.1: {}
+  simple-icons@14.12.3: {}
 
   source-map-js@1.2.1: {}
 
@@ -1053,4 +1052,4 @@ snapshots:
 
   yaml@2.7.1: {}
 
-  zx@8.5.2: {}
+  zx@8.5.3: {}

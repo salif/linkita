@@ -23,14 +23,12 @@
 
 {%- if page.extra.section is defined %}
   {%- set section = get_section(path=page.extra.section) %}
-{%- elif paginator.pages is defined %}
-  {%- set section = paginator %}
 {%- endif %}
-{%- if section is undefined %}
+{%- if section.pages is undefined and paginator.pages is undefined %}
   {{- throw(message="The archive page is missing the extra.section frontmatter variable!") }}
 {%- endif %}
 
-{%- for year, posts in section.pages | group_by(attribute=`year`) %}
+{%- for year, posts in section.pages | default(value=paginator.pages) | group_by(attribute=`year`) %}
 <h2>{{ year }} <sup class="opacity-60">{{ posts | length }}</sup></h2>
 
 <div class="not-prose pl-6">
@@ -38,7 +36,8 @@
     {%- for post in posts %}
     <li>
       <div class="my-2 flex items-center justify-between">
-        <a class="secondary-link" href="{{ m_url::rel(there=post.permalink, here=g_here, base=g_base) }}">{{ post.title }}</a>
+        <a class="secondary-link" href="{{ m_url::rel(there=post.permalink, here=g_here, base=g_base) }}">{%
+          if post.title %}{{ post.title }}{% else %}{{ post.slug }}{% endif %}</a>
         <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{%
           if config.extra.languages[lang].locale %}{{ post.date | date(format=date_format_archive,
             locale=config.extra.languages[lang].locale) }}{%

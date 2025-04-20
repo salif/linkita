@@ -186,12 +186,10 @@ date_format = "%m-%d"
 
 Create a `content/blog/hello.md` file:
 
-```toml ,name=content/blog/hello.md
+```md ,name=content/blog/hello.md
 +++
 title = "Title"
-# description = ""
 date = 2025-12-30
-# taxonomies.tags = ["welcome"]
 +++
 
 Summary <!-- more -->
@@ -353,7 +351,7 @@ feed_filenames = ["atom.xml"]
 ```
 
 Zola has built-in support for taxonomies.
-Linkita has special support for taxonomies called `tags`, `categories`, and `authors`.
+Linkita has special support for taxonomies named `tags`, `categories`, and `authors`.
 
 ```toml ,name=config.toml
 [[taxonomies]]
@@ -414,7 +412,7 @@ header_menu_name = "menu_name"
 # Default value: false
 disable_default_favicon = false
 
-# If you want to reimplement the JS code
+# If you want to implement the JS code
 # yourself, set to true and use the inject support.
 # Default value: false
 disable_javascript = false
