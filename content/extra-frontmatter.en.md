@@ -75,32 +75,6 @@ section = ""
 # Type: boolean. No default value.
 opinion =
 
-# The URL for the audio.
-# No default value.
-audio = ""
-
-# MIME type of the audio.
-# e.g. "audio/vnd.facebook.bridge", "audio/mpeg".
-# No default value.
-audio_type = ""
-
-# The URL for the video.
-# No default value.
-video = ""
-
-# MIME type of the video.
-# e.g. "application/x-shockwave-flash", "video/mp4".
-# No default value.
-video_type = ""
-
-# Width of the video in pixels.
-# Type: number. No default value.
-video_width =
-
-# Height of the video in pixels.
-# Type: number. No default value.
-video_height =
-
 # Set only if different from canonical page URL.
 # Default value: current_url
 url = ""
