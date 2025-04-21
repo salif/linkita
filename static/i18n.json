@@ -1,4 +1,19 @@
 {
+  "language_names": {
+    "en": "English",
+    "bg": "български",
+    "eo": "Esperanto",
+    "zh": "中文",
+    "tr": "Türkçe",
+    "ar": "العربية",
+    "ko": "한국어",
+    "ja": "日本語",
+    "fr": "français",
+    "es": "español",
+    "uwu": "engwish",
+    "gb": "Globasa",
+    "cs": "čeština"
+  },
   "common_about": {
     "en": "About",
     "bg": "Относно",
@@ -522,21 +537,6 @@
     "gb": "",
     "cs": "Mapa stránek"
   },
-  "language_names": {
-    "en": "English",
-    "bg": "български",
-    "eo": "Esperanto",
-    "zh": "中文",
-    "tr": "Türkçe",
-    "ar": "العربية",
-    "ko": "한국어",
-    "ja": "日本語",
-    "fr": "français",
-    "es": "español",
-    "uwu": "engwish (uwu)",
-    "gb": "Globasa",
-    "cs": "čeština"
-  },
   "word_translations": {
     "en": "Translations",
     "bg": "Преводи",
@@ -691,11 +691,11 @@
     "en": "Linkita",
     "bg": "Линкита",
     "eo": "Linkita",
-    "zh": "林基塔",
+    "zh": "Linkita",
     "tr": "Linkita",
     "ar": "لينكيتا",
-    "ko": "린키타",
-    "ja": "リンキタ",
+    "ko": "Linkita",
+    "ja": "Linkita",
     "fr": "Linkita",
     "es": "Linkita",
     "uwu": "linkita",
