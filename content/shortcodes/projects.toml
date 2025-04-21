@@ -1,0 +1,8 @@
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]

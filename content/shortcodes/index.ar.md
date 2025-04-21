@@ -2,7 +2,7 @@
 title = "الاختصارات"
 description = "اختصارات قالب لينكيتا."
 date = 2022-10-20
-updated = 2025-01-05
+updated = 2025-04-20
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]
@@ -18,7 +18,7 @@ mermaid = true
 
 لاستخدام Mermaid في صفحتك، يجب عليك ضبط `extra.mermaid = true` في مقدمة الصفحة.
 
-```markdown
+```toml
 +++
 title = "عنوان صفحتك"
 
@@ -170,3 +170,36 @@ sequenceDiagram
 ```
 
 {{ gallery(alt="صورة تجريبية لمعرض الصور") }}
+
+## المشاريع
+
+يتيح لك الكود المختصر `projects()` إنشاء صفحة لمشاريعك.
+
+أنشئ ملفًا باسم `content/pages/projects/index.md`:
+
+```markdown
++++
+title = "مشاريعي"
+description = ""
+path = "projects"
++++
+
+{{/* projects(path="data.toml", format="toml") */}}
+```
+
+أنشئ ملفًا باسم `content/pages/projects/data.toml`:
+
+```toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]
+```
+
+سيتم عرض هذا كالتالي:
+
+{{ projects(path="projects.toml", format="toml") }}

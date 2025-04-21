@@ -2,7 +2,7 @@
 title = "Шорткодове"
 description = "Шорткодовете на темата Линкита."
 date = 2022-10-20
-updated = 2024-10-24
+updated = 2025-04-20
 [taxonomies]
 tags = ["маркдаун", "css", "html"]
 authors = ["salif"]
@@ -18,9 +18,9 @@ mermaid = true
 
 За да използвате Mermaid във вашата страница, трябва да зададете `extra.mermaid = true` в предните данни (frontmatter) на страницата.
 
-```markdown
+```toml
 +++
-title = "Заглавие на вашата страница"
+title = "Заглавие"
 
 [extra]
 mermaid = true
@@ -170,3 +170,37 @@ sequenceDiagram
 ```
 
 {{ gallery(alt="Демо изображение за галерията") }}
+
+
+## Проекти
+
+Шорткодът `projects()` ви позволява да създадете страница за вашите проекти.
+
+Създайте файл `content/pages/projects/index.md`:
+
+```markdown
++++
+title = "Моите проекти"
+description = ""
+path = "projects"
++++
+
+{{/* projects(path="data.toml", format="toml") */}}
+```
+
+Създайте файл `content/pages/projects/data.toml`:
+
+```toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]
+```
+
+Това ще бъде показано така:
+
+{{ projects(path="projects.toml", format="toml") }}

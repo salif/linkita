@@ -2,7 +2,7 @@
 title = "Kısa Kodlar"
 description = "Linkita temasının kısa kodları."
 date = 2022-10-20
-updated = 2025-01-23
+updated = 2025-04-20
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]
@@ -18,7 +18,7 @@ Kısa kodları hiç duymadınız mı? Daha fazla bilgi için [Zola dokümantasyo
 
 Sayfanızda Mermaid kullanmak için, sayfanın ön yüzünde `extra.mermaid = true` olarak ayarlamanız gerekir.
 
-```markdown
+```toml
 +++
 title = "Sayfa başlığınız"
 
@@ -170,3 +170,36 @@ Uyarı kutusu kısa kodunun 12 farklı türü vardır:
 ```
 
 {{ gallery(alt="Galeri için demo resim") }}
+
+## Projeler
+
+`projects()` kısa kodu, projeleriniz için bir sayfa oluşturmanıza olanak tanır.
+
+Bir `content/pages/projects/index.md` dosyası oluşturun:
+
+```markdown
++++
+title = "Projelerim"
+description = ""
+path = "projects"
++++
+
+{{/* projects(path="data.toml", format="toml") */}}
+```
+
+Bir `content/pages/projects/data.toml` dosyası oluşturun:
+
+```toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]
+```
+
+Bu şu şekilde görüntülenecektir:
+
+{{ projects(path="projects.toml", format="toml") }}

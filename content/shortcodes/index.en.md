@@ -2,7 +2,7 @@
 title = "Shortcodes"
 description = "The Linkita theme shortcodes."
 date = 2022-10-20
-#updated =
+updated = 2025-04-20
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["salif"]
@@ -18,7 +18,7 @@ Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/docu
 
 To use Mermaid in your page, you have to set `extra.mermaid = true` in the frontmatter of page.
 
-```markdown
+```toml
 +++
 title = "Your page title"
 
@@ -170,3 +170,36 @@ It's from [Zola documentation](https://www.getzola.org/documentation/content/ima
 ```
 
 {{ gallery(alt="Demo image for the gallery") }}
+
+## Projects
+
+The `projects()` shortcode allows you to make a page for your project.
+
+Create a `content/pages/projects/index.md` file:
+
+```markdown
++++
+title = "My Projects"
+description = ""
+path = "projects"
++++
+
+{{/* projects(path="data.toml", format="toml") */}}
+```
+
+Create a `content/pages/projects/data.toml` file:
+
+```toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]
+```
+
+This will be displayed as:
+
+{{ projects(path="projects.toml", format="toml") }}

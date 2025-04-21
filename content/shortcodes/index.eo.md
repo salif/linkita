@@ -2,7 +2,7 @@
 title = "Mallongigoj"
 description = "La mallongigoj de la temo Linkita."
 date = 2022-10-20
-updated = 2024-10-24
+updated = 2025-04-20
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]
@@ -18,9 +18,9 @@ La temo Linkita provizas plurajn mallongigojn.
 
 Por uzi Mermaid en via paĝo, vi devas agordi `extra.mermaid = true` en la antaŭaĵo (frontmatter) de la paĝo.
 
-```markdown
+```toml
 +++
-title = "La titolo de via paĝo"
+title = "Titolo"
 
 [extra]
 mermaid = true
@@ -170,3 +170,36 @@ La mallongigo `gallery()` estas tre simpla nur-HTML-a klakebla bildgalerio, kiu 
 ```
 
 {{ gallery(alt="Demobildo por la galerio") }}
+
+## Projektoj
+
+La mallongkodo `projects()` ebligas al vi krei paĝon por viaj projektoj.
+
+Kreu dosieron `content/pages/projects/index.md`:
+
+```markdown
++++
+title = "Miaj Projektoj"
+description = ""
+path = "projects"
++++
+
+{{/* projects(path="data.toml", format="toml") */}}
+```
+
+Kreu dosieron `content/pages/projects/data.toml`:
+
+```toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "hejmpaĝo", url = "https://example.com" },
+    { name = "fonto", url = "https://example.com" },
+]
+```
+
+Ĉi tio estos montrata jene:
+
+{{ projects(path="projects.toml", format="toml") }}

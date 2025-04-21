@@ -2,7 +2,7 @@
 title = "简码"
 description = "林基塔主题的简码。"
 date = 2022-10-20
-updated = 2025-01-23
+updated = 2025-04-20
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["kita", "salif"]
@@ -18,7 +18,7 @@ mermaid = true
 
 要在页面中使用 Mermaid，您需要在页面的 frontmatter 中设置 `extra.mermaid = true`。
 
-```markdown
+```toml
 +++
 title = "您的页面标题"
 
@@ -170,3 +170,36 @@ sequenceDiagram
 ```
 
 {{ gallery(alt="画廊的演示图片") }}
+
+## 项目
+
+`projects()` 短代码允许您为您的项目创建一个页面。
+
+创建一个 `content/pages/projects/index.md` 文件：
+
+```markdown
++++
+title = "我的项目"
+description = ""
+path = "projects"
++++
+
+{{/* projects(path="data.toml", format="toml") */}}
+```
+
+创建一个 `content/pages/projects/data.toml` 文件：
+
+```toml
+[[project]]
+name = "lorem"
+desc = "Lorem ipsum dolor sit."
+tags = ["lorem", "ipsum"]
+links = [
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
+]
+```
+
+这将显示为：
+
+{{ projects(path="projects.toml", format="toml") }}
