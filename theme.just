@@ -4,7 +4,7 @@ set unstable := true
 
 this_file := source_file()
 this := just_executable() + " -f " + quote(this_file)
-version_major := "2"
+version_major := "3"
 version_minor := `date +%Y_%m_%d`
 version := version_major + "." + version_minor
 

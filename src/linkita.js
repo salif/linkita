@@ -31,7 +31,7 @@
       applyDarkMode(darkScheme.matches, false);
     }
 
-    darkScheme.addEventListener("change", (event) => {
+    darkScheme.addEventListener("change", function (event) {
       applyDarkMode(event.matches, true);
     });
 
@@ -51,7 +51,7 @@
 
   function initTranslationsButton({ btn, rel }) {
     const pageLanguage = document.documentElement.getAttribute("lang");
-    const pageTranslations = document.head.querySelectorAll("link[rel='alternate'][hreflang]");
+    const pageTranslations = document.head.querySelectorAll('link[rel="alternate"][hreflang]');
 
     let userLanguages = [];
     if (pageTranslations.length < 2) return;
@@ -62,7 +62,7 @@
     else if (navigator.userLanguage != undefined) userLanguages = [navigator.userLanguage];
 
     const pageTranslationsLinks = new Map();
-    pageTranslations.forEach(el => {
+    pageTranslations.forEach(function (el) {
       const hreflang = el.getAttribute("hreflang");
       const href = rel === "true" ? el.dataset.href : el.getAttribute("href");
       if (hreflang !== pageLanguage) {
@@ -77,7 +77,7 @@
     const pageTranslationLink = getPageTranslationLink(userLanguages, pageTranslationsLinks);
     if (undefined != pageTranslationLink) {
       btn.classList.remove("hidden");
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", function () {
         window.location.href = pageTranslationLink;
       });
     }
@@ -119,18 +119,18 @@
   function isAnalyticsEnabled({ key, init }) {
     if (init) {
       if (window.location.hash === "#enable-analytics") {
-        if (localStorage.getItem(key) === 't') {
+        if (localStorage.getItem(key) === "t") {
           enableAnalytics({ key });
           alert("Analytics is now ENABLED in this browser. To disable analytics, load #disable-analytics.");
         }
       } else if (window.location.hash === "#disable-analytics") {
-        if (localStorage.getItem(key) !== 't') {
+        if (localStorage.getItem(key) !== "t") {
           disableAnalytics({ key });
           alert("Analytics is now DISABLED in this browser. To enable analytics, load #enable-analytics.");
         }
       }
     }
-    return localStorage.getItem(key) !== 't';
+    return localStorage.getItem(key) !== "t";
   }
 
   function initGoatCounterAnalytics({ src, endpoint }) {
