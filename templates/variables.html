@@ -1,0 +1,53 @@
+{% import "macros/i18n.html" as m_i18n %}
+{% import "macros/url.html" as m_url %}
+{% import "macros/profiles.html" as m_profiles %}
+{%- set g_trans_d = load_data(path=`i18n.json`, format=`json`) %}
+{%- set g_lang_k = config.extra.languages[lang].i18n_code | default(value=lang) %}
+{%- set g_lang_html = config.extra.languages[lang].language_code | default(value=lang) %}
+{%- set g_base = get_url(path=``) ~ "/" %}
+{%- if config.extra.relative_urls and current_url %}
+  {%- set g_here = current_url | trim_start_matches(pat=g_base) | split(pat=`/`) %}
+{%- else %}
+  {%- set g_here = [] %}
+{%- endif %}
+{%- if page.extra.profile %}
+  {%- set profile_username = page.extra.profile %}
+{%- elif section.extra.profile %}
+  {%- set profile_username = section.extra.profile %}
+{%- elif taxonomy.name is defined and taxonomy.name == "authors" and term.name is defined %}
+  {%- set profile_username = term.name %}
+{%- endif %}
+{%- if profile_username is defined %}
+  {%- if config.extra.profiles[profile_username] %}
+    {%- set g_profile = config.extra.profiles[profile_username] %}
+  {%- else %}
+    {%- set g_profile = load_data(literal=`{"name": "`~profile_username~`"}`, format=`json`) %}
+  {%- endif %}
+{%- endif %}
+{%- if page.extra.cover.image or section.extra.cover.image %}
+  {%- set g_image_path = page.extra.cover.image | default(value=section.extra.cover.image) %}
+  {%- set g_image_url = m_url::cover_image(path=g_image_path, assets=(page.assets | default(value=section.assets))) %}
+  {%- if page.extra.cover.width is defined and page.extra.cover.height is defined %}
+    {%- set g_image_data = load_data(literal=`{"width": `~page.extra.cover.width~
+      `,"height": `~page.extra.cover.height~`}`, format=`json`) %}
+  {%- elif section.extra.cover.width is defined and section.extra.cover.height is defined %}
+    {%- set g_image_data = load_data(literal=`{"width": `~section.extra.cover.width~
+      `,"height": `~section.extra.cover.height~`}`, format=`json`) %}
+  {%- else %}
+    {%- if g_image_url %}
+      {%- set g_image_data = get_image_metadata(path=g_image_url, allow_missing=false) %}
+    {%- else %}
+      {%- set g_image_data = get_image_metadata(path=g_image_path, allow_missing=true) %}
+    {%- endif %}
+  {%- endif %}
+  {%- if g_image_url %}
+    {%- set g_image_url = get_url(path=(g_image_url | trim_start_matches(pat=`/`)), lang=lang) %}
+  {%- else %}
+    {%- set g_image_url = get_url(path=g_image_path) %}
+  {%- endif %}
+{%- endif %}
+{%- block meta %}
+  {%- set g_is_article = false %}
+{%- endblock meta %}
+{%- block html %}
+{%- endblock html %}

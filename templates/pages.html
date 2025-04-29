@@ -1,4 +1,7 @@
 {% extends "index.html" %}
+{%- block meta %}
+  {%- set g_is_article = true %}
+{%- endblock meta %}
 {% block main %}
 {%- if g_profile is defined %}
 {% include "partials/profile.html" %}

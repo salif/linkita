@@ -1,6 +1,7 @@
 # Linkita
 
-A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
+A clean and elegant blog theme for [Zola](https://www.getzola.org/).
+Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
 - The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita).
 - For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
@@ -11,8 +12,6 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
   - [Chinese](https://salif.github.io/linkita/zh/), [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Globasa](https://salif.github.io/linkita/gb/).
 
 ## Features
-
-### Kita features
 
 - Easy to use and modify
 - No preset limits
@@ -29,9 +28,6 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/). Linkita is 
 - Comments using [Giscus](https://giscus.app/)
 - Mathematical notations using [KaTeX](https://katex.org/)
 - Diagrams and charts using [Mermaid](https://mermaid.js.org/)
-
-### Linkita features
-
 - Multilingual support
 - Search support (elasticlunr_javascript)
 - Improved search engine optimization
@@ -154,6 +150,8 @@ Create a `content/_index.md` file and set `extra.profile` to your username:
 
 ```toml ,name=content/_index.md
 +++
+title = ""
+description = ""
 sort_by = "date"
 paginate_by = 4
 [extra]
@@ -174,7 +172,8 @@ Create a `content/blog/_index.md` file:
 
 ```toml ,name=content/blog/_index.md
 +++
-title = "Blog"
+title = "Archive"
+description = ""
 template = "archive.html"
 transparent = true
 [extra]

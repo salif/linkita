@@ -1,10 +1,11 @@
 <!-- Page Info -->
 <div class="text-sm antialiased opacity-80">
+{%- set is_paginator = paginator is defined %}
 {%- if page.extra.page_info is defined %}
   {%- set page_info = page.extra.page_info %}
 {%- elif section.extra.page_info is defined %}
   {%- set page_info = section.extra.page_info %}
-{%- elif paginator is defined %}
+{%- elif is_paginator %}
   {%- if config.extra.languages[lang].page_info_on_paginator is defined %}
     {%- set page_info = config.extra.languages[lang].page_info_on_paginator %}
   {%- elif config.extra.page_info_on_paginator is defined %}
@@ -78,7 +79,12 @@
     if page.taxonomies.tags %}{%
       if info.prepend %}{{ info.prepend }}{% endif %}{%
       for page_tag in page.taxonomies.tags %}{%
-        if not loop.first %}&nbsp;{% endif %}<span>#{{ page_tag }}</span>
+        if not loop.first %}&nbsp;{% endif %}{%
+          if is_paginator %}<span>#{{ page_tag }}</span>{%
+          else %}<a
+            class="no-underline hover:underline"
+            href="{{ m_url::rel(there=get_taxonomy_url(kind=`tags`, name=page_tag, lang=lang),
+              here=g_here, base=g_base) }}">#{{ page_tag }}</a>{% endif %}
       {%- endfor %}
       {%- if info.append %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
