@@ -351,6 +351,15 @@ taxonomies = [
 ]
 ```
 
+By default, taxonomy pages are sorted in ascending order by the number of posts. You can customize this behavior using the `extra.taxonomy_sort_reverse` setting:
+
+```toml ,name=config.toml
+[extra.taxonomy_sort_reverse]
+categories = true
+tags = true
+authors = false
+```
+
 ### General config
 
 ```toml ,name=config.toml
