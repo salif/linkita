@@ -351,6 +351,17 @@ taxonomies = [
 ]
 ```
 
+By default, taxonomy pages are sorted in descending order by the number of posts. You can customize this behavior using the `extra.taxonomy_sorting` setting:
+
+```toml ,name=config.toml
+[extra.taxonomy_sorting]
+# "ascending_frequency", "descending_frequency" or "name"
+# Default value: "descending_frequency"
+categories = "name"
+tags = "descending_frequency"
+authors = "name"
+```
+
 ### General config
 
 ```toml ,name=config.toml
