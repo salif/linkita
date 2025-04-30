@@ -351,7 +351,8 @@ taxonomies = [
 ]
 ```
 
-By default, taxonomy pages are sorted in descending order by the number of posts. You can customize this behavior using the `extra.taxonomy_sorting` setting:
+By default, taxonomy pages are sorted in descending order by the number of posts.
+You can customize this behavior using the `extra.taxonomy_sorting` variable:
 
 ```toml ,name=config.toml
 [extra.taxonomy_sorting]

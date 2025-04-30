@@ -34,9 +34,9 @@
       <a
         class="underline"
         href="{{ m_url::get(url=link.url) }}"
-        {% if link.newtab or link.newtab is not defined %}target="_blank"{% endif %}
-        >{{ link.name }}</a
-      >
+        {%- if link.newtab | default(value=true) %}
+        target="_blank"{% endif %}
+      >{{ link.name }}</a>
       {%- endfor %}
     </div>
   </div>
