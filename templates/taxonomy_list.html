@@ -5,11 +5,11 @@
   {%- set word_more = m_i18n::tr(key=`word_more`, lk=g_lang_k, d=g_trans_d) %}
   {%- set taxonomy_sorting = config.extra.taxonomy_sorting[taxonomy.name] | default(value="descending_frequency") %}
   {%- if taxonomy_sorting == "ascending_frequency" %}
-    {%- set sorted_terms = terms | sort(attribute="pages") %}
+    {%- set sorted_terms = terms | sort(attribute=`page_count`) %}
   {%- elif taxonomy_sorting == "name" %}
-    {%- set sorted_terms = terms | sort(attribute="name") %}
+    {%- set sorted_terms = terms | sort(attribute=`name`) %}
   {%- else %}
-    {%- set sorted_terms = terms | sort(attribute="pages") | reverse %}
+    {%- set sorted_terms = terms | sort(attribute=`page_count`) | reverse %}
   {%- endif %}
   {%- for term in sorted_terms %}
   <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-72">

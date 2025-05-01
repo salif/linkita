@@ -4,6 +4,9 @@ All notable changes to this theme will be documented in this file.
 
 ## [Unreleased](https://codeberg.org/salif/linkita/compare/v3.2025_04_22..linkita)
 
+- Add `extra.taxonomy_sorting` config variable and sort terms in taxonomy pages by the number of posts by default.
+- Add `newtab` bool to `project.links` in the projects shortcode.
+
 ## [v3.2025_04_22](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..v3.2025_04_22)
 
 - Add frontmatter variables to override the `extra.style` config variable:

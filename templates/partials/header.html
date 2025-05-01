@@ -46,9 +46,7 @@
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
-        <script>window.linkita.initSearchButton({
-          scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"]
-        });</script>
+        <script>window.linkita.initSearchButton({ scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"] });</script>
             {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, lk=g_lang_k, d=g_trans_d) }}" accesskey=";"
