@@ -20,9 +20,9 @@
     "katex": "^0.16.22",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "simple-icons": "^14.12.3",
+    "simple-icons": "^14.15.0",
     "tailwindcss": "^3.4.17",
-    "terser": "^5.39.0",
-    "zx": "^8.5.3"
+    "terser": "^5.39.2",
+    "zx": "^8.5.4"
   }
 }

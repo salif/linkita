@@ -10,7 +10,6 @@
     "ja": "日本語",
     "fr": "français",
     "es": "español",
-    "uwu": "engwish",
     "gb": "Globasa",
     "cs": "čeština"
   },
@@ -25,7 +24,6 @@
     "ja": "について",
     "fr": "À propos",
     "es": "Sobre",
-    "uwu": "abouwt",
     "gb": "Tem",
     "cs": "O stránce"
   },
@@ -40,7 +38,6 @@
     "ja": "自己紹介",
     "fr": "",
     "es": "Sobre mí",
-    "uwu": "abouwt me",
     "gb": "Tem mi",
     "cs": "O mně"
   },
@@ -55,7 +52,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "abouwt us",
     "gb": "Tem imi",
     "cs": "O nás"
   },
@@ -70,7 +66,6 @@
     "ja": "アーカイブ",
     "fr": "Archive",
     "es": "Archivo",
-    "uwu": "awchive",
     "gb": "Arcivo",
     "cs": "Archiv"
   },
@@ -85,7 +80,6 @@
     "ja": "記事",
     "fr": "Articles",
     "es": "Artículos",
-    "uwu": "awticwes",
     "gb": "Makale",
     "cs": "Články"
   },
@@ -100,7 +94,6 @@
     "ja": "著者",
     "fr": "Auteurs",
     "es": "Autores",
-    "uwu": "authow-chans",
     "gb": "Eskriyen",
     "cs": "Autoři"
   },
@@ -115,7 +108,6 @@
     "ja": "ブログ",
     "fr": "Blog",
     "es": "Blog",
-    "uwu": "bwog",
     "gb": "Blogu",
     "cs": "Blog"
   },
@@ -130,7 +122,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "bwogs",
     "gb": "Blogu",
     "cs": "Blogy"
   },
@@ -145,7 +136,6 @@
     "ja": "カテゴリ",
     "fr": "Catégorie",
     "es": "Categoria",
-    "uwu": "categowy",
     "gb": "Klase",
     "cs": "Kategorie"
   },
@@ -160,7 +150,6 @@
     "ja": "カテゴリ",
     "fr": "Catégories",
     "es": "Categorias",
-    "uwu": "categowies",
     "gb": "Klase",
     "cs": "Kategorie"
   },
@@ -175,7 +164,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "codey-wodey",
     "gb": "Kodi",
     "cs": "Kód"
   },
@@ -190,8 +178,6 @@
     "ja": "コメント",
     "fr": "Commentaires",
     "es": "Comentarios",
-    "uwu": "chatties",
-    "uwu2": "commyents",
     "gb": "Komenta",
     "cs": "Komentáře"
   },
@@ -206,8 +192,6 @@
     "ja": "",
     "fr": "Contacts",
     "es": "Contactos",
-    "uwu": "fwiend wist",
-    "uwu2": "contwacts",
     "gb": "Kontato",
     "cs": "Kontakty"
   },
@@ -222,8 +206,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "say hewwo to me",
-    "uwu2": "contwact me",
     "gb": "Kontato mi",
     "cs": "Kontaktujte mě"
   },
@@ -238,8 +220,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "say hewwo to us",
-    "uwu2": "contwact us",
     "gb": "Kontato imi",
     "cs": "Kontaktujte nás"
   },
@@ -254,8 +234,6 @@
     "ja": "フォロー",
     "fr": "Suivre",
     "es": "Seguir",
-    "uwu": "befwiend",
-    "uwu2": "fowwow",
     "gb": "Folo",
     "cs": "Sledovat"
   },
@@ -270,7 +248,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "instaww",
     "gb": "Istala",
     "cs": "Instalovat"
   },
@@ -285,7 +262,6 @@
     "ja": "続きを読む",
     "fr": "Lire plus",
     "es": "Leer más",
-    "uwu": "wead mowe",
     "gb": "Doxo max",
     "cs": "Přečíst více"
   },
@@ -300,7 +276,6 @@
     "ja": "検索",
     "fr": "Rechercher",
     "es": "Buscar",
-    "uwu": "seawch",
     "gb": "Xerca",
     "cs": "Hledat"
   },
@@ -315,7 +290,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "subscwibe",
     "gb": "Abone",
     "cs": "Odebírat"
   },
@@ -330,7 +304,6 @@
     "ja": "",
     "fr": "Flux",
     "es": "",
-    "uwu": "feedy",
     "gb": "",
     "cs": "Feed"
   },
@@ -345,7 +318,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "feeds",
     "gb": "",
     "cs": "Feedy"
   },
@@ -360,8 +332,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "chatty pwace",
-    "uwu2": "fowum",
     "gb": "Forum",
     "cs": "Fórum"
   },
@@ -376,7 +346,6 @@
     "ja": "ホーム",
     "fr": "Accueil",
     "es": "Inicio",
-    "uwu": "home",
     "gb": "Ogar",
     "cs": "Domů"
   },
@@ -391,8 +360,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "mowe pwease",
-    "uwu2": "mowe",
     "gb": "Max to",
     "cs": "Více"
   },
@@ -407,7 +374,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "nyews",
     "gb": "Haberi",
     "cs": "Zprávy"
   },
@@ -422,8 +388,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "pictwues",
-    "uwu2": "photos uwu",
     "gb": "Foto",
     "cs": "Fotografie"
   },
@@ -438,8 +402,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "favowite things",
-    "uwu2": "pwefewences",
     "gb": "Preferi",
     "cs": "Předvolby"
   },
@@ -454,8 +416,6 @@
     "ja": "プロジェクト",
     "fr": "Projets",
     "es": "Proyectos",
-    "uwu": "pwojects",
-    "uwu2": "pwowjects",
     "gb": "Projeto",
     "cs": "Projekty"
   },
@@ -470,8 +430,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "customize me",
-    "uwu2": "settin's",
     "gb": "Setin",
     "cs": "Nastavení"
   },
@@ -486,8 +444,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "magic spewws",
-    "uwu2": "souce code",
     "gb": "",
     "cs": "Zdrojový kód"
   },
@@ -502,7 +458,6 @@
     "ja": "タグ",
     "fr": "Tags",
     "es": "Etiquetas",
-    "uwu": "tags",
     "gb": "Label",
     "cs": "Štítky"
   },
@@ -517,8 +472,6 @@
     "ja": "チーム",
     "fr": "Équipe",
     "es": "Equipo",
-    "uwu": "fwiend gwoup",
-    "uwu2": "teamy",
     "gb": "Tim",
     "cs": "Tým"
   },
@@ -533,7 +486,6 @@
     "ja": "サイトマップ",
     "fr": "Plan du site",
     "es": "Mapa del sitio",
-    "uwu": "",
     "gb": "",
     "cs": "Mapa stránek"
   },
@@ -548,7 +500,6 @@
     "ja": "翻訳",
     "fr": "Traductions",
     "es": "Traducciones",
-    "uwu": "twanswations",
     "gb": "Basatayti",
     "cs": "Překlady"
   },
@@ -563,7 +514,6 @@
     "ja": "タグ",
     "fr": "Tags",
     "es": "Etiquetas",
-    "uwu": "tags",
     "gb": "Label",
     "cs": "Štítky"
   },
@@ -578,7 +528,6 @@
     "ja": "カテゴリ",
     "fr": "Catégories",
     "es": "Categorias",
-    "uwu": "categowies",
     "gb": "Klase",
     "cs": "Kategorie"
   },
@@ -593,7 +542,6 @@
     "ja": "著者",
     "fr": "Auteurs",
     "es": "Autores",
-    "uwu": "authow-chans",
     "gb": "Eskriyen",
     "cs": "Autoři"
   },
@@ -608,7 +556,6 @@
     "ja": "ホームページへ行く",
     "fr": "Vers la page d'accueil",
     "es": "Ir al inicio",
-    "uwu": "",
     "gb": "",
     "cs": "Přejít na domovskou stránku"
   },
@@ -623,7 +570,6 @@
     "ja": "配色を切り替える",
     "fr": "Changer le jeu de couleurs",
     "es": "Cambiar esquema de color",
-    "uwu": "",
     "gb": "",
     "cs": "Přepnout barevné schéma"
   },
@@ -638,7 +584,6 @@
     "ja": "検索",
     "fr": "Rechercher",
     "es": "Buscar",
-    "uwu": "seawch",
     "gb": "Xerca",
     "cs": "Vyhledávání"
   },
@@ -653,7 +598,6 @@
     "ja": "ページの翻訳へ",
     "fr": "Aller à la traduction de la page",
     "es": "Ir a la traducción de la página",
-    "uwu": "",
     "gb": "",
     "cs": "Přejít na stránku překladu"
   },
@@ -668,7 +612,6 @@
     "ja": "メニュー",
     "fr": "Menu",
     "es": "Menú",
-    "uwu": "menu",
     "gb": "Menu",
     "cs": "Menu"
   },
@@ -683,7 +626,6 @@
     "ja": "",
     "fr": "Propulsé par Zola",
     "es": "Impulsado por Zola",
-    "uwu": "powewed by zola",
     "gb": "",
     "cs": "Poháněno pomocí Zola"
   },
@@ -698,7 +640,6 @@
     "ja": "Linkita",
     "fr": "Linkita",
     "es": "Linkita",
-    "uwu": "linkita",
     "gb": "Linkita",
     "cs": "Linkita"
   },
@@ -713,7 +654,6 @@
     "ja": "前へ",
     "fr": "Précédent",
     "es": "Previo",
-    "uwu": "pwev page",
     "gb": "sayfa",
     "cs": "Předchozí stránka"
   },
@@ -728,7 +668,6 @@
     "ja": "次へ",
     "fr": "Suivant",
     "es": "Siguiente",
-    "uwu": "nyext page",
     "gb": "sayfa",
     "cs": "Další stránka"
   },
@@ -743,7 +682,6 @@
     "ja": "コンテンツ",
     "fr": "Table des matières",
     "es": "Contenidos",
-    "uwu": "tabwe of contyents",
     "gb": "Inhare",
     "cs": "Obsah"
   },
@@ -758,7 +696,6 @@
     "ja": "分",
     "fr": "min",
     "es": "min",
-    "uwu": "min",
     "gb": "min",
     "cs": "min"
   },
@@ -773,7 +710,6 @@
     "ja": "分",
     "fr": "min",
     "es": "min",
-    "uwu": "min",
     "gb": "min",
     "cs": "min"
   },
@@ -788,7 +724,6 @@
     "ja": "文字",
     "fr": "mots",
     "es": "palabras",
-    "uwu": "wowds",
     "gb": "lexi",
     "cs": "slova"
   },
@@ -803,7 +738,6 @@
     "ja": "更に >>",
     "fr": "Plus >>",
     "es": "Más >>",
-    "uwu": "mowe >>",
     "gb": "Max to >>",
     "cs": "Více >>"
   },
@@ -818,7 +752,6 @@
     "ja": "&hellip;",
     "fr": "&hellip;",
     "es": "&hellip;",
-    "uwu": "&hellip;",
     "gb": "&hellip;",
     "cs": "&hellip;"
   },
@@ -833,7 +766,6 @@
     "ja": "&middot;",
     "fr": "&middot;",
     "es": "&middot;",
-    "uwu": "&middot;",
     "gb": "&middot;",
     "cs": "&middot;"
   },
@@ -848,8 +780,6 @@
     "ja": "404: ページが見つかりません",
     "fr": "404: Page non trouvée",
     "es": "404: Página no encontrada",
-    "uwu": "404: page got wost in the void",
-    "uwu2": "404: P-page nyot found >.<",
     "gb": "404",
     "cs": "404: Stránka nebyla nalezena"
   },
@@ -864,8 +794,6 @@
     "ja": "",
     "fr": "",
     "es": "",
-    "uwu": "",
-    "uwu2": "",
     "gb": "",
     "cs": ""
   },
@@ -880,7 +808,6 @@
     "ja": "トップに戻る",
     "fr": "Retour en Haut",
     "es": "Volver arriba",
-    "uwu": "",
     "gb": "",
     "cs": "Zpět na začátek"
   },
@@ -895,7 +822,6 @@
     "ja": "コピー",
     "fr": "copier",
     "es": "copiar",
-    "uwu": "",
     "gb": "",
     "cs": "kopírovat"
   },
@@ -910,7 +836,6 @@
     "ja": "コピーしました！",
     "fr": "copié!",
     "es": "¡copiado!",
-    "uwu": "",
     "gb": "",
     "cs": "zkopírováno!"
   }

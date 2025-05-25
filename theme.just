@@ -39,9 +39,13 @@ build_js:
 build_js_file filename:
     terser "./src/{{ filename }}.js" -o "./static/js/{{ filename }}.min.js"
 
+[group('update_assets')]
+update_pnpm:
+    pnpm update
+
 [extension('.mjs')]
 [group('update_assets')]
-update_simple_icons:
+sync_simple_icons:
     #!/usr/bin/env node
     import fs from "fs"
     const icons = ["bluesky", "codeberg", "git", "github", "mastodon", "matrix", "youtube"]
@@ -51,7 +55,7 @@ update_simple_icons:
 
 [group('update_assets')]
 [script]
-update_instantpage:
+sync_instantpage:
     cd node_modules/instant.page/
     pnpm run minify
     cd -
@@ -59,7 +63,7 @@ update_instantpage:
 
 [group('update_assets')]
 [script]
-update_katex:
+sync_katex:
     rm -rf static/katex
     mkdir static/katex static/katex/fonts static/katex/contrib
     cp node_modules/katex/dist/README.md static/katex/
