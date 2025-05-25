@@ -196,17 +196,6 @@ bio = "Merhaba! Ben yazarım."
 name = "萨利夫"
 bio = "您好！我是作者。"
 
-[extra.profiles.salif.open_graph]
-first_name = "Salif"
-last_name = "Mehmed"
-username = "salif"
-gender = "male"
-[extra.profiles.salif.open_graph.fediverse_creator]
-handle = "bg.salif.eu"
-domain = "bsky.brid.gy"
-# Set url because I'm using bridge instead of a real mastodon account
-url = "https://bsky.brid.gy/ap/did:plc:3ebgy675tgwzqudufqvifpxv"
-
 [[extra.profiles.salif.social]]
 name = "codeberg"
 url = "https://codeberg.org/salif"
