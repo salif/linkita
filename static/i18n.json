@@ -1,5 +1,5 @@
 {
-  "language_names": {
+"language_names": {
     "en": "English",
     "bg": "български",
     "eo": "Esperanto",
@@ -11,7 +11,10 @@
     "fr": "français",
     "es": "español",
     "gb": "Globasa",
-    "cs": "čeština"
+    "cs": "čeština",
+    "ru": "Русский",
+    "uk": "Українська",
+    "kk": "Қазақша"
   },
   "common_about": {
     "en": "About",
@@ -25,7 +28,10 @@
     "fr": "À propos",
     "es": "Sobre",
     "gb": "Tem",
-    "cs": "O stránce"
+    "cs": "O stránce",
+    "ru": "О проекте",
+    "uk": "Про проєкт",
+    "kk": "Жоба туралы"
   },
   "common_about_me": {
     "en": "About Me",
@@ -39,7 +45,10 @@
     "fr": "",
     "es": "Sobre mí",
     "gb": "Tem mi",
-    "cs": "O mně"
+    "cs": "O mně",
+    "ru": "Обо мне",
+    "uk": "Про мене",
+    "kk": "Мен туралы"
   },
   "common_about_us": {
     "en": "About Us",
@@ -53,7 +62,10 @@
     "fr": "",
     "es": "",
     "gb": "Tem imi",
-    "cs": "O nás"
+    "cs": "O nás",
+    "ru": "О нас",
+    "uk": "Про нас",
+    "kk": "Біз туралы"
   },
   "common_archive": {
     "en": "Archive",
@@ -67,7 +79,10 @@
     "fr": "Archive",
     "es": "Archivo",
     "gb": "Arcivo",
-    "cs": "Archiv"
+    "cs": "Archiv",
+    "ru": "Архив",
+    "uk": "Архів",
+    "kk": "Мұрағат"
   },
   "common_articles": {
     "en": "Articles",
@@ -81,7 +96,10 @@
     "fr": "Articles",
     "es": "Artículos",
     "gb": "Makale",
-    "cs": "Články"
+    "cs": "Články",
+    "ru": "Статьи",
+    "uk": "Статті",
+    "kk": "Мақалалар"
   },
   "common_authors": {
     "en": "Authors",
@@ -95,7 +113,10 @@
     "fr": "Auteurs",
     "es": "Autores",
     "gb": "Eskriyen",
-    "cs": "Autoři"
+    "cs": "Autoři",
+    "ru": "Авторы",
+    "uk": "Автори",
+    "kk": "Авторлар"
   },
   "common_blog": {
     "en": "Blog",
@@ -109,7 +130,10 @@
     "fr": "Blog",
     "es": "Blog",
     "gb": "Blogu",
-    "cs": "Blog"
+    "cs": "Blog",
+    "ru": "Блог",
+    "uk": "Блог",
+    "kk": "Блог"
   },
   "common_blogs": {
     "en": "Blogs",
@@ -123,7 +147,10 @@
     "fr": "",
     "es": "",
     "gb": "Blogu",
-    "cs": "Blogy"
+    "cs": "Blogy",
+    "ru": "Блоги",
+    "uk": "Блоги",
+    "kk": "Блогтар"
   },
   "common_category": {
     "en": "Category",
@@ -137,7 +164,10 @@
     "fr": "Catégorie",
     "es": "Categoria",
     "gb": "Klase",
-    "cs": "Kategorie"
+    "cs": "Kategorie",
+    "ru": "Категория",
+    "uk": "Категорія",
+    "kk": "Санат"
   },
   "common_categories": {
     "en": "Categories",
@@ -151,7 +181,10 @@
     "fr": "Catégories",
     "es": "Categorias",
     "gb": "Klase",
-    "cs": "Kategorie"
+    "cs": "Kategorie",
+    "ru": "Категории",
+    "uk": "Категорії",
+    "kk": "Санаттар"
   },
   "common_code": {
     "en": "Code",
@@ -165,7 +198,10 @@
     "fr": "",
     "es": "",
     "gb": "Kodi",
-    "cs": "Kód"
+    "cs": "Kód",
+    "ru": "Код",
+    "uk": "Код",
+    "kk": "Код"
   },
   "common_comments": {
     "en": "Comments",
@@ -179,7 +215,10 @@
     "fr": "Commentaires",
     "es": "Comentarios",
     "gb": "Komenta",
-    "cs": "Komentáře"
+    "cs": "Komentáře",
+    "ru": "Комментарии",
+    "uk": "Коментарі",
+    "kk": "Пікірлер"
   },
   "common_contacts": {
     "en": "Contacts",
@@ -193,7 +232,10 @@
     "fr": "Contacts",
     "es": "Contactos",
     "gb": "Kontato",
-    "cs": "Kontakty"
+    "cs": "Kontakty",
+    "ru": "Контакты",
+    "uk": "Контакти",
+    "kk": "Байланыстар"
   },
   "common_do_contact_me": {
     "en": "Contact Me",
@@ -207,7 +249,10 @@
     "fr": "",
     "es": "",
     "gb": "Kontato mi",
-    "cs": "Kontaktujte mě"
+    "cs": "Kontaktujte mě",
+    "ru": "Связаться со мной",
+    "uk": "Зв'язатися зі мною",
+    "kk": "Маған хабарласыңыз"
   },
   "common_do_contact_us": {
     "en": "Contact Us",
@@ -221,7 +266,10 @@
     "fr": "",
     "es": "",
     "gb": "Kontato imi",
-    "cs": "Kontaktujte nás"
+    "cs": "Kontaktujte nás",
+    "ru": "Свяжитесь с нами",
+    "uk": "Зв'яжіться з нами",
+    "kk": "Бізбен хабарласыңыз"
   },
   "common_do_follow": {
     "en": "Follow",
@@ -235,7 +283,10 @@
     "fr": "Suivre",
     "es": "Seguir",
     "gb": "Folo",
-    "cs": "Sledovat"
+    "cs": "Sledovat",
+    "ru": "Подписаться",
+    "uk": "Стежити",
+    "kk": "Қосылу"
   },
   "common_do_install": {
     "en": "Install",
@@ -249,7 +300,10 @@
     "fr": "",
     "es": "",
     "gb": "Istala",
-    "cs": "Instalovat"
+    "cs": "Instalovat",
+    "ru": "Установить",
+    "uk": "Встановити",
+    "kk": "Орнату"
   },
   "common_do_read_more": {
     "en": "Read more",
@@ -263,7 +317,10 @@
     "fr": "Lire plus",
     "es": "Leer más",
     "gb": "Doxo max",
-    "cs": "Přečíst více"
+    "cs": "Přečíst více",
+    "ru": "Читать далее",
+    "uk": "Читати далі",
+    "kk": "Толығырақ оқу"
   },
   "common_do_search": {
     "en": "Search",
@@ -277,7 +334,10 @@
     "fr": "Rechercher",
     "es": "Buscar",
     "gb": "Xerca",
-    "cs": "Hledat"
+    "cs": "Hledat",
+    "ru": "Поиск",
+    "uk": "Пошук",
+    "kk": "Іздеу"
   },
   "common_do_subscribe": {
     "en": "Subscribe",
@@ -291,7 +351,10 @@
     "fr": "",
     "es": "",
     "gb": "Abone",
-    "cs": "Odebírat"
+    "cs": "Odebírat",
+    "ru": "Подписаться",
+    "uk": "Підписатися",
+    "kk": "Жазылу"
   },
   "common_feed": {
     "en": "Feed",
@@ -305,7 +368,10 @@
     "fr": "Flux",
     "es": "",
     "gb": "",
-    "cs": "Feed"
+    "cs": "Feed",
+    "ru": "Лента",
+    "uk": "Стрічка",
+    "kk": "Арна"
   },
   "common_feeds": {
     "en": "Feeds",
@@ -319,7 +385,10 @@
     "fr": "",
     "es": "",
     "gb": "",
-    "cs": "Feedy"
+    "cs": "Feedy",
+    "ru": "Ленты",
+    "uk": "Стрічки",
+    "kk": "Арналар"
   },
   "common_forum": {
     "en": "Forum",
@@ -333,7 +402,10 @@
     "fr": "",
     "es": "",
     "gb": "Forum",
-    "cs": "Fórum"
+    "cs": "Fórum",
+    "ru": "Форум",
+    "uk": "Форум",
+    "kk": "Форум"
   },
   "common_home": {
     "en": "Home",
@@ -347,7 +419,10 @@
     "fr": "Accueil",
     "es": "Inicio",
     "gb": "Ogar",
-    "cs": "Domů"
+    "cs": "Domů",
+    "ru": "Главная",
+    "uk": "Головна",
+    "kk": "Басты бет"
   },
   "common_more": {
     "en": "More",
@@ -361,7 +436,10 @@
     "fr": "",
     "es": "",
     "gb": "Max to",
-    "cs": "Více"
+    "cs": "Více",
+    "ru": "Еще",
+    "uk": "Більше",
+    "kk": "Тағы"
   },
   "common_news": {
     "en": "News",
@@ -375,7 +453,10 @@
     "fr": "",
     "es": "",
     "gb": "Haberi",
-    "cs": "Zprávy"
+    "cs": "Zprávy",
+    "ru": "Новости",
+    "uk": "Новини",
+    "kk": "Жаңалықтар"
   },
   "common_photos": {
     "en": "Photos",
@@ -389,7 +470,10 @@
     "fr": "",
     "es": "",
     "gb": "Foto",
-    "cs": "Fotografie"
+    "cs": "Fotografie",
+    "ru": "Фото",
+    "uk": "Фото",
+    "kk": "Фотосуреттер"
   },
   "common_preferences": {
     "en": "Preferences",
@@ -403,7 +487,10 @@
     "fr": "",
     "es": "",
     "gb": "Preferi",
-    "cs": "Předvolby"
+    "cs": "Předvolby",
+    "ru": "Предпочтения",
+    "uk": "Вподобання",
+    "kk": "Артықшылықтар"
   },
   "common_projects": {
     "en": "Projects",
@@ -417,7 +504,10 @@
     "fr": "Projets",
     "es": "Proyectos",
     "gb": "Projeto",
-    "cs": "Projekty"
+    "cs": "Projekty",
+    "ru": "Проекты",
+    "uk": "Проекти",
+    "kk": "Жобалар"
   },
   "common_settings": {
     "en": "Settings",
@@ -431,7 +521,10 @@
     "fr": "",
     "es": "",
     "gb": "Setin",
-    "cs": "Nastavení"
+    "cs": "Nastavení",
+    "ru": "Настройки",
+    "uk": "Налаштування",
+    "kk": "Параметрлер"
   },
   "common_source_code": {
     "en": "Source code",
@@ -445,7 +538,10 @@
     "fr": "",
     "es": "",
     "gb": "",
-    "cs": "Zdrojový kód"
+    "cs": "Zdrojový kód",
+    "ru": "Исходный код",
+    "uk": "Вихідний код",
+    "kk": "Бастапқы код"
   },
   "common_tags": {
     "en": "Tags",
@@ -459,7 +555,10 @@
     "fr": "Tags",
     "es": "Etiquetas",
     "gb": "Label",
-    "cs": "Štítky"
+    "cs": "Štítky",
+    "ru": "Теги",
+    "uk": "Теги",
+    "kk": "Тегтер"
   },
   "common_team": {
     "en": "Team",
@@ -473,7 +572,10 @@
     "fr": "Équipe",
     "es": "Equipo",
     "gb": "Tim",
-    "cs": "Tým"
+    "cs": "Tým",
+    "ru": "Команда",
+    "uk": "Команда",
+    "kk": "Команда"
   },
   "common_sitemap": {
     "en": "Sitemap",
@@ -487,7 +589,10 @@
     "fr": "Plan du site",
     "es": "Mapa del sitio",
     "gb": "",
-    "cs": "Mapa stránek"
+    "cs": "Mapa stránek",
+    "ru": "Карта сайта",
+    "uk": "Карта сайту",
+    "kk": "Сайт картасы"
   },
   "word_translations": {
     "en": "Translations",
@@ -501,7 +606,10 @@
     "fr": "Traductions",
     "es": "Traducciones",
     "gb": "Basatayti",
-    "cs": "Překlady"
+    "cs": "Překlady",
+    "ru": "Переводы",
+    "uk": "Переклади",
+    "kk": "Аудармалар"
   },
   "taxonomy_tags": {
     "en": "Tags",
@@ -515,7 +623,10 @@
     "fr": "Tags",
     "es": "Etiquetas",
     "gb": "Label",
-    "cs": "Štítky"
+    "cs": "Štítky",
+    "ru": "Теги",
+    "uk": "Теги",
+    "kk": "Тегтер"
   },
   "taxonomy_categories": {
     "en": "Categories",
@@ -529,7 +640,10 @@
     "fr": "Catégories",
     "es": "Categorias",
     "gb": "Klase",
-    "cs": "Kategorie"
+    "cs": "Kategorie",
+    "ru": "Категории",
+    "uk": "Категорії",
+    "kk": "Санаттар"
   },
   "taxonomy_authors": {
     "en": "Authors",
@@ -543,7 +657,10 @@
     "fr": "Auteurs",
     "es": "Autores",
     "gb": "Eskriyen",
-    "cs": "Autoři"
+    "cs": "Autoři",
+    "ru": "Авторы",
+    "uk": "Автори",
+    "kk": "Авторлар"
   },
   "act_go_to_home": {
     "en": "Go to home page",
@@ -557,7 +674,10 @@
     "fr": "Vers la page d'accueil",
     "es": "Ir al inicio",
     "gb": "",
-    "cs": "Přejít na domovskou stránku"
+    "cs": "Přejít na domovskou stránku",
+    "ru": "На главную",
+    "uk": "На головну",
+    "kk": "Басты бетке өту"
   },
   "act_switch_color_scheme": {
     "en": "Switch color scheme",
@@ -571,7 +691,10 @@
     "fr": "Changer le jeu de couleurs",
     "es": "Cambiar esquema de color",
     "gb": "",
-    "cs": "Přepnout barevné schéma"
+    "cs": "Přepnout barevné schéma",
+    "ru": "Сменить тему",
+    "uk": "Змінити тему",
+    "kk": "Түс схемасын өзгерту"
   },
   "act_search": {
     "en": "Search",
@@ -585,7 +708,10 @@
     "fr": "Rechercher",
     "es": "Buscar",
     "gb": "Xerca",
-    "cs": "Vyhledávání"
+    "cs": "Vyhledávání",
+    "ru": "Поиск",
+    "uk": "Пошук",
+    "kk": "Іздеу"
   },
   "act_go_to_translation": {
     "en": "Go to translation of the page",
@@ -599,7 +725,10 @@
     "fr": "Aller à la traduction de la page",
     "es": "Ir a la traducción de la página",
     "gb": "",
-    "cs": "Přejít na stránku překladu"
+    "cs": "Přejít na stránku překladu",
+    "ru": "Перейти к переводу",
+    "uk": "Перейти до перекладу",
+    "kk": "Аудармаға өту"
   },
   "act_menu": {
     "en": "Menu",
@@ -613,7 +742,10 @@
     "fr": "Menu",
     "es": "Menú",
     "gb": "Menu",
-    "cs": "Menu"
+    "cs": "Menu",
+    "ru": "Меню",
+    "uk": "Меню",
+    "kk": "Мәзір"
   },
   "footer_powered_by": {
     "en": "Powered by Zola",
@@ -627,7 +759,10 @@
     "fr": "Propulsé par Zola",
     "es": "Impulsado por Zola",
     "gb": "",
-    "cs": "Poháněno pomocí Zola"
+    "cs": "Poháněno pomocí Zola",
+    "ru": "Работает на Zola",
+    "uk": "Працює на Zola",
+    "kk": "Zola арқылы жасалған"
   },
   "footer_theme_name": {
     "en": "Linkita",
@@ -641,7 +776,10 @@
     "fr": "Linkita",
     "es": "Linkita",
     "gb": "Linkita",
-    "cs": "Linkita"
+    "cs": "Linkita",
+    "ru": "Linkita",
+    "uk": "Linkita",
+    "kk": "Linkita"
   },
   "word_prev_page": {
     "en": "Prev Page",
@@ -655,7 +793,10 @@
     "fr": "Précédent",
     "es": "Previo",
     "gb": "sayfa",
-    "cs": "Předchozí stránka"
+    "cs": "Předchozí stránka",
+    "ru": "Пред. страница",
+    "uk": "Попер. сторінка",
+    "kk": "Артқа"
   },
   "word_next_page": {
     "en": "Next Page",
@@ -669,7 +810,10 @@
     "fr": "Suivant",
     "es": "Siguiente",
     "gb": "sayfa",
-    "cs": "Další stránka"
+    "cs": "Další stránka",
+    "ru": "След. страница",
+    "uk": "Наст. сторінка",
+    "kk": "Келесі"
   },
   "word_toc": {
     "en": "Table of Contents",
@@ -683,7 +827,10 @@
     "fr": "Table des matières",
     "es": "Contenidos",
     "gb": "Inhare",
-    "cs": "Obsah"
+    "cs": "Obsah",
+    "ru": "Содержание",
+    "uk": "Зміст",
+    "kk": "Мазмұны"
   },
   "word_minute": {
     "en": "min",
@@ -697,7 +844,10 @@
     "fr": "min",
     "es": "min",
     "gb": "min",
-    "cs": "min"
+    "cs": "min",
+    "ru": "мин",
+    "uk": "хв",
+    "kk": "мин"
   },
   "word_minutes": {
     "en": "min",
@@ -711,7 +861,10 @@
     "fr": "min",
     "es": "min",
     "gb": "min",
-    "cs": "min"
+    "cs": "min",
+    "ru": "мин",
+    "uk": "хв",
+    "kk": "мин"
   },
   "word_words": {
     "en": "words",
@@ -725,7 +878,10 @@
     "fr": "mots",
     "es": "palabras",
     "gb": "lexi",
-    "cs": "slova"
+    "cs": "slova",
+    "ru": "слов",
+    "uk": "слів",
+    "kk": "сөз"
   },
   "word_more": {
     "en": "More >>",
@@ -739,7 +895,10 @@
     "fr": "Plus >>",
     "es": "Más >>",
     "gb": "Max to >>",
-    "cs": "Více >>"
+    "cs": "Více >>",
+    "ru": "Подробнее >>",
+    "uk": "Детальніше >>",
+    "kk": "Толығырақ >>"
   },
   "hellip": {
     "en": "&hellip;",
@@ -753,7 +912,10 @@
     "fr": "&hellip;",
     "es": "&hellip;",
     "gb": "&hellip;",
-    "cs": "&hellip;"
+    "cs": "&hellip;",
+    "ru": "&hellip;",
+    "uk": "&hellip;",
+    "kk": "&hellip;"
   },
   "middot": {
     "en": "&middot;",
@@ -767,7 +929,10 @@
     "fr": "&middot;",
     "es": "&middot;",
     "gb": "&middot;",
-    "cs": "&middot;"
+    "cs": "&middot;",
+    "ru": "&middot;",
+    "uk": "&middot;",
+    "kk": "&middot;"
   },
   "error_not_found": {
     "en": "404: Page not found",
@@ -781,7 +946,10 @@
     "fr": "404: Page non trouvée",
     "es": "404: Página no encontrada",
     "gb": "404",
-    "cs": "404: Stránka nebyla nalezena"
+    "cs": "404: Stránka nebyla nalezena",
+    "ru": "404: Страница не найдена",
+    "uk": "404: Сторінку не знайдено",
+    "kk": "404: Бет табылмады"
   },
   "future_search_input": {
     "en": "Search this site. Results will load as you type.",
@@ -795,7 +963,10 @@
     "fr": "",
     "es": "",
     "gb": "",
-    "cs": ""
+    "cs": "",
+    "ru": "Искать на сайте. Результаты будут загружаться по мере ввода.",
+    "uk": "Шукати на сайті. Результати завантажуватимуться під час введення.",
+    "kk": "Осы сайттан іздеу. Нәтижелер теру кезінде жүктеледі."
   },
   "future_back_to_top": {
     "en": "Back to Top",
@@ -809,7 +980,10 @@
     "fr": "Retour en Haut",
     "es": "Volver arriba",
     "gb": "",
-    "cs": "Zpět na začátek"
+    "cs": "Zpět na začátek",
+    "ru": "Наверх",
+    "uk": "Нагору",
+    "kk": "Жоғарыға оралу"
   },
   "future_copy": {
     "en": "copy",
@@ -823,7 +997,10 @@
     "fr": "copier",
     "es": "copiar",
     "gb": "",
-    "cs": "kopírovat"
+    "cs": "kopírovat",
+    "ru": "копировать",
+    "uk": "копіювати",
+    "kk": "көшіру"
   },
   "future_copied": {
     "en": "copied!",
@@ -837,6 +1014,9 @@
     "fr": "copié!",
     "es": "¡copiado!",
     "gb": "",
-    "cs": "zkopírováno!"
+    "cs": "zkopírováno!",
+    "ru": "скопировано!",
+    "uk": "скопійовано!",
+    "kk": "көшірілді!"
   }
 }
