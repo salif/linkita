@@ -18,10 +18,9 @@
 {%- elif config.extra.page_info is defined %}
   {%- set page_info = config.extra.page_info %}
 {%- else %}
-  {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "date_updated", "prepend": "(", "append": ")"}, {"when": "reading_time"}]`, format=`json`) %}
+  {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "date_updated", "prepend": "↻ "}, {"when": "reading_time"}, {"when": "authors"}]`, format=`json`) %}
 {%- endif %}
 {%- set date_format = config.extra.languages[lang].date_format | default(value="%F") %}
-{%- set info_sep = m_i18n::tr(key=`middot`, lk=g_lang_k, d=g_trans_d) %}
 
 {%- for info in page_info %}
   {%- if info.when == "date" %}{%
@@ -33,7 +32,7 @@
       else %}{{ page.date | date(format=date_format) }}{% endif %}</time>
       {%- if info.append %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
-        class="mx-1">{{ info_sep | safe }}</span>{% endif %}
+        class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "date_updated" %}{%
     if page.updated and page.updated != page.date %}{%
@@ -44,7 +43,7 @@
       else %}{{ page.updated | date(format=date_format) }}{% endif %}</time>
       {%- if info.append %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
-        class="mx-1">{{ info_sep | safe }}</span>{% endif %}
+        class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "reading_time" %}{%
     if info.prepend %}{{ info.prepend }}{% endif %}{%
@@ -53,13 +52,13 @@
       page.reading_time }}&nbsp;{{ m_i18n::tr(key=`word_minutes`, lk=g_lang_k, d=g_trans_d) }}</time>
     {%- if info.append %}{{ info.append }}{% endif %}
     {%- if not loop.last %}<span
-      class="mx-1">{{ info_sep | safe }}</span>{% endif %}
+      class="middot"></span>{% endif %}
   {%- elif info.when == "word_count" %}{%
     if info.prepend %}{{ info.prepend }}{% endif %}<span>{{
       page.word_count }}&nbsp;{{ m_i18n::tr(key=`word_words`, lk=g_lang_k, d=g_trans_d) }}</span>
     {%- if info.append %}{{ info.append }}{% endif %}
     {%- if not loop.last %}<span
-      class="mx-1">{{ info_sep | safe }}</span>{% endif %}
+      class="middot"></span>{% endif %}
   {%- elif info.when == "authors" %}{%
     if page.taxonomies.authors %}{% set page_authors = page.taxonomies.authors %}{%
     elif page.authors %}{% set page_authors = page.authors %}{%
@@ -73,7 +72,7 @@
       {%- endfor %}
       {%- if info.append %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
-        class="mx-1">{{ info_sep | safe }}</span>{% endif %}
+        class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "tags" %}{%
     if page.taxonomies.tags %}{%
@@ -88,7 +87,7 @@
       {%- endfor %}
       {%- if info.append %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
-        class="mx-1">{{ info_sep | safe }}</span>{% endif %}
+        class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "" %}{{
     info.prepend | safe }}

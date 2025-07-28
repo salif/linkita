@@ -1221,11 +1221,6 @@ sup a {
   margin-bottom: 0px !important;
 }
 
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1936,6 +1931,16 @@ article {
 
 .horizontal-scroll {
   overflow-x: auto;
+}
+
+.middot:not(:last-child) {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.middot:not(:last-child)::after {
+  content: "·";
+  color: currentColor;
 }
 
 .header-icons {

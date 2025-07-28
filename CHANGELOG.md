@@ -8,6 +8,7 @@ All notable changes to this theme will be documented in this file.
 - Add `newtab` bool to `project.links` in the projects shortcode.
 - Add localization for Ukrainian, Kazakh, and Russian.
 - Add localization for Persian.
+- Change the `extra.page_info` variable to use css class instead of middot and include authors by default.
 
 ## [v3.2025_04_22](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..v3.2025_04_22)
 

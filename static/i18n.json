@@ -971,24 +971,6 @@
     "kk": "&hellip;",
     "fa": "&hellip;"
   },
-  "middot": {
-    "en": "&middot;",
-    "bg": "&middot;",
-    "eo": "&middot;",
-    "zh": "&middot;",
-    "tr": "&middot;",
-    "ar": "&middot;",
-    "ko": "&middot;",
-    "ja": "&middot;",
-    "fr": "&middot;",
-    "es": "&middot;",
-    "gb": "&middot;",
-    "cs": "&middot;",
-    "ru": "&middot;",
-    "uk": "&middot;",
-    "kk": "&middot;",
-    "fa": "&middot;"
-  },
   "error_not_found": {
     "en": "404: Page not found",
     "bg": "404: Страницата не е намерена",
