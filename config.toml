@@ -89,6 +89,7 @@ render_emoji = false
 smart_punctuation = false
 definition_list = true
 bottom_footnotes = true
+github_alerts = true
 
 [extra]
 math = false
@@ -96,7 +97,7 @@ mermaid = false
 comment = false
 title_separator = " | "
 header_menu_name = "sample_header"
-page_info = [{ when="date" }, { when="date_updated", prepend="(", append=")" }, { when="reading_time" }]
+page_info = [{ when="date" }, { when="date_updated", prepend="↻ " }, { when="reading_time" }]
 page_info_on_paginator = [{ when="date" }, { when="reading_time" }, { when="authors" }]
 use_cdn = false
 relative_urls = false
