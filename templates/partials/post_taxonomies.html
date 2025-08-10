@@ -1,10 +1,13 @@
 <!-- Post Taxonomies -->
 {%- if page.taxonomies %}
-<footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- set_global taxonomy_names = [] %}
-  {%- for taxonomy_name, _ in page.taxonomies %}
-  {%- set_global taxonomy_names = taxonomy_names | concat(with=taxonomy_name) %}
+  {%- for taxonomy_name, terms in page.taxonomies %}
+    {%- if terms %}
+      {%- set_global taxonomy_names = taxonomy_names | concat(with=taxonomy_name) %}
+    {%- endif %}
   {%- endfor %}
+  {%- if taxonomy_names %}
+<footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- for taxonomy_name in taxonomy_names | sort %}
   <div class="mb-2 flex flex-wrap">
     <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{{
@@ -19,4 +22,5 @@
   </div>
   {%- endfor %}
 </footer>
+  {%- endif %}
 {%- endif %}
