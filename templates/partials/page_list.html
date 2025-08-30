@@ -5,7 +5,7 @@
   class="block-bg relative mb-4 rounded-lg p-4 first-of-type:mt-0 last-of-type:mb-0 active:scale-95 lg:mb-6 lg:p-6"
 >
   {%- if page.extra.cover.image %}
-  <figure class="mb-4 mt-0">
+  <figure class="mt-0 mb-4">
     <img
       class="h-auto w-full rounded-lg"
       {%- set cover_image = m_url::cover_image(path=page.extra.cover.image, assets=page.assets) %}
@@ -24,7 +24,7 @@
   </figure>
   {%- endif %}
 
-  <h2 class="!my-0 pb-1 font-bold !leading-none">{{ page.title }}</h2>
+  <h2 class="!my-0 pb-1 !leading-none font-bold">{{ page.title }}</h2>
   {%- if not page.summary %}
     {%- set use_summary = false %}
   {%- elif not page.description %}
@@ -58,16 +58,16 @@
 {%- endfor %}
 
 {%- if paginator is defined %}
-<nav class="mt-16 flex">
+<nav class="not-prose mt-16 flex font-bold">
   {%- if paginator.previous %}
   <a
-    class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
+    class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ m_url::rel(there=paginator.previous, here=g_here, base=g_base) }}" rel="prev" accesskey=","
     >&#8249; {{ m_i18n::tr(key=`word_prev_page`, lk=g_lang_k, d=g_trans_d) }}</a>
   {%- endif %}
   {%- if paginator.next %}
   <a
-    class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline shadow duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
+    class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ m_url::rel(there=paginator.next, here=g_here, base=g_base) }}" rel="next" accesskey="."
     >{{ m_i18n::tr(key=`word_next_page`, lk=g_lang_k, d=g_trans_d) }} &#8250;</a>
   {%- endif %}

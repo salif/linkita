@@ -10,11 +10,11 @@
 <footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- for taxonomy_name in taxonomy_names | sort %}
   <div class="mb-2 flex flex-wrap">
-    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">{{
+    <span class="block-bg mr-1.5 mb-1.5 rounded-lg px-5 py-1.5">{{
       m_i18n::get_taxonomy_title(key=taxonomy_name, lk=g_lang_k, d=g_trans_d) }}</span>
     {% for term in page.taxonomies[taxonomy_name] %}
     <a
-      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      class="block-bg block-hover mr-1.5 mb-1.5 rounded-lg px-5 py-1.5 no-underline"
       href="{{ m_url::rel(there=get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang), here=g_here, base=g_base) }}">{%
         if taxonomy_name == "authors" %}{{ m_profiles::get_name(username=term) }}{%
         else %}{{ term }}{% endif %}</a>
