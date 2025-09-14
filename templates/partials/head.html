@@ -46,8 +46,15 @@
 {%- if page_title %}
   {%- if config_title %}
   <title>{%
-    if page_title == config_title %}{{ page_title }}{%
-    else %}{{ page_title ~ title_separator ~ config_title }}{%
+    if paginator.current_index is defined and paginator.current_index > 1 %}{%
+      set page_title_num = m_i18n::tr(key=`title_page`, lk=g_lang_k, d=g_trans_d) |
+        replace(from=`$NUM`, to=(paginator.current_index | as_str)) %}{{
+      page_title_num ~ title_separator }}{%
+    endif %}{%
+    if page_title == config_title %}{{
+      page_title }}{%
+    else %}{{
+      page_title ~ title_separator ~ config_title }}{%
     endif %}</title>
   <meta property="og:site_name" content="{{ config_title | linebreaksbr | truncate(length=100) | escape_xml | safe }}" />
   {%- else %}

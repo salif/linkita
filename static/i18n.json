@@ -873,6 +873,25 @@
     "kk": "Linkita",
     "fa": "لینکیتا"
   },
+  "title_page": {
+    "en": "Page $NUM",
+    "bg": "Стр. $NUM",
+    "eo": "Paĝo $NUM",
+    "fi": "#$NUM",
+    "zh": "#$NUM",
+    "tr": "#$NUM",
+    "ar": "#$NUM",
+    "ko": "#$NUM",
+    "ja": "#$NUM",
+    "fr": "#$NUM",
+    "es": "#$NUM",
+    "gb": "Sayfa $NUM",
+    "cs": "#$NUM",
+    "ru": "#$NUM",
+    "uk": "#$NUM",
+    "kk": "#$NUM",
+    "fa": "#$NUM"
+  },
   "word_prev_page": {
     "en": "Prev Page",
     "bg": "Предишна страница",
