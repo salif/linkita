@@ -17,8 +17,8 @@ description = "Линкита е многоезична, оптимизиран�
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = true, paginate_by = 4 },
+  { name = "authors", feed = true, paginate_by = 4 },
 ]
 
 [languages.en]
@@ -28,8 +28,8 @@ build_search_index = true
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = true, paginate_by = 4 },
+  { name = "authors", feed = true, paginate_by = 4 },
 ]
 
 [languages.ar]
@@ -38,8 +38,8 @@ description = "لينكيتا هو قالب مدونة زولا."
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
-  { name = "tags", feed = false, paginate_by = 5 },
-  { name = "authors", feed = false, paginate_by = 5 },
+  { name = "tags", feed = false, paginate_by = 4 },
+  { name = "authors", feed = false, paginate_by = 4 },
 ]
 
 [languages.eo]
@@ -48,16 +48,16 @@ description = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita 
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = true, paginate_by = 4 },
+  { name = "authors", feed = true, paginate_by = 4 },
 ]
 
 [languages.gb]
 title = "Linkita"
 generate_feeds = false
 taxonomies = [
-  { name = "tags", feed = false, paginate_by = 5 },
-  { name = "authors", feed = false, paginate_by = 5 },
+  { name = "tags", feed = false, paginate_by = 1 },
+  { name = "authors", feed = false, paginate_by = 1 },
 ]
 
 [languages.tr]
@@ -67,8 +67,8 @@ build_search_index = true
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = true, paginate_by = 4 },
+  { name = "authors", feed = true, paginate_by = 4 },
 ]
 
 [languages.zh]
@@ -77,8 +77,8 @@ description = "林基塔 是一款适用于 左拉 的多语言、搜索引擎�
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 5 },
-  { name = "authors", feed = true, paginate_by = 5 },
+  { name = "tags", feed = true, paginate_by = 4 },
+  { name = "authors", feed = true, paginate_by = 4 },
 ]
 
 [markdown]
