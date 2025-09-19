@@ -143,7 +143,7 @@ Uyarı kutusu kısa kodunun 12 farklı türü vardır:
 `başarısızlık` uyarı kutusu.
 {% end %}
 
-{% admonition(type="abstract", title="tehlike") %}
+{% admonition(type="danger", title="tehlike") %}
 `tehlike` uyarı kutusu.
 {% end %}
 

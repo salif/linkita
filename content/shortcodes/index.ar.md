@@ -143,7 +143,7 @@ sequenceDiagram
 تنبيه `failure`.
 {% end %}
 
-{% admonition(type="abstract", title="خطر") %}
+{% admonition(type="danger", title="خطر") %}
 تنبيه `danger`.
 {% end %}
 

@@ -3,6 +3,8 @@ title="Extra frontmatter"
 description = "Optional variables used by the Linkita theme."
 date = 2025-04-11
 updated = 2025-04-21
+# delete aliases later
+aliases = ["en/extra-frontmatter"]
 [taxonomies]
 authors = ["salif"]
 +++

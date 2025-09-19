@@ -1,7 +1,7 @@
 +++
-title = "My Projects"
+title = "Projekty"
 #description = ""
-path = "projects"
+path = "cs/projects"
 +++
 
 {{ projects(path="data.toml", format="toml") }}

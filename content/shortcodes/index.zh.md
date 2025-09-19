@@ -143,7 +143,7 @@ sequenceDiagram
 `failure` 提示框。
 {% end %}
 
-{% admonition(type="abstract", title="danger") %}
+{% admonition(type="danger", title="danger") %}
 `danger` 提示框。
 {% end %}
 

@@ -68,7 +68,7 @@ height = 800
 
 ## Изображения
 
-![Ръководство за Маркдаун](../images/markdown-syntax.png)
+![Ръководство за Маркдаун](../../images/markdown-syntax.png)
 
 ## Таблици
 

@@ -1,7 +1,7 @@
 +++
 title = "За мен"
 #description = ""
-path = "about"
+path = "bg/about"
 +++
 
 ## Здравей, свят!

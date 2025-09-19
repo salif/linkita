@@ -143,7 +143,7 @@ La admono `averto`.
 La admono `malsukceso`.
 {% end %}
 
-{% admonition(type="abstract", title="danĝero") %}
+{% admonition(type="danger", title="danĝero") %}
 La admono `danĝero`.
 {% end %}
 
@@ -195,8 +195,8 @@ name = "lorem"
 desc = "Lorem ipsum dolor sit."
 tags = ["lorem", "ipsum"]
 links = [
-    { name = "hejmpaĝo", url = "https://example.com" },
-    { name = "fonto", url = "https://example.com" },
+    { name = "homepage", url = "https://example.com" },
+    { name = "source", url = "https://example.com" },
 ]
 ```
 
