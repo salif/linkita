@@ -1,4 +1,4 @@
-#!/usr/bin/env -S just -f
+#!/usr/bin/env -S just --justfile
 
 set unstable := true
 

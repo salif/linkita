@@ -3,7 +3,7 @@ description = "A clean and elegant blog theme for Zola. Linkita is based on Kita
 license = "MIT"
 homepage = "https://codeberg.org/salif/linkita"
 min_version = "0.19.0"
-demo = "https://salif.github.io/linkita/en/"
+demo = "https://salif.github.io/linkita/"
 tags = ["Blog", "Multilingual", "Responsive", "SEO", "Search"]
 
 [author]

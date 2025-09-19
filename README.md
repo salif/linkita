@@ -8,8 +8,9 @@ Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](http
 - Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - See [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in:
-  - [English](https://salif.github.io/linkita/en/), [Bulgarian](https://salif.github.io/linkita/), [Esperanto](https://salif.github.io/linkita/eo/).
-  - [Chinese](https://salif.github.io/linkita/zh/), [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Globasa](https://salif.github.io/linkita/gb/).
+  - [English](https://salif.github.io/linkita/), [Bulgarian](https://salif.github.io/linkita/bg/), [Esperanto](https://salif.github.io/linkita/eo/), [Globasa](https://salif.github.io/linkita/gb/).
+  - [Chinese](https://salif.github.io/linkita/zh/), [Japanese](https://salif.github.io/linkita/ja/), [Korean](https://salif.github.io/linkita/ko/), [Spanish](https://salif.github.io/linkita/es/).
+  - [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Czech](https://salif.github.io/linkita/cs/), [French](https://salif.github.io/linkita/fr/).
 
 ## Features
 
@@ -140,7 +141,7 @@ alt = ""
 
 ### Other extra front matter variables
 
-Linkita supports [more extra variables, listed here](https://salif.github.io/linkita/en/extra-frontmatter/).
+Linkita supports [more extra variables, listed here](https://salif.github.io/linkita/extra-frontmatter/).
 
 ### Pages and Posts
 
@@ -221,7 +222,7 @@ path = "about"
 ## Hello, world!
 ```
 
-If you want, you can also create [a page for your projects](https://salif.github.io/linkita/en/shortcodes/#projects).
+If you want, you can also create [a page for your projects](https://salif.github.io/linkita/shortcodes/#projects).
 
 ### Setting page authors
 
