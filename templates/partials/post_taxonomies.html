@@ -11,7 +11,7 @@
   {%- for taxonomy_name in taxonomy_names | sort %}
   <div class="mb-2 flex flex-wrap">
     <span class="block-bg mr-1.5 mb-1.5 rounded-lg px-5 py-1.5">{{
-      m_i18n::get_taxonomy_title(key=taxonomy_name, lk=g_lang_k, d=g_trans_d) }}</span>
+      m_i18n::get_taxonomy_title(key=taxonomy_name, d=g_d) }}</span>
     {% for term in page.taxonomies[taxonomy_name] %}
     <a
       class="block-bg block-hover mr-1.5 mb-1.5 rounded-lg px-5 py-1.5 no-underline"

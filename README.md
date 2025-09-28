@@ -1,16 +1,27 @@
 # Linkita
 
 A clean and elegant blog theme for [Zola](https://www.getzola.org/).
-Linkita is based on [Kita](https://github.com/st1020/kita) and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
+Linkita is based on [Kita](https://github.com/st1020/kita)
+and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
-- The source code is available on [Codeberg](https://codeberg.org/salif/linkita) and mirrored on [GitHub](https://github.com/salif/linkita).
+- The source code is available on [Codeberg](https://codeberg.org/salif/linkita)
+  and mirrored on [GitHub](https://github.com/salif/linkita).
 - For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
 - Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - See [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in:
-  - [English](https://salif.github.io/linkita/), [Bulgarian](https://salif.github.io/linkita/bg/), [Esperanto](https://salif.github.io/linkita/eo/), [Globasa](https://salif.github.io/linkita/gb/).
-  - [Chinese](https://salif.github.io/linkita/zh/), [Japanese](https://salif.github.io/linkita/ja/), [Korean](https://salif.github.io/linkita/ko/), [Spanish](https://salif.github.io/linkita/es/).
-  - [Arabic](https://salif.github.io/linkita/ar/), [Turkish](https://salif.github.io/linkita/tr/), [Czech](https://salif.github.io/linkita/cs/), [French](https://salif.github.io/linkita/fr/).
+  - [English](https://salif.github.io/linkita/),
+    [Bulgarian](https://salif.github.io/linkita/bg/),
+    [Esperanto](https://salif.github.io/linkita/eo/),
+    [Globasa](https://salif.github.io/linkita/gb/).
+  - [Chinese](https://salif.github.io/linkita/zh/),
+    [Japanese](https://salif.github.io/linkita/ja/),
+    [Korean](https://salif.github.io/linkita/ko/),
+    [Spanish](https://salif.github.io/linkita/es/).
+  - [Arabic](https://salif.github.io/linkita/ar/),
+    [Turkish](https://salif.github.io/linkita/tr/),
+    [Czech](https://salif.github.io/linkita/cs/),
+    [French](https://salif.github.io/linkita/fr/).
 
 ## Features
 
@@ -54,7 +65,9 @@ git init
 git submodule add https://codeberg.org/salif/linkita.git themes/linkita
 ```
 
-If you don't want to use git submodules, you can clone the repository instead: `git clone https://codeberg.org/salif/linkita.git themes/linkita`
+If you don't want to use git submodules, you can clone the repository instead:
+
+`git clone https://codeberg.org/salif/linkita.git themes/linkita`
 
 2. Enable the theme in your `config.toml` file:
 
@@ -73,9 +86,11 @@ git submodule update --remote themes/linkita
 ```
 
 Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md)
-for all versions after the one you are using. There may be breaking changes that require manual involvement.
+for all versions after the one you are using.
+There may be breaking changes that require manual involvement.
 
-If and only if you use Tailwind classes in your templates directory, run:
+If you are overriding templates and using new Tailwind classes in your templates directory,
+run this after each update:
 
 ```sh
 cd themes/linkita
@@ -160,7 +175,7 @@ profile = "your_username"
 +++
 ```
 
-Do it for each language in your blog.
+Do it for each language in your site.
 For French, the file name is `content/_index.fr.md`.
 
 See [Profiles](#profiles) for more.
@@ -232,7 +247,8 @@ Choose one of the following options or skip if you don't know what you're doing:
 
 The default author for posts is set using the `author` variable in the `config.toml` file.
 
-You don't need to set `authors` in the front matter if the default author is the only author of the post. Otherwise, set `authors`:
+You don't need to set `authors` in the front matter if the default author is the only author of the post.
+Otherwise, set `authors`:
 
 ```toml ,name=frontmatter
 +++
@@ -387,6 +403,9 @@ title_separator = " | "
 # See "extra.menus".
 header_menu_name = "menu_name"
 
+# See "extra.menus".
+menu_i18n = false
+
 # If you disable default favicons, you can use
 # the inject support to set your own favicons.
 # Default value: false
@@ -468,7 +487,7 @@ menu_name = [
   { url = "$BASE_URL/about/", name = "About" },
 ]
 
-# Example multilingual menu.
+# Example multilingual menu using `names`.
 multilingual_menu_name = [
   { url = "$BASE_URL/about/", names = { en = "About", fr = "About in French" } },
   { url = "$BASE_URL/projects/", names = { en = "Projects", fr = "Projects in French" } },
@@ -482,10 +501,13 @@ multilingual_menu_name = [
 To use a menu, set `extra.header_menu_name`.
 
 `$BASE_URL` in `url` will be automatically replaced with the language specific base url.
-You can use `names_i18n` instead of `names`, see the `static/i18n.json` file,
-set `names_i18n` to a `common_` key.
+You can use [Internal links](https://www.getzola.org/documentation/content/linking/#internal-links)
+instead of `$BASE_URL`.
 
-You can use [Internal links](https://www.getzola.org/documentation/content/linking/#internal-links) instead of `$BASE_URL`.
+If your site is multilingual, you can choose one of the following options or combine them:
+1. Set `names` as in the `multilingual_menu_name` example.
+2. Set `extra.menu_i18n` to `true` in order to use the `static/i18n/menu.json` file.
+3. Set `header_menu_name` for each language using the [language specific options](#language-specific-options).
 
 ### Profiles
 
@@ -717,7 +739,7 @@ For example, open <http://127.0.0.1:1111/#disable-analytics>.
 ### Comments
 
 See [giscus.app](https://giscus.app/).
-Only available when `extra.comment` in the front matter or `extra.comment` in the config is set to true.
+Only available when `extra.comment` in the front matter or `extra.comment` in the config is set to `true`.
 
 ```toml ,name=config.toml
 [extra.giscus]
@@ -761,4 +783,4 @@ Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and 
 - [salif.eu](https://github.com/salif/personal-web-page): Personal website
 - [Rratic's blog](https://github.com/Rratic/rratic.github.io): Personal website
 
-If your blog uses Linkita and is open source, feel free to create a pull request to add it to this list.
+If your blog is using Linkita and is open source, feel free to create a pull request to add it to this list.

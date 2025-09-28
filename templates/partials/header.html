@@ -28,21 +28,21 @@
       <div class="flex items-center min-h-8">
         {%- for header_button in header_buttons %}
           {%- if header_button == "site_title" and config.title %}
-        <a title="{{ m_i18n::tr(key=`act_go_to_home`, lk=g_lang_k, d=g_trans_d) }}" accesskey="!"
+        <a title="{{ m_i18n::tr(key=`act_go_to_home`, d=g_d) }}" accesskey="!"
           href="{{ m_url::rel(there=m_url::get(url=`$BASE_URL/`), here=g_here, base=g_base) }}" class="text-2xl font-semibold">{{ config.title }}</a>
           {%- elif header_button == "home_button" or header_button == "site_title" %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_go_to_home`, lk=g_lang_k, d=g_trans_d) }}" accesskey="!"
+        <button type="button" title="{{ m_i18n::tr(key=`act_go_to_home`, d=g_d) }}" accesskey="!"
           onclick="window.location.href='{{ m_url::rel(there=m_url::get(url=`$BASE_URL/`), here=g_here, base=g_base) }}';"
           class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-home)] dark:invert"
         ></button>
           {%- elif header_button == "theme_button" %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, lk=g_lang_k, d=g_trans_d) }}" accesskey="$"
+        <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }}" accesskey="$"
           onclick="window.linkita.toggleDarkMode();" ondblclick="window.linkita.resetDarkMode();"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0]
           bg-center bg-no-repeat bg-cover [background-image:var(--icon-theme-dark)] dark:[background-image:var(--icon-theme-light)] dark:invert"
         ></button>
           {%- elif header_button == "search_button" and config.build_search_index %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_search`, lk=g_lang_k, d=g_trans_d) }}" accesskey="/"
+        <button type="button" title="{{ m_i18n::tr(key=`act_search`, d=g_d) }}" accesskey="/"
           onclick="window.linkita.toggleSearch();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
         ></button>
@@ -50,7 +50,7 @@
         <script>window.linkita.initSearchButton({ scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"] });</script>
             {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, lk=g_lang_k, d=g_trans_d) }}" accesskey=";"
+        <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, d=g_d) }}" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
@@ -60,7 +60,7 @@
         {%- endfor %}
       </div>
       {%- if header_menu %}
-      <div title="{{ m_i18n::tr(key=`act_menu`, lk=g_lang_k, d=g_trans_d) }}" role="button" accesskey="+" tabindex="0"
+      <div title="{{ m_i18n::tr(key=`act_menu`, d=g_d) }}" role="button" accesskey="+" tabindex="0"
         class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
         onclick="window.linkita.toggleHeaderMenu();"
         onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || window.linkita.toggleHeaderMenu() : true;"
@@ -77,9 +77,11 @@
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
             href="{{ m_url::rel(there=m_url::get(url=menu.url), here=g_here, base=g_base) }}"
           >{%
-              if menu.names[lang] %}{{ menu.names[lang] }}{%
-              elif menu.names_i18n and g_trans_d[menu.names_i18n][g_lang_k] %}{{
-                g_trans_d[menu.names_i18n][g_lang_k] }}{%
+              if menu.names_i18n is defined %}{{
+                throw(message=`'names_i18n' in menu is not supported anymore`) }}{%
+              elif menu.names[lang] %}{{ menu.names[lang] }}{%
+              elif config.extra.menu_i18n and g_menu_d[menu.name][g_lang] %}{{
+                g_menu_d[menu.name][g_lang] }}{%
               elif menu.name %}{{ menu.name }}{%
               else %}{{ menu.url | replace(from=`$BASE_URL`, to=``) | escape_xml | safe }}{% endif %}</a>
         </li>

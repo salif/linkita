@@ -1,8 +1,8 @@
 {% extends "index.html" %}
 {% block main %}
-<h1 class="mb-16">{{ m_i18n::get_taxonomy_title(key=taxonomy.name, lk=g_lang_k, d=g_trans_d) }}</h1>
+<h1 class="mb-16">{{ m_i18n::get_taxonomy_title(key=taxonomy.name, d=g_d) }}</h1>
 <div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
-  {%- set word_more = m_i18n::tr(key=`word_more`, lk=g_lang_k, d=g_trans_d) %}
+  {%- set word_more = m_i18n::tr(key=`word_more`, d=g_d) %}
   {%- set taxonomy_sorting = config.extra.taxonomy_sorting[taxonomy.name] | default(value="descending_frequency") %}
   {%- if taxonomy_sorting == "ascending_frequency" %}
     {%- set sorted_terms = terms | sort(attribute=`page_count`) %}

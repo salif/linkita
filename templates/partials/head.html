@@ -12,7 +12,7 @@
     {%- set page_description = page.summary | linebreaksbr | striptags | trim_end_matches(pat=`.`) %}
   {%- endif %}
 {%- elif taxonomy.name %}
-  {%- set page_title = m_i18n::get_taxonomy_title(key=taxonomy.name, lk=g_lang_k, d=g_trans_d) %}
+  {%- set page_title = m_i18n::get_taxonomy_title(key=taxonomy.name, d=g_d) %}
   {%- if term.name %}
     {%- if taxonomy.name == "authors" %}
       {%- set term_name = m_profiles::get_name(username=term.name) %}
@@ -38,7 +38,7 @@
   {%- set page_title = config_title %}
   {%- set page_description = config.description | default(value="") %}
 {%- else %}
-  {%- set page_title = m_i18n::tr(key=`error_not_found`, lk=g_lang_k, d=g_trans_d) %}
+  {%- set page_title = m_i18n::tr(key=`error_not_found`, d=g_d) %}
   {%- set is_404 = true %}
   <meta name="robots" content="noindex" />
 {%- endif %}
@@ -47,7 +47,7 @@
   {%- if config_title %}
   <title>{%
     if paginator.current_index is defined and paginator.current_index > 1 %}{%
-      set page_title_num = m_i18n::tr(key=`title_page`, lk=g_lang_k, d=g_trans_d) |
+      set page_title_num = m_i18n::tr(key=`title_page`, d=g_d) |
         replace(from=`$NUM`, to=(paginator.current_index | as_str)) %}{{
       page_title_num ~ title_separator }}{%
     endif %}{%
@@ -203,7 +203,6 @@
   <meta property="og:locale:alternate" content="{{
     config.extra.languages[page_translation.lang].locale | escape_xml | safe }}" />
     {%- else %}
-  <!-- No locale for {{ page_translation.lang }} -->
     {%- endif %}
   <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
     if config.extra.languages[page_translation.lang].language_code %}{{

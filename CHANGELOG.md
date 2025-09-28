@@ -11,6 +11,8 @@ All notable changes to this theme will be documented in this file.
 - Change the `extra.page_info` variable to use css class instead of middot and include authors by default.
 - Add localization for Finnish.
 - Add page number to paginated page titles.
+- Remove the `i18n.json` file and add `i18n` folder and files for each language.
+- Add `i18n/menu.json` file and `extra.menu_i18n` config variable. Remove the `names_i18n` menu variable.
 
 ## [v3.2025_04_22](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..v3.2025_04_22)
 

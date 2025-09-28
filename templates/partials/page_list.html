@@ -1,5 +1,5 @@
 <!-- Page List -->
-{%- set hellip = m_i18n::tr(key=`hellip`, lk=g_lang_k, d=g_trans_d) %}
+{%- set hellip = m_i18n::tr(key=`hellip`, d=g_d) %}
 {%- for page in paginator.pages | default(value=(section.pages | default(value=term.pages))) %}
 <section
   class="block-bg relative mb-4 rounded-lg p-4 first-of-type:mt-0 last-of-type:mb-0 active:scale-95 lg:mb-6 lg:p-6"
@@ -63,13 +63,13 @@
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ m_url::rel(there=paginator.previous, here=g_here, base=g_base) }}" rel="prev" accesskey=","
-    >&#8249; {{ m_i18n::tr(key=`word_prev_page`, lk=g_lang_k, d=g_trans_d) }}</a>
+    >&#8249; {{ m_i18n::tr(key=`word_prev_page`, d=g_d) }}</a>
   {%- endif %}
   {%- if paginator.next %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ m_url::rel(there=paginator.next, here=g_here, base=g_base) }}" rel="next" accesskey="."
-    >{{ m_i18n::tr(key=`word_next_page`, lk=g_lang_k, d=g_trans_d) }} &#8250;</a>
+    >{{ m_i18n::tr(key=`word_next_page`, d=g_d) }} &#8250;</a>
   {%- endif %}
 </nav>
 {%- endif %}

@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.19",
     "execa": "^9.6.0",
     "instant.page": "^5.2.0",
     "katex": "^0.16.22",

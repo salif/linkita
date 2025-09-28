@@ -39,6 +39,10 @@ build_js:
 build_js_file filename:
     terser "./src/{{ filename }}.js" -o "./static/js/{{ filename }}.min.js"
 
+[group('dev')]
+sync_i18n:
+    node src/sync-i18n.js static/i18n
+
 [group('update_assets')]
 update_pnpm:
     pnpm update

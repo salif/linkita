@@ -1,20 +1,20 @@
-{%- macro tr(key, lk, d) %}{%
-  if d[key][lk] %}{{
-    d[key][lk] }}{%
-  elif d[key]["en"] %}{{
-    d[key]["en"] }}{%
+{%- macro tr(key, d) %}{%
+  if d[key]["value"] %}{{
+    d[key]["value"] }}{%
+  elif d[key]["fallback"] %}{{
+    d[key]["fallback"] }}{%
   else %}{{
-    throw(message="No translation for key: " ~ key ~ ", language: " ~ lk) }}{%
+    throw(message="No translation for key: " ~ key) }}{%
   endif %}
 {%- endmacro tr -%}
 
-{%- macro get_taxonomy_title(key, lk, d) %}{%
+{%- macro get_taxonomy_title(key, d) %}{%
   if key == "tags" %}{{
-    self::tr(key=`taxonomy_tags`, lk=lk, d=d) }}{%
+    self::tr(key=`taxonomy_tags`, d=d) }}{%
   elif key == "categories" %}{{
-    self::tr(key=`taxonomy_categories`, lk=lk, d=d) }}{%
+    self::tr(key=`taxonomy_categories`, d=d) }}{%
   elif key == "authors" %}{{
-    self::tr(key=`taxonomy_authors`, lk=lk, d=d) }}{%
+    self::tr(key=`taxonomy_authors`, d=d) }}{%
   else %}{{
     key }}{%
   endif %}

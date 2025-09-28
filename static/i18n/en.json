@@ -1,0 +1,80 @@
+{
+  "language_name": {
+    "value": "English"
+  },
+  "word_translations": {
+    "value": "Translations"
+  },
+  "taxonomy_tags": {
+    "value": "Tags"
+  },
+  "taxonomy_categories": {
+    "value": "Categories"
+  },
+  "taxonomy_authors": {
+    "value": "Authors"
+  },
+  "act_go_to_home": {
+    "value": "Go to home page"
+  },
+  "act_switch_color_scheme": {
+    "value": "Switch color scheme"
+  },
+  "act_search": {
+    "value": "Search"
+  },
+  "act_go_to_translation": {
+    "value": "Go to translation of the page"
+  },
+  "act_menu": {
+    "value": "Menu"
+  },
+  "footer_powered_by": {
+    "value": "Powered by Zola"
+  },
+  "footer_theme_name": {
+    "value": "Linkita"
+  },
+  "title_page": {
+    "value": "Page $NUM"
+  },
+  "word_prev_page": {
+    "value": "Prev Page"
+  },
+  "word_next_page": {
+    "value": "Next Page"
+  },
+  "word_toc": {
+    "value": "Table of Contents"
+  },
+  "word_minute": {
+    "value": "min"
+  },
+  "word_minutes": {
+    "value": "min"
+  },
+  "word_words": {
+    "value": "words"
+  },
+  "word_more": {
+    "value": "More >>"
+  },
+  "hellip": {
+    "value": "&hellip;"
+  },
+  "error_not_found": {
+    "value": "404: Page not found"
+  },
+  "future_search_input": {
+    "value": "Search this site. Results will load as you type."
+  },
+  "future_back_to_top": {
+    "value": "Back to Top"
+  },
+  "future_copy": {
+    "value": "copy"
+  },
+  "future_copied": {
+    "value": "copied!"
+  }
+}

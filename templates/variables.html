@@ -1,9 +1,15 @@
 {% import "macros/i18n.html" as m_i18n %}
 {% import "macros/url.html" as m_url %}
 {% import "macros/profiles.html" as m_profiles %}
-{%- set g_trans_d = load_data(path=`i18n.json`, format=`json`) %}
-{%- set g_lang_k = config.extra.languages[lang].i18n_code | default(value=lang) %}
-{%- set g_lang_html = config.extra.languages[lang].language_code | default(value=lang) %}
+{%- set g_lang = config.extra.languages[lang].i18n_code | default(value=lang) %}
+{%- set g_html_lang = config.extra.languages[lang].language_code | default(value=lang) %}
+{%- set g_d = load_data(path=`i18n/`~g_lang~`.json`, format=`json`, required=false) %}
+{%- if not g_d %}
+  {%- set g_d = load_data(path=`i18n/en.json`, format=`json`) %}
+{%- endif %}
+{%- if config.extra.menu_i18n %}
+  {%- set g_menu_d = load_data(path=`i18n/menu.json`, format=`json`) %}
+{%- endif %}
 {%- set g_base = get_url(path=``) ~ "/" %}
 {%- if config.extra.relative_urls and current_url %}
   {%- set g_here = current_url | trim_start_matches(pat=g_base) | split(pat=`/`) %}

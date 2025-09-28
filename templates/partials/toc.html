@@ -10,7 +10,7 @@
 <div class="block-bg mb-12 rounded-lg p-2 text-lg">
   <details {%- if page_toc is object and page_toc.open %}{{ ` open` }}{% endif %}>
     <summary class="select-none py-0.5 lg:py-1 pl-4" accesskey="=">
-      <span class="cursor-pointer">{{ m_i18n::tr(key=`word_toc`, lk=g_lang_k, d=g_trans_d) }}</span>
+      <span class="cursor-pointer">{{ m_i18n::tr(key=`word_toc`, d=g_d) }}</span>
     </summary>
     <div class="px-2">
       <ul>
