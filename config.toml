@@ -169,6 +169,7 @@ mermaid = false
 comment = false
 title_separator = " | "
 header_menu_name = "sample_header"
+menu_i18n = true
 page_info = [{ when="date" }, { when="date_updated", prepend="↻ " }, { when="reading_time" }]
 page_info_on_paginator = [{ when="date" }, { when="reading_time" }, { when="authors" }]
 use_cdn = false
@@ -187,10 +188,10 @@ invert_page_navigation = false
 
 [extra.menus]
 sample_header = [
-  { url = "$BASE_URL/projects/", name = "Projects", names_i18n = "common_projects" },
-  { url = "$BASE_URL/archive/", name = "Archive", names_i18n = "common_archive" },
-  { url = "$BASE_URL/tags/", name = "Tags", names_i18n = "common_tags" },
-  { url = "$BASE_URL/about/", name = "About", names_i18n = "common_about" },
+  { url = "$BASE_URL/projects/", name = "Projects" },
+  { url = "$BASE_URL/archive/", name = "Archive" },
+  { url = "$BASE_URL/tags/", name = "Tags" },
+  { url = "$BASE_URL/about/", name = "About" },
 ]
 
 [extra.profiles]
