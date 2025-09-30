@@ -1276,6 +1276,10 @@ sup a {
   margin-bottom: 1rem;
 }
 
+.ml-0 {
+  margin-left: 0px;
+}
+
 .ml-1\.5 {
   margin-left: 0.375rem;
 }
@@ -1669,10 +1673,6 @@ sup a {
 
 .pl-4 {
   padding-left: 1rem;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
 }
 
 .pr-2 {
@@ -2137,6 +2137,10 @@ article {
   .lg\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .lg\:pl-6 {
+    padding-left: 1.5rem;
   }
 
   .lg\:pt-32 {

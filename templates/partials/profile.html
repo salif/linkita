@@ -24,14 +24,16 @@
   <div
     class="not-prose shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow-sm dark:bg-white/10">
     <img
-      class="{% if g_profile.avatar_invert %}dark:invert{% endif %} my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin"
+      class="my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin{%
+        if g_profile.avatar_invert %} dark:invert{% endif %}"
       src="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}"{%
         if profile_avatar_alt is defined %} alt="{{ profile_avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
-  <div class="ml-5">
-  {%- else %}
-  <div class="ml-4 lg:ml-6">
   {%- endif %}
+  <div class="{%
+    if g_profile.avatar_url%}ml-5{%
+    elif section.content or page.content %}ml-0{%
+    else %}ml-4 lg:ml-6{% endif %}">
     {%- if profile_name is defined %}
     <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
     {%- endif %}
