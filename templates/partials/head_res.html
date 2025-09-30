@@ -18,9 +18,17 @@
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
+  {%- if config.mode is defined and config.mode == "serve" %}
+  <script src="{{ m_url::rel(there=get_url(path=`js/linkita.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+  {%- else %}
   <script src="{{ m_url::rel(there=get_url(path=`js/linkita.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+  {%- endif %}
   {%- if config.build_search_index %}
+    {%- if config.mode is defined and config.mode == "serve" %}
+  <script src="{{ m_url::rel(there=get_url(path=`js/linkita-search.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+    {%- else %}
   <script src="{{ m_url::rel(there=get_url(path=`js/linkita-search.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+    {%- endif %}
   {%- endif %}
 
   {%- if page.extra.math | default(value=(section.extra.math | default(value=config.extra.math))) %}

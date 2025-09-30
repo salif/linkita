@@ -31,13 +31,9 @@ watch_css:
 
 [group('dev')]
 build_js:
-    terser ./src/linkita.js -o ./static/js/linkita.min.js
-    terser ./src/linkita-search.js -o ./static/js/linkita-search.min.js
+    terser ./static/js/linkita.js -o ./static/js/linkita.min.js
+    terser ./static/js/linkita-search.js -o ./static/js/linkita-search.min.js
     terser ./src/gc.js -o ./static/js/gc.min.js
-
-[group('dev')]
-build_js_file filename:
-    terser "./src/{{ filename }}.js" -o "./static/js/{{ filename }}.min.js"
 
 [group('dev')]
 sync_i18n:
