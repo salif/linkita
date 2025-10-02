@@ -14,15 +14,12 @@
   default(value=(section.extra.style.header_dark_color |
   default(value=(config.extra.style.header_dark_color |
   default(value="#27272a"))))) %}
-  <style>
-  :root{--bg: {{ style_bg_color | escape_xml | safe
+  <style>:root{--bg: {{ style_bg_color | escape_xml | safe
     }}; --header: {{ style_header_color | escape_xml | safe
-    }}; color-scheme: light;}
-  :root.dark{--bg: {{ style_bg_dark_color | escape_xml | safe
+    }};} :root.dark{--bg: {{ style_bg_dark_color | escape_xml | safe
     }}; --header: {{ style_header_dark_color | escape_xml | safe
-    }}; color-scheme: dark;}
-  </style>
-  {%- if not config.extra.style.header_blur %}
+    }};}</style>
+{%- if not config.extra.style.header_blur %}
   <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
     style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
-  {%- endif -%}
+{%- endif -%}

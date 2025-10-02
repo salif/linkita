@@ -1,158 +1,165 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source("../templates");
+@source "../../../templates";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@layer base {
+html,
+body {
+  @apply h-full;
+}
 
-  html,
-  body {
-    @apply h-full;
-  }
+html {
+  --bg: transparent;
+  --header: transparent;
+}
 
-  html {
-    --bg: transparent;
-    --header: transparent;
-  }
+body {
+  -webkit-tap-highlight-color: transparent;
+  background: var(--bg);
+}
 
-  body {
-    -webkit-tap-highlight-color: transparent;
-  }
+.not-ready * {
+  @apply !transition-none;
+}
 
+article {
+  @apply text-lg;
+
+  /* Auto direction for text */
   *,
   ::before,
   ::after {
-    /* Auto direction for text */
     unicode-bidi: plaintext;
   }
 
-  /* Code block */
-  pre mark {
-    @apply block text-inherit;
-    margin: 0 -18px;
-    padding: 0 18px;
-  }
-
-  pre table {
-    @apply !m-0 !w-full border-collapse;
-  }
-
-  pre table tr {
-    @apply !border-0 !border-none;
-  }
-
-  pre table td {
-    @apply !p-0;
-  }
-
-  pre table td:nth-of-type(1) {
-    @apply min-w-4 select-none;
-  }
-
-  .prose .footnote-definition {
+  /* Footnote */
+  .footnote-definition {
     @apply flex;
+
+    p {
+      @apply m-0;
+    }
+
+    .footnote-definition-label {
+      @apply static mr-2 text-base;
+
+      &::after {
+        @apply content-['.'];
+      }
+    }
   }
 
-  .prose .footnote-definition p {
-    @apply m-0;
-  }
+  /* Code block */
+  pre {
+    @apply text-base;
 
-  .prose .footnote-definition .footnote-definition-label {
-    @apply static mr-2 text-base;
-  }
+    mark {
+      @apply mx-[-18px] my-0 block px-[18px] py-0 text-inherit;
+    }
 
-  .prose .footnote-definition .footnote-definition-label::after {
-    content: ".";
-  }
+    table {
+      @apply m-0 w-full border-collapse text-base;
 
-  /* Linkita */
+      tr {
+        @apply border-0 border-none;
+      }
 
-  a {
-    @apply underline-offset-2;
-  }
+      td {
+        @apply p-0;
 
-  sup a {
-    @apply underline-offset-1;
+        &:nth-of-type(1) {
+          @apply min-w-4 select-none;
+
+          mark {
+            @apply mr-0 pr-0;
+          }
+        }
+
+        &:not(:nth-of-type(1)) {
+          mark {
+            @apply ml-0 pl-0;
+          }
+        }
+      }
+    }
   }
 }
 
-@layer utilities {
-  .not-ready * {
-    @apply !transition-none;
+a {
+  @apply underline-offset-2;
+}
+
+sup a {
+  @apply underline-offset-1;
+}
+
+.header {
+  background-color: var(--header);
+}
+
+.btn-menu {
+
+  &::before,
+  &::after {
+    @apply block h-[2px] w-5 bg-black duration-100 content-[''];
   }
 
-  .btn-menu::before,
-  .btn-menu::after {
-    @apply block h-[2px] w-5 bg-black duration-100 content-[''] dark:invert;
-  }
+  @apply dark:before:invert dark:after:invert;
 
-  .open {
-    @apply overflow-hidden;
-  }
+  &:where(.open *) {
+    &::before {
+      @apply w-6 translate-y-[5.5px] rotate-45;
+    }
 
-  .open .btn-menu::before {
-    @apply w-6 translate-y-[5.5px] rotate-45;
+    &::after {
+      @apply w-6 -translate-y-[5.5px] -rotate-45;
+    }
   }
+}
 
-  .open .btn-menu::after {
-    @apply w-6 -translate-y-[5.5px] -rotate-45;
-  }
+.nav-wrapper {
+  @apply hidden lg:flex;
 
-  .nav-wrapper {
-    @apply hidden lg:flex;
-  }
-
-  .open .nav-wrapper {
+  &:where(.open *) {
     @apply flex;
   }
+}
 
-  article {
-    @apply text-lg;
-  }
-
-  .blur-header {
-    @apply bg-black/10 backdrop-blur dark:bg-white/10;
-  }
-
-  .block-bg {
-    @apply bg-black/[3%] dark:bg-white/[8%];
-  }
-
-  .block-hover {
-    @apply hover:bg-black/[5%] dark:hover:bg-white/[11%];
-  }
-
-  .block-hover-mask {
-    @apply hover:bg-black/[2%] dark:hover:bg-white/[3%];
-  }
-
-  .primary-link {
-    @apply text-black no-underline hover:opacity-80 dark:text-white;
-  }
-
-  .secondary-link {
-    @apply text-[var(--tw-prose-body)] no-underline hover:text-black dark:hover:text-white;
-  }
-
-  /* Linkita */
-
-  .horizontal-scroll {
-    @apply overflow-x-auto;
-  }
-
-  .middot:not(:last-child) {
+.middot {
+  &:not(:last-child) {
     @apply mx-1;
   }
 
-  .middot:not(:last-child)::after {
-    content: "·";
+  &:not(:last-child)::after {
+    content: '·';
     color: currentColor;
   }
+}
 
-  .header-icons {
-    --icon-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>');
-    --icon-search: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
-    --icon-translations: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>');
-    --icon-theme-light: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23" ></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>');
-    --icon-theme-dark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
-  }
+.horizontal-scroll {
+  @apply overflow-x-auto;
+}
+
+@utility blur-header {
+  @apply bg-black/10 backdrop-blur dark:bg-white/10;
+}
+
+@utility block-bg {
+  @apply bg-black/[3%] dark:bg-white/[8%];
+}
+
+@utility block-hover {
+  @apply hover:bg-black/[5%] dark:hover:bg-white/[11%];
+}
+
+@utility block-hover-mask {
+  @apply hover:bg-black/[2%] dark:hover:bg-white/[3%];
+}
+
+@utility primary-link {
+  @apply text-black no-underline hover:opacity-80 dark:text-white;
+}
+
+@utility secondary-link {
+  @apply text-(--tw-prose-body) no-underline hover:text-black dark:hover:text-white;
 }

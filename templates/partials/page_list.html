@@ -24,7 +24,7 @@
   </figure>
   {%- endif %}
 
-  <h2 class="!my-0 pb-1 !leading-none font-bold">{{ page.title }}</h2>
+  <h2 class="my-0! pb-1 leading-none! font-bold">{{ page.title }}</h2>
   {%- if not page.summary %}
     {%- set use_summary = false %}
   {%- elif not page.description %}
@@ -53,7 +53,7 @@
   {% include "partials/page_info.html" %}
 
   {#- {% if use_summary %}#continue-reading{% endif %} #}
-  <a class="absolute inset-0 text-[0]" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{{ page.title }}</a>
+  <a class="absolute inset-0 text-[0px]" href="{{ m_url::rel(there=page.permalink, here=g_here, base=g_base) }}">{{ page.title }}</a>
 </section>
 {%- endfor %}
 

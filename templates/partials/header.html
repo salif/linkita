@@ -22,7 +22,7 @@
   {%- set header_menu = config.extra.menu %}
 {%- endif %}
 <header class="{%
-  if config.extra.style.header_blur %}blur-header{% else %}bg-[var(--header)]{% endif %} fixed top-0 z-40 mx-auto min-h-[3.25rem] w-full header-icons">
+  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-13 w-full header-icons">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center min-h-8">
@@ -33,25 +33,25 @@
           {%- elif header_button == "home_button" or header_button == "site_title" %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_home`, d=g_d) }}" accesskey="!"
           onclick="window.location.href='{{ m_url::rel(there=m_url::get(url=`$BASE_URL/`), here=g_here, base=g_base) }}';"
-          class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-home)] dark:invert"
+          class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover [background-image:var(--icon-home)] dark:invert"
         ></button>
           {%- elif header_button == "theme_button" %}
         <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }}" accesskey="$"
           onclick="window.linkita.toggleDarkMode();" ondblclick="window.linkita.resetDarkMode();"
-          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0]
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
           bg-center bg-no-repeat bg-cover [background-image:var(--icon-theme-dark)] dark:[background-image:var(--icon-theme-light)] dark:invert"
         ></button>
           {%- elif header_button == "search_button" and config.build_search_index %}
         <button type="button" title="{{ m_i18n::tr(key=`act_search`, d=g_d) }}" accesskey="/"
           onclick="window.linkita.toggleSearch();"
-          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
+          class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
         <script>window.linkita.initSearchButton({ scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"] });</script>
             {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, d=g_d) }}" accesskey=";"
-          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
+          class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
         <script>window.linkita.initTranslationsButton({btn: document.querySelector(".btn-translations"), rel: "{{ config.extra.relative_urls | default(value=false) }}"});</script>

@@ -1,7 +1,7 @@
 {% extends "variables.html" %}
 {% block html -%}
 <!doctype html>
-<html class="not-ready lg:text-base overflow-y-scroll scroll-pt-14" lang="{{ g_html_lang | escape_xml | safe }}">
+<html class="not-ready lg:text-base overflow-y-scroll scroll-pt-14 scheme-light dark:scheme-dark" lang="{{ g_html_lang | escape_xml | safe }}">
 
 <head prefix="og: https://ogp.me/ns#{%
   if g_profile is defined %} profile: https://ogp.me/ns/profile#{%
@@ -17,13 +17,13 @@
   <!-- End Head End inject -->
 </head>
 
-<body class="text-black duration-100 ease-out bg-[var(--bg)] dark:text-white">
+<body class="text-black duration-100 ease-out dark:text-white">
   {% include "partials/header.html" %}
   <!-- Begin Body Start inject -->
   {% include "injects/body_start.html" ignore missing %}
   <!-- End Body Start inject -->
   <main class="prose prose-neutral dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg
-    relative mx-auto min-h-[calc(100%-4rem)] max-w-3xl px-4 pt-28 lg:pt-32 pb-12 break-words">
+    relative mx-auto min-h-[calc(100vh-4rem)] max-w-3xl px-4 pt-28 lg:pt-32 pb-12 break-words">
     {%- if config.build_search_index %}
       {% include "partials/search.html" %}
     {%- endif %}

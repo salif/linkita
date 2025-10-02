@@ -24,7 +24,7 @@
   <div
     class="not-prose shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow-sm dark:bg-white/10">
     <img
-      class="my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin{%
+      class="my-0 aspect-square w-16 rounded-full bg-black/5! hover:animate-spin{%
         if g_profile.avatar_invert %} dark:invert{% endif %}"
       src="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}"{%
         if profile_avatar_alt is defined %} alt="{{ profile_avatar_alt | escape_xml | safe }}"{% endif %} />
@@ -61,7 +61,7 @@
           {%- set social_title = social.name %}
         {%- endif %}
       <a
-        class="primary-link h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat]"
+        class="primary-link h-8 w-8 text-[0px] [background:var(--url)_center_center/cover_no-repeat]"
         style="--url: url({{ m_url::social_icon(icon=social.name, prl=false) }});"
         href="{{ m_url::rel(there=m_url::get(url=social_url), here=g_here, base=g_base) }}"
         target="_blank"

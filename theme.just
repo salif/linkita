@@ -86,12 +86,8 @@ commit_diff:
     set -eux
     if ! git diff --quiet --cached -- templates; then
         {{ this }} build_css format;
-        if ! git diff --quiet -- static/main.min.css; then
-            git add static/main.min.css;
-        fi
-        if ! git diff --quiet -- static/main.css; then
-            git add static/main.css;
-        fi
+        git diff --quiet -- static/main.min.css;
+        git diff --quiet -- static/main.css;
     fi
 
 [doc('git commit')]
