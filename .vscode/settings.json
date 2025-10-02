@@ -1,5 +1,8 @@
 {
   "editor.wordWrap": "on",
+  "files.associations": {
+    "app.css": "tailwindcss"
+  },
   "htmlhint.options": {
     "tagname-lowercase": true,
     "attr-lowercase": true,
