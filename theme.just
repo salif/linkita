@@ -21,23 +21,23 @@ format:
     {{ this }} --fmt --unstable
 
 [group('dev')]
-build_css:
-    pnpm tailwindcss -i ./src/app.css -o ./static/main.min.css --minify
-    pnpm tailwindcss -i ./src/app.css -o ./src/main.css
+watch_css:
+    pnpm run dev:css
 
 [group('dev')]
-watch_css:
-    pnpm tailwindcss -i ./src/app.css -o ./static/main.min.css --minify --watch
+build_css:
+    pnpm run build:css
+    pnpm run build:nomincss
 
 [group('dev')]
 build_js:
-    terser ./static/js/linkita.js -o ./static/js/linkita.min.js
-    terser ./static/js/linkita-search.js -o ./static/js/linkita-search.min.js
-    terser ./src/gc.js -o ./static/js/gc.min.js
+    pnpm run build:linkitaJS
+    pnpm run build:searchJS
+    pnpm run build:gcJS
 
 [group('dev')]
 sync_i18n:
-    node src/sync-i18n.js static/i18n
+    node ./static/js/sync-i18n.js static/i18n
 
 [group('update_assets')]
 update_pnpm:
@@ -89,8 +89,8 @@ commit_diff:
         if ! git diff --quiet -- static/main.min.css; then
             git add static/main.min.css;
         fi
-        if ! git diff --quiet -- src/main.css; then
-            git add src/main.css;
+        if ! git diff --quiet -- static/main.css; then
+            git add static/main.css;
         fi
     fi
 

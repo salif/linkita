@@ -13,16 +13,22 @@
     "type": "git",
     "url": "https://codeberg.org/salif/linkita.git"
   },
+  "scripts": {
+    "dev:css": "pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify --watch",
+    "build:css": "pnpm tailwindcss -i ./static/app.css -o ./static/main.min.css --minify",
+    "build:nomincss": "pnpm tailwindcss -i ./static/app.css -o ./static/main.css",
+    "build:linkitaJS": "pnpm terser ./static/js/linkita.js -o ./static/js/linkita.min.js",
+    "build:searchJS": "pnpm terser ./static/js/linkita-search.js -o ./static/js/linkita-search.min.js",
+    "build:gcJS": "pnpm terser ./static/js/gc.js -o ./static/js/gc.min.js"
+  },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
     "@tailwindcss/typography": "^0.5.19",
     "execa": "^9.6.0",
     "instant.page": "^5.2.0",
     "katex": "^0.16.22",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
     "simple-icons": "^14.15.0",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^3.4.18",
     "terser": "^5.44.0"
   }
 }

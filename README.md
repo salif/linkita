@@ -89,14 +89,6 @@ Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHAN
 for all versions after the one you are using.
 There may be breaking changes that require manual involvement.
 
-If you are overriding templates and using new Tailwind classes in your templates directory,
-run this after each update:
-
-```sh
-cd themes/linkita
-pnpm tailwindcss -i ./src/app.css -o ../../static/main.min.css --minify
-```
-
 ## Usage
 
 Linkita uses the following front matter variables.
@@ -780,7 +772,7 @@ Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and 
 ## Sites using Linkita
 
 - [Zola Themes Collection](https://github.com/salif/zola-themes-collection)
-- [salif.eu](https://github.com/salif/personal-web-page): Personal website
+- [salif.eu](https://codeberg.org/salif/personal-web-page): Personal website
 - [Rratic's blog](https://github.com/Rratic/rratic.github.io): Personal website
 
 If your blog is using Linkita and is open source, feel free to create a pull request to add it to this list.

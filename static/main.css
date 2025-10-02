@@ -107,7 +107,7 @@
 }
 
 /*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -1928,10 +1928,6 @@ article {
 }
 
 /* Linkita */
-
-.horizontal-scroll {
-  overflow-x: auto;
-}
 
 .middot:not(:last-child) {
   margin-left: 0.25rem;
