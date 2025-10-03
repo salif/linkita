@@ -57,13 +57,18 @@
 </section>
 {%- endfor %}
 
-{%- if paginator is defined %}
+{%- if paginator is defined or taxonomy %}
 <nav class="not-prose mt-16 flex font-bold">
   {%- if paginator.previous %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ m_url::rel(there=paginator.previous, here=g_here, base=g_base) }}" rel="prev" accesskey=","
     >&#8249; {{ m_i18n::tr(key=`word_prev_page`, d=g_d) }}</a>
+  {%- elif taxonomy.name and taxonomy.slug %}
+  <a
+    class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
+    href="{{ m_url::rel(there=get_url(path=taxonomy.slug, lang=lang, trailing_slash=true), here=g_here, base=g_base) }}" accesskey=","
+    >&#8249; {{ m_i18n::get_taxonomy_title(key=taxonomy.name, d=g_d) }}</a>
   {%- endif %}
   {%- if paginator.next %}
   <a

@@ -24,8 +24,8 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0
       katex:
-        specifier: ^0.16.22
-        version: 0.16.22
+        specifier: ^0.16.23
+        version: 0.16.23
       simple-icons:
         specifier: ^14.15.0
         version: 14.15.0
@@ -349,8 +349,8 @@ packages:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
 
-  katex@0.16.22:
-    resolution: {integrity: sha512-XCHRdUw4lf3SKBaJe4EvgqIuWwkPSo9XoeO8GjQW94Bp7TWv9hNhzZjZ+OH9yf1UmLygb7DIT5GSFQiyt16zYg==}
+  katex@0.16.23:
+    resolution: {integrity: sha512-7VlC1hsEEolL9xNO05v9VjrvWZePkCVBJqj8ruICxYjZfHaHbaU53AlP+PODyFIXEnaEIEWi3wJy7FPZ95JAVg==}
     hasBin: true
 
   lightningcss-darwin-arm64@1.30.1:
@@ -799,7 +799,7 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  katex@0.16.22:
+  katex@0.16.23:
     dependencies:
       commander: 8.3.0
 

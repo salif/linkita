@@ -1,5 +1,5 @@
 {% import "macros/url.html" as m_url %}
-{%- set g_base = get_url(path=``) ~ "/" %}
+{%- set g_base = get_url(path=``, trailing_slash=true) %}
 {%- if config.extra.relative_urls %}
   {%- set g_here = page.permalink | trim_start_matches(pat=g_base) | split(pat=`/`) %}
 {%- else %}
