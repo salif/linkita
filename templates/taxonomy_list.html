@@ -19,7 +19,7 @@
         elif taxonomy.name == "tags" %}#{{ term.name }}{%
         elif taxonomy.name == "categories" %}{{ term.name }}{%
         else %}{{ term.name }}{% endif %}</a>
-      <sup class="opacity-60">{{ term.page_count }}</sup>
+      <sup class="opacity-60">{{ m_i18n::int_as_str(value=term.page_count) }}</sup>
     </h2>
 
     {%- for page in term.pages | slice(end=5) %}

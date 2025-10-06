@@ -29,7 +29,7 @@
 {%- endif %}
 
 {%- for year, posts in section.pages | default(value=paginator.pages) | sort(attribute=`date`) | reverse | group_by(attribute=`year`) %}
-<h2>{{ year }} <sup class="opacity-60">{{ posts | length }}</sup></h2>
+<h2>{{ year }} <sup class="opacity-60">{{ m_i18n::int_as_str(value=(posts | length)) }}</sup></h2>
 
 <div class="not-prose pl-4 lg:pl-6">
   <ul>
@@ -38,10 +38,8 @@
       <div class="my-2 flex items-center justify-between">
         <a class="secondary-link" href="{{ m_url::rel(there=post.permalink, here=g_here, base=g_base) }}">{%
           if post.title %}{{ post.title }}{% else %}{{ post.slug }}{% endif %}</a>
-        <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{%
-          if config.extra.languages[lang].locale %}{{ post.date | date(format=date_format_archive,
-            locale=config.extra.languages[lang].locale) }}{%
-          else %}{{ post.date | date(format=date_format_archive) }}{% endif %}</time>
+        <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{{
+          m_i18n::datetime_as_str(value=post.date, format=date_format_archive) }}</time>
       </div>
     </li>
     {%- endfor %}

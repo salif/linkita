@@ -205,8 +205,8 @@
     {%- else %}
     {%- endif %}
   <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
-    if config.extra.languages[page_translation.lang].language_code %}{{
-      config.extra.languages[page_translation.lang].language_code | escape_xml | safe }}{%
+    if config.extra.languages[page_translation.lang].hreflang %}{{
+      config.extra.languages[page_translation.lang].hreflang | escape_xml | safe }}{%
     else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}"{%
       if config.extra.relative_urls %} data-href="{{
     m_url::rel(there=page_translation.permalink, here=g_here, base=g_base) }}"{% endif %} />

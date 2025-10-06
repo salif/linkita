@@ -10,18 +10,10 @@ and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual a
 - Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - See [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in:
-  - [English](https://salif.github.io/linkita/),
-    [Bulgarian](https://salif.github.io/linkita/bg/),
-    [Esperanto](https://salif.github.io/linkita/eo/),
-    [Globasa](https://salif.github.io/linkita/gb/).
-  - [Chinese](https://salif.github.io/linkita/zh/),
-    [Japanese](https://salif.github.io/linkita/ja/),
-    [Korean](https://salif.github.io/linkita/ko/),
-    [Spanish](https://salif.github.io/linkita/es/).
-  - [Arabic](https://salif.github.io/linkita/ar/),
-    [Turkish](https://salif.github.io/linkita/tr/),
-    [Czech](https://salif.github.io/linkita/cs/),
-    [French](https://salif.github.io/linkita/fr/).
+  [English](https://salif.github.io/linkita/),
+  [Bulgarian](https://salif.github.io/linkita/bg/),
+  [Esperanto](https://salif.github.io/linkita/eo/),
+  [Globasa](https://salif.github.io/linkita/gb/).
 
 ## Features
 
@@ -62,7 +54,7 @@ git init
 1. Add the theme as a git submodule:
 
 ```sh
-git submodule add https://codeberg.org/salif/linkita.git themes/linkita
+git submodule add -b linkita https://codeberg.org/salif/linkita.git themes/linkita
 ```
 
 If you don't want to use git submodules, you can clone the repository instead:
@@ -589,9 +581,9 @@ gender = ""
 # fb_admins = ["YOUR_USER_ID"]
 
 # Set if you have a Fediverse account.
-#  handle - Your Fediverse handle.
-#  domain - Your Fediverse instance.
-#  url - Your Fediverse account URL. Optional.
+#  handle – Your Fediverse handle.
+#  domain – Your Fediverse instance.
+#  url – Your Fediverse account URL. Optional.
 # Example for @me@mastodon.social:
 # { handle = "me", domain = "mastodon.social" }
 fediverse_creator = { handle = "", domain = "" }
@@ -639,7 +631,8 @@ copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 # search_page_url = "$BASE_URL/search/"
 ```
 
-The `copyright` variable supports Markdown, `$BASE_URL`, `$YEAR` (uses `since`), and `$LICENSE_URL` (uses `license_url`).
+The `copyright` variable supports Markdown,
+`$BASE_URL`, `$YEAR` (uses `since`), and `$LICENSE_URL` (uses `license_url`).
 
 ### Language specific options
 
@@ -667,12 +660,13 @@ date_format = "%x"
 # Default value: extra.header_buttons
 # header_buttons = []
 
-# To set a different "lang" attribute of the document.
-# You can set IETF tag for artificial languages, e.g. "art-x-code".
-# language_code = ""
+# To set a different lang attribute of the document.
+# Also changes the interface language. e.g. "en-GB".
+# hreflang = ""
 
-# To use a different interface language, e.g. English.
-# i18n_code = "en"
+# To format numbers for a different locale. e.g. "en-GB".
+# Useful if lang is not a valid locale.
+# num_format = ""
 
 # Set a description for taxonomy pages.
 [extra.languages.en.taxonomy_descriptions]
@@ -761,18 +755,55 @@ lang = "en"
 loading = "lazy"
 ```
 
-## License
-
-See the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICENSE) file.
-
 ## Contributing
 
+This project is under the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICENSE).
+
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
+
+### Localization
+
+Feel free to contribute new translations or improve existing ones.
+
+To add a new language, create a file `LANG_CODE.json` in the `static/i18n` directory.
+See [ISO 639-1](https://localizely.com/iso-639-1-list/) codes.
+
+```sh
+echo '{}' > static/i18n/LANG_CODE.json
+node static/js/sync-i18n.js static/i18n
+```
+
+See also the `static/i18n/menu.json` file and
+the [demo repository](https://codeberg.org/salif/linkita-demo).
+
+Live preview is available in following languages:
+
+[Arabic](https://salif.github.io/linkita/ar/),
+[Bulgarian](https://salif.github.io/linkita/bg/),
+[Czech](https://salif.github.io/linkita/cs/),
+[Esperanto](https://salif.github.io/linkita/eo/),
+[Spanish](https://salif.github.io/linkita/es/),
+[Finnish](https://salif.github.io/linkita/fi/),
+[French](https://salif.github.io/linkita/fr/),
+[Globasa](https://salif.github.io/linkita/gb/),
+[Japanese](https://salif.github.io/linkita/ja/),
+[Korean](https://salif.github.io/linkita/ko/),
+[English](https://salif.github.io/linkita/),
+[Turkish](https://salif.github.io/linkita/tr/),
+[Chinese](https://salif.github.io/linkita/zh/).
 
 ## Sites using Linkita
 
 - [Zola Themes Collection](https://github.com/salif/zola-themes-collection)
-- [salif.eu](https://codeberg.org/salif/personal-web-page): Personal website
-- [Rratic's blog](https://github.com/Rratic/rratic.github.io): Personal website
+- [salif.eu](https://codeberg.org/salif/personal-web-page)
+- [Rratic's blog](https://github.com/Rratic/rratic.github.io)
 
 If your blog is using Linkita and is open source, feel free to create a pull request to add it to this list.
+
+## Other Zola themes
+
+Linkita is one of several Zola themes I maintain.
+Other themes include:
+
+- [Tukan](https://codeberg.org/salif/tukan) – Fork of zola-blog-theme, inspired from Toucan theme.
+- [Trankwilo](https://codeberg.org/salif/trankwilo) – Fork of the Goyo theme, for documentation.

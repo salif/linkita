@@ -8,6 +8,22 @@
   endif %}
 {%- endmacro tr -%}
 
+{%- macro datetime_as_str(value, format) %}{%
+  if config.extra.languages[lang].locale %}{{
+    value | date(format=format, locale=config.extra.languages[lang].locale) }}{%
+  else %}{{
+    value | date(format=format) }}{%
+  endif %}
+{%- endmacro datetime_as_str -%}
+
+{%- macro int_as_str(value) %}{%
+  if config.extra.languages[lang].num_format %}{{
+    value | num_format(locale=config.extra.languages[lang].num_format) }}{%
+  else %}{{
+    value | num_format(locale=lang) }}{%
+  endif %}
+{%- endmacro int_as_str -%}
+
 {%- macro get_taxonomy_title(key, d) %}{%
   if key == "tags" %}{{
     self::tr(key=`taxonomy_tags`, d=d) }}{%

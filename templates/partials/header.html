@@ -80,8 +80,10 @@
               if menu.names_i18n is defined %}{{
                 throw(message=`'names_i18n' in menu is not supported anymore`) }}{%
               elif menu.names[lang] %}{{ menu.names[lang] }}{%
-              elif config.extra.menu_i18n and g_menu_d[menu.name][g_lang] %}{{
-                g_menu_d[menu.name][g_lang] }}{%
+              elif config.extra.menu_i18n and lang != g_hreflang and g_menu_d[menu.name][g_hreflang] %}{{
+                g_menu_d[menu.name][g_hreflang] }}{%
+              elif config.extra.menu_i18n and g_menu_d[menu.name][lang] %}{{
+                g_menu_d[menu.name][lang] }}{%
               elif menu.name %}{{ menu.name }}{%
               else %}{{ menu.url | replace(from=`$BASE_URL`, to=``) | escape_xml | safe }}{% endif %}</a>
         </li>
