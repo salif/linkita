@@ -7,6 +7,7 @@ date = 2025-08-10
 #tags = []
 authors = []
 +++
+
 As a planned constructed language, **Globasa is very easy**. It has no exception and it reuses words and grammar rules better than natural languages. Natural languages are full of quirks due to their uncontrolled evolution. But Globasa is still a language meant to **express all the nuances of the human experience**, so you still have to learn thousand of words and grammar rules.
 
 Instead of spending *thousands of hours* learning a natural language, you will spend only *a few hundred hours* learning Globasa. That's still a lot of time. But don't worry, there is a consistently growing community here to help you, and there is content to make the hours enjoyable. Also, it's time well spent, because the knowledge of Globasa will help you recognize some words in all popular languages.

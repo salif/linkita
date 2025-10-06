@@ -170,8 +170,8 @@ comment = false
 title_separator = " | "
 header_menu_name = "sample_header"
 menu_i18n = true
-page_info = [{ when="date" }, { when="date_updated", prepend="↻ " }, { when="reading_time" }]
-page_info_on_paginator = [{ when="date" }, { when="reading_time" }, { when="authors" }]
+page_info = [{ when="date" }, { when="date_updated", prepend="↻ " }, { when="reading_time" }, { when="word_count" }]
+page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 use_cdn = false
 relative_urls = false
 urls_to_index_html = false
@@ -440,7 +440,8 @@ tags = "Parcourez les articles liés à $NAME. Commencez l'exploration !"
 authors = "Parcourez les articles écrits par $NAME. Commencez l'exploration !"
 
 [extra.languages.gb]
-language_code = "art-x-globasa"
+num_format = "eo"
+hreflang = "art-x-globasa"
 
 [extra.languages.ja]
 locale = "ja_JP"
