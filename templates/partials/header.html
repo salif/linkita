@@ -37,33 +37,30 @@
         ></button>
           {%- elif header_button == "theme_button" %}
         <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }}" accesskey="$"
-          onclick="window.linkita.toggleDarkMode();" ondblclick="window.linkita.resetDarkMode();"
+          onclick="window.zolaTheme.color.toggle();"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
           bg-center bg-no-repeat bg-cover [background-image:var(--icon-theme-dark)] dark:[background-image:var(--icon-theme-light)] dark:invert"
         ></button>
           {%- elif header_button == "search_button" and config.build_search_index %}
         <button type="button" title="{{ m_i18n::tr(key=`act_search`, d=g_d) }}" accesskey="/"
-          onclick="window.linkita.toggleSearch();"
+          onclick="window.zolaTheme.search.toggle();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
         ></button>
-            {%- if not config.extra.disable_javascript %}
-        <script>window.linkita.initSearchButton({ scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"] });</script>
-            {%- endif %}
           {%- elif header_button == "translations_button" and (page.translations or section.translations) %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, d=g_d) }}" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
-        <script>window.linkita.initTranslationsButton({btn: document.querySelector(".btn-translations"), rel: "{{ config.extra.relative_urls | default(value=false) }}"});</script>
+        <script>window.zolaTheme.trans.initButton({ btn: document.querySelector(".btn-translations"), rel: "{{ config.extra.relative_urls | default(value=false) }}" });</script>
             {%- endif %}
           {%- endif %}
         {%- endfor %}
       </div>
       {%- if header_menu %}
       <div title="{{ m_i18n::tr(key=`act_menu`, d=g_d) }}" role="button" accesskey="+" tabindex="0"
-        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-        onclick="window.linkita.toggleHeaderMenu();"
-        onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || window.linkita.toggleHeaderMenu() : true;"
+        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer select-none flex-col items-center justify-center gap-2.5 lg:hidden"
+        onclick="window.zolaTheme.menu.toggleHeader();"
+        onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || window.zolaTheme.menu.toggleHeader() : true;"
       ></div>
       {%- endif %}
     </div>

@@ -2,3 +2,6 @@
 <div id="linkita-search-wrapper" class="hidden">
   <ul id="linkita-search-results"></ul>
 </div>
+{%- if not config.extra.disable_javascript %}
+<script>window.zolaTheme.search.init({ scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"], arg: { w: "#linkita-search-wrapper", r: "#linkita-search-results" } });</script>
+{%- endif %}

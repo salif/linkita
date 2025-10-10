@@ -1,6 +1,7 @@
 {% import "macros/i18n.html" as m_i18n %}
 {% import "macros/url.html" as m_url %}
 {% import "macros/profiles.html" as m_profiles %}
+{%- set is_mode_serve = config.mode is defined and config.mode == "serve" %}
 {%- if config.extra.languages[lang].hreflang %}
   {%- set g_hreflang = config.extra.languages[lang].hreflang %}
   {%- set g_d = load_data(path=`i18n/`~g_hreflang~`.json`, format=`json`, required=false) %}

@@ -19,19 +19,7 @@
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
-  {%- if config.mode is defined and config.mode == "serve" %}
-  <script src="{{ m_url::rel(there=get_url(path=`js/linkita.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
-  {%- else %}
-  <script src="{{ m_url::rel(there=get_url(path=`js/linkita.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
-  {%- endif %}
-  {%- if config.build_search_index %}
-    {%- if config.mode is defined and config.mode == "serve" %}
-  <script src="{{ m_url::rel(there=get_url(path=`js/linkita-search.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
-    {%- else %}
-  <script src="{{ m_url::rel(there=get_url(path=`js/linkita-search.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
-    {%- endif %}
-  {%- endif %}
-
+  <script src="{{ m_url::rel(there=get_url(path=`js/zola-theme.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
   {%- if page.extra.math | default(value=(section.extra.math | default(value=config.extra.math))) %}
     {%- if config.extra.use_cdn %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.23/dist/katex.min.css"
@@ -45,7 +33,7 @@
   <script defer src="{{ m_url::rel(there=get_url(path=`katex/katex.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
   <script defer src="{{ m_url::rel(there=get_url(path=`katex/contrib/auto-render.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
     {%- endif %}
-  <script>document.addEventListener("DOMContentLoaded", window.linkita.initKatex);</script>
+  <script>window.zolaTheme.katex.init();</script>
   {%- endif %}
 {%- endif %}
 {#- -#}

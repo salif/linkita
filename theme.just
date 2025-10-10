@@ -31,9 +31,12 @@ build_css:
 
 [group('dev')]
 build_js:
-    pnpm run build:linkitaJS
-    pnpm run build:searchJS
+    pnpm run build:js
     pnpm run build:gcJS
+
+[group('dev')]
+watch_js_theme:
+    inotifywait -m ./static/js/theme/ -e modify -q | while read; do pnpm run build:js; done
 
 [group('dev')]
 sync_i18n:
