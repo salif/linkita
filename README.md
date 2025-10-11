@@ -2,9 +2,8 @@
 
 ## Links
 
-- [Demo site](https://salif.github.io/linkita/), [source](https://codeberg.org/salif/linkita-demo), [source mirror](https://github.com/salif/linkita/tree/demo)
-- [Theme source](https://codeberg.org/salif/linkita), [Theme source mirror](https://github.com/salif/linkita)
-- [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org)
+- [Demo site](https://salif.github.io/linkita/), [source](https://codeberg.org/salif/linkita-demo), [github mirror](https://github.com/salif/linkita/tree/demo)
+- [Theme source](https://codeberg.org/salif/linkita), [github mirror](https://github.com/salif/linkita)
 - [Zola Themes Collection](https://salif.github.io/zola-themes-collection/), [Kita theme](https://github.com/st1020/kita), [Hugo-Paper theme](https://github.com/nanxiaobei/hugo-paper)
 
 ## Set up for contributing
@@ -22,10 +21,10 @@ git clone --recurse-submodules https://codeberg.org/salif/linkita-demo.git
 
 # Step 2: Only if you forked the theme repository:
 cd linkita-demo/themes/linkita
-git remote add downstream https://codeberg.org/YOUR-USERNAME/linkita.git
+git remote add theme https://codeberg.org/YOUR-USERNAME/linkita.git
 
 # If you do changes in the theme repository:
-git checkout -b feature
+git checkout -b feature-branch-name linkita
 git commit
-git push downstream feature
+git push -u theme feature-branch-name
 ```

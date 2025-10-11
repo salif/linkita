@@ -170,7 +170,7 @@ comment = false
 title_separator = " | "
 header_menu_name = "sample_header"
 menu_i18n = true
-page_info = [{ when="date" }, { when="date_updated", prepend="↻ " }, { when="reading_time" }, { when="word_count" }]
+page_info = [{ when="date" }, { when="date_updated", prepend="Upd. " }, { when="reading_time" }]
 page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 use_cdn = false
 relative_urls = false
@@ -212,7 +212,7 @@ social = [
 [extra.profiles.sample_username.languages]
 [extra.profiles.sample_username.languages.en]
 name = "Linkita - Zola Theme"
-bio = "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly."
+bio = "A clean, elegant, and multilingual blog theme for Zola."
 avatar_alt = "Demo profile avatar."
 [extra.profiles.sample_username.languages.ar]
 name = "لينكيتا - قوالب مدونة زولا"
@@ -497,6 +497,6 @@ strict = 1
 reactions_enabled = 0
 emit_metadata = 0
 input_position = "top"
-theme = "light"
+theme = "preferred_color_scheme"
 lang = "en"
 loading = "lazy"
