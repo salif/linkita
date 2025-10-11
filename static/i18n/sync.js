@@ -3,8 +3,8 @@
  * Synchronize all .json localization files in a directory using en.json as the source.
  *
  * Usage:
- *   node sync-i18n.js
- *   node sync-i18n.js ./i18n
+ *   node sync.js
+ *   node sync.js ./i18n
  *
  * Behavior:
  * - Adds missing keys to other json files with { fallback: <enValue>, value: "", needs_edit: "" }
@@ -178,7 +178,7 @@ async function syncDir(dirPath) {
 
 const dirPath = undefined !== process.argv[2] ?
   path.resolve(process.argv[2]) :
-  path.resolve(__dirname, "..", "static", "i18n");
+  path.resolve(__dirname);
 
 syncDir(dirPath).catch(err => {
 	console.error('Fatal error:', err);

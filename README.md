@@ -6,7 +6,6 @@ and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual a
 
 - The source code is available on [Codeberg](https://codeberg.org/salif/linkita)
   and mirrored on [GitHub](https://github.com/salif/linkita).
-- For discussion, join the [Matrix chat room](https://matrix.to/#/#linkita:mozilla.org).
 - Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - See [demo source code](https://codeberg.org/salif/linkita-demo).
 - Live preview in:
@@ -400,6 +399,7 @@ disable_default_favicon = false
 # Default value: false
 disable_javascript = false
 
+# Use a CDN for libraries like KaTeX.
 # Default value: false
 use_cdn = false
 
@@ -421,16 +421,19 @@ page_summary_on_paginator = false
 # Default value: false
 invert_page_navigation = false
 
-# You can reorder the strings, remove them, replace them.
-# For example, you can replace "site_title" with "home_button".
+# Header buttons.
+# You can replace "site_title" with "home_button".
 # Default value: ["site_title", "theme_button", "search_button", "translations_button"]
 # header_buttons = []
 
+# What info is shown on post pages.
 # Valid "when" values:
 #  "date", "date_updated", "reading_time", "word_count", "authors", "tags", "".
 # The "prepend" and "append" are used when the value of "when" is defined for the page.
 # e.g. [{when="", prepend="Page Info: "},{when="date",prepend="Published on "},{when="authors",prepend="By "}]
 # page_info = [{ when="date" }, { when="date_updated", prepend="(", append=")" }, { when="reading_time" }]
+
+# What info is shown for posts on paginators.
 # page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 
 # Enable table of contents on all pages.
@@ -747,8 +750,8 @@ reactions_enabled = 0
 emit_metadata = 0
 # Default value: "top"
 input_position = "top"
-# Default value: "light"
-theme = "light"
+# Default value: "preferred_color_scheme"
+theme = "preferred_color_scheme"
 # Default value: "en"
 lang = "en"
 # Default value: "lazy"
@@ -770,7 +773,7 @@ See [ISO 639-1](https://localizely.com/iso-639-1-list/) codes.
 
 ```sh
 echo '{}' > static/i18n/LANG_CODE.json
-node static/js/sync-i18n.js static/i18n
+node ./static/i18n/sync.js
 ```
 
 See also the `static/i18n/menu.json` file and

@@ -18,7 +18,7 @@
 {%- elif config.extra.page_info is defined %}
   {%- set page_info = config.extra.page_info %}
 {%- else %}
-  {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "date_updated", "prepend": "↻ "}, {"when": "reading_time"}, {"when": "authors"}]`, format=`json`) %}
+  {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "reading_time"}, {"when": "authors"}]`, format=`json`) %}
 {%- endif %}
 {%- set date_format = config.extra.languages[lang].date_format | default(value="%F") %}
 

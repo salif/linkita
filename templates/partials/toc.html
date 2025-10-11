@@ -9,29 +9,27 @@
 {%- if page_toc and (page.toc or section.toc) %}
 <nav class="block-bg prose-a:secondary-link mb-12 rounded-lg p-2 text-lg">
   <details {%- if page_toc is object and page_toc.open %}{{ ` open` }}{% endif %}>
-    <summary class="select-none py-0.5 lg:py-1 pl-4" accesskey="=">
-      <span class="cursor-pointer">{{ m_i18n::tr(key=`word_toc`, d=g_d) }}</span>
+    <summary class="select-none py-0.5 lg:py-1 pl-3.5" accesskey="=">
+      <span class="cursor-pointer ml-0.5">{{ m_i18n::tr(key=`word_toc`, d=g_d) }}</span>
     </summary>
-    <div class="px-2">
-      <ul>
-        {%- for h1 in page.toc | default(value=section.toc) %}
-        <li class="ps-[0px]">
-          <a class="no-underline hover:underline" href="{{
-            m_url::rel(there=h1.permalink, here=g_here, base=g_base) }}">{{ h1.title }}</a>
-          {%- if h1.children %}
-          <ul>
-            {%- for h2 in h1.children %}
-            <li class="ps-[0px]">
-              <a class="no-underline hover:underline" href="{{
-                m_url::rel(there=h2.permalink, here=g_here, base=g_base) }}">{{ h2.title }}</a>
-            </li>
-            {%- endfor %}
-          </ul>
-          {%- endif %}
-        </li>
-        {%- endfor %}
-      </ul>
-    </div>
+    <ul class="ps-8">
+      {%- for h1 in page.toc | default(value=section.toc) %}
+      <li class="ps-0.5">
+        <a class="no-underline hover:underline" href="{{
+          m_url::rel(there=h1.permalink, here=g_here, base=g_base) }}">{{ h1.title }}</a>
+        {%- if h1.children %}
+        <ul>
+          {%- for h2 in h1.children %}
+          <li class="ps-0.5">
+            <a class="no-underline hover:underline" href="{{
+              m_url::rel(there=h2.permalink, here=g_here, base=g_base) }}">{{ h2.title }}</a>
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
   </details>
 </nav>
 {%- endif %}

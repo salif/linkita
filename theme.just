@@ -32,7 +32,6 @@ build_css:
 [group('dev')]
 build_js:
     pnpm run build:js
-    pnpm run build:gcJS
 
 [group('dev')]
 watch_js_theme:
@@ -40,7 +39,7 @@ watch_js_theme:
 
 [group('dev')]
 sync_i18n:
-    node ./static/js/sync-i18n.js static/i18n
+    node ./static/i18n/sync.js
 
 [group('update_assets')]
 update_pnpm:
@@ -55,6 +54,11 @@ sync_simple_icons:
     for (const icon of icons) {
         fs.copyFileSync(`./node_modules/simple-icons/icons/${icon}.svg`, `./static/icons/${icon}.svg`)
     }
+
+[group('update_assets')]
+sync_gc:
+    curl -L "https://gc.zgo.at/count.js" > static/js/gc.js
+    pnpm run build:gcJS
 
 [group('update_assets')]
 [script]
@@ -91,6 +95,10 @@ commit_diff:
         {{ this }} build_css format;
         git diff --quiet -- static/main.min.css;
         git diff --quiet -- static/main.css;
+    fi
+    if ! git diff --quiet --cached -- static/js/theme; then
+        {{ this }} build_js;
+        git diff --quiet -- static/js/zola-theme.min.js;
     fi
 
 [doc('git commit')]

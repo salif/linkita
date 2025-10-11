@@ -691,6 +691,9 @@
   .ml-0 {
     margin-left: calc(var(--spacing) * 0);
   }
+  .ml-0\.5 {
+    margin-left: calc(var(--spacing) * 0.5);
+  }
   .ml-1\.5 {
     margin-left: calc(var(--spacing) * 1.5);
   }
@@ -837,6 +840,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+  .overflow-hidden {
+    overflow: hidden;
   }
   .overflow-y-scroll {
     overflow-y: scroll;
@@ -996,9 +1002,6 @@
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
-  .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
@@ -1017,8 +1020,11 @@
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
-  .ps-\[0px\] {
-    padding-inline-start: 0px;
+  .ps-0\.5 {
+    padding-inline-start: calc(var(--spacing) * 0.5);
+  }
+  .ps-8 {
+    padding-inline-start: calc(var(--spacing) * 8);
   }
   .pt-28 {
     padding-top: calc(var(--spacing) * 28);
@@ -1043,6 +1049,9 @@
   }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
+  }
+  .pl-3\.5 {
+    padding-left: calc(var(--spacing) * 3.5);
   }
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
@@ -1547,6 +1556,9 @@ a {
 }
 sup a {
   text-underline-offset: 1px;
+}
+iframe.giscus-frame {
+  color-scheme: inherit;
 }
 .header {
   background-color: var(--header);

@@ -20,7 +20,7 @@ zolaTheme.color = {
     }
 
     this.BrowserDarkPref.addEventListener("change", function (event) {
-      this.applyMode({ applyDark: event.matches, doEvent: true })
+      zolaTheme.color.applyMode({ applyDark: event.matches, doEvent: true })
     })
 
     this.HtmlClass.remove("not-ready")
@@ -37,8 +37,11 @@ zolaTheme.color = {
         this.ThemeColorTag.dataset.dark : this.ThemeColorTag.dataset.light)
     }
     if (doEvent && undefined != document.body) {
-      document.body.dispatchEvent(new CustomEvent(this.EventName,
-        { detail: applyDark ? this.DarkPrefName : this.LightPrefName }))
+      document.body.dispatchEvent(
+        new CustomEvent(this.EventName, {
+          detail: applyDark ? this.DarkPrefName : this.LightPrefName
+        })
+      )
     }
   },
 
