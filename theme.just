@@ -50,7 +50,11 @@ update_pnpm:
 sync_simple_icons:
     #!/usr/bin/env node
     import fs from "fs"
-    const icons = ["bluesky", "codeberg", "git", "github", "mastodon", "matrix", "youtube"]
+    const icons = [
+        "bluesky", "instagram", "mastodon", "matrix", "youtube",
+        "codeberg", "forgejo", "git", "github", "npm",
+        "buymeacoffee", "kofi", "liberapay", "opencollective",
+    ]
     for (const icon of icons) {
         fs.copyFileSync(`./node_modules/simple-icons/icons/${icon}.svg`, `./static/icons/${icon}.svg`)
     }
