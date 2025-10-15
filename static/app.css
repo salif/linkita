@@ -101,8 +101,8 @@ sup a {
   @apply underline-offset-1;
 }
 
-iframe.giscus-frame {
-  color-scheme: inherit;
+.giscus-frame {
+  color-scheme: inherit !important;
 }
 
 .header {

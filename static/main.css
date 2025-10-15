@@ -1557,8 +1557,8 @@ a {
 sup a {
   text-underline-offset: 1px;
 }
-iframe.giscus-frame {
-  color-scheme: inherit;
+.giscus-frame {
+  color-scheme: inherit !important;
 }
 .header {
   background-color: var(--header);
