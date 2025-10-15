@@ -70,6 +70,7 @@ screenshot_set_mode mode schema='org.x.apps.portal':
         if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-dark'" ]]; then
             gsettings set {{ schema }} color-scheme 'prefer-dark'; fi
     fi
+    sleep 2
 
 [private]
 screenshot_do mode screenshot_url=screenshot_url browser='chromium':
@@ -87,7 +88,7 @@ screenshot_do_dark: (screenshot_do 'dark')
 [group('dev')]
 screenshot_update:
     magick -size 1360x765 xc:black -fill white -draw "polygon 0,0 1360,0 0,765" /tmp/linkita-mask.png
-    magick /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png -composite ./static/images/screenshot.png
-    -mat2 --inplace ./static/images/screenshot.png
-    cp ./static/images/screenshot.png ./themes/linkita/screenshot.png
+    magick /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png -composite static/images/screenshot.png
+    -mat2 --inplace static/images/screenshot.png
+    cp static/images/screenshot.png themes/linkita/screenshot.png
     rm -f /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png
