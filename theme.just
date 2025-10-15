@@ -35,11 +35,11 @@ build_js:
 
 [group('dev')]
 watch_js_theme:
-    inotifywait -m ./static/js/theme/ -e modify -q | while read; do pnpm run build:js; done
+    inotifywait -m static/js/theme/ -e modify -q | while read; do pnpm run build:js; done
 
 [group('dev')]
 sync_i18n:
-    node ./static/i18n/sync.js
+    node static/i18n/sync.js
 
 [group('update_assets')]
 update_pnpm:
@@ -56,7 +56,7 @@ sync_simple_icons:
         "buymeacoffee", "kofi", "liberapay", "opencollective",
     ]
     for (const icon of icons) {
-        fs.copyFileSync(`./node_modules/simple-icons/icons/${icon}.svg`, `./static/icons/${icon}.svg`)
+        fs.copyFileSync(`node_modules/simple-icons/icons/${icon}.svg`, `static/icons/${icon}.svg`)
     }
 
 [group('update_assets')]

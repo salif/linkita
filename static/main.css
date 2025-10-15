@@ -1558,7 +1558,8 @@ sup a {
   text-underline-offset: 1px;
 }
 .giscus-frame {
-  color-scheme: inherit !important;
+  --color-scheme: inherit;
+  color-scheme: var(--color-scheme) !important;
 }
 .header {
   background-color: var(--header);

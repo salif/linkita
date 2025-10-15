@@ -14,11 +14,11 @@
     "url": "https://codeberg.org/salif/linkita.git"
   },
   "scripts": {
-    "dev:css": "tailwindcss -i ./static/app.css -o ./static/main.min.css --minify --watch",
-    "build:css": "tailwindcss -i ./static/app.css -o ./static/main.min.css --minify",
-    "build:nomincss": "tailwindcss -i ./static/app.css -o ./static/main.css",
-    "build:js": "terser -o ./static/js/zola-theme.min.js ./static/js/theme/*.js",
-    "build:gcJS": "terser ./static/js/gc.js -o ./static/js/gc.min.js"
+    "dev:css": "tailwindcss -i static/app.css -o static/main.min.css --minify --watch",
+    "build:css": "tailwindcss -i static/app.css -o static/main.min.css --minify",
+    "build:nomincss": "tailwindcss -i static/app.css -o static/main.css",
+    "build:js": "terser -o static/js/zola-theme.min.js static/js/theme/*.js",
+    "build:gcJS": "terser static/js/gc.js -o static/js/gc.min.js"
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
