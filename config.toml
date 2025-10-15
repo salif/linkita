@@ -170,8 +170,6 @@ comment = false
 title_separator = " | "
 header_menu_name = "sample_header"
 menu_i18n = true
-page_info = [{ when="date" }, { when="date_updated", prepend="Upd. " }, { when="reading_time" }]
-page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 use_cdn = false
 relative_urls = false
 urls_to_index_html = false
@@ -361,7 +359,9 @@ copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 
 [extra.languages.en]
 locale = "en_US"
-date_format = "%F"
+date_format = "%Y %b %-d"
+page_info = [{ when="date" }, { when="date_updated", prepend="Upd " }, { when="reading_time", prepend="Est " }]
+page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 [extra.languages.en.taxonomy_descriptions]
 tags = "A map of all tags on this site. Start exploring!"
 authors = "A map of all authors on this site. Start exploring!"
