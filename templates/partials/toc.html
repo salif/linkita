@@ -9,7 +9,7 @@
 {%- if page_toc and (page.toc or section.toc) %}
 <nav class="block-bg prose-a:secondary-link mb-12 rounded-lg p-2 text-lg">
   <details {%- if page_toc is object and page_toc.open %}{{ ` open` }}{% endif %}>
-    <summary class="select-none py-0.5 lg:py-1 pl-3.5" accesskey="=">
+    <summary class="select-none py-0.5 lg:py-1 pl-3.5" title="[Alt + =]" accesskey="=">
       <span class="cursor-pointer ml-0.5">{{ m_i18n::tr(key=`word_toc`, d=g_d) }}</span>
     </summary>
     <ul class="ps-8">

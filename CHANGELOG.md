@@ -17,6 +17,7 @@ All notable changes to this theme will be documented in this file.
 - Add `inline-code-fix.css` file that can be used to remove inline code backticks.
 - Rename `extra.languages[lang].language_code` config variable to `extra.languages[lang].hreflang`.
 - Remove `extra.languages[lang].i18n_code` and add `extra.languages[lang].num_format` config variable.
+- Add `theme_select` and `translations_select` options for header buttons.
 
 ## [v3.2025_04_22](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..v3.2025_04_22)
 

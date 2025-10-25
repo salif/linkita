@@ -422,9 +422,11 @@ page_summary_on_paginator = false
 invert_page_navigation = false
 
 # Header buttons.
-# You can replace "site_title" with "home_button".
-# Default value: ["site_title", "theme_button", "search_button", "translations_button"]
-# header_buttons = []
+# Valid values:
+#  "site_title", "home_button", "theme_select", "theme_button",
+#  "search_button", "translations_select", "translations_button".
+# Can be set to an empty array.
+# header_buttons = ["site_title", "theme_select", "search_button", "translations_select"]
 
 # What info is shown on post pages.
 # Valid "when" values:

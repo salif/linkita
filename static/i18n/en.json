@@ -1,7 +1,4 @@
 {
-  "language_name": {
-    "value": "English"
-  },
   "word_translations": {
     "value": "Translations"
   },
@@ -20,14 +17,26 @@
   "act_switch_color_scheme": {
     "value": "Switch color scheme"
   },
+  "act_switch_to_light": {
+    "value": "Switch to light mode"
+  },
+  "act_switch_to_dark": {
+    "value": "Switch to dark mode"
+  },
+  "act_reset_color_scheme": {
+    "value": "Reset color scheme"
+  },
   "act_search": {
-    "value": "Search"
+    "value": "Open search"
   },
   "act_go_to_translation": {
-    "value": "Go to translation of the page"
+    "value": "Go to page translation"
+  },
+  "act_show_translations": {
+    "value": "Show page translations"
   },
   "act_menu": {
-    "value": "Menu"
+    "value": "Toggle menu"
   },
   "footer_powered_by": {
     "value": "Powered by Zola"

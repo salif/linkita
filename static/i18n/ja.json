@@ -1,9 +1,4 @@
 {
-  "language_name": {
-    "value": "日本語",
-    "fallback": "English",
-    "needs_edit": ""
-  },
   "word_translations": {
     "value": "翻訳",
     "fallback": "Translations",
@@ -34,20 +29,40 @@
     "fallback": "Switch color scheme",
     "needs_edit": ""
   },
+  "act_switch_to_light": {
+    "value": "",
+    "fallback": "Switch to light mode",
+    "needs_edit": ""
+  },
+  "act_switch_to_dark": {
+    "value": "",
+    "fallback": "Switch to dark mode",
+    "needs_edit": ""
+  },
+  "act_reset_color_scheme": {
+    "value": "",
+    "fallback": "Reset color scheme",
+    "needs_edit": ""
+  },
   "act_search": {
     "value": "検索",
-    "fallback": "Search",
-    "needs_edit": ""
+    "fallback": "Open search",
+    "needs_edit": "Search"
   },
   "act_go_to_translation": {
     "value": "ページの翻訳へ",
-    "fallback": "Go to translation of the page",
+    "fallback": "Go to page translation",
+    "needs_edit": "Go to translation of the page"
+  },
+  "act_show_translations": {
+    "value": "",
+    "fallback": "Show page translations",
     "needs_edit": ""
   },
   "act_menu": {
     "value": "メニュー",
-    "fallback": "Menu",
-    "needs_edit": ""
+    "fallback": "Toggle menu",
+    "needs_edit": "Menu"
   },
   "footer_powered_by": {
     "value": "",

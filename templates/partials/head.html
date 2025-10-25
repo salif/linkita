@@ -194,8 +194,7 @@
   {%- endif %}
 {%- endif %}
 
-{%- if page.translations or section.translations %}
-  {%- set page_translations = page.translations | default(value=section.translations) | sort(attribute=`lang`) %}
+{%- if page_translations %}
   {%- for page_translation in page_translations %}
     {%- if page_translation.lang == lang and config.extra.languages[lang].locale %}
   <meta property="og:locale" content="{{ config.extra.languages[lang].locale | escape_xml | safe }}" />

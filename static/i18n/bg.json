@@ -1,9 +1,4 @@
 {
-  "language_name": {
-    "value": "български",
-    "fallback": "English",
-    "needs_edit": ""
-  },
   "word_translations": {
     "value": "Преводи",
     "fallback": "Translations",
@@ -34,19 +29,39 @@
     "fallback": "Switch color scheme",
     "needs_edit": ""
   },
+  "act_switch_to_light": {
+    "value": "Превключване към светъл режим",
+    "fallback": "Switch to light mode",
+    "needs_edit": ""
+  },
+  "act_switch_to_dark": {
+    "value": "Превключване към тъмен режим",
+    "fallback": "Switch to dark mode",
+    "needs_edit": ""
+  },
+  "act_reset_color_scheme": {
+    "value": "Нулиране на цветовата схема",
+    "fallback": "Reset color scheme",
+    "needs_edit": ""
+  },
   "act_search": {
-    "value": "Търсене",
-    "fallback": "Search",
+    "value": "Търсене в сайта",
+    "fallback": "Open search",
     "needs_edit": ""
   },
   "act_go_to_translation": {
     "value": "Отиване към превод на страницата",
-    "fallback": "Go to translation of the page",
+    "fallback": "Go to page translation",
+    "needs_edit": ""
+  },
+  "act_show_translations": {
+    "value": "Показване на преводи на страницата",
+    "fallback": "Show page translations",
     "needs_edit": ""
   },
   "act_menu": {
     "value": "Меню",
-    "fallback": "Menu",
+    "fallback": "Toggle menu",
     "needs_edit": ""
   },
   "footer_powered_by": {

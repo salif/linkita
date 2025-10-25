@@ -213,6 +213,9 @@
   .z-50 {
     z-index: 50;
   }
+  .m-2 {
+    margin: calc(var(--spacing) * 2);
+  }
   .mx-2 {
     margin-inline: calc(var(--spacing) * 2);
   }
@@ -658,6 +661,9 @@
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
+  .mt-3\.5 {
+    margin-top: calc(var(--spacing) * 3.5);
+  }
   .mt-12 {
     margin-top: calc(var(--spacing) * 12);
   }
@@ -971,6 +977,12 @@
   }
   .\[background-image\:var\(--icon-theme-dark\)\] {
     background-image: var(--icon-theme-dark);
+  }
+  .\[background-image\:var\(--icon-theme-light\)\] {
+    background-image: var(--icon-theme-light);
+  }
+  .\[background-image\:var\(--icon-theme-reset\)\] {
+    background-image: var(--icon-theme-reset);
   }
   .\[background-image\:var\(--icon-translations\)\] {
     background-image: var(--icon-translations);

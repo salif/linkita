@@ -23,6 +23,9 @@
 {%- else %}
   {%- set g_here = [] %}
 {%- endif %}
+{%- if page.translations or section.translations %}
+  {%- set page_translations = page.translations | default(value=section.translations) | sort(attribute=`lang`) %}
+{%- endif %}
 {%- if page.extra.profile %}
   {%- set profile_username = page.extra.profile %}
 {%- elif section.extra.profile %}

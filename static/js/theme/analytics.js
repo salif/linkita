@@ -1,8 +1,3 @@
-"use strict"
-if (undefined == window.zolaTheme) {
-  window.zolaTheme = {}
-}
-
 zolaTheme.analytics = {
   HashEnableKey: "#enable-analytics",
   HashDisableKey: "#disable-analytics",

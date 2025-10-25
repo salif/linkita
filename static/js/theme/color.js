@@ -1,3 +1,7 @@
+"use strict"
+if (undefined == window.zolaTheme) {
+  window.zolaTheme = {}
+}
 zolaTheme.color = {
   Key: "theme-color-scheme",
   DarkPrefName: "dark",
@@ -51,9 +55,19 @@ zolaTheme.color = {
     localStorage.setItem(this.Key, newMode ? this.DarkPrefName : this.LightPrefName)
   },
 
+  select: function ({ mode, par }) {
+    if (mode === "dark" || mode === "light") {
+      this.applyMode({ applyDark: mode === "dark", doEvent: true })
+      localStorage.setItem(this.Key, mode === "dark" ? this.DarkPrefName : this.LightPrefName)
+    } else if (mode === "reset") {
+      this.reset()
+    }
+    par.removeAttribute("open")
+  },
+
   reset: function () {
-    localStorage.removeItem(this.Key)
     this.applyMode({ applyDark: this.BrowserDarkPref.matches, doEvent: true })
+    localStorage.removeItem(this.Key)
   },
 
 }
