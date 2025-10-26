@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.16 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -969,23 +969,23 @@
       background-color: color-mix(in oklab, var(--color-white) 50%, transparent);
     }
   }
-  .\[background-image\:var\(--icon-home\)\] {
-    background-image: var(--icon-home);
+  .\[background-image\:var\(--icons-btn-dark\,url\(icons\/btn-dark\.svg\)\)\] {
+    background-image: var(--icons-btn-dark,url(icons/btn-dark.svg));
   }
-  .\[background-image\:var\(--icon-search\)\] {
-    background-image: var(--icon-search);
+  .\[background-image\:var\(--icons-btn-light\,url\(icons\/btn-light\.svg\)\)\] {
+    background-image: var(--icons-btn-light,url(icons/btn-light.svg));
   }
-  .\[background-image\:var\(--icon-theme-dark\)\] {
-    background-image: var(--icon-theme-dark);
+  .\[background-image\:var\(--icons-btn-reset\,url\(icons\/btn-reset\.svg\)\)\] {
+    background-image: var(--icons-btn-reset,url(icons/btn-reset.svg));
   }
-  .\[background-image\:var\(--icon-theme-light\)\] {
-    background-image: var(--icon-theme-light);
+  .\[background-image\:var\(--icons-btn-trans\,url\(icons\/btn-trans\.svg\)\)\] {
+    background-image: var(--icons-btn-trans,url(icons/btn-trans.svg));
   }
-  .\[background-image\:var\(--icon-theme-reset\)\] {
-    background-image: var(--icon-theme-reset);
+  .\[background-image\:var\(--icons-home\,url\(icons\/home\.svg\)\)\] {
+    background-image: var(--icons-home,url(icons/home.svg));
   }
-  .\[background-image\:var\(--icon-translations\)\] {
-    background-image: var(--icon-translations);
+  .\[background-image\:var\(--icons-search\,url\(icons\/search\.svg\)\)\] {
+    background-image: var(--icons-search,url(icons/search.svg));
   }
   .bg-cover {
     background-size: cover;
@@ -1125,7 +1125,7 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
-  .break-words {
+  .wrap-break-word {
     overflow-wrap: break-word;
   }
   .primary-link {
@@ -1399,9 +1399,9 @@
       }
     }
   }
-  .dark\:\[background-image\:var\(--icon-theme-light\)\] {
+  .dark\:\[background-image\:var\(--icons-btn-light\,url\(icons\/btn-light\.svg\)\)\] {
     &:where(.dark, .dark *) {
-      background-image: var(--icon-theme-light);
+      background-image: var(--icons-btn-light,url(icons/btn-light.svg));
     }
   }
   .dark\:text-black {

@@ -23,7 +23,7 @@
   {% include "injects/body_start.html" ignore missing %}
   <!-- End Body Start inject -->
   <main class="prose prose-neutral dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg
-    relative mx-auto min-h-[calc(100vh-4rem)] max-w-3xl px-4 pt-28 lg:pt-32 pb-12 break-words">
+    relative mx-auto min-h-[calc(100vh-4rem)] max-w-3xl px-4 pt-28 lg:pt-32 pb-12 wrap-break-word">
     {%- if config.build_search_index %}
       {% include "partials/search.html" %}
     {%- endif %}

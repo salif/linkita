@@ -22,7 +22,7 @@
   {%- set header_menu = config.extra.menu %}
 {%- endif %}
 <header class="{%
-  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-13 w-full header-icons">
+  if config.extra.style.header_blur %}blur-header{% else %}header{% endif %} fixed top-0 z-40 mx-auto min-h-13 w-full">
   <div class="mx-auto w-full max-w-4xl p-2.5 lg:flex lg:justify-between">
     <div class="flex justify-between">
       <div class="flex items-center min-h-8 overflow-hidden">
@@ -37,32 +37,33 @@
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_home`, d=g_d) }} [Alt + !]" accesskey="!"
           onclick="window.location.href='{{ m_url::rel(there=m_url::get(url=`$BASE_URL/`), here=g_here, base=g_base) }}';"
           class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0px]
-            bg-center bg-no-repeat bg-cover [background-image:var(--icon-home)] dark:invert"
+            bg-center bg-no-repeat bg-cover [background-image:var(--icons-home,url(icons/home.svg))] dark:invert"
         ></button>
 
           {%- elif header_button == "theme_select" %}
         <details name="header_button">
           <summary
             title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }} [Alt + $]" accesskey="$"
-            class="select-none ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover
-              [background-image:var(--icon-theme-dark)] dark:[background-image:var(--icon-theme-light)] dark:invert"
+            class="select-none ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
+              bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-dark,url(icons/btn-dark.svg))]
+              dark:[background-image:var(--icons-btn-light,url(icons/btn-light.svg))] dark:invert"
           ></summary>
           <div class="absolute header mt-3.5">
             <button
               type="button" title="{{ m_i18n::tr(key=`act_switch_to_light`, d=g_d) }}"
               onclick="window.zolaTheme.color.select({ mode: 'light', par: this.parentElement.parentElement });"
               class="m-2 h-6 w-6 shrink-0 cursor-pointer text-[0px]
-                bg-center bg-no-repeat bg-cover [background-image:var(--icon-theme-light)] dark:invert"
+                bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-light,url(icons/btn-light.svg))] dark:invert"
             ></button><button
               type="button" title="{{ m_i18n::tr(key=`act_switch_to_dark`, d=g_d) }}"
               onclick="window.zolaTheme.color.select({ mode: 'dark', par: this.parentElement.parentElement });"
               class="my-2 h-6 w-6 shrink-0 cursor-pointer text-[0px]
-                bg-center bg-no-repeat bg-cover [background-image:var(--icon-theme-dark)] dark:invert"
+                bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-dark,url(icons/btn-dark.svg))] dark:invert"
             ></button><button
               type="button" title="{{ m_i18n::tr(key=`act_reset_color_scheme`, d=g_d) }}"
               onclick="window.zolaTheme.color.select({ mode: 'reset', par: this.parentElement.parentElement });"
               class="m-2 h-6 w-6 shrink-0 cursor-pointer text-[0px]
-                bg-center bg-no-repeat bg-cover [background-image:var(--icon-theme-reset)] dark:invert"
+                bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-reset,url(icons/btn-reset.svg))] dark:invert"
             ></button>
           </div>
         </details>
@@ -70,15 +71,16 @@
           {%- elif header_button == "theme_button" %}
         <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }} [Alt + $]" accesskey="$"
           onclick="window.zolaTheme.color.toggle();"
-          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] bg-center bg-no-repeat bg-cover
-            [background-image:var(--icon-theme-dark)] dark:[background-image:var(--icon-theme-light)] dark:invert"
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
+            bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-dark,url(icons/btn-dark.svg))]
+            dark:[background-image:var(--icons-btn-light,url(icons/btn-light.svg))] dark:invert"
         ></button>
 
           {%- elif header_button == "search_button" and config.build_search_index %}
         <button type="button" title="{{ m_i18n::tr(key=`act_search`, d=g_d) }} [Alt + /]" accesskey="/"
           onclick="window.zolaTheme.search.toggle();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
-            bg-center bg-no-repeat bg-cover [background-image:var(--icon-search)] dark:invert"
+            bg-center bg-no-repeat bg-cover [background-image:var(--icons-search,url(icons/search.svg))] dark:invert"
         ></button>
 
           {%- elif header_button == "translations_select" and page_translations and (page_translations | length > 1) %}
@@ -86,7 +88,7 @@
           <summary
             title="{{ m_i18n::tr(key=`act_show_translations`, d=g_d) }} [Alt + ;]" accesskey=";"
             class="select-none ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
-              bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
+              bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-trans,url(icons/btn-trans.svg))] dark:invert"
           ></summary>
           <ul class="absolute header text-lg mt-3.5">
           {%- for page_translation in page_translations %}
@@ -106,7 +108,7 @@
           {%- elif header_button == "translations_button" and page_translations %}
         <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, d=g_d) }} [Alt + ;]" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
-            bg-center bg-no-repeat bg-cover [background-image:var(--icon-translations)] dark:invert"
+            bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-trans,url(icons/btn-trans.svg))] dark:invert"
         ></button>
             {%- if not config.extra.disable_javascript %}
         <script>window.zolaTheme.trans.initButton({ btn: document.querySelector(".btn-translations"), rel: "{{ config.extra.relative_urls | default(value=false) }}" });</script>

@@ -38,7 +38,7 @@
     <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
     {%- endif %}
     {%- if profile_bio is defined %}
-    <div class="mb-2 break-words">
+    <div class="mb-2 wrap-break-word">
       {{ profile_bio | markdown(inline=true) | safe }}
     </div>
     {%- endif %}
