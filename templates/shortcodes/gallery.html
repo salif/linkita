@@ -1,17 +1,13 @@
-{% import "macros/url.html" as m_url %}
-{%- set g_base = get_url(path=``, trailing_slash=true) %}
-{%- if config.extra.relative_urls %}
-  {%- set g_here = page.permalink | trim_start_matches(pat=g_base) | split(pat=`/`) %}
-{%- else %}
-  {%- set g_here = [] %}
-{%- endif %}
+{#- (optional) alt: string; #}
+{% import "macros/link.html" as _link %}
+
 <div class="not-prose flex flex-wrap gap-2">
 {% for asset in page.assets -%}
-  {%- if asset is matching("[.](jpg|png)$") %}
+  {%- if asset is matching("[.](jpg|png|webp|avif)$") %}
     {%- set image = resize_image(path=asset, width=240, height=180) %}
     {%- set asset_name = asset | split(pat="/") | slice(start=-1) | join(sep="/") %}
-  <a href="{{ m_url::rel(there=get_url(path=page.path ~ asset_name), here=g_here, base=g_base) }}" target="_blank">
-    <img class="rounded-lg" src="{{ m_url::rel(there=image.url, here=g_here, base=g_base) }}"{%
+  <a href="{{ _link::rel_shortcode(dest=get_url(path=page.path ~ asset_name)) }}" target="_blank">
+    <img class="rounded-lg" src="{{ _link::rel_shortcode(dest=image.url) }}"{%
       if alts[asset_name] is defined %} alt="{{ alts[asset_name] | escape_xml | safe }}"{%
       elif alt is defined %} alt="{{ alt | escape_xml | safe }}"{% endif %} />
   </a>

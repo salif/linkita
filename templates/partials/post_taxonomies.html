@@ -11,12 +11,12 @@
   {%- for taxonomy_name in taxonomy_names | sort %}
   <div class="mb-2 flex flex-wrap">
     <span class="block-bg mr-1.5 mb-1.5 rounded-lg px-5 py-1.5">{{
-      m_i18n::get_taxonomy_title(key=taxonomy_name, d=g_d) }}</span>
+      _str::get_taxonomy_title(key=taxonomy_name, d=g_d) }}</span>
     {% for term in page.taxonomies[taxonomy_name] %}
     <a
       class="block-bg block-hover mr-1.5 mb-1.5 rounded-lg px-5 py-1.5 no-underline"
-      href="{{ m_url::rel(there=get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang), here=g_here, base=g_base) }}">{%
-        if taxonomy_name == "authors" %}{{ m_profiles::get_name(username=term) }}{%
+      href="{{ _link::rel(dest=get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang), cu=_cu, base=_base) }}">{%
+        if taxonomy_name == "authors" %}{{ _profile::get_name(username=term) }}{%
         else %}{{ term }}{% endif %}</a>
     {% endfor %}
   </div>

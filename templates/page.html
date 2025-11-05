@@ -16,7 +16,7 @@
   <figure class="mt-0 mb-12">
     <img
       class="h-auto w-full rounded-lg"
-      src="{{ m_url::rel(there=g_image_url, here=g_here, base=g_base) }}"
+      src="{{ _link::rel(dest=g_image_url, cu=_cu, base=_base) }}"
       {%- if page.extra.cover.alt is defined %}
       alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
       {%- if g_image_data.width is defined %}

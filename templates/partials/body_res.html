@@ -8,9 +8,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js"
     integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
     {%- else %}
-  <link rel="stylesheet" href="{{ m_url::rel(there=get_url(path=`katex/katex.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
-  <script defer src="{{ m_url::rel(there=get_url(path=`katex/katex.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
-  <script defer src="{{ m_url::rel(there=get_url(path=`katex/contrib/auto-render.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`katex/katex.min.css`, cachebust=true), cu=_cu, base=_base) }}" />
+  <script defer src="{{ _link::rel(dest=get_url(path=`katex/katex.min.js`, cachebust=true), cu=_cu, base=_base) }}"></script>
+  <script defer src="{{ _link::rel(dest=get_url(path=`katex/contrib/auto-render.min.js`, cachebust=true), cu=_cu, base=_base) }}"></script>
     {%- endif %}
   <script>document.addEventListener("DOMContentLoaded", window.zolaTheme.katex.init);</script>
   {%- endif %}
@@ -27,7 +27,7 @@
     {%- elif config.extra.use_cdn %}
       {%- set goatcounter_src = "//gc.zgo.at/count.js" %}
     {%- else %}
-      {%- set goatcounter_src = m_url::rel(there=get_url(path=`js/gc.min.js`, cachebust=true), here=g_here, base=g_base) %}
+      {%- set goatcounter_src = _link::rel(dest=get_url(path=`js/gc.min.js`, cachebust=true), cu=_cu, base=_base) %}
     {%- endif %}
   <!-- GoatCounter -->
   <script>window.zolaTheme.analytics.initGoatCounter({ src: "{{ goatcounter_src | escape_xml | safe }}", endpoint: "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}" });</script>

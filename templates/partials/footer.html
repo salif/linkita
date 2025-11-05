@@ -1,22 +1,22 @@
 <!-- Footer -->
 <footer class="mx-auto flex lg:mt-5 max-w-3xl flex-wrap items-center px-4 py-3 text-sm opacity-60">
   <div class="mr-auto basis-full lg:basis-1/2">
-  {%- set lang_base_url = get_url(path=``, lang=lang) %}
+  {%- set lang_base_url = get_url(path=``, lang=lang, trailing_slash=false) %}
   {%- if config.extra.footer.copyright %}
     {%- set copyright = config.extra.footer.copyright | replace(from=`$BASE_URL`, to=lang_base_url) %}
     {%- if config.extra.footer.license_url %}
-      {%- set license_url = m_url::rel(there=m_url::get(url=config.extra.footer.license_url), here=g_here, base=g_base) %}
+      {%- set license_url = _link::rel(dest=_link::get(url=config.extra.footer.license_url), cu=_cu, base=_base) %}
       {%- set copyright = copyright | replace(from=`$LICENSE_URL`, to=license_url) %}
     {%- endif %}
   {%- else %}
     {%- if config.author %}
-      {%- set author_name = m_profiles::get_name(username=config.author) %}
+      {%- set author_name = _profile::get_name(username=config.author) %}
       {%- set copyright = "&copy; $YEAR " ~ author_name %}
     {%- else %}
       {%- set copyright = "&copy; $YEAR" %}
     {%- endif %}
     {%- if config.extra.footer.license_url %}
-      {%- set license_url = m_url::rel(there=m_url::get(url=config.extra.footer.license_url), here=g_here, base=g_base) %}
+      {%- set license_url = _link::rel(dest=_link::get(url=config.extra.footer.license_url), cu=_cu, base=_base) %}
       {%- set copyright = '[' ~ copyright ~ '](' ~ license_url ~ ')' %}
     {%- endif %}
   {%- endif %}
@@ -34,10 +34,10 @@
   <div class="flex basis-full lg:basis-1/2 lg:justify-end">
     <span class="mr-6 lg:ml-6">
       <a class="link" href="https://www.getzola.org/" target="_blank">{{
-        m_i18n::tr(key=`footer_powered_by`, d=g_d) }}</a>
+        _str::tr(key=`footer_powered_by`, d=g_d) }}</a>
     </span>
     <a class="link" href="https://www.getzola.org/themes/linkita/" target="_blank">&#9998; {{
-      m_i18n::tr(key=`footer_theme_name`, d=g_d) }}</a>
+      _str::tr(key=`footer_theme_name`, d=g_d) }}</a>
   </div>
   <!-- Begin Footer inject -->
   {% include "injects/footer.html" ignore missing %}

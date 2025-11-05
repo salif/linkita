@@ -29,6 +29,6 @@
     "katex": "^0.16.25",
     "simple-icons": "^14.15.0",
     "tailwindcss": "^4.1.16",
-    "terser": "^5.44.0"
+    "terser": "^5.44.1"
   }
 }

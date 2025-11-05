@@ -1,24 +1,24 @@
-<link rel="stylesheet" href="{{ m_url::rel(there=get_url(path=`main.min.css`, cachebust=true), here=g_here, base=g_base) }}" />
-  <link rel="stylesheet" href="{{ m_url::rel(there=get_url(path=`icons.css`, cachebust=true), here=g_here, base=g_base) }}" />
+<link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`main.min.css`, cachebust=true), cu=_cu, base=_base) }}" />
+  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`icons.css`, cachebust=true), cu=_cu, base=_base) }}" />
 {%- include "partials/head_style.html" %}
-{%- if g_profile is defined and not config.extra.urls_to_index_html %}
+{%- if g_profile is defined and not config.extra.ugly_urls %}
   {%- if g_profile.avatar_url %}
-  <link rel="preload" as="image" href="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}" />
+  <link rel="preload" as="image" href="{{ _link::rel(dest=get_url(path=g_profile.avatar_url, cachebust=true), cu=_cu, base=_base) }}" />
   {%- endif %}
   {%- if g_profile.social %}
     {%- for image_social in g_profile.social %}
-  <link rel="preload" as="image" href="{{ m_url::rel(there=m_url::social_icon(icon=image_social.name, prl=true), here=g_here, base=g_base) }}" />
+  <link rel="preload" as="image" href="{{ _link::rel(dest=_link::social_icon(icon=image_social.name, prl=true), cu=_cu, base=_base) }}" />
     {%- endfor %}
   {%- endif %}
 {%- endif %}
 
 {%- if not config.extra.disable_default_favicon %}
-  <link rel="icon" type="image/x-icon" href="{{ m_url::rel(there=get_url(path=`favicon.ico`), here=g_here, base=g_base) }}" />
-  <link rel="apple-touch-icon" type="image/png" href="{{ m_url::rel(there=get_url(path=`apple-touch-icon.png`, cachebust=true), here=g_here, base=g_base) }}" />
-  <link rel="icon" type="image/png" href="{{ m_url::rel(there=get_url(path=`android-icon.png`, cachebust=true), here=g_here, base=g_base) }}" />
+  <link rel="icon" type="image/x-icon" href="{{ _link::rel(dest=get_url(path=`favicon.ico`), cu=_cu, base=_base) }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{ _link::rel(dest=get_url(path=`apple-touch-icon.png`, cachebust=true), cu=_cu, base=_base) }}" />
+  <link rel="icon" type="image/png" href="{{ _link::rel(dest=get_url(path=`android-icon.png`, cachebust=true), cu=_cu, base=_base) }}" />
 {%- endif %}
 
 {%- if not config.extra.disable_javascript %}
-  <script src="{{ m_url::rel(there=get_url(path=`js/zola-theme.min.js`, cachebust=true), here=g_here, base=g_base) }}"></script>
+  <script src="{{ _link::rel(dest=get_url(path=`js/zola-theme.min.js`, cachebust=true), cu=_cu, base=_base) }}"></script>
 {%- endif %}
 {#- -#}

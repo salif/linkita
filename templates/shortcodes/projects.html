@@ -1,4 +1,5 @@
-{% import "macros/url.html" as m_url %}
+{#- path: string; format: string; (optional) url: string; #}
+{% import "macros/link.html" as _link %}
 {%- if url is defined %}
   {%- set projects = load_data(url=url, format=format) %}
 {%- elif path is starting_with("/") %}
@@ -33,7 +34,7 @@
       {%- for link in links %}
       <a
         class="underline"
-        href="{{ m_url::get(url=link.url) }}"
+        href="{{ _link::get(url=link.url) }}"
         {%- if link.newtab | default(value=true) %}
         target="_blank"{% endif %}
       >{{ link.name }}</a>

@@ -18,6 +18,8 @@ All notable changes to this theme will be documented in this file.
 - Rename `extra.languages[lang].language_code` config variable to `extra.languages[lang].hreflang`.
 - Remove `extra.languages[lang].i18n_code` and add `extra.languages[lang].num_format` config variable.
 - Add `theme_select` and `translations_select` options for header buttons.
+- Rename macros: `m_i18n` to `_str`, `m_url` to `_link`, `m_profiles` to `_profile`.
+- Rename `extra.urls_to_index_html` config variable to `extra.ugly_urls`.
 
 ## [v3.2025_04_22](https://codeberg.org/salif/linkita/compare/v2.2025_04_02.0..v3.2025_04_22)
 

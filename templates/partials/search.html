@@ -3,5 +3,5 @@
   <ul id="linkita-search-results"></ul>
 </div>
 {%- if not config.extra.disable_javascript %}
-<script>window.zolaTheme.search.init({ scripts: ["{{ m_url::rel(there=get_url(path=`elasticlunr.min.js`), here=g_here, base=g_base) }}", "{{ m_url::rel(there=get_url(path=`search_index.`~lang~`.js`), here=g_here, base=g_base) }}"], arg: { w: "#linkita-search-wrapper", r: "#linkita-search-results" } });</script>
+<script>window.zolaTheme.search.init({ scripts: ["{{ _link::rel(dest=get_url(path=`elasticlunr.min.js`), cu=_cu, base=_base) }}", "{{ _link::rel(dest=get_url(path=`search_index.`~lang~`.js`), cu=_cu, base=_base) }}"], arg: { w: "#linkita-search-wrapper", r: "#linkita-search-results" } });</script>
 {%- endif %}

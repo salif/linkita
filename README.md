@@ -411,7 +411,7 @@ relative_urls = false
 # If you want to view the site without a webserver
 # set this and "relative_urls" to true.
 # Default value: false
-urls_to_index_html = false
+ugly_urls = false
 
 # Prioritize summary over description.
 # Default value: false

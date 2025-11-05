@@ -29,13 +29,13 @@
         {%- for header_button in header_buttons %}
 
           {%- if header_button == "site_title" and config.title %}
-        <a title="{{ m_i18n::tr(key=`act_go_to_home`, d=g_d) }} [Alt + !]" accesskey="!"
-          href="{{ m_url::rel(there=m_url::get(url=`$BASE_URL/`), here=g_here, base=g_base) }}"
+        <a title="{{ _str::tr(key=`act_go_to_home`, d=g_d) }} [Alt + !]" accesskey="!"
+          href="{{ _link::rel(dest=_link::get(url=`$BASE_URL/`), cu=_cu, base=_base) }}"
           class="text-2xl font-semibold truncate">{{ config.title | truncate(length=32) }}</a>
 
           {%- elif header_button == "home_button" or header_button == "site_title" %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_go_to_home`, d=g_d) }} [Alt + !]" accesskey="!"
-          onclick="window.location.href='{{ m_url::rel(there=m_url::get(url=`$BASE_URL/`), here=g_here, base=g_base) }}';"
+        <button type="button" title="{{ _str::tr(key=`act_go_to_home`, d=g_d) }} [Alt + !]" accesskey="!"
+          onclick="window.location.href='{{ _link::rel(dest=_link::get(url=`$BASE_URL/`), cu=_cu, base=_base) }}';"
           class="btn-home h-6 w-6 shrink-0 cursor-pointer text-[0px]
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-home,url(icons/home.svg))] dark:invert"
         ></button>
@@ -43,24 +43,24 @@
           {%- elif header_button == "theme_select" %}
         <details name="header_button">
           <summary
-            title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }} [Alt + $]" accesskey="$"
+            title="{{ _str::tr(key=`act_switch_color_scheme`, d=g_d) }} [Alt + $]" accesskey="$"
             class="select-none ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
               bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-dark,url(icons/btn-dark.svg))]
               dark:[background-image:var(--icons-btn-light,url(icons/btn-light.svg))] dark:invert"
           ></summary>
           <div class="absolute header mt-3.5">
             <button
-              type="button" title="{{ m_i18n::tr(key=`act_switch_to_light`, d=g_d) }}"
+              type="button" title="{{ _str::tr(key=`act_switch_to_light`, d=g_d) }}"
               onclick="window.zolaTheme.color.select({ mode: 'light', par: this.parentElement.parentElement });"
               class="m-2 h-6 w-6 shrink-0 cursor-pointer text-[0px]
                 bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-light,url(icons/btn-light.svg))] dark:invert"
             ></button><button
-              type="button" title="{{ m_i18n::tr(key=`act_switch_to_dark`, d=g_d) }}"
+              type="button" title="{{ _str::tr(key=`act_switch_to_dark`, d=g_d) }}"
               onclick="window.zolaTheme.color.select({ mode: 'dark', par: this.parentElement.parentElement });"
               class="my-2 h-6 w-6 shrink-0 cursor-pointer text-[0px]
                 bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-dark,url(icons/btn-dark.svg))] dark:invert"
             ></button><button
-              type="button" title="{{ m_i18n::tr(key=`act_reset_color_scheme`, d=g_d) }}"
+              type="button" title="{{ _str::tr(key=`act_reset_color_scheme`, d=g_d) }}"
               onclick="window.zolaTheme.color.select({ mode: 'reset', par: this.parentElement.parentElement });"
               class="m-2 h-6 w-6 shrink-0 cursor-pointer text-[0px]
                 bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-reset,url(icons/btn-reset.svg))] dark:invert"
@@ -69,7 +69,7 @@
         </details>
 
           {%- elif header_button == "theme_button" %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_switch_color_scheme`, d=g_d) }} [Alt + $]" accesskey="$"
+        <button type="button" title="{{ _str::tr(key=`act_switch_color_scheme`, d=g_d) }} [Alt + $]" accesskey="$"
           onclick="window.zolaTheme.color.toggle();"
           class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-dark,url(icons/btn-dark.svg))]
@@ -77,7 +77,7 @@
         ></button>
 
           {%- elif header_button == "search_button" and config.build_search_index %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_search`, d=g_d) }} [Alt + /]" accesskey="/"
+        <button type="button" title="{{ _str::tr(key=`act_search`, d=g_d) }} [Alt + /]" accesskey="/"
           onclick="window.zolaTheme.search.toggle();"
           class="btn-search ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-search,url(icons/search.svg))] dark:invert"
@@ -86,14 +86,14 @@
           {%- elif header_button == "translations_select" and page_translations and (page_translations | length > 1) %}
         <details name="header_button">
           <summary
-            title="{{ m_i18n::tr(key=`act_show_translations`, d=g_d) }} [Alt + ;]" accesskey=";"
+            title="{{ _str::tr(key=`act_show_translations`, d=g_d) }} [Alt + ;]" accesskey=";"
             class="select-none ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
               bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-trans,url(icons/btn-trans.svg))] dark:invert"
           ></summary>
           <ul class="absolute header text-lg mt-3.5">
           {%- for page_translation in page_translations %}
             {%- if page_translation.lang != lang %}
-            <li><a href="{{ m_url::rel(there=page_translation.permalink, here=g_here, base=g_base) }}"
+            <li><a href="{{ _link::rel(dest=page_translation.permalink, cu=_cu, base=_base) }}"
               class="primary-link block p-2 text-lg font-medium">{%
                 if config.extra.menu_i18n and g_menu_d["language_name"][page_translation.lang] %}{{
                   g_menu_d["language_name"][page_translation.lang] }}{%
@@ -106,7 +106,7 @@
         </details>
 
           {%- elif header_button == "translations_button" and page_translations %}
-        <button type="button" title="{{ m_i18n::tr(key=`act_go_to_translation`, d=g_d) }} [Alt + ;]" accesskey=";"
+        <button type="button" title="{{ _str::tr(key=`act_go_to_translation`, d=g_d) }} [Alt + ;]" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-trans,url(icons/btn-trans.svg))] dark:invert"
         ></button>
@@ -118,7 +118,7 @@
         {%- endfor %}
       </div>
       {%- if header_menu %}
-      <div title="{{ m_i18n::tr(key=`act_menu`, d=g_d) }} [Alt + `+`]" role="button" accesskey="+" tabindex="0"
+      <div title="{{ _str::tr(key=`act_menu`, d=g_d) }} [Alt + `+`]" role="button" accesskey="+" tabindex="0"
         class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer select-none flex-col items-center justify-center gap-2.5 lg:hidden"
         onclick="window.zolaTheme.menu.toggleHeader();"
         onkeydown="(event.keyCode == 13 || event.keyCode == 32) ? event.preventDefault() || window.zolaTheme.menu.toggleHeader() : true;"
@@ -133,7 +133,7 @@
         <li>
           <a
             class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
-            href="{{ m_url::rel(there=m_url::get(url=menu.url), here=g_here, base=g_base) }}"
+            href="{{ _link::rel(dest=_link::get(url=menu.url), cu=_cu, base=_base) }}"
           >{%
               if menu.names_i18n is defined %}{{
                 throw(message=`'names_i18n' in menu is not supported anymore`) }}{%

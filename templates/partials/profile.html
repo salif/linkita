@@ -26,7 +26,7 @@
     <img
       class="my-0 aspect-square w-16 rounded-full bg-black/5! hover:animate-spin{%
         if g_profile.avatar_invert %} dark:invert{% endif %}"
-      src="{{ m_url::rel(there=get_url(path=g_profile.avatar_url, cachebust=true), here=g_here, base=g_base) }}"{%
+      src="{{ _link::rel(dest=get_url(path=g_profile.avatar_url, cachebust=true), cu=_cu, base=_base) }}"{%
         if profile_avatar_alt is defined %} alt="{{ profile_avatar_alt | escape_xml | safe }}"{% endif %} />
   </div>
   {%- endif %}
@@ -62,8 +62,8 @@
         {%- endif %}
       <a
         class="primary-link h-8 w-8 text-[0px] [background:var(--url)_center_center/cover_no-repeat]"
-        style="--url: url({{ m_url::social_icon(icon=social.name, prl=false) }});"
-        href="{{ m_url::rel(there=m_url::get(url=social_url), here=g_here, base=g_base) }}"
+        style="--url: url({{ _link::social_icon(icon=social.name, prl=false) }});"
+        href="{{ _link::rel(dest=_link::get(url=social_url), cu=_cu, base=_base) }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         title="{{ social_title }}"
