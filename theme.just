@@ -1,19 +1,10 @@
 #!/usr/bin/env -S just --justfile
 
-set unstable := true
-
 this_file := source_file()
 this := just_executable() + " -f " + quote(this_file)
-version_major := "3"
-version_minor := `date +%Y_%m_%d`
-version := version_major + "." + version_minor
 
 _:
     @{{ this }} --list --unsorted
-
-[group('user')]
-switch_to_latest:
-    git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 [doc('Format source code')]
 [group('dev')]
@@ -110,47 +101,24 @@ commit_diff:
         git diff --quiet -- static/js/zola-theme.min.js;
     fi
 
-[doc('git commit')]
+[doc('check and commit')]
 [group('git')]
 commit: commit_diff
     zola check --skip-external-links
     git commit
 
-[doc('git push')]
+[doc('push linkita branch')]
 [group('git')]
-push:
+push_linkita:
     git push codeberg linkita:linkita
     git push github linkita:linkita
-    git fetch
 
-[doc('git tag')]
+[doc('push v4 branch')]
 [group('git')]
-release: && confirm (release_json version) (release_git version)
-    @! git show-ref --tags 'v{{ version }}' --quiet
-    @printf '%s\n' 'Releasing v{{ version }}'
+push_v4:
+    git push codeberg v4:v4
+    git push github v4:v4
 
 [confirm]
 [private]
 confirm:
-
-[group('git')]
-[private]
-release_git version:
-    @if ! git diff --quiet -- package.json; then \
-        git add package.json; fi;
-    @if ! git diff --quiet -- CHANGELOG.md; then \
-        git add CHANGELOG.md; fi;
-    ! git diff --cached --quiet
-    git commit -m 'Release v{{ version }}'
-    git tag -s -a 'v{{ version }}' -m 'Release v{{ version }}'
-
-[group('git')]
-[private]
-release_json version:
-    #!/usr/bin/env node
-    const fs = require("fs");
-    const path = require("path");
-    const jsonPath = path.join("package.json");
-    const packageJson = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
-    packageJson.version = "{{ version }}";
-    fs.writeFileSync(jsonPath, JSON.stringify(packageJson, null, 2) + "\n", "utf8");

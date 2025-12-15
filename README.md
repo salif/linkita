@@ -56,12 +56,14 @@ git init
 1. Add the theme as a git submodule:
 
 ```sh
-git submodule add -b linkita https://codeberg.org/salif/linkita.git themes/linkita
+git submodule add -b v4 https://codeberg.org/salif/linkita.git themes/linkita
 ```
 
 If you don't want to use git submodules, you can clone the repository instead:
 
-`git clone https://codeberg.org/salif/linkita.git themes/linkita`
+```sh
+git clone -b v4 https://codeberg.org/salif/linkita.git themes/linkita
+```
 
 2. Enable the theme in your `config.toml` file:
 
@@ -79,9 +81,11 @@ To update the theme, run:
 git submodule update --remote themes/linkita
 ```
 
-Check the [changelog](https://codeberg.org/salif/linkita/src/branch/linkita/CHANGELOG.md)
-for all versions after the one you are using.
-There may be breaking changes that require manual involvement.
+If you use the `linkita` branch of the theme, check the
+[changelog/linkita.md](https://codeberg.org/salif/linkita/src/branch/linkita/changelog/linkita.md) file.  
+Otherwise, find the changelog file for your version in the `changelog` directory.
+
+If you switch to newer version, there may be breaking changes that require manual involvement.
 
 ## Usage
 
@@ -768,6 +772,7 @@ loading = "lazy"
 This project is under the [MIT License](https://codeberg.org/salif/linkita/src/branch/linkita/LICENSE).
 
 Pull requests are welcome on [Codeberg](https://codeberg.org/salif/linkita) and [Github](https://github.com/salif/linkita).
+The main branch is `linkita`.
 
 ### Localization
 
