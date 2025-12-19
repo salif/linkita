@@ -4,12 +4,12 @@ A clean and elegant blog theme for [Zola](https://www.getzola.org/).
 Linkita is based on [Kita](https://github.com/st1020/kita)
 and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual and SEO friendly.
 
-- The source code is available on [Codeberg](https://codeberg.org/salif/linkita)
-  and mirrored on [GitHub](https://github.com/salif/linkita).
-- Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
 - See the [quickstart repository](https://github.com/salif/linkita-start).
 - See a [live preview](https://salif.github.io/linkita/) and
   [its source code](https://codeberg.org/salif/linkita-demo).
+- Open bug reports and feature requests on [Codeberg](https://codeberg.org/salif/linkita/issues).
+- The source code is available on [Codeberg](https://codeberg.org/salif/linkita)
+  and mirrored on [GitHub](https://github.com/salif/linkita).
 
 ## Features
 
@@ -819,4 +819,3 @@ Linkita is one of several Zola themes I maintain.
 Other themes include:
 
 - [Tukan](https://codeberg.org/salif/tukan) – Fork of zola-blog-theme, inspired from Toucan theme.
-- [Trankwilo](https://codeberg.org/salif/trankwilo) – Fork of the Goyo theme, for documentation.
