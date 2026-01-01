@@ -6,6 +6,7 @@ mod? theme "themes/linkita/theme.just"
 
 this := just_executable() + " -f " + quote(source_file())
 screenshot_url := "http://127.0.0.1:1111"
+browser := "chromium"
 
 _:
     @{{ this }} --list --list-heading 'Available recipes for demo:{{ "\n" }}'
@@ -73,7 +74,7 @@ screenshot_set_mode mode schema='org.x.apps.portal':
     sleep 2
 
 [private]
-screenshot_do mode screenshot_url=screenshot_url browser='chromium':
+screenshot_do mode screenshot_url=screenshot_url browser=browser:
     command {{ browser }} --headless --disable-gpu \
         --system-font-family="Lato" --screenshot=/tmp/screenshot-{{ mode }}.png \
         --window-size=1400,936 --hide-scrollbars --force-device-scale-factor=1.25 "{{ screenshot_url }}/"

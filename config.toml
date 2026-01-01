@@ -337,9 +337,6 @@ url = "https://bsky.app/profile/did:plc:eirne2vlczwdejeegserrfyr"
 [[extra.profiles.salif.social]]
 name = "rss"
 url = "$BASE_URL/authors/salif/atom.xml"
-[extra.profiles.salif.open_graph.fediverse_creator]
-handle = "13"
-domain = "sharkey.world"
 
 # Kita's profile
 [extra.profiles.kita]
