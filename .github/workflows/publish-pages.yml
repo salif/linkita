@@ -16,7 +16,7 @@ jobs:
       - name: Upload Pages artifact
         uses: st1020/zola-deploy@v1
         with:
-          version: v0.21.0
+          version: v0.22.0
 
   deploy:
     needs: build

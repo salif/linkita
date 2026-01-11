@@ -154,14 +154,17 @@ taxonomies = [
 ]
 
 [markdown]
-highlight_code = true
-error_on_missing_highlight = false
-highlight_theme = "boron"
 render_emoji = false
 smart_punctuation = false
 definition_list = true
 bottom_footnotes = true
 github_alerts = true
+
+[markdown.highlighting]
+error_on_missing_language = true
+style = "inline"
+light_theme = "light-plus"
+dark_theme = "github-dark-default"
 
 [extra]
 math = false
