@@ -153,6 +153,14 @@ sup a {
   @apply overflow-x-auto;
 }
 
+.giallo-l {
+  @apply inline-block min-h-[1lh] min-w-full;
+}
+
+.giallo-ln {
+  @apply mr-[0.4em] min-w-[3ch] inline-block select-none text-right opacity-80;
+}
+
 @utility blur-header {
   @apply bg-black/10 backdrop-blur dark:bg-white/10;
 }
