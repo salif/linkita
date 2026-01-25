@@ -101,11 +101,6 @@ sup a {
   @apply underline-offset-1;
 }
 
-.giscus-frame {
-  --color-scheme: inherit;
-  color-scheme: var(--color-scheme) !important;
-}
-
 .header {
   background-color: var(--header);
 }
@@ -151,6 +146,11 @@ sup a {
 
 .horizontal-scroll {
   @apply overflow-x-auto;
+}
+
+.giscus-frame,
+pre.giallo {
+  @apply !scheme-light dark:!scheme-dark;
 }
 
 .giallo-l {

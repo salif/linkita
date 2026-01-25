@@ -1569,10 +1569,6 @@ a {
 sup a {
   text-underline-offset: 1px;
 }
-.giscus-frame {
-  --color-scheme: inherit;
-  color-scheme: var(--color-scheme) !important;
-}
 .header {
   background-color: var(--header);
 }
@@ -1636,6 +1632,12 @@ sup a {
 }
 .horizontal-scroll {
   overflow-x: auto;
+}
+.giscus-frame, pre.giallo {
+  color-scheme: light !important;
+  &:where(.dark, .dark *) {
+    color-scheme: dark !important;
+  }
 }
 .giallo-l {
   display: inline-block;

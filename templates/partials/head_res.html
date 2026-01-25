@@ -1,4 +1,12 @@
-<link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`main.min.css`, cachebust=true), cu=_cu, base=_base) }}" />
+{%- if config.markdown.highlighting.style and config.markdown.highlighting.style == "class" %}
+  {%- if config.markdown.highlighting.light_theme or config.markdown.highlighting.dark_theme %}
+  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`giallo-light.css`, cachebust=false), cu=_cu, base=_base) }}" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`giallo-dark.css`, cachebust=false), cu=_cu, base=_base) }}" media="(prefers-color-scheme: dark)" />
+{%- else %}
+  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`giallo.css`, cachebust=false), cu=_cu, base=_base) }}" />
+  {%- endif %}
+{%- endif %}
+  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`main.min.css`, cachebust=true), cu=_cu, base=_base) }}" />
   <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`icons.css`, cachebust=true), cu=_cu, base=_base) }}" />
 {%- include "partials/head_style.html" %}
 {%- if g_profile is defined and not config.extra.ugly_urls %}
