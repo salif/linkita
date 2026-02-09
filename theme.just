@@ -101,11 +101,21 @@ commit_diff:
         git diff --quiet -- static/js/zola-theme.min.js;
     fi
 
-[doc('check and commit')]
 [group('git')]
+[confirm]
+[private]
 commit: commit_diff
     zola check --skip-external-links
     git commit
+
+[group('git')]
+commit_linkita: (branch_is "linkita") && commit
+
+[group('git')]
+commit_v4: (branch_is "v4") && commit
+
+branch_is name="linkita":
+    @[ "$(git branch --show-current)" == "{{ name }}" ]
 
 [doc('push linkita branch')]
 [group('git')]
