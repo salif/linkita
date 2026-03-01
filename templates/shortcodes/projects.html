@@ -1,5 +1,5 @@
 {#- path: string; format: string; (optional) url: string; #}
-{% import "macros/link.html" as _link %}
+{% import "components/link.html" as _link %}
 {%- if url is defined %}
   {%- set projects = load_data(url=url, format=format) %}
 {%- elif path is starting_with("/") %}

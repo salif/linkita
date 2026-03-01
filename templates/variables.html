@@ -1,6 +1,6 @@
-{% import "macros/i18n.html" as _str %}
-{% import "macros/link.html" as _link %}
-{% import "macros/profile.html" as _profile %}
+{% import "components/i18n.html" as _str %}
+{% import "components/link.html" as _link %}
+{% import "components/profile.html" as _profile %}
 {%- set is_mode_serve = config.mode is defined and config.mode == "serve" %}
 {%- if config.extra.languages[lang].hreflang %}
   {%- set g_hreflang = config.extra.languages[lang].hreflang %}

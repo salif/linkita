@@ -101,8 +101,8 @@ commit_diff:
         git diff --quiet -- static/js/zola-theme.min.js;
     fi
 
-[group('git')]
 [confirm]
+[group('git')]
 [private]
 commit: commit_diff
     zola check --skip-external-links
