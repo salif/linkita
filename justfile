@@ -41,7 +41,7 @@ zola_check:
 
 [doc('git commit')]
 [group('git')]
-commit: zola_check format
+commit: zola_check
     ! git diff themes/linkita | grep -q -- -dirty
     git commit
 
@@ -50,11 +50,6 @@ commit: zola_check format
 push:
     git push codeberg-demo demo:demo
     git push github demo:demo
-
-[doc('Format source code')]
-[group('dev')]
-format:
-    {{ this }} --fmt --unstable
 
 [linux]
 [private]
