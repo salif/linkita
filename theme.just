@@ -6,11 +6,6 @@ this := just_executable() + " -f " + quote(this_file)
 _:
     @{{ this }} --list --unsorted
 
-[doc('Format source code')]
-[group('dev')]
-format:
-    {{ this }} --fmt --unstable
-
 [group('dev')]
 watch_css:
     pnpm run dev:css
@@ -92,7 +87,7 @@ add_git_remotes:
 commit_diff:
     set -eux
     if ! git diff --quiet --cached -- templates; then
-        {{ this }} build_css format;
+        {{ this }} build_css;
         git diff --quiet -- static/main.min.css;
         git diff --quiet -- static/main.css;
     fi
