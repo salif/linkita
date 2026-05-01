@@ -812,10 +812,3 @@ Live preview is available in the following languages:
 - [Rratic's blog](https://github.com/Rratic/rratic.github.io)
 
 If your blog is using Linkita and is open source, feel free to create a pull request to add it to this list.
-
-## Other Zola themes
-
-Linkita is one of several Zola themes I maintain.
-Other themes include:
-
-- [Tukan](https://codeberg.org/salif/tukan) – Fork of zola-blog-theme, inspired by the Toucan theme.
