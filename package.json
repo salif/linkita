@@ -22,13 +22,13 @@
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
-    "@tailwindcss/cli": "^4.2.4",
-    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/cli": "^4.3.1",
+    "@tailwindcss/typography": "^0.5.20",
     "execa": "^9.6.1",
     "instant.page": "^5.2.0",
-    "katex": "^0.16.45",
+    "katex": "^0.16.47",
     "simple-icons": "^14.15.0",
-    "tailwindcss": "^4.2.4",
-    "terser": "^5.46.2"
+    "tailwindcss": "^4.3.1",
+    "terser": "^5.48.0"
   }
 }
