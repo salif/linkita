@@ -39,6 +39,9 @@ and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual a
 
 ## Installation
 
+> [!NOTE]
+> Linkita currently supports Zola up to v0.22.1. Zola v0.23 is not supported yet due to breaking changes in Tera 2. Follow [issue #61](https://codeberg.org/salif/linkita/issues/61) for updates.
+
 The fastest way to create a new site is to use the
 [linkita-start template](https://github.com/salif/linkita-start).
 This gives you a complete blog setup with all the essential configuration ready to go.
