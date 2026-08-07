@@ -206,7 +206,6 @@ avatar_invert = true
 # name = "Default name"
 # bio = "Default bio"
 social = [
-  { name = "codeberg", url = "https://codeberg.org/salif/linkita" },
   { name = "github", url = "https://github.com/salif/linkita" },
   { name = "rss", url = "$BASE_URL/atom.xml" },
 ]
@@ -329,14 +328,14 @@ bg = "https://salif.eu/bg/"
 eo = "https://salif.eu/eo/"
 tr = "https://salif.eu/tr/"
 [[extra.profiles.salif.social]]
-name = "codeberg"
-url = "https://codeberg.org/salif"
+name = "bluesky"
+url = "https://bsky.app/profile/did:plc:eirne2vlczwdejeegserrfyr"
+[[extra.profiles.salif.social]]
+name = "tangled"
+url = "https://tangled.org/yen.salif.eu"
 [[extra.profiles.salif.social]]
 name = "github"
 url = "https://github.com/salif"
-[[extra.profiles.salif.social]]
-name = "bluesky"
-url = "https://bsky.app/profile/did:plc:eirne2vlczwdejeegserrfyr"
 [[extra.profiles.salif.social]]
 name = "rss"
 url = "$BASE_URL/authors/salif/atom.xml"

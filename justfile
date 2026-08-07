@@ -1,55 +1,52 @@
 #!/usr/bin/env -S just --justfile
 
-set unstable := true
-
 mod? theme "themes/linkita/theme.just"
 
 this := just_executable() + " -f " + quote(source_file())
 screenshot_url := "http://127.0.0.1:1111"
-browser := "chromium"
+browser := "brave-origin"
+zola := if `git branch --show-current` == "demo" { "zola-v0.22.1" } else { "zola" }
 
 _:
     @{{ this }} --list --list-heading 'Available recipes for demo:{{ "\n" }}'
-    @{{ this }} _check_commands
-
-[unix]
-_check_commands:
-    @COMMANDS=(git zola magick node pnpm terser); \
-    for COMMAND in "${COMMANDS[@]}"; do \
-        if ! command -v "$COMMAND" 2>&1 >/dev/null; then \
-            printf "%sWarning: '%s' is not installed or not in PATH%s\n" \
-                "{{ style("warning") }}" "${COMMAND}" "{{ NORMAL }}" >&2; \
-        fi; \
-    done;
-
-[windows]
-_check_commands:
 
 [group('dev')]
 [private]
 serve_and args='':
-    zola serve {{ args }} --interface 0.0.0.0 --base-url \
+    {{ zola }} serve {{ args }} --interface 0.0.0.0 --base-url \
         "$(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')"
 
-[doc('Serve the demo site')]
 [group('dev')]
 serve: serve_and
 
 [group('dev')]
 zola_check:
-    zola check --skip-external-links
+    {{ zola }} check --skip-external-links
 
-[doc('git commit')]
 [group('git')]
-commit: zola_check
+[private]
+branch_is branch:
+    @[ "$(git branch --show-current)" == "{{ branch }}" ]
+
+[group('git')]
+[private]
+commit_on_demo: zola_check
     ! git diff themes/linkita | grep -q -- -dirty
     git commit
 
-[doc('git push')]
 [group('git')]
-push:
-    git push codeberg-demo demo:demo
-    git push github demo:demo
+commit_demo: (branch_is "demo") && commit_on_demo
+
+[group('git')]
+commit_demo2: (branch_is "demo2") && commit_on_demo
+
+[group('git')]
+push_demo remote='origin':
+    git push {{ remote }} demo:demo
+
+[group('git')]
+push_demo2 remote='origin':
+    git push {{ remote }} demo2:demo2
 
 [linux]
 [private]
@@ -57,8 +54,8 @@ screenshot_do_all: (screenshot_set_mode 'light') screenshot_do_light (screenshot
 
 [group('dev')]
 [linux]
+[script("bash")]
 screenshot_set_mode mode schema='org.x.apps.portal':
-    #!/usr/bin/env bash
     if [[ "{{ mode }}" == "light" ]]; then
         if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-light'" ]]; then
             gsettings set {{ schema }} color-scheme 'prefer-light'; fi

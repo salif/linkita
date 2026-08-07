@@ -2,29 +2,26 @@
 
 ## Links
 
-- [Demo site](https://salif.github.io/linkita/), [Demo source](https://codeberg.org/salif/linkita-demo), [Demo github mirror](https://github.com/salif/linkita/tree/demo)
-- [Theme source](https://codeberg.org/salif/linkita), [Theme github mirror](https://github.com/salif/linkita)
-- [Linkita quickstart](https://github.com/salif/linkita-start), [Kita theme](https://github.com/st1020/kita), [Hugo-Paper theme](https://github.com/nanxiaobei/hugo-paper)
+- [Demo site](https://salif.github.io/linkita/)
+- [Demo source for Tera 1](https://github.com/salif/linkita/tree/demo)
+- [Demo source for Tera 2](https://github.com/salif/linkita/tree/demo2)
+- [Theme source for Tera 1](https://github.com/salif/linkita/tree/tera1)
+- [Theme source for Tera 2](https://github.com/salif/linkita/tree/tera2)
+- [Linkita quickstart](https://github.com/salif/linkita-start)
+- [Kita theme](https://github.com/st1020/kita)
+- [Hugo-Paper theme](https://github.com/nanxiaobei/hugo-paper)
 
 ## Set up for contributing
 
-Fork this demo repository and/or the theme repository.
+Fork this repository.
 
 Replace `YOUR-USERNAME`:
 
 ```sh
-# Step 1:
-# If you forked the demo repository:
-git clone --recurse-submodules https://codeberg.org/YOUR-USERNAME/linkita-demo.git
-# Otherwise:
-git clone --recurse-submodules https://codeberg.org/salif/linkita-demo.git
-
-# Step 2: Only if you forked the theme repository:
+git clone -b demo --recurse-submodules https://github.com/YOUR-USERNAME/linkita.git linkita-demo
 cd linkita-demo/themes/linkita
-git remote add theme https://codeberg.org/YOUR-USERNAME/linkita.git
-
-# If you want to make changes in the theme repository:
-git checkout -b feature-branch-name linkita
-git commit
-git push -u theme feature-branch-name
+git remote add fork_origin https://github.com/YOUR-USERNAME/linkita.git
 ```
+
+If you make changes inside `themes/linkita`, push them to the `fork_origin` remote inside the submodule.
+If you make changes to the parent repository, push them to the `origin` remote of the parent repository.
