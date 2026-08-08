@@ -4,11 +4,10 @@ mod? theme "themes/linkita/theme.just"
 
 this := just_executable() + " -f " + quote(source_file())
 screenshot_url := "http://127.0.0.1:1111"
-browser := "brave-origin"
 zola := if `git branch --show-current` == "demo" { "zola-v0.22.1" } else { "zola" }
 
 _:
-    @{{ this }} --list --list-heading 'Available recipes for demo:{{ "\n" }}'
+    @{{ this }} --list --unsorted --list-heading 'Available recipes for demo:{{ "\n" }}'
 
 [group('dev')]
 [private]
@@ -20,8 +19,8 @@ serve_and args='':
 serve: serve_and
 
 [group('dev')]
-zola_check:
-    {{ zola }} check --skip-external-links
+check:
+    {{ zola }} check
 
 [group('git')]
 [private]
@@ -30,7 +29,8 @@ branch_is branch:
 
 [group('git')]
 [private]
-commit_on_demo: zola_check
+commit_on_demo:
+    {{ zola }} check --skip-external-links
     ! git diff themes/linkita | grep -q -- -dirty
     git commit
 
@@ -48,40 +48,39 @@ push_demo remote='origin':
 push_demo2 remote='origin':
     git push {{ remote }} demo2:demo2
 
-[linux]
-[private]
-screenshot_do_all: (screenshot_set_mode 'light') screenshot_do_light (screenshot_set_mode 'dark') screenshot_do_dark screenshot_update
-
 [group('dev')]
-[linux]
-[script("bash")]
-screenshot_set_mode mode schema='org.x.apps.portal':
-    if [[ "{{ mode }}" == "light" ]]; then
-        if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-light'" ]]; then
-            gsettings set {{ schema }} color-scheme 'prefer-light'; fi
-    elif [[ "{{ mode }}" == "dark" ]]; then
-        if [[ "$(gsettings get {{ schema }} color-scheme)" != "'prefer-dark'" ]]; then
-            gsettings set {{ schema }} color-scheme 'prefer-dark'; fi
-    fi
-    sleep 2
-
-[private]
-screenshot_do mode screenshot_url=screenshot_url browser=browser:
-    command {{ browser }} --headless --disable-gpu \
-        --system-font-family="Lato" --screenshot=/tmp/screenshot-{{ mode }}.png \
-        --window-size=1400,936 --hide-scrollbars --force-device-scale-factor=1.25 "{{ screenshot_url }}/"
-    magick /tmp/screenshot-{{ mode }}.png -gravity north -crop '1360x765+0+0' /tmp/screenshot-{{ mode }}.png
-
-[group('dev')]
-screenshot_do_light: (screenshot_do 'light')
-
-[group('dev')]
-screenshot_do_dark: (screenshot_do 'dark')
-
-[group('dev')]
-screenshot_update:
+screenshot_update screenshot_url=screenshot_url: (screenshot_do screenshot_url)
+    magick /tmp/screenshot-light.png -gravity north -crop '1360x765+0+0' /tmp/screenshot-light.png
+    magick /tmp/screenshot-dark.png -gravity north -crop '1360x765+0+0' /tmp/screenshot-dark.png
     magick -size 1360x765 xc:black -fill white -draw "polygon 0,0 1360,0 0,765" /tmp/linkita-mask.png
     magick /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png -composite static/images/screenshot.png
     -mat2 --inplace static/images/screenshot.png
     cp static/images/screenshot.png themes/linkita/screenshot.png
     rm -f /tmp/screenshot-dark.png /tmp/screenshot-light.png /tmp/linkita-mask.png
+
+[env("NODE_PATH", "themes/linkita/node_modules")]
+[group('dev')]
+[private]
+screenshot_do screenshot_url=screenshot_url:
+    #!/usr/bin/env node
+    const puppeteer = require('puppeteer');
+    (async () => {
+      const browser = await puppeteer.launch({
+        headless: true, args: ['--hide-scrollbars'] });
+      const page = await browser.newPage();
+      const cdp = await page.target().createCDPSession();
+      await cdp.send('Page.setFontFamilies', { fontFamilies: {
+          standard: 'Lato', serif: 'Alegreya',
+          sansSerif: 'Lato', fixed: 'Monaspace Neon' }});
+      await page.setViewport({
+        width: 1400, height: 936, deviceScaleFactor: 1.25 });
+      await page.emulateMediaFeatures([{
+        name: 'prefers-color-scheme', value: 'light' }]);
+      await page.goto('{{ screenshot_url }}/', { waitUntil: 'load' });
+      await page.screenshot({ path: '/tmp/screenshot-light.png' });
+      await page.emulateMediaFeatures([{
+        name: 'prefers-color-scheme', value: 'dark' }]);
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      await page.screenshot({ path: '/tmp/screenshot-dark.png' });
+      await browser.close();
+    })();
