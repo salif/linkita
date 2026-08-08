@@ -1,18 +1,4 @@
 {
-  "name": "linkita",
-  "version": "4",
-  "description": "A clean and elegant blog theme for Zola. Linkita is based on Kita and Hugo-Paper and is multilingual and SEO friendly.",
-  "homepage": "https://codeberg.org/salif/linkita",
-  "license": "MIT",
-  "author": {
-    "name": "Salif Mehmed",
-    "email": "mail@salif.eu",
-    "url": "https://salif.eu"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://codeberg.org/salif/linkita.git"
-  },
   "scripts": {
     "dev:css": "tailwindcss -i static/app.css -o static/main.min.css --minify --watch",
     "build:css": "tailwindcss -i static/app.css -o static/main.min.css --minify",
@@ -22,13 +8,12 @@
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
-    "@tailwindcss/cli": "^4.3.2",
+    "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/typography": "^0.5.20",
-    "execa": "^9.6.1",
     "instant.page": "^5.2.0",
     "katex": "^0.16.47",
-    "simple-icons": "^14.15.0",
-    "tailwindcss": "^4.3.2",
-    "terser": "^5.49.0"
+    "simple-icons": "^16.28.0",
+    "tailwindcss": "^4.3.3",
+    "terser": "^5.49.2"
   }
 }

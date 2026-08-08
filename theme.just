@@ -1,7 +1,7 @@
 #!/usr/bin/env -S just --justfile
 
-this_file := source_file()
-this := just_executable() + " -f " + quote(this_file)
+this := just_executable() + " -f " + quote(source_file())
+zola := if `git branch --show-current` == "tera1" { "zola-v0.22.1" } else { "zola" }
 
 _:
     @{{ this }} --list --unsorted
@@ -38,12 +38,12 @@ update_pnpm:
 
 [extension('.mjs')]
 [group('update_assets')]
+[script("node")]
 sync_simple_icons:
-    #!/usr/bin/env node
     import fs from "fs"
     const icons = [
         "bluesky", "instagram", "mastodon", "matrix", "youtube",
-        "codeberg", "forgejo", "git", "github", "npm",
+        "codeberg", "forgejo", "git", "github", "npm", "tangled",
         "buymeacoffee", "kofi", "liberapay", "opencollective",
     ]
     for (const icon of icons) {
@@ -76,10 +76,8 @@ sync_katex:
 
 [group('git')]
 [private]
-add_git_remotes:
-    git remote add codeberg 'git@codeberg.org:salif/linkita.git'
-    git remote add github 'git@github.com:salif/linkita.git'
-    git remote add kita 'https://github.com/st1020/kita.git'
+branch_is branch:
+    @[ "$(git branch --show-current)" == "{{ branch }}" ]
 
 [group('git')]
 [private]
@@ -99,31 +97,27 @@ commit_diff:
 [confirm]
 [group('git')]
 [private]
-commit: commit_diff
-    zola check --skip-external-links
+commit_on_theme: commit_diff
+    {{ zola }} check --skip-external-links
     git commit
 
 [group('git')]
-commit_linkita: (branch_is "linkita") && commit
+commit_main: (branch_is "main") && commit_on_theme
 
 [group('git')]
-commit_v4: (branch_is "v4") && commit
+commit_tera1: (branch_is "tera1") && commit_on_theme
 
-branch_is name="linkita":
-    @[ "$(git branch --show-current)" == "{{ name }}" ]
-
-[doc('push linkita branch')]
 [group('git')]
-push_linkita:
-    git push codeberg linkita:linkita
-    git push github linkita:linkita
+commit_tera2: (branch_is "tera2") && commit_on_theme
 
-[doc('push v4 branch')]
 [group('git')]
-push_v4:
-    git push codeberg v4:v4
-    git push github v4:v4
+push_main remote='github':
+    git push {{ remote }} main:main
 
-[confirm]
-[private]
-confirm:
+[group('git')]
+push_tera1 remote='github':
+    git push {{ remote }} tera1:tera1
+
+[group('git')]
+push_tera2 remote='github':
+    git push {{ remote }} tera2:tera2
