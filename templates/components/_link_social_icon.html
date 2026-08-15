@@ -1,0 +1,13 @@
+{% component _link_social_icon(icon: string, prl: bool, ctx: map) %}{%
+  set icon_path = "icons/" ~ icon ~ ".svg" %}{%
+  set icon_meta = get_image_metadata(path=icon_path, allow_missing=true) %}{%
+  if icon_meta %}{%
+    if prl %}{{
+      <_link dest={get_url(path=icon_path, trailing_slash=false)} ctx /> }}{%
+    else %}{{
+      icon_path | safe }}{%
+    endif %}{%
+  else %}{{
+    "https://cdn.jsdelivr.net/npm/simple-icons/icons/" ~ icon ~ ".svg" | safe }}{%
+  endif
+%}{% endcomponent %}

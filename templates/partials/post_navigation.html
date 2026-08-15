@@ -7,16 +7,16 @@
   {%- set next_page = page.higher %}
 {%- endif %}
 <nav class="block-bg mt-12 flex flex-wrap rounded-lg text-lg">
-  {%- if prev_page %}
+  {%- if prev_page is map %}
   <a
     class="block-hover-mask flex min-w-[50%] grow items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
-    href="{{ _link::rel(dest=prev_page.permalink, cu=_cu, base=_base) }}" accesskey=","
+    href="{{ <_link dest={prev_page.permalink} ctx /> }}" accesskey=","
     ><span class="mr-1.5">&#8249;</span><span>{{ prev_page.title }}</span></a>
   {%- endif %}
-  {%- if next_page %}
+  {%- if next_page is map %}
   <a
     class="block-hover-mask ml-auto flex min-w-[50%] grow items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
-    href="{{ _link::rel(dest=next_page.permalink, cu=_cu, base=_base) }}" accesskey="."
+    href="{{ <_link dest={next_page.permalink} ctx /> }}" accesskey="."
     ><span>{{ next_page.title }}</span><span class="ml-1.5">&#8250;</span></a>
   {%- endif %}
 </nav>

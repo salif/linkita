@@ -1,0 +1,17 @@
+{% component admonition(type: string, title=none) -%}
+<div
+  class="my-4 flex flex-col rounded-lg bg-(--admonition-bg)"
+  style="--admonition-bg: var({{ `--admonition-` ~ type }});"
+>
+  <div class="flex items-center rounded-t-lg bg-(--admonition-bg) p-1">
+    <div
+      class="mx-2 h-4 w-4 text-[0px] [background:var(--url)_center_center_no-repeat] dark:invert"
+      style="--url: url(icons/{{ type }}.svg);"
+    >
+      {{ type }}
+    </div>
+    <span><strong>{{ title | default(value=type | title, boolean=true) }}</strong></span>
+  </div>
+  <div class="pl-4">{{ body | markdown | safe }}</div>
+</div>
+{%- endcomponent %}

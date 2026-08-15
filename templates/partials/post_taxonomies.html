@@ -1,23 +1,26 @@
 <!-- Post Taxonomies -->
-{%- if page.taxonomies %}
+{#- todo #}
+{%- if page.taxonomies is map %}
   {%- set_global taxonomy_names = [] %}
   {%- for taxonomy_name, terms in page.taxonomies %}
     {%- if terms %}
-      {%- set_global taxonomy_names = taxonomy_names | concat(with=taxonomy_name) %}
+      {#- todo #}
+      {%- set_global taxonomy_names = [...taxonomy_names, taxonomy_name] %}
     {%- endif %}
   {%- endfor %}
-  {%- if taxonomy_names %}
+  {%- if taxonomy_names is array %}
 <footer class="mt-12 flex flex-col" tabindex="-1" accesskey="_">
   {%- for taxonomy_name in taxonomy_names | sort %}
   <div class="mb-2 flex flex-wrap">
     <span class="block-bg mr-1.5 mb-1.5 rounded-lg px-5 py-1.5">{{
-      _str::get_taxonomy_title(key=taxonomy_name, d=g_d) }}</span>
-    {% for term in page.taxonomies[taxonomy_name] %}
+      <_taxonomy_title key={taxonomy_name} _msg /> }}</span>
+    {% for term_name in page.taxonomies[taxonomy_name] %}
     <a
       class="block-bg block-hover mr-1.5 mb-1.5 rounded-lg px-5 py-1.5 no-underline"
-      href="{{ _link::rel(dest=get_taxonomy_url(kind=taxonomy_name, name=term, lang=lang), cu=_cu, base=_base) }}">{%
-        if taxonomy_name == "authors" %}{{ _profile::get_name(username=term) }}{%
-        else %}{{ term }}{% endif %}</a>
+      href="{{ <_link dest={get_taxonomy_url(kind=taxonomy_name, term=term_name, lang=ctx.lang)} ctx /> }}">{%
+        if taxonomy_name == "authors" %}{{
+          <_profile_name username={term_name} lang={ctx.lang} profiles={config.extra.profiles} /> }}{%
+        else %}{{ term_name }}{% endif %}</a>
     {% endfor %}
   </div>
   {%- endfor %}

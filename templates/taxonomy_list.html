@@ -1,9 +1,9 @@
 {% extends "index.html" %}
 {% block main %}
-<h1 class="mb-16">{{ _str::get_taxonomy_title(key=taxonomy.name, d=g_d) }}</h1>
+<h1 class="mb-16">{{ <_taxonomy_title key={taxonomy.name} _msg /> }}</h1>
 <div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
-  {%- set word_more = _str::tr(key=`word_more`, d=g_d) %}
-  {%- set taxonomy_sorting = config.extra.taxonomy_sorting[taxonomy.name] | default(value="descending_frequency") %}
+  {%- set word_more = <_str key=`word_more` _msg /> %}
+  {%- set taxonomy_sorting = config.extra.taxonomy_sorting?[taxonomy.name] | default(value="descending_frequency") %}
   {%- if taxonomy_sorting == "ascending_frequency" %}
     {%- set sorted_terms = terms | sort(attribute=`page_count`) %}
   {%- elif taxonomy_sorting == "name" %}
@@ -14,22 +14,25 @@
   {%- for term in sorted_terms %}
   <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-72">
     <h2 class="my-4 text-xl font-bold text-black dark:text-white">
-      <a class="primary-link" href="{{ _link::rel(dest=term.permalink, cu=_cu, base=_base) }}">{%
-        if taxonomy.name == "authors" %}{{ _profile::get_name(username=term.name) }}{%
+      <a class="primary-link" href="{{ <_link dest={term.permalink} ctx /> }}">{%
+        if taxonomy.name == "authors" %}{{
+          <_profile_name username={term.name} lang={ctx.lang} profiles={config.extra.profiles} /> }}{%
         elif taxonomy.name == "tags" %}#{{ term.name }}{%
         elif taxonomy.name == "categories" %}{{ term.name }}{%
         else %}{{ term.name }}{% endif %}</a>
-      <sup class="opacity-60">{{ _str::int_as_str(value=term.page_count) }}</sup>
+      <sup class="opacity-60">{{ <_num value={term.page_count} ctx /> }}</sup>
     </h2>
 
-    {%- for page in term.pages | slice(end=5) %}
-    <a class="secondary-link my-0.5" href="{{ _link::rel(dest=page.permalink, cu=_cu, base=_base) }}">{%
-      if page.title %}{{ page.title }}{% else %}{{ page.slug }}{% endif %}</a>
+    {#- todo var for the number #}
+    {%- for term_page in term.pages[:5] %}
+    <a class="secondary-link my-0.5" href="{{
+      <_link dest={term_page.permalink} ctx /> }}">{{ term_page.title or term_page.slug }}</a>
     {%- endfor %}
 
     {%- if term.pages | length > 5 %}
     <span class="flex justify-end">
-      <a class="secondary-link mt-1 pr-2" href="{{ _link::rel(dest=term.permalink, cu=_cu, base=_base) }}">{{ word_more }}</a>
+      <a class="secondary-link mt-1 pr-2" href="{{
+        <_link dest={term.permalink} ctx /> }}">{{ word_more }}</a>
     </span>
     {%- endif %}
   </div>

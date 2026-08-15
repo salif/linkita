@@ -1,28 +1,25 @@
 {% extends "index.html" %}
-{%- block meta %}
-  {%- set g_is_article = true %}
-{%- endblock meta %}
 {% block main %}
 <article>
   <!-- Begin Page Start inject -->
-  {% include "injects/page_start.html" ignore missing %}
+  {% include "injects/page_start.html" %}
   <!-- End Page Start inject -->
 
   <header class="mb-16">
     <h1 class="my-0! pb-2.5">{{ page.title }}</h1>
-    {% include "partials/page_info.html" %}
+    {{ <_page_info on_page={true} page config ctx _msg /> }}
   </header>
-  {%- if g_image_url %}
+  {%- if ctx.image?.url %}
   <figure class="mt-0 mb-12">
     <img
       class="h-auto w-full rounded-lg"
-      src="{{ _link::rel(dest=g_image_url, cu=_cu, base=_base) }}"
-      {%- if page.extra.cover.alt is defined %}
-      alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
-      {%- if g_image_data.width is defined %}
-      width="{{ g_image_data.width | int }}"{% endif %}
-      {%- if g_image_data.height is defined %}
-      height="{{ g_image_data.height | int }}"{% endif %}
+      src="{{ <_link dest={ctx.image.url} ctx /> }}"
+      {%- if ctx.image?.alt is string %}
+      alt="{{ ctx.image.alt }}"{% endif %}
+      {%- if ctx.image?.width is defined %}
+      width="{{ ctx.image.width | int }}"{% endif %}
+      {%- if ctx.image?.height is defined %}
+      height="{{ ctx.image.height | int }}"{% endif %}
     />
   </figure>
   {%- endif %}
@@ -32,14 +29,14 @@
   <section>{{ page.content | safe }}</section>
   <hr />
   {% include "partials/post_taxonomies.html" %}
-  {%- if page.lower or page.higher %}
+  {%- if page.lower is map or page.higher is map %}
   {% include "partials/post_navigation.html" %}
   {%- endif %}
   {%- if page.extra.comment | default(value=config.extra.comment) %}
   {% include "partials/comment.html" %}
   {%- endif %}
   <!-- Begin Page End inject -->
-  {% include "injects/page_end.html" ignore missing %}
+  {% include "injects/page_end.html" %}
   <!-- End Page End inject -->
 </article>
 {% endblock main %}

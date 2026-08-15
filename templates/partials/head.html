@@ -1,54 +1,50 @@
-{%- set config_title = config.title | default(value="") | truncate(length=100) %}
-{%- set title_separator = config.extra.title_separator | default(value= " | ") %}
+{%- set config_title = config.title | default(value="", boolean=true) | truncate(length=100) %}
+{%- set title_separator = config.extra.title_separator | default(value=" | ", boolean=true) %}
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="generator" content="Zola{% if zola_version %} v{{ zola_version }}{% endif %}" />
-{%- if page.title %}
-  {%- set page_title = page.title | truncate(length=200) %}
-  {%- if page.description %}
-    {%- set page_description = page.description %}
-  {%- elif page.summary %}
-    {%- set page_description = page.summary | linebreaksbr | striptags | trim_end_matches(pat=`.`) %}
-  {%- endif %}
-{%- elif taxonomy.name %}
-  {%- set page_title = _str::get_taxonomy_title(key=taxonomy.name, d=g_d) %}
-  {%- if term.name %}
+{%- if taxonomy?.name is string %}
+  {%- set page_title = <_taxonomy_title key={taxonomy.name} _msg /> %}
+  {%- if term?.name is string %}
     {%- if taxonomy.name == "authors" %}
-      {%- set term_name = _profile::get_name(username=term.name) %}
+      {%- set term_name = <_profile_name username={term.name} lang={ctx.lang} profiles={config.extra.profiles} /> %}
     {%- else %}
       {%- set term_name = term.name %}
     {%- endif %}
     {%- set page_title = term_name ~ title_separator ~ page_title %}
-    {%- if config.extra.languages[lang].term_descriptions[taxonomy.name] %}
+    {%- if config.extra.languages?[lang]?.term_descriptions?[taxonomy.name] is string %}
       {%- set page_description = config.extra.languages[lang].term_descriptions[taxonomy.name] |
         replace(from=`$NAME`, to=term_name) %}
     {%- endif %}
   {%- else %}
-    {%- if config.extra.languages[lang].taxonomy_descriptions[taxonomy.name] %}
+    {%- if config.extra.languages?[lang]?.taxonomy_descriptions?[taxonomy.name] is string %}
       {%- set page_description = config.extra.languages[lang].taxonomy_descriptions[taxonomy.name] %}
     {%- endif %}
   {%- endif %}
-{%- elif section.title %}
-  {%- set page_title = section.title | truncate(length=200) %}
-  {%- if section.description %}
-    {%- set page_description = section.description %}
+{#- todo is_section #}
+{%- elif page.title is string or page.description is string %}
+  {%- set page_title = page.title | default(value="", boolean=true) | truncate(length=200) %}
+  {%- if page.description is string or page.summary %}
+    {%- if page.description is string %}
+      {%- set page_description = page.description %}
+    {%- elif page.summary %}
+      {%- set page_description = page.summary | newlines_to_br | striptags | trim_end(pat=`.`) %}
+    {%- endif %}
   {%- endif %}
-{%- elif current_url %}
+{%- elif current_url is string %}
   {%- set page_title = config_title %}
-  {%- set page_description = config.description | default(value="") %}
+  {%- set page_description = config.description | default(value="", boolean=true) %}
 {%- else %}
-  {%- set page_title = _str::tr(key=`error_not_found`, d=g_d) %}
-  {%- set is_404 = true %}
-  <meta name="robots" content="noindex" />
+  {{- throw(message="Error 1 in head element. Please report this bug.") }}
 {%- endif %}
 
 {%- if page_title %}
   {%- if config_title %}
   <title>{%
-    if paginator.current_index is defined and paginator.current_index > 1 %}{%
-      set page_title_num = _str::tr(key=`title_page`, d=g_d) |
-        replace(from=`$NUM`, to=(paginator.current_index | as_str)) %}{{
+    if paginator?.current_index is number and paginator.current_index > 1 %}{%
+      set page_title_num = <_str key=`title_page` _msg /> |
+        replace(from=`$NUM`, to=(paginator.current_index | str)) %}{{
       page_title_num ~ title_separator }}{%
     endif %}{%
     if page_title == config_title %}{{
@@ -56,201 +52,105 @@
     else %}{{
       page_title ~ title_separator ~ config_title }}{%
     endif %}</title>
-  <meta property="og:site_name" content="{{ config_title | linebreaksbr | truncate(length=100) | escape_xml | safe }}" />
+  <meta property="og:site_name" content="{{ config_title | newlines_to_br | truncate(length=100) }}" />
   {%- else %}
   <title>{{ page_title }}</title>
   {%- endif %}
-  <meta property="og:title" content="{{ page_title | linebreaksbr | truncate(length=200) | escape_xml | safe }}" />
+  <meta property="og:title" content="{{ page_title | newlines_to_br | truncate(length=200) }}" />
 {%- endif %}
 {%- if page_description %}
-  <meta name="description" content="{{ page_description | linebreaksbr | truncate(length=200, end=`…`) | escape_xml | safe }}" />
-  <meta property="og:description" content="{{ page_description | linebreaksbr | truncate(length=300, end=`…`) | escape_xml | safe }}" />
+  <meta name="description" content="{{ page_description | newlines_to_br | truncate(length=200, end=`…`) }}" />
+  <meta property="og:description" content="{{ page_description | newlines_to_br | truncate(length=300, end=`…`) }}" />
 {%- endif %}
-{%- if current_url %}
-  {%- if page.extra.open_graph.url %}
-  <meta property="og:url" content="{{ page.extra.open_graph.url | escape_xml | safe }}" />
-  {%- elif section.extra.open_graph.url %}
-  <meta property="og:url" content="{{ section.extra.open_graph.url | escape_xml | safe }}" />
+{%- if current_url is string %}
+  {%- if page.extra.og_url is string %}
+  <meta property="og:url" content="{{ page.extra.og_url }}" />
   {%- else %}
-  <meta property="og:url" content="{{ current_url | escape_xml | safe }}" />
+  <meta property="og:url" content="{{ current_url }}" />
   {%- endif %}
-  <link rel="canonical" href="{{ current_url | escape_xml | safe }}" />
-
+  <link rel="canonical" href="{{ current_url }}" />
 {%- endif %}
 
-{%- if g_is_article %}
+{%- if ctx.is_article %}
   <meta property="og:type" content="article" />
-  {%- if page.date %}
-  <meta property="article:published_time" content="{{ page.date | date(format=`%+`) }}" />
+  {%- if page.date is string %}
+  <meta property="article:published_time" content="{{ page.date | date(format=`%FT%T%:z`) }}" />
   {%- endif %}
-  {%- if page.updated %}
-  <meta property="article:modified_time" content="{{ page.updated | date(format=`%+`) }}" />
+  {%- if page.updated is string %}
+  <meta property="article:modified_time" content="{{ page.updated | date(format=`%FT%T%:z`) }}" />
   {%- endif %}
-  {%- if page.extra.open_graph.expiration_time %}
-  <meta property="article:expiration_time" content="{{ page.extra.open_graph.expiration_time | date(format=`%+`) }}" />
-  {%- endif %}
-  {%- if page.taxonomies.authors %}
+  {%- if page.taxonomies?.authors is array %}
     {%- for page_author in page.taxonomies.authors %}
-  <meta property="article:author" content="{{ get_taxonomy_url(kind=`authors`, name=page_author, lang=lang) }}" />
+  <meta property="article:author" content="{{ get_taxonomy_url(kind=`authors`, term=page_author, lang=ctx.lang) }}" />
     {%- endfor %}
   {%- endif %}
-  {%- if page.extra.open_graph.content_tier %}
-  <meta property="article:content_tier" content="{{ page.extra.open_graph.content_tier | escape_xml | safe }}" />
-  {%- endif %}
-  {%- if page.extra.open_graph.section %}
-  <meta property="article:section" content="{{ page.extra.open_graph.section | escape_xml | safe }}" />
-  {%- endif %}
-  {%- if page.extra.open_graph.opinion is defined %}
-  <meta property="article:opinion" content="{{ page.extra.open_graph.opinion == true }}" />
-  {%- endif %}
-  {%- if page.extra.open_graph.locations %}
-    {%- for og_location in page.extra.open_graph.locations %}
-  <meta property="article:location" content="{{ og_location | escape_xml | safe }}" />
-    {%- endfor %}
-  {%- endif %}
-  {%- if page.taxonomies.tags %}
+  {%- if page.taxonomies?.tags is array %}
     {%- for og_tag in page.taxonomies.tags %}
-  <meta property="article:tag" content="{{ og_tag | escape_xml | safe }}" />
+  <meta property="article:tag" content="{{ og_tag }}" />
     {%- endfor %}
-  {%- endif %}
-{%- elif g_profile is defined %}
-  <meta property="og:type" content="profile" />
-  {%- if g_profile.open_graph.first_name %}
-  <meta property="profile:first_name" content="{{ g_profile.open_graph.first_name | escape_xml | safe }}" />
-  {%- endif %}
-  {%- if g_profile.open_graph.last_name %}
-  <meta property="profile:last_name" content="{{ g_profile.open_graph.last_name | escape_xml | safe }}" />
-  {%- endif %}
-  {%- if g_profile.open_graph.username %}
-  <meta property="profile:username" content="{{ g_profile.open_graph.username | escape_xml | safe }}" />
-  {%- endif %}
-  {%- if g_profile.open_graph.gender %}
-  <meta property="profile:gender" content="{{ g_profile.open_graph.gender | escape_xml | safe }}" />
   {%- endif %}
 {%- else %}
   <meta property="og:type" content="website" />
 {%- endif %}
-
-{%- if g_profile is defined or (config.author and config.extra.profiles[config.author]) %}
-  {#- order is important #}
-  {%- if config.extra.profiles[config.author].open_graph %}
-    {%- set profile_og_data = config.extra.profiles[config.author].open_graph %}
-    {%- if profile_og_data.fb_app_id %}
-  <meta property="fb:app_id" content="{{ profile_og_data.fb_app_id | escape_xml | safe }}" />
-    {%- endif %}
-    {%- if profile_og_data.fb_admins %}
-      {%- for fb_admin in profile_og_data.fb_admins %}
-  <meta property="fb:admins" content="{{ fb_admin | escape_xml | safe }}" />
-      {%- endfor %}
-    {%- endif %}
-  {%- endif %}
-  {%- if g_profile.open_graph %}
-    {%- set profile_og_data = g_profile.open_graph %}
-  {%- endif %}
-  {%- if profile_og_data.fediverse_creator.handle and profile_og_data.fediverse_creator.domain %}
-  <meta name="fediverse:creator" content="@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe
-    }}@{{ profile_og_data.fediverse_creator.domain | replace(from=`https://`, to=``) | escape_xml | safe }}" />
-    {%- if profile_og_data.fediverse_creator.url %}
-  <link rel="me" href="{{ profile_og_data.fediverse_creator.url | escape_xml | safe }}" />
-    {%- else %}
-  <link rel="me" href="https://{{ profile_og_data.fediverse_creator.domain | replace(from=`https://`, to=``) |
-    escape_xml | safe }}/@{{ profile_og_data.fediverse_creator.handle | escape_xml | safe }}" />
-    {%- endif %}
-  {%- endif %}
-{%- endif %}
-
-{%- if g_image_url or g_profile.open_graph.image or (
-  config.author and config.extra.profiles[config.author].open_graph.image) %}
-  {%- if g_image_url %}
-    {%- set og_image_alt = page.extra.cover.alt | default(value=(section.extra.cover.alt | default(value=""))) %}
-  {%- elif g_profile.open_graph.image %}
-    {%- set og_image_path = g_profile.open_graph.image %}
-    {%- if g_profile.open_graph.languages[lang].image_alt is defined %}
-      {%- set og_image_alt = g_profile.open_graph.languages[lang].image_alt %}
-    {%- else %}
-      {%- set og_image_alt = g_profile.open_graph.image_alt | default(value="") %}
-    {%- endif %}
-  {%- else %}
-    {%- set og_image_path = config.extra.profiles[config.author].open_graph.image %}
-    {%- if config.extra.profiles[config.author].open_graph.languages[lang].image_alt is defined %}
-      {%- set og_image_alt = config.extra.profiles[config.author].open_graph.languages[lang].image_alt %}
-    {%- else %}
-      {%- set og_image_alt = config.extra.profiles[config.author].open_graph.image_alt | default(value=config.author) %}
-    {%- endif %}
-  {%- endif %}
-  {%- if g_image_url %}
-  <meta property="og:image" content="{{ g_image_url | escape_xml | safe }}" />
-  {%- else %}
-    {%- set g_image_data = get_image_metadata(path=og_image_path, allow_missing=false) %}
-  <meta property="og:image" content="{{ get_url(path=og_image_path) }}" />
-  {%- endif %}
-  <meta property="og:image:alt" content="{{ og_image_alt | linebreaksbr | truncate(length=500) | escape_xml | safe }}" />
-  {%- if g_image_data.width is defined and g_image_data.height is defined %}
-  <meta property="og:image:width" content="{{ g_image_data.width | int }}" />
-  <meta property="og:image:height" content="{{ g_image_data.height | int }}" />
-  {%- endif %}
-  {%- if g_image_data.mime is defined %}
-  <meta property="og:image:type" content="{{ g_image_data.mime | escape_xml | safe }}" />
-  {%- endif %}
-{%- endif %}
-
-{%- if page_translations %}
-  {%- for page_translation in page_translations %}
-    {%- if page_translation.lang == lang and config.extra.languages[lang].locale %}
-  <meta property="og:locale" content="{{ config.extra.languages[lang].locale | escape_xml | safe }}" />
-    {%- elif config.extra.languages[page_translation.lang].locale %}
-  <meta property="og:locale:alternate" content="{{
-    config.extra.languages[page_translation.lang].locale | escape_xml | safe }}" />
-    {%- else %}
-    {%- endif %}
-  <link rel="alternate" href="{{ page_translation.permalink | escape_xml | safe }}" hreflang="{%
-    if config.extra.languages[page_translation.lang].hreflang %}{{
-      config.extra.languages[page_translation.lang].hreflang | escape_xml | safe }}{%
-    else %}{{ page_translation.lang | escape_xml | safe }}{% endif %}"{%
-      if config.extra.relative_urls %} data-href="{{
-    _link::rel(dest=page_translation.permalink, cu=_cu, base=_base) }}"{% endif %} />
-  {%- endfor %}
-{%- endif %}
-
-{%- if config.generate_feeds or section.generate_feeds or (taxonomy.feed and term.path) %}
+{{- <_og_fediverse g_profile cap={config.extra.profiles?[config.author]} /> }}
+{{- <_og_image g_profile ctx cap={config.extra.profiles?[config.author]} /> }}
+{%- for page_translation in page_translations | default(value=[], boolean=true) %}
+  <link rel="alternate" href="{{ page_translation.permalink }}" hreflang="{%
+  if config.extra.languages?[page_translation.lang]?.hreflang is string %}{{
+    config.extra.languages[page_translation.lang].hreflang }}{%
+  else %}{{ page_translation.lang }}{% endif %}"{%
+    if config.extra.relative_urls %} data-href="{{
+  <_link dest={page_translation.permalink} ctx /> }}"{% endif %} />
+{%- endfor %}
+{%- if config.generate_feeds or
+  (ctx.is_section and page.generate_feeds) or
+  (taxonomy?.feed and term?.path is string) %}
   {%- for feed_filename in config.feed_filenames %}
-    {%- if taxonomy.feed and term.path %}
+    {%- if taxonomy?.feed and term?.path is string %}
       {%- set feed_title = page_title ~ title_separator %}
       {%- set feed_filename = term.path ~ feed_filename %}
+    {%- elif ctx.is_section and page.generate_feeds %}
+      {%- set feed_title = page_title ~ title_separator %}
+      {%- set feed_filename = page.path ~ feed_filename %}
     {%- elif config_title %}
       {%- set feed_title = config_title ~ title_separator %}
     {%- else %}
       {%- set feed_title = "" %}
     {%- endif %}
-    {%- if feed_filename is ending_with("atom.xml") %}
+    {%- if feed_filename is ending_with(pat="atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    _link::rel(dest=get_url(path=feed_filename, lang=lang), cu=_cu, base=_base)
-    }}" title="{{ feed_title ~ `Atom` | escape_xml | safe }}" />
-    {%- elif feed_filename is ending_with("rss.xml") %}
+    <_link dest={get_url(path=feed_filename, lang=ctx.lang)} ctx />
+    }}" title="{{ (feed_title ~ `Atom`) | newlines_to_br }}" />
+    {%- elif feed_filename is ending_with(pat="rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    _link::rel(dest=get_url(path=feed_filename, lang=lang), cu=_cu, base=_base)
-    }}" title="{{ feed_title ~ `RSS` | escape_xml | safe }}" />
+    <_link dest={get_url(path=feed_filename, lang=ctx.lang)} ctx />
+    }}" title="{{ (feed_title ~ `RSS`) | newlines_to_br }}" />
     {%- else %}
   <link rel="alternate" href="{{
-    _link::rel(dest=get_url(path=feed_filename, lang=lang), cu=_cu, base=_base)
-    }}" title="{{ feed_title ~ feed_filename | escape_xml | safe }}" />
+    <_link dest={get_url(path=feed_filename, lang=ctx.lang)} ctx />
+    }}" title="{{ (feed_title ~ feed_filename) | newlines_to_br }}" />
     {%- endif %}
   {%- endfor %}
 {%- endif %}
 
-{%- if config.extra.webmanifest %}
-  <link rel="manifest" href="{{ _link::rel(dest=_link::get(url=config.extra.webmanifest), cu=_cu, base=_base) }}">
+{%- if config.extra.webmanifest is string %}
+  <link rel="manifest" href="{{
+    <_link dest={config.extra.webmanifest} ctx /> }}">
 {%- endif %}
-{%- if config.extra.footer.license_url %}
-  <link rel="license" href="{{ _link::rel(dest=_link::get(url=config.extra.footer.license_url), cu=_cu, base=_base) }}" />
+{%- if config.extra.footer?.license_url is string %}
+  <link rel="license" href="{{
+    <_link dest={config.extra.footer.license_url} ctx /> }}" />
 {%- endif %}
-{%- if config.extra.footer.privacy_policy_url %}
-  <link rel="privacy-policy" href="{{ _link::rel(dest=_link::get(url=config.extra.footer.privacy_policy_url), cu=_cu, base=_base) }}" />
+{%- if config.extra.footer?.privacy_policy_url is string %}
+  <link rel="privacy-policy" href="{{
+    <_link dest={config.extra.footer.privacy_policy_url} ctx /> }}" />
 {%- endif %}
-{%- if config.extra.footer.terms_of_service_url %}
-  <link rel="terms-of-service" href="{{ _link::rel(dest=_link::get(url=config.extra.footer.terms_of_service_url), cu=_cu, base=_base) }}" />
+{%- if config.extra.footer?.terms_of_service_url is string %}
+  <link rel="terms-of-service" href="{{
+    <_link dest={config.extra.footer.terms_of_service_url} ctx /> }}" />
 {%- endif %}
-{%- if config.extra.footer.search_page_url %}
-  <link rel="search" href="{{ _link::rel(dest=_link::get(url=config.extra.footer.search_page_url), cu=_cu, base=_base) }}" />
+{%- if config.extra.footer?.search_page_url is string %}
+  <link rel="search" href="{{
+    <_link dest={config.extra.footer.search_page_url} ctx /> }}" />
 {%- endif %}
 {#- -#}

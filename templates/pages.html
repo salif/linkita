@@ -1,30 +1,21 @@
 {% extends "index.html" %}
-{%- block meta %}
-  {%- set g_is_article = true %}
-{%- endblock meta %}
 {% block main %}
-{%- if g_profile is defined %}
+{%- if g_profile is map %}
 {% include "partials/profile.html" %}
 {%- endif %}
 <article>
-  {%- if g_profile is undefined and (page.title or section.title) %}
+  {%- if g_profile is undefined and page.title is string %}
   <header class="mb-16">
-    {%- if page.title %}
+    {%- if page.title is string %}
     <h1 class="my-0!">{{ page.title }}</h1>
-    {%- elif section.title %}
-    <h1 class="my-0!">{{ section.title }}</h1>
     {%- endif %}
   </header>
   {%- endif %}
   {%- set page_toc = false %}
   {% include "partials/toc.html" %}
   <!-- Content -->
-  {%- if page.content is defined %}
   <section>{{ page.content | safe }}</section>
-  {%- elif section.content is defined %}
-  <section>{{ section.content | safe }}</section>
-  {%- endif %}
-  {%- if page.lower or page.higher %}
+  {%- if page.lower is string or page.higher is string %}
   <hr />
   {% include "partials/post_navigation.html" %}
   {%- endif %}

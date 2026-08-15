@@ -1,32 +1,36 @@
 {%- if config.markdown.highlighting.style and config.markdown.highlighting.style == "class" %}
   {%- if config.markdown.highlighting.light_theme or config.markdown.highlighting.dark_theme %}
-  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`giallo-light.css`, cachebust=false), cu=_cu, base=_base) }}" media="(prefers-color-scheme: light)" />
-  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`giallo-dark.css`, cachebust=false), cu=_cu, base=_base) }}" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="{{ <_link_static path=`giallo-light.css` ctx />
+    }}" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="{{ <_link_static path=`giallo-dark.css` ctx />
+    }}" media="(prefers-color-scheme: dark)" />
 {%- else %}
-  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`giallo.css`, cachebust=false), cu=_cu, base=_base) }}" />
+  <link rel="stylesheet" href="{{ <_link_static path=`giallo.css` ctx /> }}" />
   {%- endif %}
 {%- endif %}
-  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`main.min.css`, cachebust=true), cu=_cu, base=_base) }}" />
-  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`icons.css`, cachebust=true), cu=_cu, base=_base) }}" />
+  <link rel="stylesheet" href="{{ <_link_static path=`main.min.css` ctx /> }}" />
+  <link rel="stylesheet" href="{{ <_link_static path=`icons.css` ctx /> }}" />
+  <link rel="stylesheet" href="{{ <_link_static path=`admonition.css` ctx /> }}" />
 {%- include "partials/head_style.html" %}
-{%- if g_profile is defined and not config.extra.ugly_urls %}
-  {%- if g_profile.avatar_url %}
-  <link rel="preload" as="image" href="{{ _link::rel(dest=get_url(path=g_profile.avatar_url, cachebust=true), cu=_cu, base=_base) }}" />
+{%- if g_profile is map and not config.extra.ugly_urls %}
+  {%- if g_profile.avatar_url is string %}
+  <link rel="preload" as="image" href="{{ <_link_static path={g_profile.avatar_url} ctx /> }}" />
   {%- endif %}
-  {%- if g_profile.social %}
+  {%- if g_profile.social is array %}
     {%- for image_social in g_profile.social %}
-  <link rel="preload" as="image" href="{{ _link::rel(dest=_link::social_icon(icon=image_social.name, prl=true), cu=_cu, base=_base) }}" />
+  <link rel="preload" as="image" href="{{
+    <_link_social_icon icon={image_social.name} prl={true} ctx /> }}" />
     {%- endfor %}
   {%- endif %}
 {%- endif %}
 
 {%- if not config.extra.disable_default_favicon %}
-  <link rel="icon" type="image/x-icon" href="{{ _link::rel(dest=get_url(path=`favicon.ico`), cu=_cu, base=_base) }}" />
-  <link rel="apple-touch-icon" type="image/png" href="{{ _link::rel(dest=get_url(path=`apple-touch-icon.png`, cachebust=true), cu=_cu, base=_base) }}" />
-  <link rel="icon" type="image/png" href="{{ _link::rel(dest=get_url(path=`android-icon.png`, cachebust=true), cu=_cu, base=_base) }}" />
+  <link rel="icon" type="image/x-icon" href="{{
+    <_link_static path=`favicon.ico` ctx cachebust={false} /> }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{
+    <_link_static path=`apple-touch-icon.png` ctx cachebust={false} /> }}" />
+  <link rel="icon" type="image/png" href="{{
+    <_link_static path=`android-icon.png` ctx cachebust={false} /> }}" />
 {%- endif %}
-
-{%- if not config.extra.disable_javascript %}
-  <script src="{{ _link::rel(dest=get_url(path=`js/zola-theme.min.js`, cachebust=true), cu=_cu, base=_base) }}"></script>
-{%- endif %}
+  <script src="{{ <_link_static path=`js/zola-theme.min.js` ctx /> }}"></script>
 {#- -#}

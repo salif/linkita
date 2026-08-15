@@ -1,0 +1,31 @@
+{% component _link(dest: string, ctx: map) %}{%
+
+  if dest is starting_with(pat="@base") %}{%
+    set dest =
+      get_url(path=``, lang=ctx.lang, trailing_slash=false) ~
+      (dest | trim_start(pat="@base")) %}{%
+
+  elif dest is starting_with(pat="@lang") %}{%
+    set dest = get_url(
+      path=`@`~(dest | trim_start(pat="@lang")),
+      lang=ctx.lang, trailing_slash=true) %}{%
+
+  elif dest is starting_with(pat="@") %}{%
+    set dest = get_url(path=dest) %}{%
+  endif %}{%
+
+  if ctx.cu_url and dest is starting_with(pat=ctx.base_url) %}{%
+    for _ in ctx.cu_url %}{%
+      if not loop.last %}{{
+        "../" }}{%
+      endif %}{%
+    endfor %}{{
+    dest | trim_start(pat=ctx.base_url) | safe }}{%
+  else %}{{
+    dest | safe }}{%
+  endif %}{%
+
+  if ctx.ugly_urls and dest is ending_with(pat="/") %}{{
+    "index.html" }}{%
+  endif
+%}{% endcomponent %}
