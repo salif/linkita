@@ -1,5 +1,29 @@
 # Changelog
 
+## tera1
+
+Linkita was previously hosted on Codeberg and was migrated to GitHub.
+If you are using the Codeberg repository and are a submodule user,
+follow these instructions to switch to the new repository:
+
+```sh
+git submodule update --init
+# Remove the old submodule
+git submodule deinit -f themes/linkita
+rm -rf .git/modules/themes/linkita
+git rm -f themes/linkita
+
+# Choose a branch:
+# Choose the main branch for Zola versions newer than 0.23.0,
+# or the tera1 branch for older versions. 
+
+# Add new submodule using the main branch
+git submodule add -b main https://github.com/salif/linkita.git themes/linkita
+
+# Add new submodule using the tera1 branch
+git submodule add -b tera1 https://github.com/salif/linkita.git themes/linkita
+```
+
 ## v4
 
 - Add `extra.taxonomy_sorting` config variable and sort terms in taxonomy pages by the number of posts by default.
