@@ -11,11 +11,10 @@
     {%- endif %}
   </header>
   {%- endif %}
-  {%- set page_toc = false %}
-  {% include "partials/toc.html" %}
+  {{ <_toc page conf={config.extra.toc} def={false} _msg /> }}
   <!-- Content -->
   <section>{{ page.content | safe }}</section>
-  {%- if page.lower is string or page.higher is string %}
+  {%- if page.lower is map or page.higher is map %}
   <hr />
   {% include "partials/post_navigation.html" %}
   {%- endif %}

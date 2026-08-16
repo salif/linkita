@@ -1,5 +1,4 @@
 <!-- Page List -->
-{%- set hellip = <_str key=`hellip` _msg /> %}
 {%- for _page in paginator?.pages | default(value=(page.pages | default(value=term?.pages))) %}
 <section
   class="block-bg relative mb-4 rounded-lg p-4 first-of-type:mt-0 last-of-type:mb-0 active:scale-95 lg:mb-6 lg:p-6"
@@ -33,8 +32,8 @@
   {%- endif %}
   {%- if use_summary %}
   <div class="not-prose my-1">
-    {#- todo #}
-    {{ _page.summary | striptags | trim_end | trim_end(pat=`&hellip;`) | trim_end(pat=`.`) | safe }}{{ hellip | safe }}
+    {{ _page.summary | striptags | trim_end | trim_end(pat=`&hellip;`) | trim_end(pat=`.`) |
+      safe }}{{ <_str key=`hellip` _msg /> }}
   </div>
   {%- elif _page.description is string %}
   <div class="not-prose my-1 truncate">
@@ -58,18 +57,18 @@
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ <_link dest={paginator.previous} ctx /> }}" rel="prev" accesskey=","
-    >&#8249; {{ <_str key=`word_prev_page` _msg /> }}</a>
+    >{{ <_str key=`left_arrow` _msg /> }} {{ <_str key=`word_prev_page` _msg /> }}</a>
   {%- elif taxonomy?.name is string and taxonomy?.slug is string %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ <_link dest={get_url(path=taxonomy.slug, lang=ctx.lang, trailing_slash=true)} ctx /> }}" accesskey=","
-    >&#8249; {{ <_taxonomy_title key={taxonomy.name} _msg /> }}</a>
+    >{{ <_str key=`left_arrow` _msg /> }} {{ <_taxonomy_title key={taxonomy.name} _msg /> }}</a>
   {%- endif %}
   {%- if paginator.next is string %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
     href="{{ <_link dest={paginator.next} ctx /> }}" rel="next" accesskey="."
-    >{{ <_str key=`word_next_page` _msg /> }} &#8250;</a>
+    >{{ <_str key=`word_next_page` _msg /> }} {{ <_str key=`right_arrow` _msg /> }}</a>
   {%- endif %}
 </nav>
 {%- endif %}

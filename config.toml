@@ -2,6 +2,4 @@ base_url = "https://github.com/getzola/zola/commit/d225f3fdd3609c095953766156727
 compile_sass = false
 build_search_index = false
 [markdown]
-[markdown.highlighting]
-theme = "catppuccin-mocha"
 [extra]

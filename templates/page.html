@@ -23,8 +23,7 @@
     />
   </figure>
   {%- endif %}
-  {%- set page_toc = true %}
-  {% include "partials/toc.html" %}
+  {{ <_toc page conf={config.extra.toc} def={true} _msg /> }}
   <!-- Content -->
   <section>{{ page.content | safe }}</section>
   <hr />
