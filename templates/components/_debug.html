@@ -1,0 +1,91 @@
+{% component _debug(context, title="", depth=0, re=0, skip=[]) %}
+{%- if skip is not containing(pat=title) %}
+### {{ title or ("_debug depth="~depth~" re="~re) }}
+
+  {%- if context is map %}
+{{- <_debug_map context title depth re={re+1} skip /> }}
+  {%- elif context is array %}
+{{- <_debug_array context title depth re={re+1} skip /> }}
+  {%- endif %}
+{%- endif %}
+{% endcomponent %}
+
+{% component _debug_map(context, title="", depth=0, re=0, skip=[]) %}
+| | | |
+| --- | --- | --- |
+  {%- set iter = [] %}
+  {%- for key, value in context %}
+| {{ key }} | {{ <_debug_type value /> }} | {{ <_debug_value value title /> }} |
+    {%- if value is map or value is array %}
+      {%- if value %}
+        {%- set_global iter = [...iter, key] %}
+      {%- endif %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if re > depth %}
+    {%- if iter %}
+
+Maximum recursion depth exceeded. {{ iter | length }} not shown.
+    {%- endif %}
+  {%- else %}
+    {%- for key in iter %}
+{{ <_debug context={context[key]} title={(title ~ "." if title else "") ~ key} depth re skip /> }}
+    {%- endfor %}
+  {%- endif %}
+{% endcomponent %}
+
+{% component _debug_array(context, title="", depth=0, re=0, skip=[]) %}
+| | | |
+| --- | --- | --- |
+  {%- set iter = [] %}
+  {%- for value in context %}
+| {{ loop.index }} | {{ <_debug_type value /> }} | {{ <_debug_value value title /> }} |
+    {%- if value is map or value is array %}
+      {%- if value %}
+        {%- set_global iter = [...iter, value] %}
+      {%- endif %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if re > depth %}
+    {%- if iter %}
+
+Maximum recursion depth exceeded. {{ iter | length }} not shown.
+    {%- endif %}
+  {%- else %}
+    {%- for i in iter %}
+{{ <_debug context={i} title={(title ~ "." if title else "") ~ loop.index} depth re skip /> }}
+    {%- endfor %}
+  {%- endif %}
+{% endcomponent %}
+
+{% component _debug_type(value) -%}
+{%- if value is none %}none {% endif %}
+{%- if value is map %}map {% endif %}
+{%- if value is array %}array {% endif %}
+{%- if value is string %}string {% endif %}
+{%- if value is bool %}bool {% endif %}
+{%- if value is integer %}integer {% endif %}
+{%- if value is float %}float {% endif %}
+{%- if value is undefined %}undefined {% endif %}
+{%- endcomponent %}
+
+{% component _debug_value(value, title=none) %}{%
+  if value is none %}&lt;none&gt;{%
+  elif value is map %}{%
+    if value %}&lt;map&gt;{%
+    else %}{{ value }}{%
+    endif %}{%
+  elif value is array %}{%
+    if value %}&lt;array&gt;{%
+    else %}{{ value }}{%
+    endif %}{%
+  elif value is string %}"{{
+    value | truncate(length=64) |
+    replace(from="\n", to="") | replace(from="\r", to="") }}"{%
+  elif value is bool %}{{ value }}{%
+  elif value is integer %}{{ value }}{%
+  elif value is float %}{{ value }}{%
+  elif value is undefined %}&lt;undefined&gt;{%
+  else %}&lt;unknown&gt;{%
+  endif
+%}{% endcomponent %}

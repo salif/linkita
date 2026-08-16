@@ -1,43 +1,39 @@
-{%- if not config.extra.disable_javascript %}
-  {%- if page.extra.math | default(value=(section.extra.math | default(value=config.extra.math))) %}
-    {%- if config.extra.use_cdn %}
+{%- if page.extra.math | default(value=config.extra.math) %}
+  {%- if config.extra.use_cdn %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css"
     integrity="sha384-nH0MfJ44wi1dd7w6jinlyBgljjS8EJAh2JBoRad8a3VDw2K69vfaaqm4WnR+gXtA" crossorigin="anonymous" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js"
     integrity="sha384-CwjPRVHTvLiMBFjEoij+QZViMV5rhTOIp7CJzl24JEqpRDA1sJFHVXXLURktbYYp" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/contrib/auto-render.min.js"
     integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"></script>
-    {%- else %}
-  <link rel="stylesheet" href="{{ _link::rel(dest=get_url(path=`katex/katex.min.css`, cachebust=true), cu=_cu, base=_base) }}" />
-  <script defer src="{{ _link::rel(dest=get_url(path=`katex/katex.min.js`, cachebust=true), cu=_cu, base=_base) }}"></script>
-  <script defer src="{{ _link::rel(dest=get_url(path=`katex/contrib/auto-render.min.js`, cachebust=true), cu=_cu, base=_base) }}"></script>
-    {%- endif %}
-  <script>document.addEventListener("DOMContentLoaded", window.zolaTheme.katex.init);</script>
+  {%- else %}
+  <link rel="stylesheet" href="{{ <_link_static path=`katex/katex.min.css` ctx /> }}" />
+  <script defer src="{{ <_link_static path=`katex/katex.min.js` ctx /> }}"></script>
+  <script defer src="{{ <_link_static path=`katex/contrib/auto-render.min.js` ctx /> }}"></script>
   {%- endif %}
-  {%- if page.extra.mermaid | default(value=(section.extra.mermaid | default(value=config.extra.mermaid))) %}
+  <script>document.addEventListener("DOMContentLoaded", window.zolaTheme.katex.init);</script>
+{%- endif %}
+{%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
   <!-- Mermaid -->
   <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
     window.zolaTheme.mermaid.init({ mermaid, s: ".mermaid" });
   </script>
+{%- endif %}
+{%- if config.extra.goatcounter?.endpoint is string %}
+  {%- if config.extra.use_cdn %}
+    {%- set goatcounter_src = "//gc.zgo.at/count.js" %}
+  {%- else %}
+    {%- set goatcounter_src = <_link_static path=`js/gc.min.js` ctx /> %}
   {%- endif %}
-  {%- if config.extra.goatcounter.endpoint %}
-    {%- if config.extra.goatcounter.src %}
-      {%- set goatcounter_src = config.extra.goatcounter.src %}
-    {%- elif config.extra.use_cdn %}
-      {%- set goatcounter_src = "//gc.zgo.at/count.js" %}
-    {%- else %}
-      {%- set goatcounter_src = _link::rel(dest=get_url(path=`js/gc.min.js`, cachebust=true), cu=_cu, base=_base) %}
-    {%- endif %}
   <!-- GoatCounter -->
-  <script>window.zolaTheme.analytics.initGoatCounter({ src: "{{ goatcounter_src | escape_xml | safe }}", endpoint: "{{ config.extra.goatcounter.endpoint | escape_xml | safe }}" });</script>
-    {%- if config.extra.goatcounter.noscript_prefix is defined and current_path is defined %}
-  <noscript><img src="{{ config.extra.goatcounter.endpoint | escape_xml | safe }}?p={{
+  <script>window.zolaTheme.analytics.initGoatCounter({ src: "{{ goatcounter_src }}", endpoint: "{{ config.extra.goatcounter.endpoint }}" });</script>
+  {%- if config.extra.goatcounter?.noscript_prefix is string and current_path is string %}
+  <noscript><img src="{{ config.extra.goatcounter.endpoint }}?p={{
     config.extra.goatcounter.noscript_prefix ~ current_path | urlencode | safe }}" alt=""></noscript>
-    {%- endif %}
   {%- endif %}
-  {%- if config.extra.vercel_analytics.src %}
+{%- endif %}
+{%- if config.extra.vercel_analytics?.src is string %}
   <!-- Vercel Web Analytics -->
-  <script>window.zolaTheme.analytics.initVercel({ src: "{{ config.extra.vercel_analytics.src | escape_xml | safe }}" });</script>
-  {%- endif %}
+  <script>window.zolaTheme.analytics.initVercel({ src: "{{ config.extra.vercel_analytics.src }}" });</script>
 {%- endif %}

@@ -1,0 +1,7 @@
+{% component mermaid() %}
+
+<pre class="mermaid bg-inherit" translate="no">
+  {{ body | trim_start(pat="```mermaid") | trim_start(pat="```") | trim_end(pat="```") }}
+</pre>
+
+{% endcomponent %}

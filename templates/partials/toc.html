@@ -1,19 +1,20 @@
+{% component _toc(page: map, conf, def: bool, _msg: map) -%}
 <!-- TOC -->
-{%- if page.extra.toc is defined %}
-  {%- set page_toc = page.extra.toc %}
-{%- elif section.extra.toc is defined %}
-  {%- set page_toc = section.extra.toc %}
-{%- elif config.extra.toc is defined %}
-  {%- set page_toc = config.extra.toc %}
+{%- if page.extra?.toc is defined %}
+  {%- set add_toc = page.extra.toc %}
+{%- elif conf is defined %}
+  {%- set add_toc = conf %}
+{%- else %}
+  {%- set add_toc = def %}
 {%- endif %}
-{%- if page_toc and (page.toc or section.toc) %}
+{%- if add_toc and page.toc %}
 <nav class="block-bg prose-a:secondary-link mb-12 rounded-lg p-2 text-lg">
-  <details {%- if page_toc is object and page_toc.open %}{{ ` open` }}{% endif %}>
+  <details {%- if add_toc is map and add_toc.open %}{{ ` open` }}{% endif %}>
     <summary class="select-none py-0.5 lg:py-1 pl-3.5" title="[Alt + =]" accesskey="=">
-      <span class="cursor-pointer ml-0.5">{{ _str::tr(key=`word_toc`, d=g_d) }}</span>
+      <span class="cursor-pointer ml-0.5">{{ <_str key=`word_toc` _msg /> }}</span>
     </summary>
     <ul class="ps-8">
-      {%- for h1 in page.toc | default(value=section.toc) %}
+      {%- for h1 in page.toc %}
       <li class="ps-0.5">
         <a class="no-underline hover:underline" href="#{{ h1.id | safe }}">{{ h1.title }}</a>
         {%- if h1.children %}
@@ -31,3 +32,4 @@
   </details>
 </nav>
 {%- endif %}
+{%- endcomponent %}

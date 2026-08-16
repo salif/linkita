@@ -1,0 +1,11 @@
+{% component _datetime(value: string, _format, _timezone=none) -%}
+  {%- if _format is string and _timezone is string %}
+    {{- value | date(format=_format, timezone=_timezone) }}
+  {%- elif _format is string %}
+    {{- value | date(format=_format) }}
+  {%- elif _timezone is string %}
+    {{- value | date(timezone=_timezone) }}
+  {%- else %}
+    {{- value | date() }}
+  {%- endif %}
+{%- endcomponent %}

@@ -1,0 +1,29 @@
+{% component _og_image(g_profile, ctx: map, cap) -%}
+{%- if ctx.image?.url or g_profile?.og_image is string or cap?.og_image is string %}
+  {%- if ctx.image?.url %}
+  <meta property="og:image" content="{{ ctx.image.url }}" />
+    {%- set og_image_alt = ctx.image.alt | default(value="") %}
+  {%- elif g_profile?.og_image is string %}
+  <meta property="og:image" content="{{ get_url(path=g_profile.og_image, trailing_slash=false) }}" />
+    {%- if g_profile.languages?[ctx.lang]?.og_image_alt is string %}
+      {%- set og_image_alt = g_profile.languages[ctx.lang].og_image_alt %}
+    {%- else %}
+      {%- set og_image_alt = g_profile.og_image_alt | default(value="") %}
+    {%- endif %}
+  {%- elif cap?.og_image is string %}
+  <meta property="og:image" content="{{ get_url(path=cap.og_image, trailing_slash=false) }}" />
+    {%- if cap.languages?[ctx.lang]?.og_image_alt is string %}
+      {%- set og_image_alt = cap.languages[ctx.lang].og_image_alt %}
+    {%- else %}
+      {%- set og_image_alt = cap.og_image_alt | default(value="") %}
+    {%- endif %}
+  {%- else %}
+    {{- throw(message="Error in _og_image. Please report this bug.") }}
+  {%- endif %}
+  <meta property="og:image:alt" content="{{ og_image_alt | newlines_to_br | truncate(length=500) }}" />
+  {%- if ctx.image?.url and ctx.image?.width is defined and ctx.image?.height is defined %}
+  <meta property="og:image:width" content="{{ ctx.image.width | int }}" />
+  <meta property="og:image:height" content="{{ ctx.image.height | int }}" />
+  {%- endif %}
+{%- endif %}
+{%- endcomponent %}

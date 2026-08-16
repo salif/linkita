@@ -110,8 +110,18 @@
     "needs_edit": ""
   },
   "word_more": {
-    "value": "Daha fazla >>",
-    "fallback": "More >>",
+    "value": "Daha fazla &raquo;",
+    "fallback": "More &raquo;",
+    "needs_edit": ""
+  },
+  "left_arrow": {
+    "value": "&lsaquo;",
+    "fallback": "&lsaquo;",
+    "needs_edit": ""
+  },
+  "right_arrow": {
+    "value": "&rsaquo;",
+    "fallback": "&rsaquo;",
     "needs_edit": ""
   },
   "hellip": {

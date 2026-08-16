@@ -1,25 +1,19 @@
-{%- set style_bg_color = page.extra.style.bg_color |
-  default(value=(section.extra.style.bg_color |
-  default(value=(config.extra.style.bg_color |
-  default(value="#f4f4f5"))))) %}
-{%- set style_bg_dark_color = page.extra.style.bg_dark_color |
-  default(value=(section.extra.style.bg_dark_color |
-  default(value=(config.extra.style.bg_dark_color |
-  default(value="#18181b"))))) %}
-{%- set style_header_color = page.extra.style.header_color |
-  default(value=(section.extra.style.header_color |
-  default(value=(config.extra.style.header_color |
-  default(value="#e4e4e7"))))) %}
-{%- set style_header_dark_color = page.extra.style.header_dark_color |
-  default(value=(section.extra.style.header_dark_color |
-  default(value=(config.extra.style.header_dark_color |
-  default(value="#27272a"))))) %}
-  <style>:root{--bg: {{ style_bg_color | escape_xml | safe
-    }}; --header: {{ style_header_color | escape_xml | safe
-    }};} :root.dark{--bg: {{ style_bg_dark_color | escape_xml | safe
-    }}; --header: {{ style_header_dark_color | escape_xml | safe
+{%- set style_bg_color = page.extra.style?.bg_color |
+  default(value=(config.extra.style?.bg_color |
+  default(value="#f4f4f5"))) %}
+{%- set style_bg_dark_color = page.extra.style?.bg_dark_color |
+  default(value=(config.extra.style?.bg_dark_color |
+  default(value="#18181b"))) %}
+{%- set style_header_color = page.extra.style?.header_color |
+  default(value=(config.extra.style?.header_color |
+  default(value="#e4e4e7"))) %}
+{%- set style_header_dark_color = page.extra.style?.header_dark_color |
+  default(value=(config.extra.style?.header_dark_color |
+  default(value="#27272a"))) %}
+  <style>:root{--bg: {{ style_bg_color }}; --header: {{ style_header_color
+    }};} :root.dark{--bg: {{ style_bg_dark_color }}; --header: {{ style_header_dark_color
     }};}</style>
-{%- if not config.extra.style.header_blur %}
-  <meta name="theme-color" data-light="{{ style_header_color | escape_xml | safe }}" data-dark="{{
-    style_header_dark_color | escape_xml | safe }}" content="{{ style_header_color | escape_xml | safe }}" />
+{%- if not config.extra.style?.header_blur %}
+  <meta name="theme-color" data-light="{{ style_header_color }}" data-dark="{{
+    style_header_dark_color }}" content="{{ style_header_color }}" />
 {%- endif -%}

@@ -1,6 +1,6 @@
 {% extends "index.html" %}
 {% block main %}
-{%- if g_profile is defined %}
+{%- if g_profile is map %}
   {%- if paginator is undefined or paginator.current_index == 1 %}
 {% include "partials/profile.html" %}
   {%- endif %}

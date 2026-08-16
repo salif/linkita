@@ -1,87 +1,89 @@
+{% component _page_info(on_page: bool, page: map, config: map, ctx: map, _msg: map) -%}
 <!-- Page Info -->
 <div class="text-sm antialiased opacity-80">
-{%- set is_paginator = paginator is defined %}
-{%- if page.extra.page_info is defined %}
+{%- if page.extra.page_info is array %}
   {%- set page_info = page.extra.page_info %}
-{%- elif section.extra.page_info is defined %}
-  {%- set page_info = section.extra.page_info %}
-{%- elif is_paginator %}
-  {%- if config.extra.languages[lang].page_info_on_paginator is defined %}
-    {%- set page_info = config.extra.languages[lang].page_info_on_paginator %}
-  {%- elif config.extra.page_info_on_paginator is defined %}
+{%- elif not on_page %}
+  {%- if config.extra.languages?[ctx.lang]?.page_info_on_paginator is array %}
+    {%- set page_info = config.extra.languages[ctx.lang].page_info_on_paginator %}
+  {%- elif config.extra.page_info_on_paginator is array %}
     {%- set page_info = config.extra.page_info_on_paginator %}
   {%- else %}
-    {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "reading_time"}]`, format=`json`) %}
+    {%- set page_info = [{"when": "date"}, {"when": "reading_time"}] %}
   {%- endif %}
-{%- elif config.extra.languages[lang].page_info is defined %}
-  {%- set page_info = config.extra.languages[lang].page_info %}
-{%- elif config.extra.page_info is defined %}
+{%- elif config.extra.languages?[ctx.lang]?.page_info is array %}
+  {%- set page_info = config.extra.languages[ctx.lang].page_info %}
+{%- elif config.extra.page_info is array %}
   {%- set page_info = config.extra.page_info %}
 {%- else %}
-  {%- set page_info = load_data(literal=`[{"when": "date"}, {"when": "reading_time"}, {"when": "authors"}]`, format=`json`) %}
+  {%- set page_info = [{"when": "date"}, {"when": "reading_time"}, {"when": "authors"}] %}
 {%- endif %}
-{%- set date_format = config.extra.languages[lang].date_format | default(value="%F") %}
+{%- set _format = config.extra.languages?[ctx.lang]?.date_format %}
 
 {%- for info in page_info %}
   {%- if info.when == "date" %}{%
-    if page.date %}{%
-      if info.prepend %}{{ info.prepend }}{% endif %}<time
-      datetime="{{ page.date | date(format=`%+`) }}">{{
-        _str::datetime_as_str(value=page.date, format=date_format) }}</time>
-      {%- if info.append %}{{ info.append }}{% endif %}
+    if page.date is string %}{%
+      if info.prepend is string %}{{ info.prepend }}{% endif %}<time
+      datetime="{{ page.date | date(format=`%FT%T%:z`) }}">{{
+        <_datetime value={page.date} _format /> }}</time>
+      {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
         class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "date_updated" %}{%
-    if page.updated and page.updated != page.date %}{%
-      if info.prepend %}{{ info.prepend }}{% endif %}<time
-      datetime="{{ page.updated | date(format=`%+`) }}">{{
-        _str::datetime_as_str(value=page.updated, format=date_format) }}</time>
-      {%- if info.append %}{{ info.append }}{% endif %}
+    if page.updated is string and page.updated != page.date %}{%
+      if info.prepend is string %}{{ info.prepend }}{% endif %}<time
+      datetime="{{ page.updated | date(format=`%FT%T%:z`) }}">{{
+        <_datetime value={page.updated} _format /> }}</time>
+      {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
         class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "reading_time" %}{%
-    if info.prepend %}{{ info.prepend }}{% endif %}{%
-    set reading_time_minutes = page.reading_time % 60 %}<time
-    datetime="PT{{ (page.reading_time - reading_time_minutes) / 60 }}H{{ reading_time_minutes }}M0S">{{
-      _str::int_as_str(value=page.reading_time) }}&nbsp;{{ _str::tr(key=`word_minutes`, d=g_d) }}</time>
-    {%- if info.append %}{{ info.append }}{% endif %}
+    if info.prepend is string %}{{ info.prepend }}{% endif %}{%
+    set reading_time_min = page.reading_time % 60 %}<time
+    datetime="PT{{ ((page.reading_time - reading_time_min) / 60) | int }}H{{ reading_time_min }}M0S">{{
+      <_num value={page.reading_time} ctx /> }}&nbsp;{{ <_str key=`word_minutes` _msg /> }}</time>
+    {%- if info.append is string %}{{ info.append }}{% endif %}
     {%- if not loop.last %}<span
       class="middot"></span>{% endif %}
   {%- elif info.when == "word_count" %}{%
-    if info.prepend %}{{ info.prepend }}{% endif %}<span>{{
-      _str::int_as_str(value=page.word_count) }}&nbsp;{{ _str::tr(key=`word_words`, d=g_d) }}</span>
-    {%- if info.append %}{{ info.append }}{% endif %}
+    if info.prepend is string %}{{ info.prepend }}{% endif %}<span>{{
+      <_num value={page.word_count} ctx /> }}&nbsp;{{ <_str key=`word_words` _msg /> }}</span>
+    {%- if info.append is string %}{{ info.append }}{% endif %}
     {%- if not loop.last %}<span
       class="middot"></span>{% endif %}
   {%- elif info.when == "authors" %}{%
-    if page.taxonomies.authors is defined %}{% set page_authors = page.taxonomies.authors %}{%
-    elif page.authors %}{% set page_authors = page.authors %}{%
-    elif config.author %}{% set page_authors = [config.author] %}{%
+    if page.taxonomies?.authors is array %}{%
+      set page_authors = page.taxonomies.authors %}{#
+    todo #}{%
+    elif page.authors %}{%
+      set page_authors = page.authors %}{%
+    elif config.author %}{%
+      set page_authors = [config.author] %}{%
     else %}{% endif %}{%
     if page_authors %}{%
-      if info.prepend %}{{ info.prepend }}{% endif %}{%
+      if info.prepend is string %}{{ info.prepend }}{% endif %}{%
       for page_author in page_authors %}{%
         if not loop.first %},&nbsp;{% endif %}<span>{{
-          _profile::get_name(username=page_author) }}</span>
+          <_profile_name username={page_author} lang={ctx.lang} profiles={config.extra.profiles} /> }}</span>
       {%- endfor %}
-      {%- if info.append %}{{ info.append }}{% endif %}
+      {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
         class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "tags" %}{%
-    if page.taxonomies.tags %}{%
-      if info.prepend %}{{ info.prepend }}{% endif %}{%
+    if page.taxonomies?.tags %}{%
+      if info.prepend is string %}{{ info.prepend }}{% endif %}{%
       for page_tag in page.taxonomies.tags %}{%
         if not loop.first %}&nbsp;{% endif %}{%
-          if is_paginator %}<span>#{{ page_tag }}</span>{%
+          if not on_page %}<span>#{{ page_tag }}</span>{%
           else %}<a
             class="no-underline hover:underline"
-            href="{{ _link::rel(dest=get_taxonomy_url(kind=`tags`, name=page_tag, lang=lang),
-              cu=_cu, base=_base) }}">#{{ page_tag }}</a>{% endif %}
+            href="{{ <_link dest={get_taxonomy_url(kind=`tags`, term=page_tag, lang=ctx.lang)}
+              ctx /> }}">#{{ page_tag }}</a>{% endif %}
       {%- endfor %}
-      {%- if info.append %}{{ info.append }}{% endif %}
+      {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
         class="middot"></span>{% endif %}
     {%- endif %}
@@ -92,3 +94,4 @@
   {%- endif %}
 {%- endfor %}
 </div>
+{%- endcomponent %}

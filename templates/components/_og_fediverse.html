@@ -1,0 +1,17 @@
+{% component _og_fediverse(g_profile, cap) -%}
+  {%- if g_profile?.fediverse_creator is map %}
+    {%- set fediverse_creator = g_profile.fediverse_creator %}
+  {%- elif cap?.fediverse_creator is map %}
+    {%- set fediverse_creator = cap.fediverse_creator %}
+  {%- endif %}
+  {%- if fediverse_creator?.handle is string or fediverse_creator?.domain is string %}
+  <meta name="fediverse:creator" content="@{{ fediverse_creator.handle }}@{{
+    fediverse_creator.domain | replace(from=`https://`, to=``) }}" />
+    {%- if fediverse_creator?.url is string %}
+  <link rel="me" href="{{ fediverse_creator.url }}" />
+    {%- else %}
+  <link rel="me" href="https://{{ fediverse_creator.domain |
+    replace(from=`https://`, to=``) }}/@{{ fediverse_creator.handle }}" />
+    {%- endif %}
+  {%- endif %}
+{%- endcomponent %}

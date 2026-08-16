@@ -1,59 +1,59 @@
 <!-- Profile -->
-{%- if g_profile.languages[lang].name %}
+{%- if g_profile.languages?[lang]?.name is string %}
   {%- set profile_name = g_profile.languages[lang].name %}
-{%- elif g_profile.name %}
+{%- elif g_profile.name is string %}
   {%- set profile_name = g_profile.name %}
 {%- endif %}
-{%- if g_profile.languages[lang].bio %}
+{%- if g_profile.languages?[lang]?.bio is string %}
   {%- set profile_bio = g_profile.languages[lang].bio %}
-{%- elif g_profile.bio %}
+{%- elif g_profile.bio is string %}
   {%- set profile_bio = g_profile.bio %}
 {%- endif %}
-{%- if g_profile.languages[lang].social %}
+{%- if g_profile.languages?[lang]?.social is array %}
   {%- set profile_social = g_profile.languages[lang].social %}
-{%- elif g_profile.social %}
+{%- elif g_profile.social is array %}
   {%- set profile_social = g_profile.social %}
 {%- endif %}
-{%- if g_profile.languages[lang].avatar_alt %}
+{%- if g_profile.languages?[lang]?.avatar_alt is string %}
   {%- set profile_avatar_alt = g_profile.languages[lang].avatar_alt %}
-{%- elif g_profile.avatar_alt %}
+{%- elif g_profile.avatar_alt is string %}
   {%- set profile_avatar_alt = g_profile.avatar_alt %}
 {%- endif %}
 <div class="mb-16 flex items-start">
-  {%- if g_profile.avatar_url %}
+  {%- if g_profile.avatar_url is string %}
   <div
     class="not-prose shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow-sm dark:bg-white/10">
     <img
       class="my-0 aspect-square w-16 rounded-full bg-black/5! hover:animate-spin{%
         if g_profile.avatar_invert %} dark:invert{% endif %}"
-      src="{{ _link::rel(dest=get_url(path=g_profile.avatar_url, cachebust=true), cu=_cu, base=_base) }}"{%
-        if profile_avatar_alt is defined %} alt="{{ profile_avatar_alt | escape_xml | safe }}"{% endif %} />
+      src="{{ <_link_static path={g_profile.avatar_url} ctx /> }}"{%
+        if profile_avatar_alt is string %} alt="{{ profile_avatar_alt }}"{% endif %} />
   </div>
   {%- endif %}
   <div class="{%
-    if g_profile.avatar_url%}ml-5{%
-    elif section.content or page.content %}ml-0{%
+    if g_profile.avatar_url is string %}ml-5{%
+    elif page.content %}ml-0{%
     else %}ml-4 lg:ml-6{% endif %}">
-    {%- if profile_name is defined %}
+    {%- if profile_name is string %}
     <h1 class="mb-2 text-3xl font-bold">{{ profile_name }}</h1>
     {%- endif %}
-    {%- if profile_bio is defined %}
+    {%- if profile_bio is string %}
     <div class="mb-2 wrap-break-word">
       {{ profile_bio | markdown(inline=true) | safe }}
     </div>
     {%- endif %}
 
-    {%- if profile_social is defined %}
+    {%- if profile_social is array %}
     <nav class="flex justify-start {%
     if profile_social | length > 5 %}flex-row flex-wrap gap-x-3{%
     else %}space-x-3{% endif %} dark:invert">
       {%- for social in profile_social %}
-        {%- if social.urls[lang] %}
+        {%- if social.urls?[lang] is string %}
           {%- set social_url = social.urls[lang] %}
         {%- else %}
           {%- set social_url = social.url %}
         {%- endif %}
-        {%- if social.titles[lang] %}
+        {%- if social.titles?[lang] is string %}
           {%- set social_title = social.titles[lang] %}
         {%- elif social.title %}
           {%- set social_title = social.title %}
@@ -62,8 +62,8 @@
         {%- endif %}
       <a
         class="primary-link h-8 w-8 text-[0px] [background:var(--url)_center_center/cover_no-repeat]"
-        style="--url: url({{ _link::social_icon(icon=social.name, prl=false) }});"
-        href="{{ _link::rel(dest=_link::get(url=social_url), cu=_cu, base=_base) }}"
+        style="--url: url({{ <_link_social_icon icon={social.name} prl={false} ctx /> }});"
+        href="{{ <_link dest={social_url} ctx /> }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         title="{{ social_title }}"

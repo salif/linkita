@@ -1,80 +1,74 @@
 <!-- Page List -->
-{%- set hellip = _str::tr(key=`hellip`, d=g_d) %}
-{%- for page in paginator.pages | default(value=(section.pages | default(value=term.pages))) %}
+{%- for _page in paginator?.pages | default(value=(page.pages | default(value=term?.pages))) %}
 <section
   class="block-bg relative mb-4 rounded-lg p-4 first-of-type:mt-0 last-of-type:mb-0 active:scale-95 lg:mb-6 lg:p-6"
 >
-  {%- if page.extra.cover.image %}
+  {%- if _page.extra.cover?.image is string %}
   <figure class="mt-0 mb-4">
     <img
       class="h-auto w-full rounded-lg"
-      {%- set cover_image = _link::cover_image(path=page.extra.cover.image, assets=page.assets) %}
-      {%- if cover_image %}
-      src="{{ _link::rel(dest=get_url(path=(cover_image | trim_start_matches(pat=`/`)), lang=lang), cu=_cu, base=_base) }}"
-      {%- else %}
-      src="{{ _link::rel(dest=get_url(path=page.extra.cover.image), cu=_cu, base=_base) }}"
-      {%- endif %}
-      {%- if page.extra.cover.alt is defined %}
-      alt="{{ page.extra.cover.alt | escape_xml | safe }}"{% endif %}
-      {%- if page.extra.cover.width is defined %}
-      width="{{ page.extra.cover.width | int }}"{% endif %}
-      {%- if page.extra.cover.height is defined %}
-      height="{{ page.extra.cover.height | int }}"{% endif %}
+      src="{{ <_link dest={<_link_cover_image path={_page.extra.cover.image} assets={_page.assets} ctx />} ctx /> }}"
+      {%- if _page.extra.cover.alt is string %}
+      alt="{{ _page.extra.cover.alt }}"{% endif %}
+      {%- if _page.extra.cover.width is defined %}
+      width="{{ _page.extra.cover.width | int }}"{% endif %}
+      {%- if _page.extra.cover.height is defined %}
+      height="{{ _page.extra.cover.height | int }}"{% endif %}
     />
   </figure>
   {%- endif %}
 
-  <h2 class="my-0! pb-1 leading-none! font-bold">{{ page.title }}</h2>
-  {%- if not page.summary %}
+  <h2 class="my-0! pb-1 leading-none! font-bold">{{ _page.title }}</h2>
+  {%- if not _page.summary %}
     {%- set use_summary = false %}
-  {%- elif not page.description %}
+  {%- elif not _page.description %}
     {%- set use_summary = true %}
-  {%- elif page.extra.page_summary_on_paginator is defined %}
-    {%- set use_summary = page.extra.page_summary_on_paginator %}
-  {%- elif section.extra.page_summary_on_paginator is defined %}
-    {%- set use_summary = section.extra.page_summary_on_paginator %}
-  {%- elif config.extra.page_summary_on_paginator is defined %}
+  {%- elif _page.extra.page_summary_on_paginator is bool %}
+    {%- set use_summary = _page.extra.page_summary_on_paginator %}
+  {%- elif config.extra.page_summary_on_paginator is bool %}
     {%- set use_summary = config.extra.page_summary_on_paginator %}
   {%- else %}
     {%- set use_summary = false %}
   {%- endif %}
   {%- if use_summary %}
   <div class="not-prose my-1">
-    {{ page.summary | striptags | trim_end | trim_end_matches(pat=`&hellip;`) | trim_end_matches(pat=`.`) | safe }}{{ hellip | safe }}
+    {{ _page.summary | striptags | trim_end | trim_end(pat=`&hellip;`) | trim_end(pat=`.`) |
+      safe }}{{ <_str key=`hellip` _msg /> }}
   </div>
-  {%- elif page.description %}
+  {%- elif _page.description is string %}
   <div class="not-prose my-1 truncate">
-    <p>{{ page.description }}</p>
+    <p>{{ _page.description }}</p>
   </div>
   {%- else %}
   <div class="my-1 truncate"></div>
   {%- endif %}
 
-  {% include "partials/page_info.html" %}
+  {{ <_page_info on_page={false} page={_page} config ctx _msg /> }}
 
-  {#- {% if use_summary %}#continue-reading{% endif %} #}
-  <a class="absolute inset-0 text-[0px]" href="{{ _link::rel(dest=page.permalink, cu=_cu, base=_base) }}">{{ page.title }}</a>
+  {#- todo {% if use_summary %}#continue-reading{% endif %} #}
+  <a class="absolute inset-0 text-[0px]" href="{{
+    <_link dest={_page.permalink} ctx /> }}">{{ _page.title }}</a>
 </section>
 {%- endfor %}
 
-{%- if paginator is defined or taxonomy %}
+{%- if paginator is map or taxonomy %}
 <nav class="not-prose mt-16 flex font-bold">
-  {%- if paginator.previous %}
+  {%- if paginator.previous is string %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ _link::rel(dest=paginator.previous, cu=_cu, base=_base) }}" rel="prev" accesskey=","
-    >&#8249; {{ _str::tr(key=`word_prev_page`, d=g_d) }}</a>
-  {%- elif taxonomy.name and taxonomy.slug %}
+    href="{{ <_link dest={paginator.previous} ctx /> }}" rel="prev" accesskey=","
+    >{{ <_str key=`left_arrow` _msg /> }} {{ <_str key=`word_prev_page` _msg /> }}</a>
+  {%- elif taxonomy?.name is string and taxonomy?.slug is string %}
   <a
     class="rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ _link::rel(dest=get_url(path=taxonomy.slug, lang=lang, trailing_slash=true), cu=_cu, base=_base) }}" accesskey=","
-    >&#8249; {{ _str::get_taxonomy_title(key=taxonomy.name, d=g_d) }}</a>
+    href="{{ <_link dest={get_url(path=taxonomy.slug, lang=ctx.lang, trailing_slash=true)} ctx /> }}" accesskey=","
+    >{{ <_str key=`left_arrow` _msg /> }} {{ <_taxonomy_title key={taxonomy.name} _msg /> }}</a>
   {%- endif %}
-  {%- if paginator.next %}
+  {%- if paginator.next is string %}
   <a
     class="ml-auto rounded-full bg-black px-4 py-3 text-sm text-white no-underline duration-75 active:scale-95 dark:bg-white/80 dark:text-black"
-    href="{{ _link::rel(dest=paginator.next, cu=_cu, base=_base) }}" rel="next" accesskey="."
-    >{{ _str::tr(key=`word_next_page`, d=g_d) }} &#8250;</a>
+    href="{{ <_link dest={paginator.next} ctx /> }}" rel="next" accesskey="."
+    >{{ <_str key=`word_next_page` _msg /> }} {{ <_str key=`right_arrow` _msg /> }}</a>
   {%- endif %}
 </nav>
 {%- endif %}

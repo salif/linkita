@@ -1,25 +1,35 @@
-{#- path: string; format: string; (optional) url: string; #}
-{% import "components/link.html" as _link %}
-{%- if url is defined %}
-  {%- set projects = load_data(url=url, format=format) %}
-{%- elif path is starting_with("/") %}
+{% component projects(path: string, format: string, page: map, config: map) %}
+
+{%- if path is starting_with(pat="/") %}
   {%- set projects = load_data(path=path, format=format, required=true) %}
-{%- elif page.colocated_path | default(value=section.colocated_path) %}
-  {%- set path_colocated = page.colocated_path | default(value=section.colocated_path) %}
+{%- elif page.colocated_path is string %}
+  {%- set path_colocated = page.colocated_path %}
   {%- set projects = load_data(path=path_colocated~path, format=format, required=true) %}
 {%- else %}
   {%- for asset in page.assets | default(value=section.assets) %}
-    {%- if asset is ending_with(path) %}
+    {%- if asset is ending_with(pat=path) %}
       {%- set_global projects = load_data(path=asset, format=format, required=true) %}
       {%- break %}
     {%- endif %}
   {%- endfor %}
 {%- endif %}
 
+{#- From variables.html #}
+{%- set ctx = {
+  "lang": page.lang,
+  "base_url": get_url(path=``, trailing_slash=true, lang=default_language),
+  "ugly_urls": config.extra.ugly_urls,
+  "num_format": config.extra.languages?[page.lang]?.num_format | default(value=page.lang),
+} %}
+{%- if config.extra.relative_urls and current_url is string %}
+  {%- set ctx = {...ctx, "cu_url": current_url | trim_start(pat=ctx.base_url) | split(pat=`/`) } %}
+{%- endif %}
+{#- End #}
+
 {%- for project in projects.project %}
-  {%- set name = project.languages[lang].name | default(value=project.name) %}
-  {%- set desc = project.languages[lang].desc | default(value=project.desc) %}
-  {%- set tags = project.languages[lang].tags | default(value=project.tags) %}
+  {%- set name = project.languages?[ctx.lang]?.name | default(value=project.name) %}
+  {%- set desc = project.languages?[ctx.lang]?.desc | default(value=project.desc) %}
+  {%- set tags = project.languages?[ctx.lang]?.tags | default(value=project.tags) %}
   {%- set links = project.links %}
 <div class="not-prose text-base leading-7 block-bg my-4 flex w-full flex-col rounded-lg px-5 py-1.5">
   <h2 class="my-2 text-xl font-bold text-black dark:text-white">{{ name }}</h2>
@@ -34,7 +44,7 @@
       {%- for link in links %}
       <a
         class="underline"
-        href="{{ _link::get(url=link.url) }}"
+        href="{{ <_link dest={link.url} ctx /> }}"
         {%- if link.newtab | default(value=true) %}
         target="_blank"{% endif %}
       >{{ link.name }}</a>
@@ -43,3 +53,5 @@
   </div>
 </div>
 {%- endfor %}
+
+{% endcomponent %}

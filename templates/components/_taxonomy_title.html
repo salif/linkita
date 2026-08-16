@@ -1,0 +1,11 @@
+{% component _taxonomy_title(key: string, _msg: map) %}{%
+  if key == "tags" %}{{
+    <_str key=`taxonomy_tags` _msg /> }}{%
+  elif key == "categories" %}{{
+    <_str key=`taxonomy_categories` _msg /> }}{%
+  elif key == "authors" %}{{
+    <_str key=`taxonomy_authors` _msg /> }}{%
+  else %}{{
+    key }}{%
+  endif
+%}{% endcomponent %}

@@ -1,0 +1,5 @@
+base_url = "https://github.com/getzola/zola/commit/d225f3fdd3609c0959537661567278ea45682211"
+compile_sass = false
+build_search_index = false
+[markdown]
+[extra]

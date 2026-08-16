@@ -1,0 +1,13 @@
+{% component _profile_name(username: string, lang: string, profiles) %}{%
+  if profiles?[username] is map %}{%
+    if profiles[username].languages?[lang]?.name is string %}{{
+      profiles[username].languages[lang].name }}{%
+    elif profiles[username].name is string %}{{
+      profiles[username].name }}{%
+    else %}{{
+      username }}{%
+    endif %}{%
+  else %}{{
+    username }}{%
+  endif
+%}{% endcomponent %}

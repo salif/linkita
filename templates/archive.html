@@ -1,45 +1,39 @@
 {% extends "index.html" %}
 {% block main %}
-{%- if page.extra.date_format %}
-  {%- set date_format_archive = page.extra.date_format %}
-{%- elif section.extra.date_format %}
-  {%- set date_format_archive = section.extra.date_format %}
-  {%- else %}
-  {%- set date_format_archive = `%m-%d` %}
-{%- endif %}
-{%- if g_profile is defined %}
+{%- if g_profile is map %}
 {% include "partials/profile.html" %}
 {%- elif page.title %}
 <h1 class="mb-16">{{ page.title }}</h1>
-{%- elif section.title %}
-<h1 class="mb-16">{{ section.title }}</h1>
 {%- endif %}
 
 {%- if page.content %}
 <section>{{ page.content | safe }}</section>
-{%- elif section.content %}
-<section>{{ section.content | safe }}</section>
 {%- endif %}
 
-{%- if page.extra.section is defined %}
-  {%- set section = get_section(path=page.extra.section) %}
+{%- if page.extra.section is string %}
+  {#- todo check lang #}
+  {%- set _section = get_section(path=page.extra.section) %}
+{%- elif ctx.is_section and page is map %}
+  {%- set _section = page %}
 {%- endif %}
-{%- if section.pages is undefined and paginator.pages is undefined %}
+{%- if _section?.pages is undefined and paginator?.pages is undefined %}
   {{- throw(message="The archive page is missing the extra.section frontmatter variable!") }}
 {%- endif %}
 
-{%- for year, posts in section.pages | default(value=paginator.pages) | sort(attribute=`date`) | reverse | group_by(attribute=`year`) %}
-<h2>{{ year }} <sup class="opacity-60">{{ _str::int_as_str(value=(posts | length)) }}</sup></h2>
+{%- for year, posts in (_section.pages | default(value=paginator?.pages)) |
+  sort(attribute=`date`) | reverse | group_by(attribute=`year`) %}
+<h2>{{ year }} <sup class="opacity-60">{{ <_num value={(posts | length)} ctx /> }}</sup></h2>
 
 <div class="not-prose pl-4 lg:pl-6">
   <ul>
     {%- for post in posts %}
     <li>
       <div class="my-2 flex items-center justify-between">
-        <a class="secondary-link" href="{{ _link::rel(dest=post.permalink, cu=_cu, base=_base) }}">{%
+        <a class="secondary-link" href="{{ <_link dest={post.permalink} ctx /> }}">{%
           if post.title %}{{ post.title }}{% else %}{{ post.slug }}{% endif %}</a>
-        <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{ post.date | date(format=`%+`) }}">{{
-          _str::datetime_as_str(value=post.date, format=date_format_archive) }}</time>
+        <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{
+          post.date | date(format=`%FT%T%:z`) }}">{{ <_datetime value={post.date} _format={
+            page.extra.date_format if page.extra.date_format is string else `%m-%d`} /> }}</time>
       </div>
     </li>
     {%- endfor %}
