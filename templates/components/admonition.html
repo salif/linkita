@@ -1,4 +1,5 @@
-{% component admonition(type: string, title=none) -%}
+{% component admonition(type: string, title=none) %}
+
 <div
   class="my-4 flex flex-col rounded-lg bg-(--admonition-bg)"
   style="--admonition-bg: var({{ `--admonition-` ~ type }});"
@@ -14,4 +15,5 @@
   </div>
   <div class="pl-4">{{ body | markdown | safe }}</div>
 </div>
-{%- endcomponent %}
+
+{% endcomponent %}

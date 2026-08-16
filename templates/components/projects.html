@@ -1,4 +1,5 @@
-{% component projects(path: string, format: string, page: map, config: map) -%}
+{% component projects(path: string, format: string, page: map, config: map) %}
+
 {%- if path is starting_with(pat="/") %}
   {%- set projects = load_data(path=path, format=format, required=true) %}
 {%- elif page.colocated_path is string %}
@@ -52,4 +53,5 @@
   </div>
 </div>
 {%- endfor %}
-{%- endcomponent %}
+
+{% endcomponent %}

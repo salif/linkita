@@ -1,5 +1,4 @@
 {% component _datetime(value: string, _format, _timezone=none) -%}
-  {#- todo check whitespace #}
   {%- if _format is string and _timezone is string %}
     {{- value | date(format=_format, timezone=_timezone) }}
   {%- elif _format is string %}

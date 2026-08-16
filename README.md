@@ -11,22 +11,21 @@ and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual a
 ## Features
 
 - Responsive design
-- Dark mode
-- Inject support
+- SEO friendly
 - Social icons
+- Dark mode
+- Table of Contents
+- Inject support
 - Taxonomy support
 - Projects page
 - Archive page
-- Table of Contents
-- Admonition shortcode
-- SEO friendly
+- Admonition component
 - Comments using [Giscus](https://giscus.app/)
 - Mathematical notations using [KaTeX](https://katex.org/)
 - Diagrams and charts using [Mermaid](https://mermaid.js.org/)
 - Search support (elasticlunr_javascript)
 - Relative URLs support
 - Multilingual support
-- Projects shortcode
 - Author profiles
 - Keyboard shortcuts
 
@@ -49,13 +48,13 @@ git init
 1. Add the theme as a git submodule:
 
 ```sh
-git submodule add -b tera1 https://github.com/salif/linkita.git themes/linkita
+git submodule add -b main https://github.com/salif/linkita.git themes/linkita
 ```
 
 If you don't want to use git submodules, you can clone the repository instead:
 
 ```sh
-git clone -b tera1 https://github.com/salif/linkita.git themes/linkita
+git clone -b main https://github.com/salif/linkita.git themes/linkita
 ```
 
 2. Enable the theme in your `zola.toml` or `config.toml` file:
@@ -68,7 +67,7 @@ Place it near the `base_url` variable, not under `[extra]`.
 
 ## Managing versions
 
-If you installed it as a submodule, you can update by running this:
+If you installed it as a submodule, you can update by running this command:
 
 ```sh
 git submodule update --remote themes/linkita
@@ -87,13 +86,13 @@ git submodule update --remote themes/linkita
 ```
 
 > [!NOTE]
-> Linktia was previously hosted on Codeberg.
+> Linkita was previously hosted on Codeberg.
 > If you are using the Codeberg repository, read the instructions to
 > [switch to the new repository](https://github.com/salif/linkita/blob/tera1/CHANGELOG.md#tera1).
 > Additionally, the theme has been ported to a newer Zola version,
 > which introduces breaking changes in the template engine.
 > If you are using Zola v0.22.1 or older, read the instructions to
-> [switch to v0.23.x](https://salif.github.io/linkita/update-2/).
+> [switch to v0.23.3](https://salif.github.io/linkita/update-2/).
 
 ## Usage
 
@@ -144,9 +143,10 @@ comment = false
 math = false
 # Enable Mermaid support
 mermaid = false
+
 [extra.cover]
 # Path to the cover image.
-# Use a filename of a page asset
+# Use the filename of a page asset
 # or a valid path for the get_url function
 image = ""
 # A description of the cover image
@@ -237,7 +237,7 @@ path = "about"
 ## Hello, world!
 ```
 
-If you want, you can also create [a page for your projects](https://salif.github.io/linkita/shortcodes/#projects).
+If you want, you can also create [a page for your projects](https://salif.github.io/linkita/components/#projects).
 
 ### Setting page authors
 
@@ -433,6 +433,12 @@ page_summary_on_paginator = false
 # Default value: false
 invert_page_navigation = false
 
+# Enable table of contents on all pages.
+# If not set, toc is enabled only on posts.
+# If set to false, toc is disabled on all pages.
+# Type: boolean or object
+toc = true
+
 # Header buttons.
 # Valid values:
 #  "site_title", "home_button", "theme_select", "theme_button",
@@ -449,12 +455,6 @@ invert_page_navigation = false
 
 # Information shown for posts on paginators.
 # page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
-
-# Enable table of contents on all pages.
-# If not set, toc is enabled only on posts.
-# If set to false, toc is disabled on all pages.
-# Type: boolean or object
-# toc = true
 ```
 
 ### Style config
@@ -499,7 +499,7 @@ multilingual_menu_name = [
 ]
 ```
 
-To use a menu, set `extra.header_menu_name`.
+To use a menu defined here, set `extra.header_menu_name`.
 
 `@base` in `url` will be automatically replaced with the language specific base URL.
 You can use [Internal links](https://www.getzola.org/documentation/content/linking/#internal-links)
@@ -615,7 +615,7 @@ copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 # search_page_url = "@base/search/"
 ```
 
-The `copyright` variable supports Markdown,
+The `copyright` variable supports Markdown and these variables:
 `$BASE_URL`, `$YEAR` (uses `since`), and `$LICENSE_URL` (uses `license_url`).
 
 ### Language specific options
