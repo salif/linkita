@@ -12,7 +12,7 @@
 {%- endif %}
 {#- End #}
 <div class="not-prose flex flex-wrap gap-2">
-{% for asset in page.assets -%}
+{% for asset in page.assets | default(value=[]) -%}
   {%- if asset is matching(pat="[.](jpg|png|webp|avif)$") %}
     {%- set image = resize_image(path=asset, width=240, height=180) %}
     {%- set asset_name = asset | split(pat="/")[-1:] | join(sep="/") %}

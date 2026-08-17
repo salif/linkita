@@ -20,7 +20,7 @@
   {{- throw(message="The archive page is missing the extra.section frontmatter variable!") }}
 {%- endif %}
 
-{%- for year, posts in (_section.pages | default(value=paginator?.pages)) |
+{%- for year, posts in (_section?.pages | default(value=paginator?.pages)) |
   sort(attribute=`date`) | reverse | group_by(attribute=`year`) %}
 <h2>{{ year }} <sup class="opacity-60">{{ <_num value={(posts | length)} ctx /> }}</sup></h2>
 

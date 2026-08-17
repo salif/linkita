@@ -6,7 +6,7 @@
   {%- set path_colocated = page.colocated_path %}
   {%- set projects = load_data(path=path_colocated~path, format=format, required=true) %}
 {%- else %}
-  {%- for asset in page.assets | default(value=section.assets) %}
+  {%- for asset in page.assets | default(value=[]) %}
     {%- if asset is ending_with(pat=path) %}
       {%- set_global projects = load_data(path=asset, format=format, required=true) %}
       {%- break %}
