@@ -4,5 +4,5 @@ title = "Archiv"
 path = "cs/archive"
 template = "archive.html"
 [extra]
-section = "_index.cs.md"
+section = "_index.md"
 +++

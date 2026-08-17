@@ -4,5 +4,5 @@ title = "Arkisto"
 path = "fi/archive"
 template = "archive.html"
 [extra]
-section = "_index.fi.md"
+section = "_index.md"
 +++

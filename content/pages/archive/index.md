@@ -5,5 +5,5 @@ path = "archive"
 template = "archive.html"
 [extra]
 section = "_index.md"
-date_format = "%m-%d"
+date_format = "%b %d"
 +++

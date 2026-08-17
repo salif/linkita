@@ -60,11 +60,11 @@ The blockquote element represents content that is quoted from another source, op
 
 To create a link, enclose the link text in brackets and then follow it immediately with the URL in parentheses.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 To quickly turn a URL or email address into a link, enclose it in angle brackets.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Images
 

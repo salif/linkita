@@ -1,0 +1,8 @@
+{% component include_readme(path: string, def_value: string) %}{%
+  set data = load_data(path=path, required=false) %}{%
+  if data %}{{
+    data | replace(from=`# Linkita\n`, to=``) }}{%
+  else %}{{
+    def_value }}{%
+  endif
+%}{% endcomponent %}

@@ -4,5 +4,5 @@ title = "归档"
 path = "zh/archive"
 template = "archive.html"
 [extra]
-section = "_index.zh.md"
+section = "_index.md"
 +++

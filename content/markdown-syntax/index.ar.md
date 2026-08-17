@@ -60,11 +60,11 @@ Itatur؟ Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sa
 
 لإنشاء رابط، قم بإحاطة نص الرابط بين قوسين ثم اتبعه مباشرةً بعنوان URL بين قوسين.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 لتحويل عنوان URL أو عنوان بريد إلكتروني بسرعة إلى رابط، قم بإحاطته بين أقواس زاوية.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## الصور
 

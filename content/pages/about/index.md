@@ -4,4 +4,4 @@ description = "Information about the theme, including how to install, update, us
 path = "about"
 +++
 
-{{ include_about(path="themes/linkita/README.md", default_value="## Hello, world!") }}
+{{ <include_readme path="themes/linkita/README.md" def_value="## Hello, world!" /> }}

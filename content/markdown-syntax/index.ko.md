@@ -60,11 +60,11 @@ height = 800
 
 링크를 만들려면, 링크 텍스트를 대괄호로 묶은 다음 바로 뒤에 URL을 소괄호로 묶어주세요.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 URL이나 이메일 주소를 빠르게 링크로 바꾸려면, 꺾쇠괄호로 묶어주세요.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## 이미지
 

@@ -5,6 +5,7 @@ default_language = "en"
 author = "sample_username"
 compile_sass = false
 minify_html = false
+skip_content_templating = ["update-2/*"]
 exclude_paginated_pages_in_sitemap = "all"
 hard_link_static = false
 generate_sitemap = true
@@ -190,10 +191,10 @@ invert_page_navigation = false
 
 [extra.menus]
 sample_header = [
-  { url = "$BASE_URL/projects/", name = "Projects" },
-  { url = "$BASE_URL/archive/", name = "Archive" },
-  { url = "$BASE_URL/tags/", name = "Tags" },
-  { url = "$BASE_URL/about/", name = "About" },
+  { url = "@base/projects/", name = "Projects" },
+  { url = "@base/archive/", name = "Archive" },
+  { url = "@base/tags/", name = "Tags" },
+  { url = "@base/about/", name = "About" },
 ]
 
 [extra.profiles]
@@ -207,75 +208,72 @@ avatar_invert = true
 # bio = "Default bio"
 social = [
   { name = "github", url = "https://github.com/salif/linkita" },
-  { name = "rss", url = "$BASE_URL/atom.xml" },
+  { name = "rss", url = "@base/atom.xml" },
 ]
+og_image = "images/screenshot.png"
 
 [extra.profiles.sample_username.languages]
 [extra.profiles.sample_username.languages.en]
 name = "Linkita - Zola Theme"
 bio = "A clean, elegant, and multilingual blog theme for Zola."
 avatar_alt = "Demo profile avatar."
+og_image_alt = "A screenshot of this website."
 [extra.profiles.sample_username.languages.ar]
 name = "لينكيتا - قوالب مدونة زولا"
 bio = "لينكيتا هو قالب مدونة زولا."
 avatar_alt = "الصورة الرمزية للملف الشخصي التجريبي"
+og_image_alt = "لقطة شاشة لهذا الموقع." 
 [extra.profiles.sample_username.languages.bg]
 name = "Линкита - Тема за Зола"
 bio = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 avatar_alt = "Демонстративен аватар за профила."
+og_image_alt = "Екранна снимка на този сайт." 
 [extra.profiles.sample_username.languages.cs]
 name = "Linkita - Šablona pro Zolu"
 bio = "Čistá a elegantní šablona blogu pro Zolu. Linkita je založena na šablonách Kita a Hugo-Paper, je vícejazyčná a přizpůsobená pro SEO."
 avatar_alt = "Ukázkový profilový avatar."
+og_image_alt = "Snímek obrazovky této webové stránky."
 [extra.profiles.sample_username.languages.eo]
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 avatar_alt = "Demoprofila avataro."
+og_image_alt = "Ekrankopio de ĉi tiu retejo."
 [extra.profiles.sample_username.languages.es]
 name = "Linkita - Tema para Zola"
 bio = "Un tema de blog para Zola, limpio y elegante. Linkita está basado en Kita y Hugo-Paper, es multilingüe y amigable con el SEO."
 avatar_alt = "Avatar de perfil de demostración."
+og_image_alt = "Una captura de pantalla de este sitio web."
 [extra.profiles.sample_username.languages.fi]
 name = "Linkita - Zola-teema"
 bio = "Puhdas ja elegantti blogiteema Zolalle. Linkita perustuu Kitaan ja Hugo-Paperiin ja on monikielinen sekä SEO-ystävällinen."
 avatar_alt = "Demon profiiliavatari."
+og_image_alt = "Kuvakaappaus tältä verkkosivustolta."
 [extra.profiles.sample_username.languages.fr]
 name = "Linkita - Thème Zola"
 bio = "Un thème de blog propre et élégant pour Zola. Linkita est basé sur Kita et Hugo-Paper, il est multilingue et optimisé pour le SEO."
 avatar_alt = "Avatar de profil de démo."
+og_image_alt = "Une capture d'écran de ce site web."
 [extra.profiles.sample_username.languages.ja]
 name = "Linkita - Zolaテーマ"
 bio = "Zola用のクリーンでエレガントなブログテーマ。LinkitaはKitaとHugo-Paperをベースにしており、多言語対応とSEOフレンドリーな設計が特徴です。"
 avatar_alt = "デモ用プロフィールのアバター"
+og_image_alt = "このウェブサイトのスクリーンショット"
 [extra.profiles.sample_username.languages.gb]
 [extra.profiles.sample_username.languages.ko]
 name = "Linkita - Zola 테마"
 bio = "Zola를 위한 깔끔하고 우아한 블로그 테마입니다. Linkita는 Kita와 Hugo-Paper를 기반으로 하며, 다국어 지원 및 SEO에 친화적입니다."
 avatar_alt = "데모 프로필 아바타입니다."
+og_image_alt = "이 웹사이트의 스크린샷입니다."
 [extra.profiles.sample_username.languages.tr]
 name = "Linkita - Zola için Tema"
 bio = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
 avatar_alt = "Demo profil avatarı."
+og_image_alt = "Bu web sitesinin ekran görüntüsü."
 [extra.profiles.sample_username.languages.zh]
 name = "林基塔 - 左拉的主题"
 bio = "林基塔 是一款适用于 左拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
 avatar_alt = "演示个人资料头像。"
-
-[extra.profiles.sample_username.open_graph]
-image = "images/screenshot.png"
-image_alt = "A screenshot of this website."
-[extra.profiles.sample_username.open_graph.languages]
-ar = { image_alt = "لقطة شاشة لهذا الموقع." }
-bg = { image_alt = "Екранна снимка на този сайт." }
-cs = { image_alt = "Snímek obrazovky této webové stránky." }
-eo = { image_alt = "Ekrankopio de ĉi tiu retejo." }
-es = { image_alt = "Una captura de pantalla de este sitio web." }
-fi = { image_alt = "Kuvakaappaus tältä verkkosivustolta." }
-fr = { image_alt = "Une capture d'écran de ce site web." }
-ja = { image_alt = "このウェブサイトのスクリーンショット" }
-ko = { image_alt = "이 웹사이트의 스크린샷입니다." }
-tr = { image_alt = "Bu web sitesinin ekran görüntüsü." }
-zh = { image_alt = "该网站的截图。" }
+og_image_alt = "该网站的截图。"
 
 # Salif's profile
 [extra.profiles.salif]
@@ -338,7 +336,7 @@ name = "github"
 url = "https://github.com/salif"
 [[extra.profiles.salif.social]]
 name = "rss"
-url = "$BASE_URL/authors/salif/atom.xml"
+url = "@base/authors/salif/atom.xml"
 
 # Kita's profile
 [extra.profiles.kita]
@@ -347,7 +345,7 @@ bio = "Linkita is based on st1020's Kita theme."
 social = [
   { name = "github", url = "https://github.com/st1020/kita" },
   { name = "home", url = "https://kita-zola.pages.dev/" },
-  { name = "rss", url = "$BASE_URL/authors/kita/atom.xml" },
+  { name = "rss", url = "@base/authors/kita/atom.xml" },
 ]
 
 [extra.footer]
@@ -360,7 +358,11 @@ copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 [extra.languages.en]
 locale = "en_US"
 date_format = "%Y %b %-d"
-page_info = [{ when="date" }, { when="date_updated", prepend="Upd " }, { when="reading_time", prepend="Est " }]
+page_info = [
+  { when="date" },
+  { when="date_updated", prepend="Upd. " },
+  { when="reading_time", prepend="Est. " }
+]
 page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 [extra.languages.en.taxonomy_descriptions]
 tags = "A map of all tags on this site. Start exploring!"
@@ -371,7 +373,7 @@ authors = "Browse articles written by $NAME. Start exploring!"
 
 [extra.languages.ar]
 locale = "ar_EG"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.ar.taxonomy_descriptions]
 tags = "خريطة لجميع الوسوم في هذا الموقع. ابدأ الاستكشاف!"
 authors = "خريطة لجميع المؤلفين في هذا الموقع. ابدأ الاستكشاف!"
@@ -381,7 +383,7 @@ authors = "تصفح المقالات التي كتبها $NAME. ابدأ الا�
 
 [extra.languages.bg]
 locale = "bg_BG"
-date_format = "%d %b %Y"
+date_format = "%F"
 [extra.languages.bg.taxonomy_descriptions]
 tags = "Разгледайте всички етикети на този сайт!"
 authors = "Разгледайте всички автори на този сайт!"
@@ -391,7 +393,7 @@ authors = "Списък на страниците написани от $NAME."
 
 [extra.languages.cs]
 locale = "cs_CZ"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.cs.taxonomy_descriptions]
 tags = "Přehled všech štítků na tomto webu. Začněte prozkoumávat!"
 authors = "Přehled všech autorů na tomto webu. Začněte prozkoumávat!"
@@ -401,7 +403,7 @@ authors = "Procházejte články napsané autorem $NAME. Začněte prozkoumávat
 
 [extra.languages.eo]
 locale = "eo"
-date_format = "%d %b %Y"
+date_format = "%F"
 [extra.languages.eo.taxonomy_descriptions]
 tags = "Mapo de ĉiuj etikedoj en ĉi tiu retejo. Komencu esplori!"
 authors = "Mapo de ĉiuj aŭtoroj en ĉi tiu retejo. Komencu esplori!"
@@ -411,7 +413,7 @@ authors = "Foliumu artikolojn verkitajn de $NAME. Komencu esplori!"
 
 [extra.languages.es]
 locale = "es_ES"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.es.taxonomy_descriptions]
 tags = "Un mapa de todas las etiquetas de este sitio. ¡Empieza a explorar!"
 authors = "Un mapa de todos los autores de este sitio. ¡Empieza a explorar!"
@@ -421,7 +423,7 @@ authors = "Navega por los artículos escritos por $NAME. ¡Empieza a explorar!"
 
 [extra.languages.fi]
 locale = "fi_FI"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.fi.taxonomy_descriptions]
 tags = "Kartta kaikista tämän sivuston avainsanoista. Aloita tutkiminen!"
 authors = "Kartta kaikista tämän sivuston kirjoittajista. Aloita tutkiminen!"
@@ -431,7 +433,7 @@ authors = "Selaa kirjoittajan $NAME kirjoittamia artikkeleita. Aloita tutkiminen
 
 [extra.languages.fr]
 locale = "fr_FR"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.fr.taxonomy_descriptions]
 tags = "Plan de tous les tags sur ce site. Commencez l'exploration !"
 authors = "Plan de tous les auteurs sur ce site. Commencez l'exploration !"
@@ -440,12 +442,13 @@ tags = "Parcourez les articles liés à $NAME. Commencez l'exploration !"
 authors = "Parcourez les articles écrits par $NAME. Commencez l'exploration !"
 
 [extra.languages.gb]
+date_format = "%F"
 num_format = "eo"
 hreflang = "art-x-globasa"
 
 [extra.languages.ja]
 locale = "ja_JP"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.ja.taxonomy_descriptions]
 tags = "このサイトのすべてのタグ一覧です。好きなタグから探索を始めましょう！"
 authors = "このサイトのすべての著者一覧です。好きな著者から探索を始めましょう！"
@@ -455,7 +458,7 @@ authors = "$NAME によって書かれた記事を閲覧します。探索を始
 
 [extra.languages.ko]
 locale = "ko_KR"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.ko.taxonomy_descriptions]
 tags = "이 사이트의 모든 태그 지도입니다. 탐색을 시작해보세요!"
 authors = "이 사이트의 모든 작성자 지도입니다. 탐색을 시작해보세요!"
@@ -465,7 +468,7 @@ authors = "$NAME 님이 작성한 글을 둘러보세요. 탐색을 시작해보
 
 [extra.languages.tr]
 locale = "tr_TR"
-date_format = "%d %b %Y"
+date_format = "%F"
 [extra.languages.tr.taxonomy_descriptions]
 tags = "Bu sitedeki tüm etiketlerin bir haritası. Keşfetmeye başlayın!"
 authors = "Bu sitedeki tüm yazarların bir haritası. Keşfetmeye başlayın!"
@@ -475,7 +478,7 @@ authors = "$NAME tarafından yazılan makalelere göz atın. Keşfetmeye başlay
 
 [extra.languages.zh]
 locale = "zh_CN"
-date_format = "%x"
+date_format = "%F"
 [extra.languages.zh.taxonomy_descriptions]
 tags = "本站所有标签的地图。开始探索吧！"
 authors = "本站所有作者的地图。开始探索吧！"

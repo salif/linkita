@@ -60,11 +60,11 @@ height = 800
 
 リンクを作成するには、リンクテキストを角括弧で囲み、その直後にURLを丸括弧で囲みます。
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 URLやメールアドレスを素早くリンクに変換するには、山括弧で囲みます。
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## 画像
 

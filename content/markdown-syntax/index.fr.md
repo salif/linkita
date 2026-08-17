@@ -60,11 +60,11 @@ L'élément blockquote (citation) représente un contenu cité d'une autre sourc
 
 Pour créer un lien, entourez le texte du lien par des crochets, puis faites-le suivre immédiatement de l'URL entre parenthèses.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 Pour transformer rapidement une URL ou une adresse e-mail en lien, entourez-la de chevrons.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Images
 

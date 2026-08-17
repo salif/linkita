@@ -4,5 +4,5 @@ title = "Arcivo"
 path = "gb/archive"
 template = "archive.html"
 [extra]
-section = "_index.gb.md"
+section = "_index.md"
 +++

@@ -4,5 +4,5 @@ title = "الارشيفات"
 path = "ar/archive"
 template = "archive.html"
 [extra]
-section = "_index.ar.md"
-+++
+section = "_index.md"
++++ 

@@ -1,6 +1,0 @@
-{%- set data = load_data(path=path, required=false) %}
-{%- if data %}
-{{ data | markdown | replace(from=`<h1 id="linkita">Linkita</h1>`, to=``) | safe }}
-{%- else %}
-{{ default_value | markdown | safe }}
-{%- endif %}

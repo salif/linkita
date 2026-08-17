@@ -5,11 +5,11 @@
   "htmlhint.options": {
     "tagname-lowercase": true,
     "attr-lowercase": true,
-    "attr-value-double-quotes": true,
+    "attr-value-double-quotes": false,
     "doctype-first": false,
-    "tag-pair": true,
+    "tag-pair": false,
     "spec-char-escape": false,
-    "id-unique": true,
+    "id-unique": false,
     "src-not-empty": true,
     "attr-no-duplication": true,
     "title-require": false

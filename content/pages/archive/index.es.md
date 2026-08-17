@@ -4,5 +4,5 @@ title = "Archivo"
 path = "es/archive"
 template = "archive.html"
 [extra]
-section = "_index.es.md"
+section = "_index.md"
 +++

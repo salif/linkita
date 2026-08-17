@@ -60,11 +60,11 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 要创建链接，请将链接文本放在方括号中，然后在紧随其后用圆括号括起 URL。
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 要快速将 URL 或电子邮件地址转换为链接，请将其括在尖括号中。
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## 图片
 

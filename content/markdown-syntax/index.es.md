@@ -60,11 +60,11 @@ El elemento blockquote representa contenido citado de otra fuente, opcionalmente
 
 Para crear un enlace, encierra el texto del enlace entre corchetes y luego síguelo inmediatamente con la URL entre paréntesis.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 Para convertir rápidamente una URL o dirección de correo electrónico en un enlace, enciérrala entre corchetes angulares.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Imágenes
 

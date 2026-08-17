@@ -60,11 +60,11 @@ Blok alıntı öğesi, isteğe bağlı olarak bir `footer` veya `cite` öğesi i
 
 Bir bağlantı oluşturmak için, bağlantı metnini köşeli parantezler içine alın ve ardından hemen URL'yi parantez içinde takip edin.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 Bir URL veya e-posta adresini hızlıca bağlantıya dönüştürmek için açılı parantezler içine alın.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Resimler
 

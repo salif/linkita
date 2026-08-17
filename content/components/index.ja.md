@@ -1,20 +1,20 @@
 +++
-title = "ショートコード"
-description = "Linkitaテーマのショートコード一覧です。"
+title = "コンポーネント"
+description = "コンポーネントの使い方"
 date = 2022-10-20
-updated = 2025-04-20
+updated = 2026-08-16
 [taxonomies]
 tags = ["markdown", "css", "html"]
-authors = ["kita", "salif"]
+authors = ["salif"]
 [extra]
 mermaid = true
 +++
 
-Linkitaテーマは複数のショートコードを提供します。
+Linkitaテーマは複数のコンポーネントを提供します。
 
-ショートコードについてご存知ありませんか？ 詳細は [Zolaのドキュメント](https://www.getzola.org/documentation/content/shortcodes/) をご覧ください。
+コンポーネントについてご存知ありませんか？ 詳細は [Zolaのドキュメント](https://keats.github.io/tera/#components) をご覧ください。
 
-## Mermaid {#mermaid-header}
+## Mermaid コンポーネント
 
 ページでMermaidを使用するには、ページのフロントマターで `extra.mermaid = true` を設定する必要があります。
 
@@ -27,10 +27,10 @@ mermaid = true
 +++
 ```
 
-そうすれば、`mermaid()` ショートコードを次のように使用できます：
+そうすれば、`<mermaid>` コンポーネントを次のように使用できます：
 
 ```markdown
-{%/* mermaid() */%}
+{% raw %}{% <mermaid> %}
 
 graph TD;
 A-->B;
@@ -38,12 +38,12 @@ A-->C;
 B-->D;
 C-->D;
 
-{%/* end */%}
+{% </mermaid> %}{% endraw %}
 ```
 
 これは次のようにレンダリングされます：
 
-{% mermaid() %}
+{% <mermaid> %}
 
 graph TD;
 A-->B;
@@ -51,14 +51,14 @@ A-->C;
 B-->D;
 C-->D;
 
-{% end %}
+{% </mermaid> %}
 
-さらに、`mermaid()` ショートコード内にコードブロックを使用することができ、そのコードブロックは無視されます。
+さらに、`<mermaid>` コンポーネント内にコードブロックを使用することができ、そのコードブロックは無視されます。
 
 コードブロックを使用することで、フォーマッタがMermaidのフォーマットを崩すのを防ぎます。
 
 ````markdown
-{%/* mermaid() */%}
+{% raw %}{% <mermaid> -%}
 
 ```mermaid
 sequenceDiagram
@@ -74,12 +74,12 @@ sequenceDiagram
     Bob-->>John: Jolly good!
 ```
 
-{%/* end */%}
+{%- </mermaid> %}{% endraw %}
 ````
 
 これは次のようにレンダリングされます：
 
-{% mermaid() %}
+{% <mermaid> -%}
 
 ```mermaid
 sequenceDiagram
@@ -95,85 +95,85 @@ sequenceDiagram
     Bob-->>John: Jolly good!
 ```
 
-{% end %}
+{%- </mermaid> %}
 
 ## 注意喚起
 
-`admonition()` ショートコードは、ページ内に注意喚起のバナーを表示します。
+`<admonition>` コンポーネントは、ページ内に注意喚起のバナーを表示します。
 
-`admonition()` ショートコードは次のように使用できます：
+コンポーネントは次のように使用できます：
 
 ```markdown
-{%/* admonition(type="tip", title="ヒント") */%}
+{% raw %}{% <admonition type="tip" title="ヒント"> %}
 これは `tip` のadmonitionです。
-{%/* end */%}
+{% </admonition> %}{% endraw %}
 ```
 
-admonitionショートコードには12の異なるタイプがあります：
+admonitionコンポーネントには12の異なるタイプがあります：
 
-{% admonition(type="note", title="注記") %}
+{% <admonition type="note" title="注記"> %}
 これは `note` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="abstract", title="概要") %}
+{% <admonition type="abstract" title="概要"> %}
 これは `abstract` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="info", title="情報") %}
+{% <admonition type="info" title="情報"> %}
 これは `info` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="tip", title="ヒント") %}
+{% <admonition type="tip" title="ヒント"> %}
 これは `tip` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="success", title="成功") %}
+{% <admonition type="success" title="成功"> %}
 これは `success` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="question", title="質問") %}
+{% <admonition type="question" title="質問"> %}
 これは `question` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="warning", title="警告") %}
+{% <admonition type="warning" title="警告"> %}
 これは `warning` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="failure", title="失敗") %}
+{% <admonition type="failure" title="失敗"> %}
 これは `failure` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="danger", title="危険") %}
+{% <admonition type="danger" title="危険"> %}
 これは `danger` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="bug", title="バグ") %}
+{% <admonition type="bug" title="バグ"> %}
 これは `bug` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="example", title="例") %}
+{% <admonition type="example" title="例"> %}
 これは `example` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="quote", title="引用") %}
+{% <admonition type="quote" title="引用"> %}
 これは `quote` のadmonitionです。
-{% end %}
+{% </admonition> %}
 
 ## ギャラリー
 
-`gallery()` ショートコードは、ページのassetsからすべての画像を表示する、クリック可能な非常にシンプルなHTMLのみの画像ギャラリーです。
+`<gallery />` コンポーネントは、ページのassetsからすべての画像を表示する、クリック可能な非常にシンプルなHTMLのみの画像ギャラリーです。
 
 これは[Zolaのドキュメント](https://www.getzola.org/documentation/content/image-processing/)からの引用です。
 
 ```markdown
-{{/* gallery() */}}
+{% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ gallery(alt="ギャラリーのデモ画像") }}
+{{ <gallery page config alt="ギャラリーのデモ画像" /> }}
 
 ## プロジェクト
 
-`projects()` ショートコードを使用すると、あなたのプロジェクトを紹介するページを作成できます。
+`<projects />` コンポーネントを使用すると、あなたのプロジェクトを紹介するページを作成できます。
 
 `content/pages/projects/index.md` ファイルを作成します：
 
@@ -184,7 +184,7 @@ description = ""
 path = "projects"
 +++
 
-{{/* projects(path="data.toml", format="toml") */}}
+{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
 ```
 
 `content/pages/projects/data.toml` ファイルを作成します：
@@ -202,4 +202,4 @@ links = [
 
 これは次のように表示されます：
 
-{{ projects(path="projects.toml", format="toml") }}
+{{ <projects path="projects.toml" format="toml" page config /> }}

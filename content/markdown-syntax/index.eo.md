@@ -60,11 +60,11 @@ La citaĵa elemento reprezentas enhavon cititan el alia fonto, laŭvole kun cita
 
 Por krei ligon, enfermu la ligtekston en krampoj kaj tuj sekvu ĝin per la URL en krampoj.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 Por rapide transformi URL-on aŭ retpoŝtadreson en ligon, enfermu ĝin en angulajn krampojn.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Bildoj
 

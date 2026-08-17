@@ -4,4 +4,4 @@ title = "프로젝트"
 path = "ko/projects"
 +++
 
-{{ projects(path="data.toml", format="toml") }}
+{{ <projects path="data.toml" format="toml" page config /> }}

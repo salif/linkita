@@ -4,4 +4,4 @@ title = "Miaj projektoj"
 path = "eo/projects"
 +++
 
-{{ projects(path="data.toml", format="toml") }}
+{{ <projects path="data.toml" format="toml" page config /> }}

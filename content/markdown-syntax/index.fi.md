@@ -60,11 +60,11 @@ Lainauslohko-elementti edustaa sisältöä, joka on lainattu toisesta lähteest�
 
 Luodaksesi linkin, laita linkkiteksti hakasulkeisiin ja heti sen perään URL-osoite kaarisulkeisiin.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 Voit muuttaa URL-osoitteen tai sähköpostiosoitteen nopeasti linkiksi laittamalla sen kulmasulkeiden sisään.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Kuvat
 

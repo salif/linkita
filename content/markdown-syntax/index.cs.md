@@ -60,11 +60,11 @@ Prvek blockquote představuje obsah, který je citován z jiného zdroje, volite
 
 Chcete-li vytvořit odkaz, vložte text odkazu do hranatých závorek a hned za něj do kulatých závorek vložte URL adresu.
 
-[GitHub](https://github.com)
+[YouTube](https://www.youtube.com)
 
 Chcete-li rychle přeměnit URL adresu nebo e-mailovou adresu na odkaz, vložte ji do lomených závorek.
 
-<https://github.com>
+<https://www.youtube.com>
 
 ## Obrázky
 

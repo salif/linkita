@@ -4,5 +4,5 @@ title = "아카이브"
 path = "ko/archive"
 template = "archive.html"
 [extra]
-section = "_index.ko.md"
+section = "_index.md"
 +++

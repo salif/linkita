@@ -1,8 +1,8 @@
 +++
-title = "Shortcodes"
-description = "The Linkita theme shortcodes."
+title = "Components"
+description = "How to use the components"
 date = 2022-10-20
-updated = 2025-04-20
+updated = 2026-08-16
 [taxonomies]
 tags = ["markdown", "css", "html"]
 authors = ["salif"]
@@ -10,11 +10,11 @@ authors = ["salif"]
 mermaid = true
 +++
 
-The Linkita theme providers multiple shortcodes.
+The Linkita theme providers multiple components.
 
-Never heard of shortcodes? See [Zola documentation](https://www.getzola.org/documentation/content/shortcodes/) for more information.
+Never heard of components? See [Zola documentation](https://keats.github.io/tera/#components) for more information.
 
-## Mermaid {#mermaid-header}
+## Mermaid component
 
 To use Mermaid in your page, you have to set `extra.mermaid = true` in the frontmatter of page.
 
@@ -27,10 +27,10 @@ mermaid = true
 +++
 ```
 
-Then you can use the `mermaid()` shortcodes like:
+Then you can use the `<mermaid>` component like:
 
 ```markdown
-{%/* mermaid() */%}
+{% raw %}{% <mermaid> %}
 
 graph TD;
 A-->B;
@@ -38,12 +38,12 @@ A-->C;
 B-->D;
 C-->D;
 
-{%/* end */%}
+{% </mermaid> %}{% endraw %}
 ```
 
 This will be rendered as:
 
-{% mermaid() %}
+{% <mermaid> %}
 
 graph TD;
 A-->B;
@@ -51,14 +51,14 @@ A-->C;
 B-->D;
 C-->D;
 
-{% end %}
+{% </mermaid> %}
 
-In addition, you can use code block inside `mermaid()` shortcodes and the code block will be ignored.
+In addition, you can use code block inside `<mermaid>` components and the code block will be ignored.
 
 The code block prevents formatter from breaking mermaid's formatting.
 
 ````markdown
-{%/* mermaid() */%}
+{% raw %}{% <mermaid> -%}
 
 ```mermaid
 sequenceDiagram
@@ -74,12 +74,12 @@ sequenceDiagram
     Bob-->>John: Jolly good!
 ```
 
-{%/* end */%}
+{%- </mermaid> %}{% endraw %}
 ````
 
 This will be rendered as:
 
-{% mermaid() %}
+{% <mermaid> -%}
 
 ```mermaid
 sequenceDiagram
@@ -95,85 +95,85 @@ sequenceDiagram
     Bob-->>John: Jolly good!
 ```
 
-{% end %}
+{%- </mermaid> %}
 
 ## Admonition
 
-The `admonition()` shortcode displays a banner to help you put notice in your page.
+The `<admonition>` component displays a banner to help you put notice in your page.
 
-You can use the `admonition()` shortcode like:
+You can use the component like:
 
 ```markdown
-{%/* admonition(type="tip", title="tip") */%}
+{% raw %}{% <admonition type="tip" title="tip"> %}
 The `tip` admonition.
-{%/* end */%}
+{% </admonition> %}{% endraw %}
 ```
 
-The admonition shortcode has 12 different types:
+The admonition component has 12 different types:
 
-{% admonition(type="note", title="note") %}
+{% <admonition type="note" title="note"> %}
 The `note` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="abstract", title="abstract") %}
+{% <admonition type="abstract" title="abstract"> %}
 The `abstract` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="info", title="info") %}
+{% <admonition type="info" title="info"> %}
 The `info` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="tip", title="tip") %}
+{% <admonition type="tip" title="tip"> %}
 The `tip` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="success", title="success") %}
+{% <admonition type="success" title="success"> %}
 The `success` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="question", title="question") %}
+{% <admonition type="question" title="question"> %}
 The `question` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="warning", title="warning") %}
+{% <admonition type="warning" title="warning"> %}
 The `warning` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="failure", title="failure") %}
+{% <admonition type="failure" title="failure"> %}
 The `failure` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="danger", title="danger") %}
+{% <admonition type="danger" title="danger"> %}
 The `danger` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="bug", title="bug") %}
+{% <admonition type="bug" title="bug"> %}
 The `bug` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="example", title="example") %}
+{% <admonition type="example" title="example"> %}
 The `example` admonition.
-{% end %}
+{% </admonition> %}
 
-{% admonition(type="quote", title="quote") %}
+{% <admonition type="quote" title="quote"> %}
 The `quote` admonition.
-{% end %}
+{% </admonition> %}
 
 ## Gallery
 
-The `gallery()` shortcode is very simple html-only clickable picture gallery that displays all images from the page assets.
+The `<gallery />` component is very simple html-only clickable picture gallery that displays all images from the page assets.
 
 It's from [Zola documentation](https://www.getzola.org/documentation/content/image-processing/)
 
 ```markdown
-{{/* gallery() */}}
+{% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ gallery(alt="Demo image for the gallery") }}
+{{ <gallery page config alt="Demo image for the gallery" /> }}
 
 ## Projects
 
-The `projects()` shortcode allows you to make a page for your project.
+The `<projects />` component allows you to make a page for your projects.
 
 Create a `content/pages/projects/index.md` file:
 
@@ -184,7 +184,7 @@ description = ""
 path = "projects"
 +++
 
-{{/* projects(path="data.toml", format="toml") */}}
+{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
 ```
 
 Create a `content/pages/projects/data.toml` file:
@@ -202,4 +202,4 @@ links = [
 
 This will be displayed as:
 
-{{ projects(path="projects.toml", format="toml") }}
+{{ <projects path="projects.toml" format="toml" page config /> }}
