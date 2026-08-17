@@ -108,16 +108,9 @@ commit_main: (branch_is "main") && commit_on_theme
 commit_tera1: (branch_is "tera1") && commit_on_theme
 
 [group('git')]
-commit_tera2: (branch_is "tera2") && commit_on_theme
-
-[group('git')]
 push_main remote='github':
     git push {{ remote }} main:main
 
 [group('git')]
 push_tera1 remote='github':
     git push {{ remote }} tera1:tera1
-
-[group('git')]
-push_tera2 remote='github':
-    git push {{ remote }} tera2:tera2

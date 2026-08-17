@@ -32,10 +32,6 @@ and [Hugo-Paper](https://github.com/nanxiaobei/hugo-paper) and is multilingual a
 
 ## Installation
 
-> [!NOTE]
-> Linkita currently supports Zola up to v0.22.1. Zola v0.23 is not supported yet due to breaking changes in the template engine.
-> Follow [issue #61](https://codeberg.org/salif/linkita/issues/61) for updates.
-
 The fastest way to create a new site is to use the
 [linkita-start template](https://github.com/salif/linkita-start).
 This gives you a complete blog setup with all the essential configuration ready to go.
@@ -72,25 +68,32 @@ Place it near the `base_url` variable, not under `[extra]`.
 
 ## Managing versions
 
-If you installed it as a submodule, you can update by running this:
+If you installed it as a submodule, you can update by running this command:
 
 ```sh
 git submodule update --remote themes/linkita
 ```
 
 There may be breaking changes that require manual involvement.  
-If you use the `main` branch of the submodule, check the
-[main CHANGELOG.md](https://github.com/salif/linkita/blob/main/CHANGELOG.md) file.  
-If you use the `tera1` branch, check
-[this CHANGELOG.md](https://github.com/salif/linkita/blob/tera1/CHANGELOG.md) file.
+If you use the `main` repo branch, check the
+[CHANGELOG.md](https://github.com/salif/linkita/blob/main/CHANGELOG.md) file.
 
 Use the `main` branch for Zola versions newer than `0.23.0`, and the `tera1` branch for older versions.
-If you want to switch to another branch, for example to `main`, run the following:
+If you want to switch to another branch, e.g. to `main`, run these commands:
 
 ```sh
 git submodule set-branch --branch main themes/linkita
 git submodule update --remote themes/linkita
 ```
+
+> [!NOTE]
+> Linkita was previously hosted on Codeberg.
+> If you are using the Codeberg repository, read the instructions to
+> [switch to the new repository](https://github.com/salif/linkita/blob/tera1/CHANGELOG.md#tera1).
+> Additionally, the theme has been ported to a newer Zola version,
+> which introduces breaking changes in the template engine.
+> If you are using Zola v0.22.1 or older, read the instructions to
+> [switch to v0.23.3](https://salif.github.io/linkita/update-2/).
 
 ## Usage
 

@@ -15,7 +15,7 @@ git rm -f themes/linkita
 
 # Choose a branch:
 # Choose the main branch for Zola versions newer than 0.23.0,
-# or the tera1 branch for older versions. 
+# or the tera1 branch for older versions.
 
 # Add new submodule using the main branch
 git submodule add -b main https://github.com/salif/linkita.git themes/linkita
