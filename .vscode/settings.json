@@ -1,5 +1,4 @@
 {
-  "editor.wordWrap": "on",
   "files.associations": {
     "app.css": "tailwindcss"
   },
@@ -14,5 +13,5 @@
     "src-not-empty": true,
     "attr-no-duplication": true,
     "title-require": false
-  },
+  }
 }

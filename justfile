@@ -38,15 +38,15 @@ commit_on_demo:
 commit_demo: (branch_is "demo") && commit_on_demo
 
 [group('git')]
-commit_demo2: (branch_is "demo2") && commit_on_demo
+commit_demo1: (branch_is "demo1") && commit_on_demo
 
 [group('git')]
 push_demo remote='origin':
     git push {{ remote }} demo:demo
 
 [group('git')]
-push_demo2 remote='origin':
-    git push {{ remote }} demo2:demo2
+push_demo1 remote='origin':
+    git push {{ remote }} demo1:demo1
 
 [group('dev')]
 screenshot_update screenshot_url=screenshot_url: (screenshot_do screenshot_url)
