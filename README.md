@@ -237,7 +237,7 @@ path = "about"
 ## Hello, world!
 ```
 
-If you want, you can also create [a page for your projects](https://salif.github.io/linkita/components/#projects).
+If you wish, you can also create [a page for your projects](https://salif.github.io/linkita/components/#projects).
 
 ### Setting page authors
 
@@ -620,7 +620,7 @@ The `copyright` variable supports Markdown and these variables:
 
 ### Language specific options
 
-For date format, see [docs](https://docs.rs/jiff/latest/jiff/fmt/strtime/index.html).
+For date format, see [docs](https://docs.rs/jiff/latest/jiff/fmt/strtime/index.html#conversion-specifications).
 
 ```toml ,name=zola.toml
 # For English

@@ -32,7 +32,7 @@
   {%- set copyright = copyright | replace(from=`$YEAR`, to=copyright_years) %}
   {{ copyright | markdown(inline=true) | safe }}
   </div>
-  {{ <powered_by _msg /> }}
+  {{ <_generator _msg /> }}
   <!-- Begin Footer inject -->
   {% include "injects/footer.html" %}
   <!-- End Footer inject -->

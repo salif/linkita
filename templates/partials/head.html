@@ -119,15 +119,15 @@
     {%- endif %}
     {%- if feed_filename is ending_with(pat="atom.xml") %}
   <link rel="alternate" type="application/atom+xml" href="{{
-    <_link dest={get_url(path=feed_filename, lang=ctx.lang)} ctx />
+    <_link dest={get_url(path=feed_filename, lang=ctx.lang, trailing_slash=false)} ctx />
     }}" title="{{ (feed_title ~ `Atom`) | newlines_to_br }}" />
     {%- elif feed_filename is ending_with(pat="rss.xml") %}
   <link rel="alternate" type="application/rss+xml" href="{{
-    <_link dest={get_url(path=feed_filename, lang=ctx.lang)} ctx />
+    <_link dest={get_url(path=feed_filename, lang=ctx.lang, trailing_slash=false)} ctx />
     }}" title="{{ (feed_title ~ `RSS`) | newlines_to_br }}" />
     {%- else %}
   <link rel="alternate" href="{{
-    <_link dest={get_url(path=feed_filename, lang=ctx.lang)} ctx />
+    <_link dest={get_url(path=feed_filename, lang=ctx.lang, trailing_slash=false)} ctx />
     }}" title="{{ (feed_title ~ feed_filename) | newlines_to_br }}" />
     {%- endif %}
   {%- endfor %}

@@ -4,13 +4,12 @@
 {% include "partials/profile.html" %}
 {%- endif %}
 <article>
-  {%- if g_profile is undefined and page.title is string %}
+  {%- if g_profile is undefined and page.title %}
   <header class="mb-16">
-    {%- if page.title is string %}
     <h1 class="my-0!">{{ page.title }}</h1>
-    {%- endif %}
   </header>
   {%- endif %}
+  {{ <_cover_image ctx /> }}
   {{ <_toc page conf={config.extra.toc} def={false} _msg /> }}
   <!-- Content -->
   <section>{{ page.content | safe }}</section>
