@@ -2,7 +2,7 @@
 title="Extra frontmatter"
 description = "Optional variables used by the Linkita theme."
 date = 2025-04-11
-updated = 2026-08-16
+updated = 2026-08-15
 [taxonomies]
 authors = ["salif"]
 +++
