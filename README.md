@@ -86,9 +86,8 @@ git submodule update --remote themes/linkita
 ```
 
 > [!NOTE]
-> Linkita was previously hosted on Codeberg.
-> If you are using the Codeberg repository, read the instructions to
-> [switch to the new repository](https://github.com/salif/linkita/blob/tera1/CHANGELOG.md#tera1).
+> Linkita was previously hosted on Codeberg. If you are using the
+> Codeberg repository, you need to switch to the new repository.
 > Additionally, the theme has been ported to a newer Zola version,
 > which introduces breaking changes in the template engine.
 > If you are using Zola v0.22.1 or older, read the instructions to

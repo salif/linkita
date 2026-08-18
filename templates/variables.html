@@ -35,11 +35,12 @@
 {%- if config.extra.languages?[lang]?.hreflang is string %}
   {%- set ctx = {...ctx, "hreflang": config.extra.languages[lang].hreflang} %}
   {%- set _msg = load_data(path=`i18n/`~ctx.hreflang~`.json`, format=`json`, required=false) %}
-{%- else %}
-  {%- set _msg = load_data(path=`i18n/`~lang~`.json`, format=`json`, required=false) %}
 {%- endif %}
 {%- if not _msg %}
-  {%- set _msg = load_data(path=`i18n/en.json`, format=`json`, required=true) %}
+  {%- set _msg = load_data(path=`i18n/`~lang~`.json`, format=`json`, required=false) %}
+  {%- if not _msg %}
+    {%- set _msg = load_data(path=`i18n/en.json`, format=`json`, required=true) %}
+  {%- endif %}
 {%- endif %}
 
 {%- if config.extra.menu_i18n %}

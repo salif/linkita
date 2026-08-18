@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="{{ <_link_static path=`main.min.css` ctx /> }}" />
   <link rel="stylesheet" href="{{ <_link_static path=`icons.css` ctx /> }}" />
   <link rel="stylesheet" href="{{ <_link_static path=`admonition.css` ctx /> }}" />
+{%- if page.extra.inline_code_fix | default(value=config.extra.inline_code_fix) %}
+  <link rel="stylesheet" href="{{ <_link_static path=`inline-code-fix.css` ctx /> }}" />
+{%- endif %}
 {%- include "partials/head_style.html" %}
 {%- if _g_profile and not config.extra.ugly_urls %}
   {%- if _g_profile.avatar_url %}
