@@ -1,21 +1,21 @@
-{% component _og_image(g_profile, ctx: map, cap) -%}
-{%- if ctx.image?.url or g_profile?.og_image is string or cap?.og_image is string %}
+{% component _og_image(_g_profile: map, ctx: map, _ca_profile: map) -%}
+{%- if ctx.image?.url or _g_profile?.og_image or _ca_profile?.og_image %}
   {%- if ctx.image?.url %}
   <meta property="og:image" content="{{ ctx.image.url }}" />
     {%- set og_image_alt = ctx.image.alt | default(value="") %}
-  {%- elif g_profile?.og_image is string %}
-  <meta property="og:image" content="{{ get_url(path=g_profile.og_image, trailing_slash=false) }}" />
-    {%- if g_profile.languages?[ctx.lang]?.og_image_alt is string %}
-      {%- set og_image_alt = g_profile.languages[ctx.lang].og_image_alt %}
+  {%- elif _g_profile?.og_image %}
+  <meta property="og:image" content="{{ get_url(path=_g_profile.og_image, trailing_slash=false) }}" />
+    {%- if _g_profile.languages?[ctx.lang]?.og_image_alt is string %}
+      {%- set og_image_alt = _g_profile.languages[ctx.lang].og_image_alt %}
     {%- else %}
-      {%- set og_image_alt = g_profile.og_image_alt | default(value="") %}
+      {%- set og_image_alt = _g_profile.og_image_alt | default(value="") %}
     {%- endif %}
-  {%- elif cap?.og_image is string %}
-  <meta property="og:image" content="{{ get_url(path=cap.og_image, trailing_slash=false) }}" />
-    {%- if cap.languages?[ctx.lang]?.og_image_alt is string %}
-      {%- set og_image_alt = cap.languages[ctx.lang].og_image_alt %}
+  {%- elif _ca_profile?.og_image %}
+  <meta property="og:image" content="{{ get_url(path=_ca_profile.og_image, trailing_slash=false) }}" />
+    {%- if _ca_profile.languages?[ctx.lang]?.og_image_alt is string %}
+      {%- set og_image_alt = _ca_profile.languages[ctx.lang].og_image_alt %}
     {%- else %}
-      {%- set og_image_alt = cap.og_image_alt | default(value="") %}
+      {%- set og_image_alt = _ca_profile.og_image_alt | default(value="") %}
     {%- endif %}
   {%- else %}
     {{- throw(message="Error in _og_image. Please report this bug.") }}

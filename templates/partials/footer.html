@@ -9,10 +9,9 @@
       {%- set copyright = copyright | replace(from=`$LICENSE_URL`, to=license_url) %}
     {%- endif %}
   {%- else %}
-    {#- todo test if none #}
-    {%- if config.author %}
+    {%- if _ca_profile?.name %}
       {%- set copyright = "&copy; $YEAR " ~
-        <_profile_name username={config.author} lang={ctx.lang} profiles={config.extra.profiles} /> %}
+        <_profile_name username={_ca_profile.name} lang={ctx.lang} profiles={config.extra.profiles} /> %}
     {%- else %}
       {%- set copyright = "&copy; $YEAR" %}
     {%- endif %}

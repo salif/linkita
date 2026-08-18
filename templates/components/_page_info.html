@@ -54,9 +54,8 @@
     {%- if not loop.last %}<span
       class="middot"></span>{% endif %}
   {%- elif info.when == "authors" %}{%
-    if page.taxonomies?.authors is array %}{%
-      set page_authors = page.taxonomies.authors %}{#
-    todo #}{%
+    if page.taxonomies?.authors %}{%
+      set page_authors = page.taxonomies.authors %}{%
     elif page.authors %}{%
       set page_authors = page.authors %}{%
     elif config.author %}{%

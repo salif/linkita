@@ -59,12 +59,23 @@
 {%- elif taxonomy?.name is string and taxonomy.name == "authors" and term?.name is string %}
   {%- set ctx = {...ctx, "profile": term.name} %}
 {%- endif %}
-{%- if ctx.profile is string %}
+{%- if ctx.profile %}
   {%- if config.extra.profiles?[ctx.profile] %}
-    {%- set g_profile = config.extra.profiles[ctx.profile] %}
+    {%- set _g_profile = config.extra.profiles[ctx.profile] %}
   {%- else %}
-    {%- set g_profile = {"name": ctx.profile} %}
+    {%- set _g_profile = {"name": ctx.profile} %}
   {%- endif %}
+{%- else %}
+  {%- set _g_profile = {} %}
+{%- endif %}
+{%- if config.author %}
+  {%- if config.extra.profiles?[config.author] %}
+    {%- set _ca_profile = config.extra.profiles[config.author] %}
+  {%- else %}
+    {%- set _ca_profile = {"name": config.author} %}
+  {%- endif %}
+{%- else %}
+  {%- set _ca_profile = {} %}
 {%- endif %}
 
 {%- if page.extra.cover?.image is string %}

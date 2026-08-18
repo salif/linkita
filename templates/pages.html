@@ -1,10 +1,10 @@
 {% extends "index.html" %}
 {% block main %}
-{%- if g_profile is map %}
+{%- if _g_profile %}
 {% include "partials/profile.html" %}
 {%- endif %}
 <article>
-  {%- if g_profile is undefined and page.title %}
+  {%- if not _g_profile and page.title %}
   <header class="mb-16">
     <h1 class="my-0!">{{ page.title }}</h1>
   </header>

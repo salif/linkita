@@ -1,37 +1,37 @@
 <!-- Profile -->
-{%- if g_profile.languages?[lang]?.name is string %}
-  {%- set profile_name = g_profile.languages[lang].name %}
-{%- elif g_profile.name is string %}
-  {%- set profile_name = g_profile.name %}
+{%- if _g_profile.languages?[lang]?.name is string %}
+  {%- set profile_name = _g_profile.languages[lang].name %}
+{%- elif _g_profile.name is string %}
+  {%- set profile_name = _g_profile.name %}
 {%- endif %}
-{%- if g_profile.languages?[lang]?.bio is string %}
-  {%- set profile_bio = g_profile.languages[lang].bio %}
-{%- elif g_profile.bio is string %}
-  {%- set profile_bio = g_profile.bio %}
+{%- if _g_profile.languages?[lang]?.bio is string %}
+  {%- set profile_bio = _g_profile.languages[lang].bio %}
+{%- elif _g_profile.bio is string %}
+  {%- set profile_bio = _g_profile.bio %}
 {%- endif %}
-{%- if g_profile.languages?[lang]?.social is array %}
-  {%- set profile_social = g_profile.languages[lang].social %}
-{%- elif g_profile.social is array %}
-  {%- set profile_social = g_profile.social %}
+{%- if _g_profile.languages?[lang]?.social is array %}
+  {%- set profile_social = _g_profile.languages[lang].social %}
+{%- elif _g_profile.social is array %}
+  {%- set profile_social = _g_profile.social %}
 {%- endif %}
-{%- if g_profile.languages?[lang]?.avatar_alt is string %}
-  {%- set profile_avatar_alt = g_profile.languages[lang].avatar_alt %}
-{%- elif g_profile.avatar_alt is string %}
-  {%- set profile_avatar_alt = g_profile.avatar_alt %}
+{%- if _g_profile.languages?[lang]?.avatar_alt is string %}
+  {%- set profile_avatar_alt = _g_profile.languages[lang].avatar_alt %}
+{%- elif _g_profile.avatar_alt is string %}
+  {%- set profile_avatar_alt = _g_profile.avatar_alt %}
 {%- endif %}
 <div class="mb-16 flex items-start">
-  {%- if g_profile.avatar_url is string %}
+  {%- if _g_profile.avatar_url %}
   <div
     class="not-prose shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow-sm dark:bg-white/10">
     <img
       class="my-0 aspect-square w-16 rounded-full bg-black/5! hover:animate-spin{%
-        if g_profile.avatar_invert %} dark:invert{% endif %}"
-      src="{{ <_link_static path={g_profile.avatar_url} ctx /> }}"{%
+        if _g_profile.avatar_invert %} dark:invert{% endif %}"
+      src="{{ <_link_static path={_g_profile.avatar_url} ctx /> }}"{%
         if profile_avatar_alt is string %} alt="{{ profile_avatar_alt }}"{% endif %} />
   </div>
   {%- endif %}
   <div class="{%
-    if g_profile.avatar_url is string %}ml-5{%
+    if _g_profile.avatar_url %}ml-5{%
     elif page.content %}ml-0{%
     else %}ml-4 lg:ml-6{% endif %}">
     {%- if profile_name is string %}

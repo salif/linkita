@@ -12,12 +12,12 @@
   <link rel="stylesheet" href="{{ <_link_static path=`icons.css` ctx /> }}" />
   <link rel="stylesheet" href="{{ <_link_static path=`admonition.css` ctx /> }}" />
 {%- include "partials/head_style.html" %}
-{%- if g_profile is map and not config.extra.ugly_urls %}
-  {%- if g_profile.avatar_url is string %}
-  <link rel="preload" as="image" href="{{ <_link_static path={g_profile.avatar_url} ctx /> }}" />
+{%- if _g_profile and not config.extra.ugly_urls %}
+  {%- if _g_profile.avatar_url %}
+  <link rel="preload" as="image" href="{{ <_link_static path={_g_profile.avatar_url} ctx /> }}" />
   {%- endif %}
-  {%- if g_profile.social is array %}
-    {%- for image_social in g_profile.social %}
+  {%- if _g_profile.social is array %}
+    {%- for image_social in _g_profile.social %}
   <link rel="preload" as="image" href="{{
     <_link_social_icon icon={image_social.name} prl={true} ctx /> }}" />
     {%- endfor %}
