@@ -4,7 +4,7 @@ mod? theme "themes/linkita/theme.just"
 
 this := just_executable() + " -f " + quote(source_file())
 screenshot_url := "http://127.0.0.1:1111"
-zola := if `git branch --show-current` == "demo" { "zola-v0.22.1" } else { "zola" }
+zola := if `git branch --show-current` == "demo1" { "zola-v0.22.1" } else { "zola" }
 
 _:
     @{{ this }} --list --unsorted --list-heading 'Available recipes for demo:{{ "\n" }}'
