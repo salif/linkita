@@ -12,21 +12,22 @@
 
 {%- if page.extra.section is string %}
   {#- todo check lang #}
-  {%- set _section = get_section(path=page.extra.section) %}
-{%- elif ctx.is_section and page is map %}
-  {%- set _section = page %}
-{%- endif %}
-{%- if _section?.pages is undefined and paginator?.pages is undefined %}
+  {%- set _pages = get_section(path=page.extra.section) | get(key=`pages`) | group_by(attribute=`year`) %}
+{%- elif ctx.is_section and page?.pages is array %}
+  {%- set _pages = page.pages | group_by(attribute=`year`) %}
+{%- elif paginator?.pages is array %}
+  {%- set _pages = paginator.pages | group_by(attribute=`year`) %}
+{%- else %}
   {{- throw(message="The archive page is missing the extra.section frontmatter variable!") }}
 {%- endif %}
 
-{%- for year, posts in (_section?.pages | default(value=paginator?.pages)) |
-  sort(attribute=`date`) | reverse | group_by(attribute=`year`) %}
+{%- for year in _pages | keys | sort | reverse %}
+  {%- set posts = _pages[year] %}
 <h2>{{ year }} <sup class="opacity-60">{{ <_num value={(posts | length)} ctx /> }}</sup></h2>
 
 <div class="not-prose pl-4 lg:pl-6">
   <ul>
-    {%- for post in posts %}
+    {%- for post in posts | sort(attribute=`date`) | reverse %}
     <li>
       <div class="my-2 flex items-center justify-between">
         <a class="secondary-link" href="{{ <_link dest={post.permalink} ctx /> }}">{%
