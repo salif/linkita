@@ -67,14 +67,6 @@ git submodule set-branch --branch main themes/linkita
 git submodule update --remote themes/linkita
 ```
 
-If you cloned it directly instead:
-
-```sh
-cd themes/linkita
-git checkout main
-git pull
-```
-
 ## Step 3: Update your `zola.toml` / `config.toml`
 
 Go through each of the following. None of these are enforced by Zola –

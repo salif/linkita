@@ -64,14 +64,14 @@ C-->D;
 sequenceDiagram
     participant Alice
     participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
+    Alice->>John: Здравей, Джон, как си?
+    loop Проверка на здравето
+        John->>John: Борба с хипохондрията
     end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+    Note right of John: Рационалните мисли <br/>надделяват!
+    John-->>Alice: Страхотно!
+    John->>Bob: А ти как си?
+    Bob-->>John: Чудесно!
 ```
 
 {%- </mermaid> %}{% endraw %}
@@ -85,14 +85,14 @@ sequenceDiagram
 sequenceDiagram
     participant Alice
     participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
+    Alice->>John: Здравей, Джон, как си?
+    loop Проверка на здравето
+        John->>John: Борба с хипохондрията
     end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+    Note right of John: Рационалните мисли <br/>надделяват!
+    John-->>Alice: Страхотно!
+    John->>Bob: А ти как си?
+    Bob-->>John: Чудесно!
 ```
 
 {%- </mermaid> %}
