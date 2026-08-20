@@ -81,7 +81,7 @@
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-search,url(icons/search.svg))] dark:invert"
         ></button>
 
-          {%- elif header_button == "translations_select" and page_translations and (page_translations | length > 1) %}
+          {%- elif header_button == "translations_select" and page.translations %}
         <details name="header_button">
           <summary
             title="{{ <_str key=`act_show_translations` _msg /> }} [Alt + ;]" accesskey=";"
@@ -89,7 +89,7 @@
               bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-trans,url(icons/btn-trans.svg))] dark:invert"
           ></summary>
           <ul class="absolute header text-lg mt-3.5">
-          {%- for page_translation in page_translations %}
+          {%- for page_translation in page.translations %}
             {%- if page_translation.lang != ctx.lang %}
             <li><a href="{{ <_link dest={page_translation.permalink} ctx /> }}"
               class="primary-link block p-2 text-lg font-medium">{%
@@ -103,7 +103,7 @@
           </ul>
         </details>
 
-          {%- elif header_button == "translations_button" and page_translations %}
+          {%- elif header_button == "translations_button" and page.translations %}
         <button type="button" title="{{ <_str key=`act_go_to_translation` _msg /> }} [Alt + ;]" accesskey=";"
           class="btn-translations hidden ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px]
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-btn-trans,url(icons/btn-trans.svg))] dark:invert"

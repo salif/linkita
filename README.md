@@ -91,7 +91,7 @@ git submodule update --remote themes/linkita
 > Additionally, the theme has been ported to a newer Zola version,
 > which introduces breaking changes in the template engine.
 > If you are using Zola v0.22.1 or older, read the instructions to
-> [switch to v0.23.3](https://salif.github.io/linkita/update-2/).
+> [switch to v0.23](https://salif.github.io/linkita/update-2/).
 
 ## Usage
 

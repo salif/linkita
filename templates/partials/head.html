@@ -94,7 +94,7 @@
 {%- endif %}
 {{- <_og_fediverse _g_profile _ca_profile /> }}
 {{- <_og_image _g_profile ctx _ca_profile /> }}
-{%- for page_translation in page_translations | default(value=[], boolean=true) %}
+{%- for page_translation in page.translations | default(value=[]) %}
   <link rel="alternate" href="{{ page_translation.permalink }}" hreflang="{%
   if config.extra.languages?[page_translation.lang]?.hreflang is string %}{{
     config.extra.languages[page_translation.lang].hreflang }}{%

@@ -51,10 +51,6 @@
   {%- set page = {...page, "title": <_str key=`error_not_found` _msg /> } %}
 {%- endif %}
 
-{#- todo check if sort is still needed  #}
-{%- if page.translations %}
-  {%- set page_translations = page.translations | sort(attribute=`lang`) %}
-{%- endif %}
 {%- if page.extra.profile is string %}
   {%- set ctx = {...ctx, "profile": page.extra.profile} %}
 {%- elif taxonomy?.name is string and taxonomy.name == "authors" and term?.name is string %}
