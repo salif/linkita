@@ -1,6 +1,6 @@
 +++
-title = "切换至 Zola 0.23.3"
-description = "如何将 Linkita 站点迁移至 Zola v0.23.3"
+title = "切换至 Zola 0.23.4"
+description = "如何将 Linkita 站点迁移至 Zola v0.23.4"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23 将其模板引擎 Tera 替换为新的主要版本（Tera v2）。Zola 项目自身将其称为
 > 大概是 Zola 有史以来最具破坏性的版本更新
 
-Linkita 的模板也不得不重新编写以跟进这一变更。本页面将引导你把 Linkita 站点从 Zola v0.22.1 迁移到 Zola v0.23.3。
+Linkita 的模板也不得不重新编写以跟进这一变更。本页面将引导你把 Linkita 站点从 Zola v0.22.1 迁移到 Zola v0.23.4。
 
 ## 代码仓库迁移
 
@@ -33,9 +33,9 @@ git add .gitmodules
 
 如果你暂时不想升级 Zola，则无需进行任何操作 —— `tera1` 分支将继续兼容旧版 Zola，且不会被移除。
 
-## 第 1 步：将 Zola 升级到 v0.23.3
+## 第 1 步：将 Zola 升级到 v0.23.4
 
-安装 Zola v0.23.3 或更高版本。通过以下命令检查安装的版本：
+安装 Zola v0.23.4 或更高版本。通过以下命令检查安装的版本：
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 是一个巨大的飞跃。如果你的站点在 Linkita 自带模板
 
 ## 第 2 步：切换到 `main` 分支
 
-Linkita 的 `main` 分支现在面向 Zola v0.23.3+。`tera1` 分支保留旧版模板引擎，用于 Zola v0.22.1 及更早版本。
+Linkita 的 `main` 分支现在面向 Zola v0.23.0+。`tera1` 分支保留旧版模板引擎，用于 Zola v0.22.1 及更早版本。
 
 如果你将 Linkita 安装为 git submodule：
 

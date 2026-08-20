@@ -1,6 +1,6 @@
 +++
-title = "Siirtyminen Zola 0.23.3:een"
-description = "Kuinka Linkita-sivusto siirretään Zola v0.23.3 -versioon"
+title = "Siirtyminen Zola 0.23.4:een"
+description = "Kuinka Linkita-sivusto siirretään Zola v0.23.4 -versioon"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23 korvasi mallipohjamoottorinsa Teran uudella pääversiolla (Tera v2). Zola-projekti itse kuvailee sitä näin:
 > luultavasti eniten yhteensopivuutta rikkova versio Zolasta koskaan
 
-ja Linkitan mallipohjat oli kirjoitettava uudelleen sen mukaisiksi. Tämä sivu opastaa Linkita-sivuston päivittämisessä Zola v0.22.1:stä Zola v0.23.3:een.
+ja Linkitan mallipohjat oli kirjoitettava uudelleen sen mukaisiksi. Tämä sivu opastaa Linkita-sivuston päivittämisessä Zola v0.22.1:stä Zola v0.23.4:een.
 
 ## Lähdekoodivaraston siirto
 
@@ -33,9 +33,9 @@ Tämä opas on sinulle, jos sivustosi käyttää tällä hetkellä Linkitaa `ter
 
 Jos et vielä halua päivittää Zolaa, sinun ei tarvitse tehdä mitään – `tera1`-haara toimii edelleen vanhojen Zola-versioiden kanssa eikä se ole poistumassa.
 
-## Vaihe 1: Päivitä Zola versioon v0.23.3
+## Vaihe 1: Päivitä Zola versioon v0.23.4
 
-Asenna Zola v0.23.3 tai uudempi. Tarkista asennettu versio komennolla:
+Asenna Zola v0.23.4 tai uudempi. Tarkista asennettu versio komennolla:
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 on suuri hyppäys. Silmäile [Zola v0.23.0 -muutoslokia](https://gith
 
 ## Vaihe 2: Vaihda `main`-haaraan
 
-Linkitan `main`-haara tukee nyt Zola v0.23.3+:aa. Haara `tera1` pysyy vanhassa mallipohjamoottorissa Zola v0.22.1:lle ja vanhemmille.
+Linkitan `main`-haara tukee nyt Zola v0.23.0+:aa. Haara `tera1` pysyy vanhassa mallipohjamoottorissa Zola v0.22.1:lle ja vanhemmille.
 
 Jos asensit Linkitan git-alimodulina:
 

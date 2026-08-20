@@ -1,6 +1,6 @@
 +++
-title = "Cambio a Zola 0.23.3"
-description = "Cómo migrar un sitio Linkita a Zola v0.23.3"
+title = "Cambio a Zola 0.23.4"
+description = "Cómo migrar un sitio Linkita a Zola v0.23.4"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23 reemplazó su motor de plantillas, Tera, por una nueva versión principal (Tera v2). El propio proyecto Zola lo califica como
 > probablemente la versión con más cambios disruptivos que jamás tendrá Zola
 
-y las plantillas de Linkita tuvieron que ser reescritas para adaptarse a ella. Esta página te guía paso a paso para migrar un sitio Linkita de Zola v0.22.1 a Zola v0.23.3.
+y las plantillas de Linkita tuvieron que ser reescritas para adaptarse a ella. Esta página te guía paso a paso para migrar un sitio Linkita de Zola v0.22.1 a Zola v0.23.4.
 
 ## Cambio de repositorio
 
@@ -33,9 +33,9 @@ Esta guía es para ti si tu sitio actualmente utiliza Linkita en la rama `tera1`
 
 Si todavía no deseas actualizar Zola, no tienes que hacer nada: la rama `tera1` seguirá funcionando con versiones antiguas de Zola y no desaparecerá.
 
-## Paso 1: Actualizar Zola a v0.23.3
+## Paso 1: Actualizar Zola a v0.23.4
 
-Instala Zola v0.23.3 o más reciente. Comprueba tu versión instalada con:
+Instala Zola v0.23.4 o más reciente. Comprueba tu versión instalada con:
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 es un salto importante. Echa un vistazo al [registro de cambios de Zo
 
 ## Paso 2: Cambiar a la rama `main`
 
-La rama `main` de Linkita ahora apunta a Zola v0.23.3+. La rama `tera1` permanece en el antiguo motor de plantillas para Zola v0.22.1 y anteriores.
+La rama `main` de Linkita ahora apunta a Zola v0.23.0+. La rama `tera1` permanece en el antiguo motor de plantillas para Zola v0.22.1 y anteriores.
 
 Si instalaste Linkita como un submódulo de git:
 

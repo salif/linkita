@@ -1,6 +1,6 @@
 +++
-title = "Zola 0.23.3'e Geçiş"
-description = "Bir Linkita sitesini Zola v0.23.3'e taşıma rehberi"
+title = "Zola 0.23.4'e Geçiş"
+description = "Bir Linkita sitesini Zola v0.23.4'e taşıma rehberi"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23, şablon motoru Tera'yı yeni bir ana sürümle (Tera v2) değiştirdi. Zola projesinin kendisi bunu
 > muhtemelen Zola'nın yaşayacağı en çok uyumluluk bozan sürüm
 
-olarak nitelendiriyor ve Linkita'nın şablonlarının buna uyum sağlamak için yeniden yazılması gerekti. Bu sayfa, bir Linkita sitesini Zola v0.22.1'den Zola v0.23.3'e taşımanızda size rehberlik eder.
+olarak nitelendiriyor ve Linkita'nın şablonlarının buna uyum sağlamak için yeniden yazılması gerekti. Bu sayfa, bir Linkita sitesini Zola v0.22.1'den Zola v0.23.4'e taşımanızda size rehberlik eder.
 
 ## Depo taşıma
 
@@ -33,9 +33,9 @@ Siteniz şu anda Zola v0.22.1 veya daha eski bir sürümle `tera1` dalında (vey
 
 Zola'yı henüz yükseltmek istemiyorsanız hiçbir şey yapmanıza gerek yoktur; `tera1` dalı eski Zola sürümleriyle çalışmaya devam edecek ve kaldırılmayacaktır.
 
-## 1. Adım: Zola'yı v0.23.3 sürümüne yükseltin
+## 1. Adım: Zola'yı v0.23.4 sürümüne yükseltin
 
-Zola v0.23.3 veya daha yenisini yükleyin. Yüklü sürümünüzü şu komutla kontrol edin:
+Zola v0.23.4 veya daha yenisini yükleyin. Yüklü sürümünüzü şu komutla kontrol edin:
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 büyük bir adımdır. Sitenizde Linkita'nın kendi şablonlarının 
 
 ## 2. Adım: `main` dalına geçin
 
-Linkita'nın `main` dalı artık Zola v0.23.3+ sürümünü hedefler. `tera1` dalı, Zola v0.22.1 ve öncesi için eski şablon motorunda kalmaya devam eder.
+Linkita'nın `main` dalı artık Zola v0.23.0+ sürümünü hedefler. `tera1` dalı, Zola v0.22.1 ve öncesi için eski şablon motorunda kalmaya devam eder.
 
 Linkita'yı bir git alt modülü olarak yüklediyseniz:
 

@@ -1,6 +1,6 @@
 +++
-title = "Passage à Zola 0.23.3"
-description = "Comment migrer un site Linkita vers Zola v0.23.3"
+title = "Passage à Zola 0.23.4"
+description = "Comment migrer un site Linkita vers Zola v0.23.4"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23 a remplacé son moteur de modèles, Tera, par une nouvelle version majeure (Tera v2). Le projet Zola lui-même la qualifie de
 > probablement la version la plus déstabilisante de Zola qui puisse arriver
 
-et les modèles de Linkita ont dû être réécrits pour la suivre. Cette page vous guide dans la migration d'un site Linkita de Zola v0.22.1 vers Zola v0.23.3.
+et les modèles de Linkita ont dû être réécrits pour la suivre. Cette page vous guide dans la migration d'un site Linkita de Zola v0.22.1 vers Zola v0.23.4.
 
 ## Déplacement du dépôt
 
@@ -33,9 +33,9 @@ Ce guide s'adresse à vous si votre site utilise actuellement Linkita sur la bra
 
 Si vous ne souhaitez pas encore mettre à jour Zola, vous n'avez rien à faire : la branche `tera1` continuera de fonctionner avec les anciennes versions de Zola et n'est pas supprimée.
 
-## Étape 1 : Mettre à jour Zola vers v0.23.3
+## Étape 1 : Mettre à jour Zola vers v0.23.4
 
-Installez Zola v0.23.3 ou une version plus récente. Vérifiez votre version installée avec :
+Installez Zola v0.23.4 ou une version plus récente. Vérifiez votre version installée avec :
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 représente un grand saut. Parcourez les [notes de version de Zola v0
 
 ## Étape 2 : Basculer vers la branche `main`
 
-La branche `main` de Linkita cible désormais Zola v0.23.3+. La branche `tera1` reste sur l'ancien moteur de modèles pour Zola v0.22.1 et les versions antérieures.
+La branche `main` de Linkita cible désormais Zola v0.23.0+. La branche `tera1` reste sur l'ancien moteur de modèles pour Zola v0.22.1 et les versions antérieures.
 
 Si vous avez installé Linkita en tant que sous-module git :
 

@@ -1,6 +1,6 @@
 +++
-title = "Ŝanĝi al Zola 0.23.3"
-description = "Kiel migri Linkita-retejon al Zola v0.23.3"
+title = "Ŝanĝi al Zola 0.23.4"
+description = "Kiel migri Linkita-retejon al Zola v0.23.4"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23 anstataŭigis sian ŝablonilon, Tera, per nova ĉefa versio (Tera v2). La projekto Zola mem nomas ĝin
 > verŝajne la plej rompa versio de Zola kiu iam okazos
 
-kaj la ŝablonoj de Linkita devis esti rescritaj por sekvi ĝin. Ĉi tiu paĝo gvidas vin tra la translokiĝo de Linkita-retejo de Zola v0.22.1 al Zola v0.23.3.
+kaj la ŝablonoj de Linkita devis esti rescritaj por sekvi ĝin. Ĉi tiu paĝo gvidas vin tra la translokiĝo de Linkita-retejo de Zola v0.22.1 al Zola v0.23.4.
 
 ## Deponeja translokiĝo
 
@@ -33,9 +33,9 @@ git add .gitmodules
 
 Se vi ankoraŭ ne volas ĝisdatigi Zola, vi ne devas fari ion ajn – la branĉo `tera1` daŭre funkcios kun malnovaj versioj de Zola kaj ne foriros.
 
-## Paŝo 1: Ĝisdatigi Zola al v0.23.3
+## Paŝo 1: Ĝisdatigi Zola al v0.23.4
 
-Instalu Zola v0.23.3 aŭ pli novan. Kontrolu vian instalitan version per:
+Instalu Zola v0.23.4 aŭ pli novan. Kontrolu vian instalitan version per:
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 estas granda salto. Trarigardu la [ŝanĝoprotokolon de Zola v0.23.0]
 
 ## Paŝo 2: Ŝanĝi al la branĉo `main`
 
-La branĉo `main` de Linkita nun celas Zola v0.23.3+. La branĉo `tera1` restas sur la malnova ŝablonilo por Zola v0.22.1 kaj pli malnovaj versioj.
+La branĉo `main` de Linkita nun celas Zola v0.23.0+. La branĉo `tera1` restas sur la malnova ŝablonilo por Zola v0.22.1 kaj pli malnovaj versioj.
 
 Se vi instalis Linkita kiel git-submodulon:
 

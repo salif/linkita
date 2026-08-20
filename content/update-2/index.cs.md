@@ -1,6 +1,6 @@
 +++
-title = "Přechod na Zola 0.23.3"
-description = "Jak migrovat web Linkita na Zola v0.23.3"
+title = "Přechod na Zola 0.23.4"
+description = "Jak migrovat web Linkita na Zola v0.23.4"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -12,7 +12,7 @@ inline_code_fix = true
 Zola v0.23 nahradila svůj šablonovací engine Tera novou hlavní verzí (Tera v2). Samotný projekt Zola ji označuje jako
 > pravděpodobně nejvíce nekompatibilní verzi Zoly, jaká kdy nastane
 
-a šablony Linkita musely být přepsány, aby jí odpovídaly. Tato stránka vás provede přechodem webu Linkita ze Zola v0.22.1 na Zola v0.23.3.
+a šablony Linkita musely být přepsány, aby jí odpovídaly. Tato stránka vás provede přechodem webu Linkita ze Zola v0.22.1 na Zola v0.23.4.
 
 ## Přesun repozitáře
 
@@ -33,9 +33,9 @@ Tento průvodce je určen pro vás, pokud váš web aktuálně používá Linkit
 
 Pokud zatím nechcete Zolu upgradovat, nemusíte dělat nic – větev `tera1` bude se starými verzemi Zoly nadále fungovat a nikam nemizí.
 
-## Krok 1: Upgrade Zoly na v0.23.3
+## Krok 1: Upgrade Zoly na v0.23.4
 
-Nainstalujte Zolu v0.23.3 nebo novější. Nainstalovanou verzi zkontrolujete pomocí:
+Nainstalujte Zolu v0.23.4 nebo novější. Nainstalovanou verzi zkontrolujete pomocí:
 
 ```sh
 zola --version
@@ -45,7 +45,7 @@ Zola v0.23 představuje velký skok. Projděte si [seznam změn Zola v0.23.0](ht
 
 ## Krok 2: Přepnutí na větev `main`
 
-Větev `main` tématu Linkita nyní cílí na Zolu v0.23.3+. Větev `tera1` zůstává na starém šablonovacím enginu pro Zolu v0.22.1 a starší.
+Větev `main` tématu Linkita nyní cílí na Zolu v0.23.0+. Větev `tera1` zůstává na starém šablonovacím enginu pro Zolu v0.22.1 a starší.
 
 Pokud jste nainstalovali Linkitu jako git submodul:
 

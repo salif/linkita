@@ -1,6 +1,6 @@
 +++
-title = "Switch to Zola 0.23.3"
-description = "How to migrate a Linkita site to Zola v0.23.3"
+title = "Switch to Zola 0.23.4"
+description = "How to migrate a Linkita site to Zola v0.23.4"
 date = 2026-08-16
 updated = 2026-08-16
 [taxonomies]
@@ -15,7 +15,7 @@ Zola v0.23 replaced its template engine, Tera, with a new major version
 
 and Linkita's templates had to be rewritten to follow it. This page walks
 you through moving a Linkita site from Zola v0.22.1 to
-Zola v0.23.3.
+Zola v0.23.4.
 
 ## Repository move
 
@@ -42,9 +42,9 @@ If you don't want to upgrade Zola yet, you don't have to do anything –
 the `tera1` branch will keep working with old Zola versions and isn't
 going away.
 
-## Step 1: Upgrade Zola to v0.23.3
+## Step 1: Upgrade Zola to v0.23.4
 
-Install Zola v0.23.3 or newer. Check your installed version with:
+Install Zola v0.23.4 or newer. Check your installed version with:
 
 ```sh
 zola --version
@@ -57,7 +57,7 @@ this guide only covers what changed on Linkita's side.
 
 ## Step 2: Switch to the `main` branch
 
-Linkita's `main` branch now targets Zola v0.23.3+. The `tera1` branch
+Linkita's `main` branch now targets Zola v0.23.0+. The `tera1` branch
 stays on the old template engine for Zola v0.22.1 and older.
 
 If you installed Linkita as a git submodule:
