@@ -36,7 +36,7 @@ git add .gitmodules
 ## Who needs this guide
 
 This guide is for you if your site currently uses Linkita on the `tera1`
-branch (or on `linkita`/`v4`) with Zola v0.22.1 or older.
+branch (or on `linkita` / `v4`) with Zola v0.22.1 or older.
 
 If you don't want to upgrade Zola yet, you don't have to do anything –
 the `tera1` branch will keep working with old Zola versions and isn't
@@ -173,7 +173,7 @@ The `extra.disable_javascript` config variable, which let you suppress
 the theme's JS and re-implement it yourself via injects, has been
 removed.
 
-### Demo/documentation links
+### Documentation links
 
 If you link to Linkita's own documentation anywhere, note the shortcode
 demo moved from `/shortcodes/` to `/components/` (e.g. the projects
@@ -196,9 +196,6 @@ gone – both forms now fail the build with an "unknown function" /
 "unknown tag" error. Instead, your `.md` files are templated with Tera
 directly, the same as `.html` templates, and you call Linkita's
 built-in **components** using Tera v2's new call syntax.
-
-I built and tested each of the following against the real Linkita
-templates on Zola v0.23.3 to confirm the exact syntax.
 
 A component with a body is called like this – note the closing
 percent-brace and opening percent-brace wrap the angle-bracket tags,
@@ -284,14 +281,19 @@ Projects also now needs `page` and `config` passed explicitly:
 {{<projects path="data.toml" format="toml" page config />}}
 ```
 
-### If you write about Tera/Linkita syntax in your own posts
+### If you write about Tera syntax in your own posts
 
 Since `.md` files are now templated by Tera before Markdown is parsed,
 literal Tera tags inside a fenced code block – like the examples
 above – will actually get executed rather than displayed, even inside
-triple-backtick fences. Wrap any such example in a raw block, the same
-way this guide's own code samples are wrapped, to show it literally
-instead.
+triple-backtick fences. Wrap any such example in a raw block,
+to show it literally instead.
+
+```markdown
+{% raw %}
+...
+{% endraw %}
+```
 
 ## Step 5: Custom language files
 
