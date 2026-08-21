@@ -1,5 +1,9 @@
 {% component _link(dest: string, ctx: map) %}{%
 
+  if dest is starting_with(pat="$BASE_URL") %}{{
+    throw(message=`'$BASE_URL' is obsolete, read https://salif.github.io/linkita/update-2/ `) }}{%
+  endif %}{%
+
   if dest is starting_with(pat="@base") %}{%
     set dest =
       get_url(path=``, lang=ctx.lang, trailing_slash=false) ~

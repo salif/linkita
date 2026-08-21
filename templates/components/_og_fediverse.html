@@ -1,4 +1,7 @@
 {% component _og_fediverse(_g_profile: map, _ca_profile: map) -%}
+  {%- if _g_profile?.open_graph is map or _ca_profile?.open_graph is map %}
+    {{- throw(message=`'open_graph' for profiles is obsolete, read https://salif.github.io/linkita/update-2/ `) }}
+  {%- endif %}
   {%- if _g_profile?.fediverse_creator is map %}
     {%- set fediverse_creator = _g_profile.fediverse_creator %}
   {%- elif _ca_profile?.fediverse_creator is map %}
