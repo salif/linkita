@@ -11,7 +11,7 @@
     "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/typography": "^0.5.20",
     "instant.page": "^5.2.0",
-    "katex": "^0.16.47",
+    "katex": "^0.18.4",
     "puppeteer": "^25.8.0",
     "simple-icons": "^16.28.0",
     "tailwindcss": "^4.3.3",
