@@ -166,6 +166,7 @@ error_on_missing_language = true
 style = "inline"
 light_theme = "light-plus"
 dark_theme = "github-dark-default"
+#data_attr_position = "both"
 
 [extra]
 math = false
