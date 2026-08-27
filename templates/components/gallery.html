@@ -15,9 +15,8 @@
 {% for asset in page.assets | default(value=[]) -%}
   {%- if asset is matching(pat="[.](jpg|png|webp|avif)$") %}
     {%- set image = resize_image(path=asset, width=240, height=180) %}
-    {%- set asset_name = asset | split(pat="/")[-1:] | join(sep="/") %}
-  <a href="{{ <_link dest={get_url(path=page.path ~ asset_name,
-    lang=ctx.lang, trailing_slash=false)} ctx /> }}" target="_blank">
+  <a target="_blank" href="{{
+    <_link dest={get_url(path=asset, lang=ctx.lang, trailing_slash=false)} ctx /> }}">
     <img class="rounded-lg" src="{{ <_link dest={image.url} ctx /> }}"{%
       if alt is string %} alt="{{ alt }}"{% endif %} />
   </a>

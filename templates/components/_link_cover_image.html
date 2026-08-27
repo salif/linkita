@@ -1,7 +1,7 @@
 {% component _link_cover_image(path: string, assets: array, ctx: map) %}{%
   set asset = <_link_asset path assets /> %}{%
   if asset %}{{
-    get_url(path=(asset | trim_start(pat=`/`)), lang=ctx.lang, trailing_slash=false) }}{%
+    get_url(path=asset, lang=ctx.lang, trailing_slash=false) }}{%
   else %}{{
     get_url(path=path, trailing_slash=false) }}{%
   endif
