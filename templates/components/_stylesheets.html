@@ -1,0 +1,18 @@
+{% component _stylesheets(config: map, page: map, ctx: map) %}
+{%- if config.markdown.highlighting.style and config.markdown.highlighting.style == "class" %}
+  {%- if config.markdown.highlighting.light_theme or config.markdown.highlighting.dark_theme %}
+  <link rel="stylesheet" href="{{ <_link_static path=`giallo-light.css` ctx />
+    }}" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="{{ <_link_static path=`giallo-dark.css` ctx />
+    }}" media="(prefers-color-scheme: dark)" />
+  {%- else %}
+  <link rel="stylesheet" href="{{ <_link_static path=`giallo.css` ctx /> }}" />
+  {%- endif %}
+{%- endif %}
+  <link rel="stylesheet" href="{{ <_link_static path=`main.min.css` ctx /> }}" />
+  <link rel="stylesheet" href="{{ <_link_static path=`icons.css` ctx /> }}" />
+  <link rel="stylesheet" href="{{ <_link_static path=`admonition.css` ctx /> }}" />
+{%- if page.extra.inline_code_fix | default(value=config.extra.inline_code_fix) %}
+  <link rel="stylesheet" href="{{ <_link_static path=`inline-code-fix.css` ctx /> }}" />
+{%- endif %}
+{%- endcomponent %}

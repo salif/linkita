@@ -1,0 +1,20 @@
+{% component _giscus(conf: map) %}
+<div class="giscus mt-12"></div>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="{{ conf.repo }}"
+  data-repo-id="{{ conf.repo_id }}"
+  data-category="{{ conf.category }}"
+  data-category-id="{{ conf.category_id }}"
+  data-mapping="{{ conf.mapping | default(value=`pathname`) }}"
+  data-strict="{{ conf.strict | default(value=`1`) | int }}"
+  data-reactions-enabled="{{ conf.reactions_enabled | default(value=`0`) | int }}"
+  data-emit-metadata="{{ conf.emit_metadata | default(value=`0`) | int }}"
+  data-input-position="{{ conf.input_position | default(value=`top`) }}"
+  data-theme="{{ conf.theme | default(value=`preferred_color_scheme`) }}"
+  data-lang="{{ conf.lang | default(value=`en`) }}"
+  data-loading="{{ conf.loading | default(value=`lazy`) }}"
+  crossorigin="anonymous"
+  async
+></script>
+{% endcomponent %}

@@ -43,7 +43,7 @@
   <div class="my-1 truncate"></div>
   {%- endif %}
 
-  {{ <_page_info on_page={false} page={_page} config ctx _msg /> }}
+  {{ <_page_info config page={_page} ctx _msg on_page={false} /> }}
 
   {#- todo {% if use_summary %}#continue-reading{% endif %} #}
   <a class="absolute inset-0 text-[0px]" href="{{

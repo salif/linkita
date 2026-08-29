@@ -2,7 +2,7 @@
 {% block main %}
 {%- if _g_profile %}
   {%- if paginator is undefined or paginator.current_index == 1 %}
-{% include "partials/profile.html" %}
+    {{ <_profile page ctx _g_profile /> }}
   {%- endif %}
 {%- elif taxonomy.name == "tags" %}
 <h1 class="mb-16">#{{ term.name }}</h1>

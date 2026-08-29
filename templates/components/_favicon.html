@@ -1,0 +1,8 @@
+{% component _favicon(ctx: map) %}
+  <link rel="icon" type="image/x-icon" href="{{
+    <_link_static path=`favicon.ico` ctx cachebust={false} /> }}" />
+  <link rel="apple-touch-icon" type="image/png" href="{{
+    <_link_static path=`apple-touch-icon.png` ctx cachebust={false} /> }}" />
+  <link rel="icon" type="image/png" href="{{
+    <_link_static path=`android-icon.png` ctx cachebust={false} /> }}" />
+{%- endcomponent %}
