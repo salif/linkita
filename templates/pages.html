@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {% block main %}
 {%- if _g_profile %}
-{% include "partials/profile.html" %}
+  {{ <_profile page ctx _g_profile /> }}
 {%- endif %}
 <article>
   {%- if not _g_profile and page.title %}
@@ -15,7 +15,7 @@
   <section>{{ page.content | safe }}</section>
   {%- if page.lower is map or page.higher is map %}
   <hr />
-  {% include "partials/post_navigation.html" %}
+  {{ <_post_navigation page ctx _msg invert={config.extra.invert_page_navigation} /> }}
   {%- endif %}
 </article>
 {% endblock main %}

@@ -1,5 +1,4 @@
-<!-- Post Taxonomies -->
-{#- todo #}
+{% component _post_taxonomies(config: map, page: map, ctx: map, _msg: map) %}
 {%- if page.taxonomies %}
   {%- set taxonomy_names = [] %}
   {%- for taxonomy_name, terms in page.taxonomies %}
@@ -27,3 +26,4 @@
 </footer>
   {%- endif %}
 {%- endif %}
+{% endcomponent %}

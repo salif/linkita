@@ -1,5 +1,5 @@
-<!-- Post Nav -->
-{%- if config.extra.invert_page_navigation %}
+{% component _post_navigation(page: map, ctx: map, _msg: map, invert) %}
+{%- if invert %}
   {%- set prev_page = page.higher %}
   {%- set next_page = page.lower %}
 {%- else %}
@@ -20,3 +20,4 @@
     ><span>{{ next_page.title }}</span><span class="ml-1.5">{{ <_str key=`right_arrow` _msg /> }}</span></a>
   {%- endif %}
 </nav>
+{% endcomponent %}

@@ -2,7 +2,7 @@
 {% block main %}
 {%- if _g_profile %}
   {%- if paginator is undefined or paginator.current_index == 1 %}
-{% include "partials/profile.html" %}
+    {{ <_profile page ctx _g_profile /> }}
   {%- endif %}
 {%- elif taxonomy.name == "tags" %}
 <h1 class="mb-16">#{{ term.name }}</h1>
@@ -11,5 +11,6 @@
 {%- else %}
 <h1 class="mb-16">{{ term.name }}</h1>
 {%- endif %}
-{% include "partials/page_list.html" %}
+{{ <_list_pages config ctx _msg pages={paginator?.pages | default(value=term.pages)} /> }}
+{{ <_list_nav ctx _msg paginator taxonomy /> }}
 {% endblock main %}

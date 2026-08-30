@@ -1,24 +1,24 @@
-<!-- Profile -->
-{%- if _g_profile.languages?[lang]?.name is string %}
-  {%- set profile_name = _g_profile.languages[lang].name %}
-{%- elif _g_profile.name is string %}
-  {%- set profile_name = _g_profile.name %}
-{%- endif %}
-{%- if _g_profile.languages?[lang]?.bio is string %}
-  {%- set profile_bio = _g_profile.languages[lang].bio %}
-{%- elif _g_profile.bio is string %}
-  {%- set profile_bio = _g_profile.bio %}
-{%- endif %}
-{%- if _g_profile.languages?[lang]?.social is array %}
-  {%- set profile_social = _g_profile.languages[lang].social %}
-{%- elif _g_profile.social is array %}
-  {%- set profile_social = _g_profile.social %}
-{%- endif %}
-{%- if _g_profile.languages?[lang]?.avatar_alt is string %}
-  {%- set profile_avatar_alt = _g_profile.languages[lang].avatar_alt %}
-{%- elif _g_profile.avatar_alt is string %}
-  {%- set profile_avatar_alt = _g_profile.avatar_alt %}
-{%- endif %}
+{% component _profile(page: map, ctx: map, _g_profile: map) -%}
+  {%- if _g_profile.languages?[ctx.lang]?.name is string %}
+    {%- set profile_name = _g_profile.languages[ctx.lang].name %}
+  {%- elif _g_profile.name is string %}
+    {%- set profile_name = _g_profile.name %}
+  {%- endif %}
+  {%- if _g_profile.languages?[ctx.lang]?.bio is string %}
+    {%- set profile_bio = _g_profile.languages[ctx.lang].bio %}
+  {%- elif _g_profile.bio is string %}
+    {%- set profile_bio = _g_profile.bio %}
+  {%- endif %}
+  {%- if _g_profile.languages?[ctx.lang]?.social is array %}
+    {%- set profile_social = _g_profile.languages[ctx.lang].social %}
+  {%- elif _g_profile.social is array %}
+    {%- set profile_social = _g_profile.social %}
+  {%- endif %}
+  {%- if _g_profile.languages?[ctx.lang]?.avatar_alt is string %}
+    {%- set profile_avatar_alt = _g_profile.languages[ctx.lang].avatar_alt %}
+  {%- elif _g_profile.avatar_alt is string %}
+    {%- set profile_avatar_alt = _g_profile.avatar_alt %}
+  {%- endif %}
 <div class="mb-16 flex items-start">
   {%- if _g_profile.avatar_url %}
   <div
@@ -48,13 +48,13 @@
     if profile_social | length > 5 %}flex-row flex-wrap gap-x-3{%
     else %}space-x-3{% endif %} dark:invert">
       {%- for social in profile_social %}
-        {%- if social.urls?[lang] is string %}
-          {%- set social_url = social.urls[lang] %}
+        {%- if social.urls?[ctx.lang] is string %}
+          {%- set social_url = social.urls[ctx.lang] %}
         {%- else %}
           {%- set social_url = social.url %}
         {%- endif %}
-        {%- if social.titles?[lang] is string %}
-          {%- set social_title = social.titles[lang] %}
+        {%- if social.titles?[ctx.lang] is string %}
+          {%- set social_title = social.titles[ctx.lang] %}
         {%- elif social.title %}
           {%- set social_title = social.title %}
         {%- else %}
@@ -73,3 +73,4 @@
     {%- endif %}
   </div>
 </div>
+{% endcomponent %}

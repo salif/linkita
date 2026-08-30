@@ -1,0 +1,17 @@
+{% component _analytics(config: map, ctx: map, current_path) %}
+{%- if config.extra.goatcounter?.endpoint is string %}
+  {%- if config.extra.use_cdn %}
+    {%- set goatcounter_src = "//gc.zgo.at/count.js" %}
+  {%- else %}
+    {%- set goatcounter_src = <_link_static path=`js/gc.min.js` ctx /> %}
+  {%- endif %}
+  <script>window.zolaTheme.analytics.initGoatCounter({ src: "{{ goatcounter_src }}", endpoint: "{{ config.extra.goatcounter.endpoint }}" });</script>
+  {%- if config.extra.goatcounter?.noscript_prefix is string and current_path is string %}
+  <noscript><img src="{{ config.extra.goatcounter.endpoint }}?p={{
+    config.extra.goatcounter.noscript_prefix ~ current_path | urlencode | safe }}" alt=""></noscript>
+  {%- endif %}
+{%- endif %}
+{%- if config.extra.vercel_analytics?.src is string %}
+  <script>window.zolaTheme.analytics.initVercel({ src: "{{ config.extra.vercel_analytics.src }}" });</script>
+{%- endif %}
+{% endcomponent %}

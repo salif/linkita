@@ -1,0 +1,13 @@
+{% component _head_preload(config: map, ctx: map, _g_profile: map) %}
+{%- if not config.extra.ugly_urls %}
+  {%- if _g_profile.avatar_url %}
+  <link rel="preload" as="image" href="{{ <_link_static path={_g_profile.avatar_url} ctx /> }}" />
+  {%- endif %}
+  {%- if _g_profile.social is array %}
+    {%- for image_social in _g_profile.social %}
+  <link rel="preload" as="image" href="{{
+    <_link_social_icon icon={image_social.name} prl={true} ctx /> }}" />
+    {%- endfor %}
+  {%- endif %}
+{%- endif %}
+{%- endcomponent %}

@@ -1,5 +1,4 @@
-{% component _page_info(on_page: bool, page: map, config: map, ctx: map, _msg: map) -%}
-<!-- Page Info -->
+{% component _page_info(config: map, page: map, ctx: map, _msg: map, on_page: bool) -%}
 <div class="text-sm antialiased opacity-80">
 {%- if page.extra.page_info is array %}
   {%- set page_info = page.extra.page_info %}

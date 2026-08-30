@@ -123,37 +123,8 @@
     </div>
     {%- if header_menu %}
     <nav class="flex w-full items-center lg:w-auto">
-      <menu
-        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0">
-        {%- for m in header_menu %}
-          {%- if m.url is not string %}
-            {{- throw(message="url in menu is not set") }}
-          {%- endif %}
-        <li>
-          <a
-            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
-            href="{{ <_link dest={m.url} ctx /> }}"
-          >{# todo #}{%
-              if m.names?[lang] %}{{
-                m.names[lang] }}{%
-              elif config.extra.menu_i18n and
-                ctx.lang != ctx.hreflang and m.name is string and
-                _menu_msg[m.name][ctx.hreflang] %}{{
-                _menu_msg[m.name][ctx.hreflang] }}{%
-              elif config.extra.menu_i18n and m.name is string and
-                _menu_msg[m.name][lang] %}{{
-                _menu_msg[m.name][lang] }}{%
-              elif m.name %}{{
-                m.name }}{%
-              else %}{{
-                m.url | replace(from=`@base`, to=``) | replace(from=`@lang`, to=``) }}{%
-              endif %}</a>
-        </li>
-        {%- endfor %}
-      </menu>
-      <!-- Begin Header Nav inject -->
+      {{ <_header_menu config ctx _menu_msg header_menu /> }}
       {% include "injects/header_nav.html" %}
-      <!-- End Header Nav inject -->
     </nav>
     {%- endif %}
   </div>

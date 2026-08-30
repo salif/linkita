@@ -1,3 +1,4 @@
+{% component _head_style(config: map, page: map) %}
 {%- set style_bg_color = page.extra.style?.bg_color |
   default(value=(config.extra.style?.bg_color |
   default(value="#f4f4f5"))) %}
@@ -16,4 +17,5 @@
 {%- if not config.extra.style?.header_blur %}
   <meta name="theme-color" data-light="{{ style_header_color }}" data-dark="{{
     style_header_dark_color }}" content="{{ style_header_color }}" />
-{%- endif -%}
+{%- endif %}
+{%- endcomponent %}
