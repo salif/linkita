@@ -599,7 +599,7 @@ since = 2025
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
 
 # Replace "Your Name" with your name and "CC BY-SA 4.0" with the name of the license you want.
-copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 
 # Not used yet.
 # Supports "@base".
