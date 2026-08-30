@@ -1,4 +1,4 @@
-{% component _profile(page: map, ctx: map, _g_profile: map) %}
+{% component _profile(page: map, ctx: map, _g_profile: map) -%}
   {%- if _g_profile.languages?[ctx.lang]?.name is string %}
     {%- set profile_name = _g_profile.languages[ctx.lang].name %}
   {%- elif _g_profile.name is string %}

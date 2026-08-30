@@ -8,10 +8,10 @@
     endif %}{%
   else %}{%
     if _ca_profile?.name %}{%
-      set copyright = "&copy; $YEAR " ~
+      set copyright = "&copy;&nbsp;$YEAR " ~
         <_profile_name username={_ca_profile.name} lang={ctx.lang} profiles={config.extra.profiles} /> %}{%
     else %}{%
-      set copyright = "&copy; $YEAR" %}{%
+      set copyright = "&copy;&nbsp;$YEAR" %}{%
     endif %}{%
     if config.extra.footer?.license_url is string %}{%
       set license_url = <_link dest={config.extra.footer.license_url} ctx /> %}{%
@@ -21,7 +21,7 @@
   set current_year = now() | date(format=`%Y`) | int %}{%
   if config.extra.footer?.since is number and config.extra.footer.since != current_year %}{%
     set copyright_years = '<time datetime="' ~ config.extra.footer.since ~ '">' ~
-      config.extra.footer.since ~ '</time> – <time datetime="' ~ current_year ~ '">' ~
+      config.extra.footer.since ~ '</time>&ndash;<time datetime="' ~ current_year ~ '">' ~
       current_year ~ '</time>' %}{%
   else %}{%
     set copyright_years = '<time datetime="' ~ current_year ~ '">' ~ current_year ~ '</time>' %}{%
