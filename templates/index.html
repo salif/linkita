@@ -38,7 +38,8 @@
       {%- if page.content %}
     <section>{{ page.content | safe }}</section>
       {%- endif %}
-      {% include "partials/page_list.html" %}
+      {{ <_list_pages config ctx _msg pages={paginator?.pages | default(value=page.pages)} /> }}
+      {{ <_list_nav ctx _msg paginator taxonomy /> }}
     {% endblock main %}
   </main>
   <footer class="mx-auto flex lg:mt-5 max-w-3xl flex-wrap items-center px-4 py-3 text-sm opacity-60">
