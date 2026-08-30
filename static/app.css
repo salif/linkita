@@ -19,7 +19,7 @@ body {
 }
 
 .not-ready * {
-  @apply !transition-none;
+  @apply transition-none!;
 }
 
 article {
@@ -54,7 +54,7 @@ article {
     @apply text-base;
 
     mark {
-      @apply mx-[-18px] my-0 block px-[18px] py-0 text-inherit;
+      @apply -mx-4.5 my-0 block px-4.5 py-0 text-inherit;
     }
 
     table {
@@ -109,7 +109,7 @@ sup a {
 
   &::before,
   &::after {
-    @apply block h-[2px] w-5 bg-black duration-100 content-[''];
+    @apply block h-0.5 w-5 bg-black duration-100 content-[''];
   }
 
   @apply dark:before:invert dark:after:invert;
@@ -120,7 +120,7 @@ sup a {
     }
 
     &::after {
-      @apply w-6 -translate-y-[5.5px] -rotate-45;
+      @apply w-6 translate-y-[-5.5px] -rotate-45;
     }
   }
 }
@@ -150,11 +150,11 @@ sup a {
 
 .giscus-frame,
 pre.giallo {
-  @apply !scheme-light dark:!scheme-dark;
+  @apply scheme-light! dark:scheme-dark!;
 }
 
 .giallo-l {
-  @apply inline-block min-h-[1lh] min-w-full;
+  @apply inline-block min-h-lh min-w-full;
 }
 
 .giallo-ln {
@@ -166,15 +166,15 @@ pre.giallo {
 }
 
 @utility block-bg {
-  @apply bg-black/[3%] dark:bg-white/[8%];
+  @apply bg-black/3 dark:bg-white/8;
 }
 
 @utility block-hover {
-  @apply hover:bg-black/[5%] dark:hover:bg-white/[11%];
+  @apply hover:bg-black/5 dark:hover:bg-white/11;
 }
 
 @utility block-hover-mask {
-  @apply hover:bg-black/[2%] dark:hover:bg-white/[3%];
+  @apply hover:bg-black/2 dark:hover:bg-white/3;
 }
 
 @utility primary-link {

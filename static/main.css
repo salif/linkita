@@ -1178,6 +1178,10 @@
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .invert {
+    --tw-invert: invert(100%);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
   .duration-75 {
     --tw-duration: 75ms;
     transition-duration: 75ms;
@@ -1439,10 +1443,10 @@ article {
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
     mark {
-      margin-inline: -18px;
+      margin-inline: calc(var(--spacing) * -4.5);
       margin-block: 0px;
       display: block;
-      padding-inline: 18px;
+      padding-inline: calc(var(--spacing) * 4.5);
       padding-block: 0px;
       color: inherit;
     }
@@ -1497,7 +1501,7 @@ sup a {
 }
 .btn-menu::before, .btn-menu::after {
   display: block;
-  height: 2px;
+  height: calc(var(--spacing) * 0.5);
   width: calc(var(--spacing) * 5);
   background-color: var(--color-black);
   --tw-duration: 100ms;
@@ -1523,7 +1527,7 @@ sup a {
 }
 .btn-menu:where(.open *)::after {
   width: calc(var(--spacing) * 6);
-  --tw-translate-y: calc(5.5px * -1);
+  --tw-translate-y: -5.5px;
   translate: var(--tw-translate-x) var(--tw-translate-y);
   rotate: calc(45deg * -1);
 }
@@ -1685,29 +1689,6 @@ sup a {
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-duration {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-ease {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -1760,6 +1741,29 @@ sup a {
 @property --tw-drop-shadow-size {
   syntax: "*";
   inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
 }
 @property --tw-content {
   syntax: "*";
@@ -1816,11 +1820,6 @@ sup a {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-duration: initial;
-      --tw-ease: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -1834,6 +1833,11 @@ sup a {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
+      --tw-duration: initial;
+      --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
       --tw-content: "";
       --tw-translate-x: 0;
       --tw-translate-y: 0;
