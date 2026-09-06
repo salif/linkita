@@ -17,7 +17,10 @@ zolaTheme.search = {
 
     if ("undefined" === typeof (searchIndex) && "undefined" === typeof (elasticlunr)) {
       this.ElResults.innerHTML = "<li>Search: Please wait...</li>"
-      Promise.all(this.SearchFiles.map(this.loadScript))
+      this.SearchFiles.reduce(
+        (promise, src) => promise.then(() => this.loadScript(src)),
+        Promise.resolve()
+      )
         .catch((error) => {
           this.showError("<li>Search file not found: <code>" + error + "</code></li>")
         })
@@ -31,7 +34,7 @@ zolaTheme.search = {
   },
 
   act: function (q) {
-    const results = this.index.search(q)
+    const results = this.index.search(q, {})
     const resultsCount = results.length
     if (resultsCount > 0) {
       const rows = ["<li><strong>" + resultsCount + "</strong> search " +

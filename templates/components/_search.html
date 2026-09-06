@@ -1,6 +1,17 @@
-{% component _search(ctx: map) %}
+{% component _search(config: map, ctx: map) %}
 <div id="linkita-search-wrapper" class="hidden">
   <ul id="linkita-search-results"></ul>
 </div>
-<script>window.zolaTheme.search.init({ scripts: ["{{ <_link_static path=`elasticlunr.min.js` ctx cachebust={false} /> }}", "{{ <_link_static path={`search_index.`~ctx.lang~`.js`} ctx cachebust={false} /> }}"], arg: { w: "#linkita-search-wrapper", r: "#linkita-search-results" } });</script>
+  {%- if config.search?.index_format and config.search.index_format == "elasticlunr_javascript" %}
+<script>window.zolaTheme.search.init({ scripts: [
+  "{{ <_link_static path={`search_index.`~ctx.lang~`.js`} ctx cachebust={false} /> }}",
+  "{{ <_link_static path=`elasticlunr.min.js` ctx cachebust={false} /> }}",
+  {%- if ctx.lang is not starting_with(pat=`en`) %}
+  "{{ <_link_static path=`js/lunr/lunrStemmerSupport.min.js` ctx cachebust={false} /> }}",
+  "{{ <_link_static path={`js/lunr/lunr.`~ctx.lang~`.min.js`} ctx cachebust={false} /> }}",
+  {%- endif %}
+], arg: { w: "#linkita-search-wrapper", r: "#linkita-search-results" } });</script>
+  {%- else %}
+    {{- throw(message="Search index format is not supported: " ~ config.search.index_format) }}
+  {%- endif %}
 {%- endcomponent %}
