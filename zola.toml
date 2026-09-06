@@ -192,9 +192,9 @@ invert_page_navigation = false
 
 [extra.menus]
 sample_header = [
-  { url = "@base/projects/", name = "Projects" },
   { url = "@base/archive/", name = "Archive" },
   { url = "@base/tags/", name = "Tags" },
+  { url = "@base/projects/", name = "Projects" },
   { url = "@base/about/", name = "About" },
 ]
 
@@ -352,7 +352,7 @@ social = [
 [extra.footer]
 since = 2020
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/"
-copyright = "&copy; $YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Linkita &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 
 [extra.languages]
 
