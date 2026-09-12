@@ -25,5 +25,5 @@
     set copyright_years = current_year %}{%
   endif %}{%
   set copyright = copyright | safe | replace(from=`$YEAR`, to=(copyright_years | safe)) %}{{
-  copyright | markdown(inline=true) | safe
-}}{% endcomponent %}
+  copyright | markdown(inline=true) | safe }}{%
+endcomponent %}
