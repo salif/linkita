@@ -74,10 +74,12 @@
 {%- if ctx.is_article %}
   <meta property="og:type" content="article" />
   {%- if page.date is string %}
-  <meta property="article:published_time" content="{{ page.date | date(format=`%FT%T%:z`) }}" />
+  <meta property="article:published_time" content="{{
+    <_datetime value={page.date} _format=`%FT%T%:z` /> }}" />
   {%- endif %}
   {%- if page.updated is string %}
-  <meta property="article:modified_time" content="{{ page.updated | date(format=`%FT%T%:z`) }}" />
+  <meta property="article:modified_time" content="{{
+    <_datetime value={page.updated} _format=`%FT%T%:z` /> }}" />
   {%- endif %}
   {%- if page.taxonomies?.authors %}
     {%- for page_author in page.taxonomies.authors %}
