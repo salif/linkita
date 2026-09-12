@@ -1,5 +1,11 @@
 {% extends "index.html" %}
 {% block main %}
+{%- set _locale = config.extra.languages?[ctx.lang]?.locale %}
+{%- if _locale is string %}
+  {%- set _format = page.extra.date_format | default(value=`MMM dd`) %}
+{%- else %}
+  {%- set _format = page.extra.date_format | default(value=`%m-%d`) %}
+{%- endif %}
 {%- if _g_profile %}
   {{ <_profile page ctx _g_profile /> }}
 {%- elif page.title %}
@@ -33,8 +39,8 @@
         <a class="secondary-link" href="{{ <_link dest={post.permalink} ctx /> }}">{%
           if post.title %}{{ post.title }}{% else %}{{ post.slug }}{% endif %}</a>
         <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{
-          post.date | date(format=`%FT%T%:z`) }}">{{ <_datetime value={post.date} _format={
-            page.extra.date_format if page.extra.date_format is string else `%m-%d`} /> }}</time>
+          <_datetime value={post.date} _format=`%FT%T%:z` /> }}">{{
+          <_datetime value={post.date} _format _locale /> }}</time>
       </div>
     </li>
     {%- endfor %}

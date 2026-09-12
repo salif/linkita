@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-12
+
+Updates for Zola 0.23.5.
+Added new config variable: `extra.languages[lang].locale`.
+Date format now uses different formats depending on whether `locale` is set or not.
+See the README.md file for more details.
+
 ## 2026-08-19
 
 Fixed a bug in the archive.html template where years were sorted in random order

@@ -192,7 +192,8 @@ description = ""
 template = "archive.html"
 transparent = true
 [extra]
-date_format = "%b %d"
+# Change it to "%b %d" if `locale` is not set in config.
+date_format = "MMM dd"
 +++
 ```
 
@@ -619,14 +620,30 @@ The `copyright` variable supports Markdown and these variables:
 
 ### Language specific options
 
-For date format, see [docs](https://docs.rs/jiff/latest/jiff/fmt/strtime/index.html#conversion-specifications).
+Date format uses different formats depending on whether `locale` is set or not.
+If `locale` is not set, see [strftime specifiers](https://docs.rs/jiff/latest/jiff/fmt/strtime/index.html#conversion-specifications).
+If `locale` is set, see [UTS-35 datetime patterns](https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
 ```toml ,name=zola.toml
 # For English
 [extra.languages.en]
 
-# Default value: "%F"
-date_format = "%Y %b %-d"
+# Locale for `date_format`.
+# e.g. "en-US".
+# No default value.
+locale = "en"
+
+# Change it to "%Y %b %-d" if `locale` is not set.
+# Default value: "%F" (strftime) or "y MMM d" (UTS-35)
+date_format = "y MMM d"
+
+# To format numbers for a different locale. e.g. "en-GB".
+# Useful if lang is not a valid locale.
+# num_format = ""
+
+# To set a different lang attribute of the document.
+# Also changes the interface language. e.g. "en-GB".
+# hreflang = ""
 
 # Default value: extra.page_info
 # page_info = []
@@ -639,14 +656,6 @@ date_format = "%Y %b %-d"
 
 # Default value: extra.header_buttons
 # header_buttons = []
-
-# To set a different lang attribute of the document.
-# Also changes the interface language. e.g. "en-GB".
-# hreflang = ""
-
-# To format numbers for a different locale. e.g. "en-GB".
-# Useful if lang is not a valid locale.
-# num_format = ""
 
 # Set a description for taxonomy pages.
 [extra.languages.en.taxonomy_descriptions]

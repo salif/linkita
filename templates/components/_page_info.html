@@ -17,14 +17,18 @@
 {%- else %}
   {%- set page_info = [{"when": "date"}, {"when": "reading_time"}, {"when": "authors"}] %}
 {%- endif %}
+{%- set _locale = config.extra.languages?[ctx.lang]?.locale %}
 {%- set _format = config.extra.languages?[ctx.lang]?.date_format %}
+{%- if _locale is string and _format is not string %}
+  {%- set _format = "y MMM d" %}
+{%- endif %}
 
 {%- for info in page_info %}
   {%- if info.when == "date" %}{%
     if page.date is string %}{%
       if info.prepend is string %}{{ info.prepend }}{% endif %}<time
-      datetime="{{ page.date | date(format=`%FT%T%:z`) }}">{{
-        <_datetime value={page.date} _format /> }}</time>
+      datetime="{{ <_datetime value={page.date} _format=`%FT%T%:z` /> }}">{{
+        <_datetime value={page.date} _format _locale /> }}</time>
       {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
         class="middot"></span>{% endif %}
@@ -32,8 +36,8 @@
   {%- elif info.when == "date_updated" %}{%
     if page.updated is string and page.updated != page.date %}{%
       if info.prepend is string %}{{ info.prepend }}{% endif %}<time
-      datetime="{{ page.updated | date(format=`%FT%T%:z`) }}">{{
-        <_datetime value={page.updated} _format /> }}</time>
+      datetime="{{ <_datetime value={page.updated} _format=`%FT%T%:z` /> }}">{{
+        <_datetime value={page.updated} _format _locale /> }}</time>
       {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
         class="middot"></span>{% endif %}
