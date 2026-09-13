@@ -34,7 +34,8 @@
         class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "date_updated" %}{%
-    if page.updated is string and page.updated != page.date %}{%
+    if page.updated is string and
+      (page.date is not string or page.updated != page.date) %}{%
       if info.prepend is string %}{{ info.prepend }}{% endif %}<time
       datetime="{{ <_datetime value={page.updated} _format=`%FT%T%:z` /> }}">{{
         <_datetime value={page.updated} _format _locale /> }}</time>

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-13
+
+Updates for Zola 0.23.6.
+The components now use implicit params.
+It is recommended not to pass `page` and `config` when calling Linkita components.
+
+Added `extra.date_attribute` and `extra.year_attribute` frontmatter variables for the `archive.html` template.
+
 ## 2026-09-12
 
 Updates for Zola 0.23.5.

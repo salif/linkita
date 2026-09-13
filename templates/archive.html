@@ -6,6 +6,8 @@
 {%- else %}
   {%- set _format = page.extra.date_format | default(value=`%m-%d`) %}
 {%- endif %}
+{%- set date_attribute = page.extra.date_attribute | default(value=`date`) %}
+{%- set year_attribute = page.extra.year_attribute | default(value=`year`) %}
 {%- if _g_profile %}
   {{ <_profile _g_profile /> }}
 {%- elif page.title %}
@@ -18,11 +20,11 @@
 
 {%- if page.extra.section is string %}
   {#- todo check lang #}
-  {%- set _pages = get_section(path=page.extra.section) | get(key=`pages`) | group_by(attribute=`year`) %}
+  {%- set _pages = get_section(path=page.extra.section) | get(key=`pages`) | group_by(attribute=year_attribute) %}
 {%- elif ctx.is_section and page?.pages is array %}
-  {%- set _pages = page.pages | group_by(attribute=`year`) %}
+  {%- set _pages = page.pages | group_by(attribute=year_attribute) %}
 {%- elif paginator?.pages is array %}
-  {%- set _pages = paginator.pages | group_by(attribute=`year`) %}
+  {%- set _pages = paginator.pages | group_by(attribute=year_attribute) %}
 {%- else %}
   {{- throw(message="The archive page is missing the extra.section frontmatter variable!") }}
 {%- endif %}
@@ -33,14 +35,14 @@
 
 <div class="not-prose pl-4 lg:pl-6">
   <ul>
-    {%- for post in posts | sort(attribute=`date`) | reverse %}
+    {%- for post in posts | sort(attribute=date_attribute) | reverse %}
     <li>
       <div class="my-2 flex items-center justify-between">
         <a class="secondary-link" href="{{ <_link dest={post.permalink} /> }}">{%
           if post.title %}{{ post.title }}{% else %}{{ post.slug }}{% endif %}</a>
         <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{
-          <_datetime value={post.date} _format=`%FT%T%:z` /> }}">{{
-          <_datetime value={post.date} _format _locale /> }}</time>
+          <_datetime value={post[date_attribute]} _format=`%FT%T%:z` /> }}">{{
+          <_datetime value={post[date_attribute]} _format _locale /> }}</time>
       </div>
     </li>
     {%- endfor %}
