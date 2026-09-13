@@ -1,9 +1,9 @@
 +++
 title = "Ŝanĝi al Zola 0.23.4"
 description = "Kiel migri Linkita-retejon al Zola v0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ Rimarku, ke tio **ne** validas por `extra.footer.copyright` – tiu ĉeno ankora
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR Via Nomo &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Via Nomo &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### Profiloj: Agordoj de Open Graph simpligitaj

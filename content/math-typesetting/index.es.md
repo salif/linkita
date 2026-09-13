@@ -1,8 +1,7 @@
 +++
 title = "Composición de Fórmulas Matemáticas"
 description = "Una breve guía para configurar KaTeX."
-date = 2022-10-20
-#updated =
+date = 2024-11-08
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

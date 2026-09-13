@@ -1,9 +1,9 @@
 +++
 title = "Switch to Zola 0.23.4"
 description = "How to migrate a Linkita site to Zola v0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -105,7 +105,7 @@ still uses `$BASE_URL`, `$YEAR`, and `$LICENSE_URL` as before:
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Your Name &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### Profiles: Open Graph settings simplified

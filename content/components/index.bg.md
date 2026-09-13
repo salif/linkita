@@ -1,10 +1,9 @@
 +++
 title = "Компоненти"
 description = "Как се използват компонентите"
-date = 2022-10-20
-updated = 2026-08-16
+date = 2026-09-13
 [taxonomies]
-tags = ["маркдаун", "css", "html"]
+tags = ["компоненти"]
 authors = ["salif"]
 [extra]
 mermaid = true

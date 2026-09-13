@@ -1,10 +1,9 @@
 +++
 title = "컴포넌트"
 description = "컴포넌트 사용 방법"
-date = 2022-10-20
-updated = 2026-08-16
+date = 2026-09-13
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["components"]
 authors = ["salif"]
 [extra]
 mermaid = true

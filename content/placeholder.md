@@ -1,8 +1,7 @@
 +++
 title = "Placeholder Text"
 description = "Lorem Ipsum Dolor Si Amet."
-date = 2025-04-12
-updated = 2025-04-22
+date = 2023-10-20
 [taxonomies]
 tags = ["markdown"]
 authors = ["salif"]

@@ -1,6 +1,6 @@
 +++
-sort_by = "update_date"
+sort_by = "date"
 paginate_by = 4
 [extra]
-profile = "sample_username"
+profile = "linkita_theme"
 +++

@@ -1,7 +1,7 @@
 +++
-title = "Linkita"
-description = "Information about the theme, including how to install, update, use, and configure it."
+title = "About me"
+#description = ""
 path = "about"
 +++
 
-{{ <include_readme path="themes/linkita/README.md" def_value="## Hello, world!" /> }}
+## Hello, world!

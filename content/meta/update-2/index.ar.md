@@ -1,9 +1,9 @@
 +++
 title = "الترقية إلى Zola 0.23.4"
 description = "كيفية ترحيل موقع Linkita إلى Zola v0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ menu_name = [
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR اسمك &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR اسمك &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### الملفات الشخصية: تبسيط إعدادات Open Graph

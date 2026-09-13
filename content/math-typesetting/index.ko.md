@@ -1,8 +1,7 @@
 +++
 title = "수식 조판"
 description = "KaTeX 설정에 대한 간략한 안내서입니다."
-date = 2022-10-20
-#updated =
+date = 2024-11-08
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

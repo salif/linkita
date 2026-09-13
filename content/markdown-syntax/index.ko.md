@@ -1,10 +1,9 @@
 +++
 title = "마크다운 문법 가이드"
 description = "기본적인 마크다운 문법과 HTML 요소 서식 예제를 보여주는 샘플 글입니다."
-date = 2022-10-20
-#updated =
+date = 2023-10-20
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["markdown", "html"]
 authors = ["kita", "salif"]
 [extra]
 [extra.cover]

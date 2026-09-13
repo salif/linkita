@@ -1,9 +1,9 @@
 +++
 title = "Zola 0.23.4'e Geçiş"
 description = "Bir Linkita sitesini Zola v0.23.4'e taşıma rehberi"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ Bunun `extra.footer.copyright` için geçerli **olmadığını** unutmayın; bu 
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR Adınız &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Adınız &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### Profiller: Open Graph ayarları basitleştirildi

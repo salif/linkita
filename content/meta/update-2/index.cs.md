@@ -1,9 +1,9 @@
 +++
 title = "Přechod na Zola 0.23.4"
 description = "Jak migrovat web Linkita na Zola v0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ Všimněte si, že to **neplatí** pro `extra.footer.copyright` – tento řetě
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR Vaše Jméno &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Vaše Jméno &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### Profily: Zjednodušení nastavení Open Graph

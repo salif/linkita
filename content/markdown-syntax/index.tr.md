@@ -1,10 +1,9 @@
 +++
 title = "Markdown Sözdizimi Kılavuzu"
 description = "HTML öğeleri için temel Markdown sözdizimini ve biçimlendirmeyi gösteren örnek makale."
-date = 2022-10-20
-updated = 2025-01-23
+date = 2023-10-20
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["markdown", "html"]
 authors = ["kita", "salif"]
 [extra]
 [extra.cover]

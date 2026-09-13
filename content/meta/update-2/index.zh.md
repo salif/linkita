@@ -1,9 +1,9 @@
 +++
 title = "切换至 Zola 0.23.4"
 description = "如何将 Linkita 站点迁移至 Zola v0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ menu_name = [
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR 你的姓名 &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR 你的姓名 &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### 个人资料：简化 Open Graph 设置

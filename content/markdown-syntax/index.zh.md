@@ -1,10 +1,9 @@
 +++
 title = "Markdown 语法指南"
 description = "示例文章，展示了 HTML 元素的基本 Markdown 语法和格式。"
-date = 2022-10-20
-updated = 2025-01-23
+date = 2023-10-20
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["markdown", "html"]
 authors = ["kita", "salif"]
 [extra]
 [extra.cover]

@@ -2,10 +2,10 @@ base_url = "https://salif.github.io/linkita"
 theme = "linkita"
 
 default_language = "en"
-author = "sample_username"
+author = "Default Author"
 compile_sass = false
 minify_html = false
-skip_content_templating = ["update-2/*"]
+skip_content_templating = ["meta/update-2/*"]
 exclude_paginated_pages_in_sitemap = "all"
 hard_link_static = false
 generate_sitemap = true
@@ -200,8 +200,11 @@ sample_header = [
 
 [extra.profiles]
 
+# Default author's profile
+#[extra.profiles.'Default Author']
+
 # Linkita's profile
-[extra.profiles.sample_username]
+[extra.profiles.linkita_theme]
 avatar_url = "icons/github.svg"
 avatar_invert = true
 # avatar_alt = "Default alt text"
@@ -213,64 +216,64 @@ social = [
 ]
 og_image = "images/screenshot.png"
 
-[extra.profiles.sample_username.languages]
-[extra.profiles.sample_username.languages.en]
+[extra.profiles.linkita_theme.languages]
+[extra.profiles.linkita_theme.languages.en]
 name = "Linkita - Zola Theme"
 bio = "A clean, elegant, and multilingual blog theme for Zola."
 avatar_alt = "Demo profile avatar."
 og_image_alt = "A screenshot of this website."
-[extra.profiles.sample_username.languages.ar]
+[extra.profiles.linkita_theme.languages.ar]
 name = "لينكيتا - قوالب مدونة زولا"
 bio = "لينكيتا هو قالب مدونة زولا."
 avatar_alt = "الصورة الرمزية للملف الشخصي التجريبي"
 og_image_alt = "لقطة شاشة لهذا الموقع." 
-[extra.profiles.sample_username.languages.bg]
+[extra.profiles.linkita_theme.languages.bg]
 name = "Линкита - Тема за Зола"
 bio = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 avatar_alt = "Демонстративен аватар за профила."
 og_image_alt = "Екранна снимка на този сайт." 
-[extra.profiles.sample_username.languages.cs]
+[extra.profiles.linkita_theme.languages.cs]
 name = "Linkita - Šablona pro Zolu"
 bio = "Čistá a elegantní šablona blogu pro Zolu. Linkita je založena na šablonách Kita a Hugo-Paper, je vícejazyčná a přizpůsobená pro SEO."
 avatar_alt = "Ukázkový profilový avatar."
 og_image_alt = "Snímek obrazovky této webové stránky."
-[extra.profiles.sample_username.languages.eo]
+[extra.profiles.linkita_theme.languages.eo]
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
 avatar_alt = "Demoprofila avataro."
 og_image_alt = "Ekrankopio de ĉi tiu retejo."
-[extra.profiles.sample_username.languages.es]
+[extra.profiles.linkita_theme.languages.es]
 name = "Linkita - Tema para Zola"
 bio = "Un tema de blog para Zola, limpio y elegante. Linkita está basado en Kita y Hugo-Paper, es multilingüe y amigable con el SEO."
 avatar_alt = "Avatar de perfil de demostración."
 og_image_alt = "Una captura de pantalla de este sitio web."
-[extra.profiles.sample_username.languages.fi]
+[extra.profiles.linkita_theme.languages.fi]
 name = "Linkita - Zola-teema"
 bio = "Puhdas ja elegantti blogiteema Zolalle. Linkita perustuu Kitaan ja Hugo-Paperiin ja on monikielinen sekä SEO-ystävällinen."
 avatar_alt = "Demon profiiliavatari."
 og_image_alt = "Kuvakaappaus tältä verkkosivustolta."
-[extra.profiles.sample_username.languages.fr]
+[extra.profiles.linkita_theme.languages.fr]
 name = "Linkita - Thème Zola"
 bio = "Un thème de blog propre et élégant pour Zola. Linkita est basé sur Kita et Hugo-Paper, il est multilingue et optimisé pour le SEO."
 avatar_alt = "Avatar de profil de démo."
 og_image_alt = "Une capture d'écran de ce site web."
-[extra.profiles.sample_username.languages.ja]
+[extra.profiles.linkita_theme.languages.ja]
 name = "Linkita - Zolaテーマ"
 bio = "Zola用のクリーンでエレガントなブログテーマ。LinkitaはKitaとHugo-Paperをベースにしており、多言語対応とSEOフレンドリーな設計が特徴です。"
 avatar_alt = "デモ用プロフィールのアバター"
 og_image_alt = "このウェブサイトのスクリーンショット"
-[extra.profiles.sample_username.languages.gb]
-[extra.profiles.sample_username.languages.ko]
+[extra.profiles.linkita_theme.languages.gb]
+[extra.profiles.linkita_theme.languages.ko]
 name = "Linkita - Zola 테마"
 bio = "Zola를 위한 깔끔하고 우아한 블로그 테마입니다. Linkita는 Kita와 Hugo-Paper를 기반으로 하며, 다국어 지원 및 SEO에 친화적입니다."
 avatar_alt = "데모 프로필 아바타입니다."
 og_image_alt = "이 웹사이트의 스크린샷입니다."
-[extra.profiles.sample_username.languages.tr]
+[extra.profiles.linkita_theme.languages.tr]
 name = "Linkita - Zola için Tema"
 bio = "Zola için temiz ve şık bir blog teması. Linkita, Kita ve Hugo-Paper'ı temel alır ve çok dilli ve SEO uyumludur."
 avatar_alt = "Demo profil avatarı."
 og_image_alt = "Bu web sitesinin ekran görüntüsü."
-[extra.profiles.sample_username.languages.zh]
+[extra.profiles.linkita_theme.languages.zh]
 name = "林基塔 - 左拉的主题"
 bio = "林基塔 是一款适用于 左拉 的多语言、搜索引擎优化、简洁优雅的博客主题。"
 avatar_alt = "演示个人资料头像。"
@@ -364,7 +367,6 @@ page_info = [
   { when="date_updated", prepend="Upd. " },
   { when="reading_time", prepend="Est. " }
 ]
-page_info_on_paginator = [{ when="date" }, { when="reading_time" }]
 [extra.languages.en.taxonomy_descriptions]
 tags = "A map of all tags on this site. Start exploring!"
 authors = "A map of all authors on this site. Start exploring!"

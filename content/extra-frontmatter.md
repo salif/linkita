@@ -2,8 +2,8 @@
 title="Extra frontmatter"
 description = "Optional variables used by the Linkita theme."
 date = 2025-04-11
-updated = 2026-08-15
 [taxonomies]
+#tags = []
 authors = ["salif"]
 +++
 
@@ -31,6 +31,12 @@ toc = true
 
 # For the archive.html template.
 section = "_index.md"
+
+# For the archive.html template.
+date_attribute = "date"
+
+# For the archive.html template.
+year_attribute = "year"
 
 # Set only if different from canonical page URL.
 # Default value: current_url

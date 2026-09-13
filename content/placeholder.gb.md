@@ -2,7 +2,6 @@
 title = "Templato texto"
 description = "Lorem Ipsum Dolor Si Amet."
 date = 2023-10-20
-updated = 2024-10-24
 [taxonomies]
 tags = ["markdown"]
 authors = ["salif"]

@@ -1,8 +1,7 @@
 +++
 title = "Matematiksel Dizgi"
 description = "KaTeX kurulumu için kısa bir rehber."
-date = 2022-10-20
-updated = 2025-01-23
+date = 2024-11-08
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

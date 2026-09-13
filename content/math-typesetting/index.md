@@ -1,8 +1,7 @@
 +++
 title = "Math Typesetting"
 description = "A brief guide to setup KaTeX."
-date = 2022-10-20
-#updated =
+date = 2024-11-08
 [taxonomies]
 authors = ["salif"]
 [extra]

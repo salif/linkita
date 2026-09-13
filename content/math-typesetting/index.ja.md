@@ -1,8 +1,7 @@
 +++
 title = "数式組版"
 description = "KaTeXのセットアップに関する簡単なガイドです。"
-date = 2022-10-20
-#updated =
+date = 2024-11-08
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

@@ -1,9 +1,9 @@
 +++
 title = "Zola 0.23.4으로 전환하기"
 description = "Linkita 사이트를 Zola v0.23.4으로 마이그레이션하는 방법"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ menu_name = [
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR 작성자 이름 &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR 작성자 이름 &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### 프로필: Open Graph 설정 간소화

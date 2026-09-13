@@ -1,9 +1,9 @@
 +++
 title = "Преминаване към Зола 0.23.4"
 description = "Как да мигрирате към Зола 0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["мета"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ menu_name = [
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR Вашето Име &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Вашето Име &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### Профили: Опростени настройки на Open Graph

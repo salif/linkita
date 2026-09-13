@@ -1,9 +1,9 @@
 +++
 title = "Cambio a Zola 0.23.4"
 description = "Cómo migrar un sitio Linkita a Zola v0.23.4"
-date = 2026-08-16
-updated = 2026-08-16
+date = 2026-09-12
 [taxonomies]
+tags = ["meta"]
 authors = ["salif"]
 [extra]
 inline_code_fix = true
@@ -84,7 +84,7 @@ Ten en cuenta que esto **no** se aplica a `extra.footer.copyright`: esa cadena s
 
 ```toml ,name=zola.toml
 [extra.footer]
-copyright = "&copy; $YEAR Tu Nombre &vert; [CC BY-SA 4.0]($LICENSE_URL)"
+copyright = "&copy;&nbsp;$YEAR Tu Nombre &vert; [CC BY-SA 4.0]($LICENSE_URL)"
 ```
 
 ### Perfiles: Configuración de Open Graph simplificada

@@ -1,8 +1,7 @@
 +++
 title = "تنضيد المعادلات الرياضية"
 description = "دليل موجز لإعداد KaTeX."
-date = 2022-10-20
-updated = 2025-01-05
+date = 2024-11-08
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

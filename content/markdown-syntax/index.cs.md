@@ -1,10 +1,9 @@
 +++
 title = "Průvodce syntaxí Markdownu"
 description = "Ukázkový článek představující základní syntaxi Markdownu a formátování HTML prvků."
-date = 2022-10-20
-#updated =
+date = 2023-10-20
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["markdown", "html"]
 authors = ["kita", "salif"]
 [extra]
 [extra.cover]

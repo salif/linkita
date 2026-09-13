@@ -1,8 +1,7 @@
 +++
 title = "Matemaattinen ladonta"
 description = "Lyhyt opas KaTeXin käyttöönottoon."
-date = 2022-10-20
-#updated =
+date = 2024-11-08
 [taxonomies]
 authors = ["kita", "salif"]
 [extra]

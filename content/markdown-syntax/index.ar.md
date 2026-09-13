@@ -1,10 +1,9 @@
 +++
 title = "دليل تنسيق ماركداون"
 description = "نموذج مقال يعرض تنسيق ماركداون الأساسي وتنسيق عناصر HTML."
-date = 2022-10-20
-updated = 2025-01-05
+date = 2023-10-20
 [taxonomies]
-tags = ["markdown", "css", "html"]
+tags = ["markdown", "html"]
 authors = ["kita", "salif"]
 [extra]
 [extra.cover]
