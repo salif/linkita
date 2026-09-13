@@ -168,7 +168,7 @@ La komponento `<gallery />` estas tre simpla nur-HTML-a klakebla bildgalerio, ki
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="Demobildo por la galerio" /> }}
+{{ <gallery alt="Demobildo por la galerio" /> }}
 
 ## Projektoj
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 Kreu dosieron `content/pages/projects/data.toml`:
@@ -201,4 +201,4 @@ links = [
 
 Ĉi tio estos montrata jene:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

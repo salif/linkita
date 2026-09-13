@@ -168,7 +168,7 @@ Uyarı kutusu bileşeninin 12 farklı türü vardır:
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="Galeri için demo resim" /> }}
+{{ <gallery alt="Galeri için demo resim" /> }}
 
 ## Projeler
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 Bir `content/pages/projects/data.toml` dosyası oluşturun:
@@ -201,4 +201,4 @@ links = [
 
 Bu şu şekilde görüntülenecektir:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

@@ -168,7 +168,7 @@ admonitionコンポーネントには12の異なるタイプがあります：
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="ギャラリーのデモ画像" /> }}
+{{ <gallery alt="ギャラリーのデモ画像" /> }}
 
 ## プロジェクト
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 `content/pages/projects/data.toml` ファイルを作成します：
@@ -201,4 +201,4 @@ links = [
 
 これは次のように表示されます：
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

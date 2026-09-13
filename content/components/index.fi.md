@@ -168,7 +168,7 @@ Se on [Zolan dokumentaatiosta](https://www.getzola.org/documentation/content/ima
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="Demonstraatiokuva gallerialle" /> }}
+{{ <gallery alt="Demonstraatiokuva gallerialle" /> }}
 
 ## Projektit
 
@@ -183,7 +183,7 @@ description = ""
 path = "projektit"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 Luo `content/pages/projects/data.toml`-tiedosto:
@@ -201,4 +201,4 @@ links = [
 
 Tämä näytetään seuraavasti:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

@@ -2,6 +2,7 @@
 title = "Přechod na Zola 0.23.4"
 description = "Jak migrovat web Linkita na Zola v0.23.4"
 date = 2026-09-12
+path = "cs/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

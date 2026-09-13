@@ -2,6 +2,7 @@
 title = "切换至 Zola 0.23.4"
 description = "如何将 Linkita 站点迁移至 Zola v0.23.4"
 date = 2026-09-12
+path = "zh/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

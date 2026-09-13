@@ -201,7 +201,9 @@ sample_header = [
 [extra.profiles]
 
 # Default author's profile
-#[extra.profiles.'Default Author']
+[extra.profiles.'Default Author']
+og_image = "images/screenshot.png"
+og_image_alt = "A screenshot of this website."
 
 # Linkita's profile
 [extra.profiles.linkita_theme]

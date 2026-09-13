@@ -168,7 +168,7 @@ sequenceDiagram
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="صورة تجريبية لمعرض الصور" /> }}
+{{ <gallery alt="صورة تجريبية لمعرض الصور" /> }}
 
 ## المشاريع
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 أنشئ ملفًا باسم `content/pages/projects/data.toml`:
@@ -201,4 +201,4 @@ links = [
 
 سيتم عرض هذا كالتالي:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

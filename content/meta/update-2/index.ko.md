@@ -2,6 +2,7 @@
 title = "Zola 0.23.4으로 전환하기"
 description = "Linkita 사이트를 Zola v0.23.4으로 마이그레이션하는 방법"
 date = 2026-09-12
+path = "ko/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

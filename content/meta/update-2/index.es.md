@@ -2,6 +2,7 @@
 title = "Cambio a Zola 0.23.4"
 description = "Cómo migrar un sitio Linkita a Zola v0.23.4"
 date = 2026-09-12
+path = "es/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

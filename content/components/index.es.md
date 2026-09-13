@@ -168,7 +168,7 @@ Proviene de la [documentación de Zola](https://www.getzola.org/documentation/co
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="Imagen de demostración para la galería" /> }}
+{{ <gallery alt="Imagen de demostración para la galería" /> }}
 
 ## Proyectos
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 Crea un archivo `content/pages/projects/data.toml`:
@@ -201,4 +201,4 @@ links = [
 
 Esto se mostrará como:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

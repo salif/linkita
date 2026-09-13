@@ -168,7 +168,7 @@ sequenceDiagram
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="갤러리 데모 이미지" /> }}
+{{ <gallery alt="갤러리 데모 이미지" /> }}
 
 ## 프로젝트
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 `content/pages/projects/data.toml` 파일을 만드세요:
@@ -201,4 +201,4 @@ links = [
 
 이것은 다음과 같이 표시됩니다:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

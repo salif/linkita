@@ -2,6 +2,7 @@
 title = "Ŝanĝi al Zola 0.23.4"
 description = "Kiel migri Linkita-retejon al Zola v0.23.4"
 date = 2026-09-12
+path = "eo/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

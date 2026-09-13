@@ -168,7 +168,7 @@ Pochází z [dokumentace Zoly](https://www.getzola.org/documentation/content/ima
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="Ukázkový obrázek pro galerii" /> }}
+{{ <gallery alt="Ukázkový obrázek pro galerii" /> }}
 
 ## Projekty
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 Vytvořte soubor `content/pages/projects/data.toml`:
@@ -201,4 +201,4 @@ links = [
 
 Toto bude zobrazeno jako:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

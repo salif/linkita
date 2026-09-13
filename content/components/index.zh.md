@@ -168,7 +168,7 @@ sequenceDiagram
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="画廊的演示图片" /> }}
+{{ <gallery alt="画廊的演示图片" /> }}
 
 ## 项目
 
@@ -183,7 +183,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 创建一个 `content/pages/projects/data.toml` 文件：
@@ -201,4 +201,4 @@ links = [
 
 这将显示为：
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

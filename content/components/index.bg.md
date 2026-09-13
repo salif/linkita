@@ -167,7 +167,7 @@ sequenceDiagram
 {% raw %}{{ <gallery /> }}{% endraw %}
 ```
 
-{{ <gallery page config alt="Демо изображение за галерията" /> }}
+{{ <gallery alt="Демо изображение за галерията" /> }}
 
 ## Проекти
 
@@ -182,7 +182,7 @@ description = ""
 path = "projects"
 +++
 
-{% raw %}{{ <projects path="data.toml" format="toml" page config /> }}{% endraw %}
+{% raw %}{{ <projects path="data.toml" format="toml" /> }}{% endraw %}
 ```
 
 Създайте файл `content/pages/projects/data.toml`:
@@ -200,4 +200,4 @@ links = [
 
 Това ще бъде показано така:
 
-{{ <projects path="projects.toml" format="toml" page config /> }}
+{{ <projects path="projects.toml" format="toml" /> }}

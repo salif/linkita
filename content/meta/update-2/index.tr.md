@@ -2,6 +2,7 @@
 title = "Zola 0.23.4'e Geçiş"
 description = "Bir Linkita sitesini Zola v0.23.4'e taşıma rehberi"
 date = 2026-09-12
+path = "tr/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

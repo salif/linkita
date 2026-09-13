@@ -2,6 +2,7 @@
 title = "Siirtyminen Zola 0.23.4:een"
 description = "Kuinka Linkita-sivusto siirretään Zola v0.23.4 -versioon"
 date = 2026-09-12
+path = "fi/update-2"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]
