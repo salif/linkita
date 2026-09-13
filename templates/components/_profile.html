@@ -1,4 +1,4 @@
-{% component _profile(page: map, ctx: map, _g_profile: map) -%}
+{% component _profile(@page: map, @ctx: map, _g_profile: map) -%}
   {%- if _g_profile.languages?[ctx.lang]?.name is string %}
     {%- set profile_name = _g_profile.languages[ctx.lang].name %}
   {%- elif _g_profile.name is string %}
@@ -26,7 +26,7 @@
     <img
       class="my-0 aspect-square w-16 rounded-full bg-black/5! hover:animate-spin{%
         if _g_profile.avatar_invert %} dark:invert{% endif %}"
-      src="{{ <_link_static path={_g_profile.avatar_url} ctx /> }}"{%
+      src="{{ <_link_static path={_g_profile.avatar_url} /> }}"{%
         if profile_avatar_alt is string %} alt="{{ profile_avatar_alt }}"{% endif %} />
   </div>
   {%- endif %}
@@ -62,8 +62,8 @@
         {%- endif %}
       <a
         class="primary-link h-8 w-8 text-[0px] [background:var(--url)_center_center/cover_no-repeat]"
-        style="--url: url({{ <_link_social_icon icon={social.name} prl={false} ctx /> }});"
-        href="{{ <_link dest={social_url} ctx /> }}"
+        style="--url: url({{ <_link_social_icon icon={social.name} prl={false} /> }});"
+        href="{{ <_link dest={social_url} /> }}"
         target="_blank"
         rel="{% if social.name == `rss` %}alternate{% else %}me{% endif %}"
         title="{{ social_title }}"

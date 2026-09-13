@@ -1,4 +1,5 @@
-{% component _profile_name(username: string, lang: string, profiles) %}{%
+{% component _profile_name(username: string, lang: string, @config: map) %}{%
+  set profiles = config.extra.profiles %}{%
   if profiles?[username] is map %}{%
     if profiles[username].languages?[lang]?.name is string %}{{
       profiles[username].languages[lang].name }}{%
@@ -9,5 +10,5 @@
     endif %}{%
   else %}{{
     username }}{%
-  endif
-%}{% endcomponent %}
+  endif %}{%
+endcomponent %}

@@ -6,7 +6,7 @@
 {%- elif section is defined and page is undefined %}
   {%- set ctx = {"is_section": true, "is_taxonomy": false, "is_404": false} %}
   {%- set page = section %}
-  {%- set section = undefined %}
+  {%- set section = none %}
 {%- else %}
   {%- if taxonomy is map %}
     {%- set ctx = {"is_section": false, "is_taxonomy": true, "is_404": false} %}
@@ -34,21 +34,21 @@
 {#- Load translations #}
 {%- if config.extra.languages?[lang]?.hreflang is string %}
   {%- set ctx = {...ctx, "hreflang": config.extra.languages[lang].hreflang} %}
-  {%- set _msg = load_data(path=`i18n/`~ctx.hreflang~`.json`, format=`json`, required=false) %}
+  {%- set i18n = load_data(path=`i18n/`~ctx.hreflang~`.json`, format=`json`, required=false) %}
 {%- endif %}
-{%- if not _msg %}
-  {%- set _msg = load_data(path=`i18n/`~lang~`.json`, format=`json`, required=false) %}
-  {%- if not _msg %}
-    {%- set _msg = load_data(path=`i18n/en.json`, format=`json`, required=true) %}
+{%- if not i18n %}
+  {%- set i18n = load_data(path=`i18n/`~lang~`.json`, format=`json`, required=false) %}
+  {%- if not i18n %}
+    {%- set i18n = load_data(path=`i18n/en.json`, format=`json`, required=true) %}
   {%- endif %}
 {%- endif %}
 
 {%- if config.extra.menu_i18n %}
-  {%- set _menu_msg = load_data(path=`i18n/menu.json`, format=`json`) %}
+  {%- set _i18n_menu = load_data(path=`i18n/menu.json`, format=`json`) %}
 {%- endif %}
 
 {%- if ctx.is_404 %}
-  {%- set page = {...page, "title": <_str key=`error_not_found` _msg /> } %}
+  {%- set page = {...page, "title": <_str key=`error_not_found` /> } %}
 {%- endif %}
 
 {%- if page.extra.profile is string %}
@@ -79,7 +79,7 @@
   {%- set ctx = {
     ...ctx,
     "image": {
-      "url": <_link_cover_image path={page.extra.cover.image} assets={page.assets} ctx />,
+      "url": <_link_cover_image path={page.extra.cover.image} assets={page.assets} />,
       "alt": page.extra.cover.alt,
       "width": page.extra.cover.width,
       "height": page.extra.cover.height,

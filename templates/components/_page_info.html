@@ -1,4 +1,4 @@
-{% component _page_info(config: map, page: map, ctx: map, _msg: map, on_page: bool) -%}
+{% component _page_info(@config: map, @ctx: map, page: map, on_page: bool) -%}
 <div class="text-sm antialiased opacity-80">
 {%- if page.extra.page_info is array %}
   {%- set page_info = page.extra.page_info %}
@@ -34,7 +34,8 @@
         class="middot"></span>{% endif %}
     {%- endif %}
   {%- elif info.when == "date_updated" %}{%
-    if page.updated is string and page.updated != page.date %}{%
+    if page.updated is string and
+      (page.date is not string or page.updated != page.date) %}{%
       if info.prepend is string %}{{ info.prepend }}{% endif %}<time
       datetime="{{ <_datetime value={page.updated} _format=`%FT%T%:z` /> }}">{{
         <_datetime value={page.updated} _format _locale /> }}</time>
@@ -46,13 +47,13 @@
     if info.prepend is string %}{{ info.prepend }}{% endif %}{%
     set reading_time_min = page.reading_time % 60 %}<time
     datetime="PT{{ ((page.reading_time - reading_time_min) / 60) | int }}H{{ reading_time_min }}M0S">{{
-      <_num value={page.reading_time} ctx /> }}&nbsp;{{ <_str key=`word_minutes` _msg /> }}</time>
+      <_num value={page.reading_time} /> }}&nbsp;{{ <_str key=`word_minutes` /> }}</time>
     {%- if info.append is string %}{{ info.append }}{% endif %}
     {%- if not loop.last %}<span
       class="middot"></span>{% endif %}
   {%- elif info.when == "word_count" %}{%
     if info.prepend is string %}{{ info.prepend }}{% endif %}<span>{{
-      <_num value={page.word_count} ctx /> }}&nbsp;{{ <_str key=`word_words` _msg /> }}</span>
+      <_num value={page.word_count} /> }}&nbsp;{{ <_str key=`word_words` /> }}</span>
     {%- if info.append is string %}{{ info.append }}{% endif %}
     {%- if not loop.last %}<span
       class="middot"></span>{% endif %}
@@ -68,7 +69,7 @@
       if info.prepend is string %}{{ info.prepend }}{% endif %}{%
       for page_author in page_authors %}{%
         if not loop.first %},&nbsp;{% endif %}<span>{{
-          <_profile_name username={page_author} lang={ctx.lang} profiles={config.extra.profiles} /> }}</span>
+          <_profile_name username={page_author} lang={ctx.lang} /> }}</span>
       {%- endfor %}
       {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span
@@ -82,8 +83,8 @@
           if not on_page %}<span>#{{ page_tag }}</span>{%
           else %}<a
             class="no-underline hover:underline"
-            href="{{ <_link dest={get_taxonomy_url(kind=`tags`, term=page_tag, lang=ctx.lang)}
-              ctx /> }}">#{{ page_tag }}</a>{% endif %}
+            href="{{ <_link dest={get_taxonomy_url(kind=`tags`, term=page_tag, lang=ctx.lang)} />
+              }}">#{{ page_tag }}</a>{% endif %}
       {%- endfor %}
       {%- if info.append is string %}{{ info.append }}{% endif %}
       {%- if not loop.last %}<span

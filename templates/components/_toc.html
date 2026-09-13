@@ -1,16 +1,16 @@
-{% component _toc(page: map, conf, def: bool, _msg: map) -%}
-{%- if page.extra?.toc is defined %}
-  {%- set add_toc = page.extra.toc %}
-{%- elif conf is defined %}
-  {%- set add_toc = conf %}
-{%- else %}
-  {%- set add_toc = def %}
-{%- endif %}
-{%- if add_toc and page.toc %}
+{% component _toc(@page: map, conf, def: bool) -%}
+  {%- if page.extra?.toc is defined %}
+    {%- set add_toc = page.extra.toc %}
+  {%- elif conf is defined %}
+    {%- set add_toc = conf %}
+  {%- else %}
+    {%- set add_toc = def %}
+  {%- endif %}
+  {%- if add_toc and page.toc %}
 <nav class="block-bg prose-a:secondary-link mb-12 rounded-lg p-2 text-lg">
   <details {%- if add_toc is map and add_toc.open %}{{ ` open` }}{% endif %}>
     <summary class="select-none py-0.5 lg:py-1 pl-3.5" title="[Alt + =]" accesskey="=">
-      <span class="cursor-pointer ml-0.5">{{ <_str key=`word_toc` _msg /> }}</span>
+      <span class="cursor-pointer ml-0.5">{{ <_str key=`word_toc` /> }}</span>
     </summary>
     <ul class="ps-8">
       {%- for h1 in page.toc %}
@@ -30,5 +30,5 @@
     </ul>
   </details>
 </nav>
-{%- endif %}
+  {%- endif %}
 {%- endcomponent %}

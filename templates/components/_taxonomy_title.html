@@ -1,11 +1,11 @@
-{% component _taxonomy_title(key: string, _msg: map) %}{%
+{% component _taxonomy_title(key: string) %}{%
   if key == "tags" %}{{
-    <_str key=`taxonomy_tags` _msg /> }}{%
+    <_str key=`taxonomy_tags` /> }}{%
   elif key == "categories" %}{{
-    <_str key=`taxonomy_categories` _msg /> }}{%
+    <_str key=`taxonomy_categories` /> }}{%
   elif key == "authors" %}{{
-    <_str key=`taxonomy_authors` _msg /> }}{%
+    <_str key=`taxonomy_authors` /> }}{%
   else %}{{
     key }}{%
-  endif
-%}{% endcomponent %}
+  endif %}{%
+endcomponent %}

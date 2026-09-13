@@ -29,7 +29,7 @@ Maximum recursion depth exceeded. {{ iter | length }} not shown.
     {%- endif %}
   {%- else %}
     {%- for key in iter %}
-{{ <_debug context={context[key]} title={(title ~ "." if title else "") ~ key} depth re skip /> }}
+{{ <_debug context={context[key]} title={(title ~ `.` if title else ``) ~ key} depth re skip /> }}
     {%- endfor %}
   {%- endif %}
 {% endcomponent %}
@@ -53,7 +53,7 @@ Maximum recursion depth exceeded. {{ iter | length }} not shown.
     {%- endif %}
   {%- else %}
     {%- for i in iter %}
-{{ <_debug context={i} title={(title ~ "." if title else "") ~ loop.index} depth re skip /> }}
+{{ <_debug context={i} title={(title ~ `.` if title else ``) ~ loop.index} depth re skip /> }}
     {%- endfor %}
   {%- endif %}
 {% endcomponent %}
@@ -87,5 +87,5 @@ Maximum recursion depth exceeded. {{ iter | length }} not shown.
   elif value is float %}{{ value }}{%
   elif value is undefined %}&lt;undefined&gt;{%
   else %}&lt;unknown&gt;{%
-  endif
-%}{% endcomponent %}
+  endif %}{%
+endcomponent %}

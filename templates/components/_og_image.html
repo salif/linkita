@@ -1,29 +1,29 @@
-{% component _og_image(_g_profile: map, ctx: map, _ca_profile: map) -%}
-{%- if ctx.image?.url or _g_profile?.og_image or _ca_profile?.og_image %}
-  {%- if ctx.image?.url %}
+{% component _og_image(@ctx: map, _g_profile, _ca_profile) -%}
+  {%- if ctx.image?.url or _g_profile?.og_image or _ca_profile?.og_image %}
+    {%- if ctx.image?.url %}
   <meta property="og:image" content="{{ ctx.image.url }}" />
-    {%- set og_image_alt = ctx.image.alt | default(value="") %}
-  {%- elif _g_profile?.og_image %}
+      {%- set og_image_alt = ctx.image.alt | default(value="") %}
+    {%- elif _g_profile?.og_image %}
   <meta property="og:image" content="{{ get_url(path=_g_profile.og_image, trailing_slash=false) }}" />
-    {%- if _g_profile.languages?[ctx.lang]?.og_image_alt is string %}
-      {%- set og_image_alt = _g_profile.languages[ctx.lang].og_image_alt %}
-    {%- else %}
-      {%- set og_image_alt = _g_profile.og_image_alt | default(value="") %}
-    {%- endif %}
-  {%- elif _ca_profile?.og_image %}
+      {%- if _g_profile.languages?[ctx.lang]?.og_image_alt is string %}
+        {%- set og_image_alt = _g_profile.languages[ctx.lang].og_image_alt %}
+      {%- else %}
+        {%- set og_image_alt = _g_profile.og_image_alt | default(value="") %}
+      {%- endif %}
+    {%- elif _ca_profile?.og_image %}
   <meta property="og:image" content="{{ get_url(path=_ca_profile.og_image, trailing_slash=false) }}" />
-    {%- if _ca_profile.languages?[ctx.lang]?.og_image_alt is string %}
-      {%- set og_image_alt = _ca_profile.languages[ctx.lang].og_image_alt %}
+      {%- if _ca_profile.languages?[ctx.lang]?.og_image_alt is string %}
+        {%- set og_image_alt = _ca_profile.languages[ctx.lang].og_image_alt %}
+      {%- else %}
+        {%- set og_image_alt = _ca_profile.og_image_alt | default(value="") %}
+      {%- endif %}
     {%- else %}
-      {%- set og_image_alt = _ca_profile.og_image_alt | default(value="") %}
+      {{- throw(message="Error in _og_image. Please report this bug.") }}
     {%- endif %}
-  {%- else %}
-    {{- throw(message="Error in _og_image. Please report this bug.") }}
-  {%- endif %}
   <meta property="og:image:alt" content="{{ og_image_alt | newlines_to_br | truncate(length=500) }}" />
-  {%- if ctx.image?.url and ctx.image?.width is defined and ctx.image?.height is defined %}
+    {%- if ctx.image?.url and ctx.image?.width is defined and ctx.image?.height is defined %}
   <meta property="og:image:width" content="{{ ctx.image.width | int }}" />
   <meta property="og:image:height" content="{{ ctx.image.height | int }}" />
+    {%- endif %}
   {%- endif %}
-{%- endif %}
 {%- endcomponent %}

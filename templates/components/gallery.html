@@ -1,5 +1,9 @@
-{% component gallery(page: map, config: map, alt="") %}
+{% component gallery(@config: map, @page=none, @section=none, alt="") %}
 
+{%- if section is map and page is none %}
+  {%- set page = section %}
+  {%- set section = none %}
+{%- endif %}
 {#- From variables.html #}
 {%- set ctx = {
   "lang": page.lang,
@@ -17,8 +21,8 @@
     {%- set image = resize_image(path=asset, width=240, height=180) %}
     {%- set asset_name = asset | split(pat="/")[-1:] | join(sep="/") %}
   <a href="{{ <_link dest={get_url(path=page.path ~ asset_name,
-    lang=ctx.lang, trailing_slash=false)} ctx /> }}" target="_blank">
-    <img class="rounded-lg" src="{{ <_link dest={image.url} ctx /> }}"{%
+    lang=ctx.lang, trailing_slash=false)} /> }}" target="_blank">
+    <img class="rounded-lg" src="{{ <_link dest={image.url} /> }}"{%
       if alt is string %} alt="{{ alt }}"{% endif %} />
   </a>
   {%- endif %}
