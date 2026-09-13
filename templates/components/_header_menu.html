@@ -1,4 +1,4 @@
-{% component _header_menu(config: map, ctx: map, _menu_msg, header_menu: array) %}
+{% component _header_menu(@config: map, @ctx: map, header_menu: array, _i18n_menu) %}
 <menu
   class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0">
   {%- for m in header_menu %}
@@ -8,17 +8,17 @@
   <li>
     <a
       class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
-      href="{{ <_link dest={m.url} ctx /> }}"
+      href="{{ <_link dest={m.url} /> }}"
     >{# todo #}{%
         if m.names?[ctx.lang] %}{{
           m.names[ctx.lang] }}{%
         elif config.extra.menu_i18n and
           ctx.lang != ctx.hreflang and m.name is string and
-          _menu_msg[m.name][ctx.hreflang] %}{{
-          _menu_msg[m.name][ctx.hreflang] }}{%
+          _i18n_menu[m.name][ctx.hreflang] %}{{
+          _i18n_menu[m.name][ctx.hreflang] }}{%
         elif config.extra.menu_i18n and m.name is string and
-          _menu_msg[m.name][ctx.lang] %}{{
-          _menu_msg[m.name][ctx.lang] }}{%
+          _i18n_menu[m.name][ctx.lang] %}{{
+          _i18n_menu[m.name][ctx.lang] }}{%
         elif m.name %}{{
           m.name }}{%
         else %}{{

@@ -7,14 +7,14 @@
   if ctx.is_article %} article: https://ogp.me/ns/article#{% endif %}">
   {%- include "partial_head.html" %}
   {% include "injects/head.html" %}
-  {{- <_stylesheets config page ctx /> }}
-  {{- <_head_style config page /> }}
-  {{- <_scripts ctx /> }}
+  {{- <_stylesheets /> }}
+  {{- <_head_style /> }}
+  {{- <_scripts /> }}
   {%- if _g_profile %}
-  {{- <_head_preload config ctx _g_profile /> }}
+  {{- <_head_preload _g_profile /> }}
   {%- endif %}
   {%- if not config.extra.disable_default_favicon %}
-  {{- <_favicon ctx /> }}
+  {{- <_favicon /> }}
   {%- endif %}
   {% include "injects/head_end.html" %}
 </head>
@@ -25,12 +25,12 @@
     relative mx-auto min-h-[calc(100vh-4rem)] max-w-3xl px-4 pt-28 lg:pt-32 pb-12 wrap-break-word">
     {% include "injects/body_start.html" %}
     {%- if config.build_search_index %}
-      {{ <_search config ctx /> }}
+      {{ <_search /> }}
     {%- endif %}
     {% block main %}
       {%- if _g_profile %}
         {%- if paginator is undefined or paginator.current_index == 1 %}
-          {{ <_profile page ctx _g_profile /> }}
+          {{ <_profile _g_profile /> }}
         {%- endif %}
       {%- elif page.title is string %}
     <h1 class="mb-16">{{ page.title }}</h1>
@@ -38,27 +38,27 @@
       {%- if page.content %}
     <section>{{ page.content | safe }}</section>
       {%- endif %}
-      {{ <_list_pages config ctx _msg pages={paginator?.pages | default(value=page.pages)} /> }}
-      {{ <_list_nav ctx _msg paginator taxonomy /> }}
+      {{ <_list_pages pages={paginator?.pages | default(value=page.pages)} /> }}
+      {{ <_list_nav paginator taxonomy /> }}
     {% endblock main %}
   </main>
   <footer class="mx-auto flex lg:mt-5 max-w-3xl flex-wrap items-center px-4 py-3 text-sm opacity-60">
     <div class="mr-auto basis-full lg:basis-1/2">
-      {{ <_copyright config ctx _ca_profile /> }}
+      {{ <_copyright _ca_profile /> }}
     </div>
     <div class="flex basis-full lg:basis-1/2 lg:justify-end">
-      {{ <_generator _msg /> }}
+      {{ <_generator /> }}
     </div>
   {% include "injects/footer.html" %}
   </footer>
 
   {%- if page.extra.math | default(value=config.extra.math) %}
-  {{ <_math ctx use_cdn={config.extra.use_cdn} /> }}
+  {{ <_math use_cdn={config.extra.use_cdn} /> }}
   {%- endif %}
   {%- if page.extra.mermaid | default(value=config.extra.mermaid) %}
-  {{ <_mermaid ctx use_cdn={config.extra.use_cdn} /> }}
+  {{ <_mermaid use_cdn={config.extra.use_cdn} /> }}
   {%- endif %}
-  {{ <_analytics config ctx current_path /> }}
+  {{ <_analytics /> }}
   {% include "injects/body_end.html" %}
 </body>
 

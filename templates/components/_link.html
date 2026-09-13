@@ -1,4 +1,4 @@
-{% component _link(dest: string, ctx: map) %}{%
+{% component _link(dest: string, @ctx: map) %}{%
 
   if dest is starting_with(pat="$BASE_URL") %}{{
     throw(message=`'$BASE_URL' is obsolete, read https://salif.github.io/linkita/update-2/ `) }}{%
@@ -31,5 +31,6 @@
 
   if ctx.ugly_urls and dest is ending_with(pat="/") %}{{
     "index.html" }}{%
-  endif
-%}{% endcomponent %}
+  endif %}{%
+
+endcomponent %}

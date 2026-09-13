@@ -4,16 +4,16 @@
   {% include "injects/page_start.html" %}
   <header class="mb-16">
     <h1 class="my-0! pb-3">{{ page.title }}</h1>
-    {{ <_page_info config page ctx _msg on_page={true} /> }}
+    {{ <_page_info page={page} on_page={true} /> }}
   </header>
-  {{ <_cover_image ctx /> }}
-  {{ <_toc page conf={config.extra.toc} def={true} _msg /> }}
+  {{ <_cover_image /> }}
+  {{ <_toc conf={config.extra.toc} def={true} /> }}
   <!-- Content -->
   <section>{{ page.content | safe }}</section>
   <hr />
-  {{ <_post_taxonomies config page ctx _msg /> }}
+  {{ <_post_taxonomies /> }}
   {%- if page.lower is map or page.higher is map %}
-  {{ <_post_navigation page ctx _msg invert={config.extra.invert_page_navigation} /> }}
+  {{ <_post_navigation invert={config.extra.invert_page_navigation} /> }}
   {%- endif %}
   {%- if page.extra.comment | default(value=config.extra.comment) %}
   {{ <_giscus conf={config.extra.giscus} /> }}

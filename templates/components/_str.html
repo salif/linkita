@@ -1,9 +1,9 @@
-{% component _str(key: string, _msg: map) %}{%
-  if _msg[key]?["value"] %}{{
-    _msg[key]["value"] | safe }}{%
-  elif _msg[key]?["fallback"] %}{{
-    _msg[key]["fallback"] | safe }}{%
+{% component _str(key: string, @i18n: map) %}{%
+  if i18n[key]?["value"] %}{{
+    i18n[key]["value"] | safe }}{%
+  elif i18n[key]?["fallback"] %}{{
+    i18n[key]["fallback"] | safe }}{%
   else %}{{
     throw(message="No translation for key: " ~ key) }}{%
-  endif
-%}{% endcomponent %}
+  endif %}{%
+endcomponent %}

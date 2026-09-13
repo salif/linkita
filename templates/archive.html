@@ -7,7 +7,7 @@
   {%- set _format = page.extra.date_format | default(value=`%m-%d`) %}
 {%- endif %}
 {%- if _g_profile %}
-  {{ <_profile page ctx _g_profile /> }}
+  {{ <_profile _g_profile /> }}
 {%- elif page.title %}
 <h1 class="mb-16">{{ page.title }}</h1>
 {%- endif %}
@@ -29,14 +29,14 @@
 
 {%- for year in _pages | keys | sort | reverse %}
   {%- set posts = _pages[year] %}
-<h2>{{ year }} <sup class="opacity-60">{{ <_num value={(posts | length)} ctx /> }}</sup></h2>
+<h2>{{ year }} <sup class="opacity-60">{{ <_num value={(posts | length)} /> }}</sup></h2>
 
 <div class="not-prose pl-4 lg:pl-6">
   <ul>
     {%- for post in posts | sort(attribute=`date`) | reverse %}
     <li>
       <div class="my-2 flex items-center justify-between">
-        <a class="secondary-link" href="{{ <_link dest={post.permalink} ctx /> }}">{%
+        <a class="secondary-link" href="{{ <_link dest={post.permalink} /> }}">{%
           if post.title %}{{ post.title }}{% else %}{{ post.slug }}{% endif %}</a>
         <time class="font-mono text-sm max-md:flex-none opacity-80" datetime="{{
           <_datetime value={post.date} _format=`%FT%T%:z` /> }}">{{

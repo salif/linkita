@@ -1,4 +1,4 @@
-{% component _list_pages(config: map, ctx: map, _msg: map, pages: array) %}
+{% component _list_pages(@config: map, pages: array) %}
 {%- for _page in pages %}
 <section
   class="block-bg relative mb-4 rounded-lg p-4 first-of-type:mt-0 last-of-type:mb-0 active:scale-95 lg:mb-6 lg:p-6"
@@ -7,7 +7,7 @@
   <figure class="mt-0 mb-4">
     <img
       class="h-auto w-full rounded-lg"
-      src="{{ <_link dest={<_link_cover_image path={_page.extra.cover.image} assets={_page.assets} ctx />} ctx /> }}"
+      src="{{ <_link dest={<_link_cover_image path={_page.extra.cover.image} assets={_page.assets} />} /> }}"
       {%- if _page.extra.cover.alt is string %}
       alt="{{ _page.extra.cover.alt }}"{% endif %}
       {%- if _page.extra.cover.width is defined %}
@@ -33,7 +33,7 @@
   {%- if use_summary %}
   <div class="not-prose my-1">
     {{ _page.summary | striptags | trim_end | trim_end(pat=`&hellip;`) | trim_end(pat=`.`) |
-      safe }}{{ <_str key=`hellip` _msg /> }}
+      safe }}{{ <_str key=`hellip` /> }}
   </div>
   {%- elif _page.description is string %}
   <div class="not-prose my-1 truncate">
@@ -43,11 +43,11 @@
   <div class="my-1 truncate"></div>
   {%- endif %}
 
-  {{ <_page_info config page={_page} ctx _msg on_page={false} /> }}
+  {{ <_page_info page={_page} on_page={false} /> }}
 
   {#- todo {% if use_summary %}#continue-reading{% endif %} #}
   <a class="absolute inset-0 text-[0px]" href="{{
-    <_link dest={_page.permalink} ctx /> }}">{{ _page.title }}</a>
+    <_link dest={_page.permalink} /> }}">{{ _page.title }}</a>
 </section>
 {%- endfor %}
 {% endcomponent %}

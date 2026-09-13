@@ -1,4 +1,4 @@
-{% component _math(ctx: map, use_cdn) -%}
+{% component _math(use_cdn) -%}
   {%- if use_cdn %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css"
     integrity="sha384-u1zONI5gPXUx0UKI62c75/zww972y0v2rSK5ZYlVdS6xEuWDeZWUI66v6t1gvlXJ" crossorigin="anonymous" />
@@ -7,9 +7,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/contrib/auto-render.min.js"
     integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"></script>
   {%- else %}
-  <link rel="stylesheet" href="{{ <_link_static path=`katex/katex.min.css` ctx /> }}" />
-  <script defer src="{{ <_link_static path=`katex/katex.min.js` ctx /> }}"></script>
-  <script defer src="{{ <_link_static path=`katex/contrib/auto-render.min.js` ctx /> }}"></script>
+  <link rel="stylesheet" href="{{ <_link_static path=`katex/katex.min.css` /> }}" />
+  <script defer src="{{ <_link_static path=`katex/katex.min.js` /> }}"></script>
+  <script defer src="{{ <_link_static path=`katex/contrib/auto-render.min.js` /> }}"></script>
   {%- endif %}
   <script>document.addEventListener("DOMContentLoaded", window.zolaTheme.katex.init);</script>
 {%- endcomponent %}

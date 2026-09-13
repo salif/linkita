@@ -1,9 +1,9 @@
-{% component _cover_image(ctx: map) %}
-{%- if ctx.image?.url %}
+{% component _cover_image(@ctx: map) %}
+  {%- if ctx.image?.url %}
   <figure class="mt-0 mb-12">
     <img
       class="h-auto w-full rounded-lg"
-      src="{{ <_link dest={ctx.image.url} ctx /> }}"
+      src="{{ <_link dest={ctx.image.url} /> }}"
       {%- if ctx.image?.alt is string %}
       alt="{{ ctx.image.alt }}"{% endif %}
       {%- if ctx.image?.width is defined %}

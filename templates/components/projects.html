@@ -1,4 +1,9 @@
-{% component projects(path: string, format: string, page: map, config: map) %}
+{% component projects(path: string, format: string, @config: map, @page=none, @section=none) %}
+
+{%- if section is map and page is none %}
+  {%- set page = section %}
+  {%- set section = none %}
+{%- endif %}
 
 {%- if path is starting_with(pat="/") %}
   {%- set projects = load_data(path=path, format=format, required=true) %}
@@ -44,7 +49,7 @@
       {%- for link in links %}
       <a
         class="underline"
-        href="{{ <_link dest={link.url} ctx /> }}"
+        href="{{ <_link dest={link.url} /> }}"
         {%- if link.newtab | default(value=true) %}
         target="_blank"{% endif %}
       >{{ link.name }}</a>
