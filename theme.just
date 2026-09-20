@@ -32,10 +32,6 @@ update_favicon:
     magick -background transparent -define "icon:auto-resize=16,24,32,48,64" \
         static/apple-touch-icon.png static/favicon.ico
 
-[group('update_assets')]
-update_pnpm:
-    pnpm update
-
 [extension('.mjs')]
 [group('update_assets')]
 [script("node")]

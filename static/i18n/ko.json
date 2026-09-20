@@ -30,17 +30,17 @@
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "라이트 모드로 전환",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "다크 모드로 전환",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "색상 테마 초기화",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "페이지 번역 보기",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "Zola로 제작됨",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "Zola로 구축됨",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "",
+    "value": "이 사이트 검색. 입력하는 동안 결과가 로드됩니다.",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },

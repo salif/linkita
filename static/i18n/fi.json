@@ -30,17 +30,17 @@
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "Vaihda vaaleaan tilaan",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "Vaihda tummaan tilaan",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "Palauta väriteema",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "Näytä sivun käännökset",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "Voimanlähteenä Zola",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "Tehty Zolalla",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "Rakennettu Zolalla",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "Hae sivustolta. Tulokset tulevat näkyviin, kun kirjoitat.",
+    "value": "Hae tältä sivustolta. Tulokset latautuvat kirjoitettaessa.",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },

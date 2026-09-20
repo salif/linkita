@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
+  "footer_made_with": {
     "value": "",
-    "fallback": "Powered by Zola",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {

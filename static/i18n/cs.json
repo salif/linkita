@@ -30,17 +30,17 @@
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "Přepnout na světlý režim",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "Přepnout na tmavý režim",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "Obnovit výchozí barevné schéma",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "Zobrazit překlady stránky",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "Poháněno pomocí Zola",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "Vytvořeno pomocí Zola",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "Postaveno na Zola",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "",
+    "value": "Hledat na tomto webu. Výsledky se budou načítat při psaní.",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },

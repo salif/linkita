@@ -25,22 +25,22 @@
     "needs_edit": ""
   },
   "act_switch_color_scheme": {
-    "value": "Сменить тему",
+    "value": "Переключить цветовую схему",
     "fallback": "Switch color scheme",
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "Переключить на светлую тему",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "Переключить на тёмную тему",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "Сбросить цветовую схему",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "Показать переводы страницы",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "Работает на Zola",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "Сделано на Zola",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "Создано на Zola",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "Искать на сайте. Результаты будут загружаться по мере ввода.",
+    "value": "Поиск по сайту. Результаты будут загружаться по мере ввода.",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },

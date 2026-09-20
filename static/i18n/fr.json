@@ -30,17 +30,17 @@
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "Passer en mode clair",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "Passer en mode sombre",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "Réinitialiser le thème de couleurs",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "Afficher les traductions de la page",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "Propulsé par Zola",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "Fait avec Zola",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "Conçu avec Zola",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "",
+    "value": "Rechercher sur ce site. Les résultats se chargeront pendant la saisie.",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },

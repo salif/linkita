@@ -38,8 +38,11 @@
   "act_menu": {
     "value": "Toggle menu"
   },
-  "footer_powered_by": {
-    "value": "Powered by Zola"
+  "footer_made_with": {
+    "value": "Made with Zola"
+  },
+  "footer_built_with": {
+    "value": "Built with Zola"
   },
   "footer_theme_name": {
     "value": "Linkita"

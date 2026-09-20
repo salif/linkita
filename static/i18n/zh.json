@@ -30,17 +30,17 @@
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "切换到浅色模式",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "切换到深色模式",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "重置配色方案",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "显示页面翻译",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "基于 Zola 制作",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "基于 Zola 构建",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "",
+    "value": "搜索本站。结果将在输入时实时加载。",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },

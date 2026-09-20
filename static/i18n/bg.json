@@ -40,7 +40,7 @@
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "Нулиране на цветовата схема",
+    "value": "Възстановяване на цветовата схема",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -64,9 +64,14 @@
     "fallback": "Toggle menu",
     "needs_edit": ""
   },
-  "footer_powered_by": {
-    "value": "Осъществено чрез Зола",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "Направено със Зола",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "Изградено със Зола",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {

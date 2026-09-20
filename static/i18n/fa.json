@@ -30,17 +30,17 @@
     "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "",
+    "value": "تغییر به حالت روشن",
     "fallback": "Switch to light mode",
     "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "",
+    "value": "تغییر به حالت تاریک",
     "fallback": "Switch to dark mode",
     "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "",
+    "value": "بازنشانی طرح رنگی",
     "fallback": "Reset color scheme",
     "needs_edit": ""
   },
@@ -55,7 +55,7 @@
     "needs_edit": "Go to translation of the page"
   },
   "act_show_translations": {
-    "value": "",
+    "value": "نمایش ترجمه‌های صفحه",
     "fallback": "Show page translations",
     "needs_edit": ""
   },
@@ -64,13 +64,18 @@
     "fallback": "Toggle menu",
     "needs_edit": "Menu"
   },
-  "footer_powered_by": {
-    "value": "قدرت گرفته از Zola",
-    "fallback": "Powered by Zola",
+  "footer_made_with": {
+    "value": "ساخته‌شده با Zola",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
+  },
+  "footer_built_with": {
+    "value": "توسعه‌یافته با Zola",
+    "fallback": "Built with Zola",
     "needs_edit": ""
   },
   "footer_theme_name": {
-    "value": "لینکیتا",
+    "value": "Linkita",
     "fallback": "Linkita",
     "needs_edit": ""
   },
@@ -135,7 +140,7 @@
     "needs_edit": ""
   },
   "future_search_input": {
-    "value": "جستجو در این وبگاه. نتیجه‌ها در حین تایپ بارگذاری می‌شوند.",
+    "value": "جستجو در این سایت. نتایج هم‌زمان با نوشتن بارگذاری می‌شوند.",
     "fallback": "Search this site. Results will load as you type.",
     "needs_edit": ""
   },
