@@ -65,6 +65,8 @@ theme = "linkita"
 
 Place it near the `base_url` variable, not under `[extra]`.
 
+3. Read the instructions to [add configuration](#configuration) and [create content](https://salif.github.io/linkita/manual) on your site.
+
 ## Managing versions
 
 If you installed it as a submodule, you can update by running this command:
@@ -156,117 +158,6 @@ alt = ""
 ### Other extra front matter variables
 
 Linkita supports [more extra variables, listed here](https://salif.github.io/linkita/extra-frontmatter/).
-
-### Pages and Posts
-
-#### Home page
-
-Create a `content/_index.md` file and set `extra.profile` to your username:
-
-```toml ,name=content/_index.md
-+++
-title = ""
-description = ""
-sort_by = "date"
-paginate_by = 4
-[extra]
-profile = "your_username"
-+++
-```
-
-Do it for each language in your site.
-For French, the file name is `content/_index.fr.md`.
-
-See [Profiles](#profiles) for more.
-
-#### Posts
-
-In the `content` directory, create a subdirectory named `blog` or another name of your choice.
-
-Create a `content/blog/_index.md` file:
-
-```toml ,name=content/blog/_index.md
-+++
-title = "Archive"
-description = ""
-template = "archive.html"
-transparent = true
-[extra]
-# Change it to "%b %d" if `locale` is not set in config.
-date_format = "MMM dd"
-+++
-```
-
-Create a `content/blog/hello.md` file:
-
-```md ,name=content/blog/hello.md
-+++
-title = "Title"
-date = 2026-12-30
-+++
-
-Summary <!-- more -->
-
-## Hello, world!
-```
-
-#### Pages
-
-The default page template `page.html` is for blog posts.
-For pages that are not blog posts, you can use the `pages.html` template.
-
-In the `content` directory, create a subdirectory named `pages` and
-create a `content/pages/_index.md` file:
-
-```toml ,name=content/pages/_index.md
-+++
-render = false
-page_template = "pages.html"
-+++
-```
-
-Create a `content/pages/about.md` file:
-
-```md ,name=content/pages/about.md
-+++
-title = "About me"
-description = ""
-path = "about"
-+++
-
-## Hello, world!
-```
-
-If you wish, you can also create [a page for your projects](https://salif.github.io/linkita/components/#projects).
-
-### Setting page authors
-
-Choose one of the following options or skip if you don't know what you're doing:
-
-#### Option A: Using `page.authors` and `config.author`
-
-The default author for posts is set using the `author` variable in the `zola.toml` file.
-
-You don't need to set `authors` in the front matter if the default author is the only author of the post.
-Otherwise, set `authors`:
-
-```toml ,name=frontmatter
-+++
-authors = ["author_username"]
-+++
-```
-
-#### Option B: Using Taxonomies
-
-Useful if the blog has a team of several authors.
-If you choose this option you should set taxonomies in each post.
-
-```toml ,name=frontmatter
-+++
-[taxonomies]
-authors = ["author_username", "author2_username"]
-+++
-```
 
 ### Inject support
 
@@ -761,10 +652,9 @@ Live preview is available in the following languages:
 
 [Arabic](https://salif.github.io/linkita/ar/),
 [Bulgarian](https://salif.github.io/linkita/bg/),
-[Czech](https://salif.github.io/linkita/cs/),
 [Esperanto](https://salif.github.io/linkita/eo/),
 [Spanish](https://salif.github.io/linkita/es/),
-[Finnish](https://salif.github.io/linkita/fi/),
+[Persian](https://salif.github.io/linkita/fa/),
 [French](https://salif.github.io/linkita/fr/),
 [Globasa](https://salif.github.io/linkita/gb/),
 [Japanese](https://salif.github.io/linkita/ja/),
