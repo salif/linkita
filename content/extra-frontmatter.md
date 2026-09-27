@@ -1,6 +1,6 @@
 +++
-title="Extra frontmatter"
-description = "Optional variables used by the Linkita theme."
+title="Extra Front Matter"
+description = "Front matter fields used by the Linkita theme"
 date = 2025-04-11
 [taxonomies]
 #tags = []

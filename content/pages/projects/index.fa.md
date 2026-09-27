@@ -1,7 +1,7 @@
 +++
-title = "Projekty"
+title = "پروژه‌های من"
 #description = ""
-path = "cs/projects"
+path = "fa/projects"
 +++
 
 {{ <projects path="data.toml" format="toml" /> }}

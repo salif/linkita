@@ -44,17 +44,6 @@ taxonomies = [
   { name = "authors", feed = true, paginate_by = 4 },
 ]
 
-[languages.cs]
-title = "Linkita"
-description = "Čistá a elegantní šablona blogu pro Zolu. Linkita je založena na šablonách Kita a Hugo-Paper, je vícejazyčná a přizpůsobená pro SEO."
-build_search_index = false
-generate_feeds = true
-feed_filenames = ["atom.xml"]
-taxonomies = [
-  { name = "tags", feed = false, paginate_by = 4 },
-  { name = "authors", feed = false, paginate_by = 4 },
-]
-
 [languages.eo]
 title = "Linkita"
 description = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
@@ -77,10 +66,10 @@ taxonomies = [
   { name = "authors", feed = false, paginate_by = 4 },
 ]
 
-[languages.fi]
-title = "Linkita"
-description = "Puhdas ja elegantti blogiteema Zolalle. Linkita perustuu Kitaan ja Hugo-Paperiin ja on monikielinen sekä SEO-ystävällinen."
-build_search_index = true
+[languages.fa]
+title = "لینکیتا"
+description = "یک پوسته تمیز و شیک وبلاگ برای زولا. لینکیتا بر پایه کیتا و هوگو-پیپر است و چندزبانه و سازگار با سئو می‌باشد."
+build_search_index = false
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 taxonomies = [
@@ -234,11 +223,6 @@ name = "Линкита - Тема за Зола"
 bio = "Линкита е многоезична, оптимизирана за търсачки, изчистена и елегантна блог тема за Зола."
 avatar_alt = "Демонстративен аватар за профила."
 og_image_alt = "Екранна снимка на този сайт." 
-[extra.profiles.linkita_theme.languages.cs]
-name = "Linkita - Šablona pro Zolu"
-bio = "Čistá a elegantní šablona blogu pro Zolu. Linkita je založena na šablonách Kita a Hugo-Paper, je vícejazyčná a přizpůsobená pro SEO."
-avatar_alt = "Ukázkový profilový avatar."
-og_image_alt = "Snímek obrazovky této webové stránky."
 [extra.profiles.linkita_theme.languages.eo]
 name = "Linkita - Temo por Zola"
 bio = "Pura kaj eleganta bloga temo por Zola. Linkita baziĝas sur Kita kaj Hugo-Paper kaj estas plurlingva kaj SEO-amika."
@@ -249,11 +233,11 @@ name = "Linkita - Tema para Zola"
 bio = "Un tema de blog para Zola, limpio y elegante. Linkita está basado en Kita y Hugo-Paper, es multilingüe y amigable con el SEO."
 avatar_alt = "Avatar de perfil de demostración."
 og_image_alt = "Una captura de pantalla de este sitio web."
-[extra.profiles.linkita_theme.languages.fi]
-name = "Linkita - Zola-teema"
-bio = "Puhdas ja elegantti blogiteema Zolalle. Linkita perustuu Kitaan ja Hugo-Paperiin ja on monikielinen sekä SEO-ystävällinen."
-avatar_alt = "Demon profiiliavatari."
-og_image_alt = "Kuvakaappaus tältä verkkosivustolta."
+[extra.profiles.linkita_theme.languages.fa]
+name = "لینکیتا - پوسته زولا"
+bio = "یک پوسته تمیز، شیک و چندزبانه وبلاگ برای زولا."
+avatar_alt = "تصویر نمایه آزمایشی."
+og_image_alt = "تصویری از نمای این وب‌سایت."
 [extra.profiles.linkita_theme.languages.fr]
 name = "Linkita - Thème Zola"
 bio = "Un thème de blog propre et élégant pour Zola. Linkita est basé sur Kita et Hugo-Paper, il est multilingue et optimisé pour le SEO."
@@ -293,18 +277,15 @@ bio = "مرحبًا! انا المؤلف."
 [extra.profiles.salif.languages.bg]
 name = "Салиф"
 bio = "Здравейте! Аз съм авторът тук."
-[extra.profiles.salif.languages.cs]
-name = "Salif"
-bio = "Ahoj! Jsem autor."
 [extra.profiles.salif.languages.eo]
 name = "Salif"
 bio = "Saluton! Mi estas la aŭtoro."
 [extra.profiles.salif.languages.es]
 name = "Salif"
 bio = "¡Hola! Soy el autor."
-[extra.profiles.salif.languages.fi]
-name = "Salif"
-bio = "Hei! Olen tämän teeman tekijä."
+[extra.profiles.salif.languages.fa]
+name = "سالیف"
+bio = "سلام! من نویسنده هستم."
 [extra.profiles.salif.languages.fr]
 name = "Salif"
 bio = "Salut ! Je suis l'auteur."
@@ -403,16 +384,6 @@ authors = "Разгледайте всички автори на този сай
 tags = "Списък на страниците отнасящи се до $NAME."
 authors = "Списък на страниците написани от $NAME."
 
-[extra.languages.cs]
-locale = "cs_CZ"
-#date_format = "%F"
-[extra.languages.cs.taxonomy_descriptions]
-tags = "Přehled všech štítků na tomto webu. Začněte prozkoumávat!"
-authors = "Přehled všech autorů na tomto webu. Začněte prozkoumávat!"
-[extra.languages.cs.term_descriptions]
-tags = "Procházejte články související s $NAME. Začněte prozkoumávat!"
-authors = "Procházejte články napsané autorem $NAME. Začněte prozkoumávat!"
-
 [extra.languages.eo]
 locale = "eo"
 #date_format = "%F"
@@ -433,15 +404,15 @@ authors = "Un mapa de todos los autores de este sitio. ¡Empieza a explorar!"
 tags = "Navega por los artículos relacionados con $NAME. ¡Empieza a explorar!"
 authors = "Navega por los artículos escritos por $NAME. ¡Empieza a explorar!"
 
-[extra.languages.fi]
-locale = "fi_FI"
+[extra.languages.fa]
+locale = "fa_IR"
 #date_format = "%F"
-[extra.languages.fi.taxonomy_descriptions]
-tags = "Kartta kaikista tämän sivuston avainsanoista. Aloita tutkiminen!"
-authors = "Kartta kaikista tämän sivuston kirjoittajista. Aloita tutkiminen!"
-[extra.languages.fi.term_descriptions]
-tags = "Selaa artikkeleita, jotka liittyvät avainsanaan $NAME. Aloita tutkiminen!"
-authors = "Selaa kirjoittajan $NAME kirjoittamia artikkeleita. Aloita tutkiminen!"
+[extra.languages.fa.taxonomy_descriptions]
+tags = "نقشه‌ای از تمام برچسب‌های این سایت. کاوش را آغاز کنید!"
+authors = "نقشه‌ای از تمام نویسندگان این سایت. کاوش را آغاز کنید!"
+[extra.languages.fa.term_descriptions]
+tags = "مرور مقالات مرتبط با $NAME. کاوش را آغاز کنید!"
+authors = "مرور مقالات نوشته‌شده توسط $NAME. کاوش را آغاز کنید!"
 
 [extra.languages.fr]
 locale = "fr_FR"

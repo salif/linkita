@@ -1,7 +1,7 @@
 +++
-title = "Archiv"
+title = "بایگانی"
 #description = ""
-path = "cs/archive"
+path = "fa/archive"
 template = "archive.html"
 [extra]
 section = "_index.md"
