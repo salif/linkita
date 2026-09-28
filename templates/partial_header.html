@@ -81,7 +81,7 @@
             bg-center bg-no-repeat bg-cover [background-image:var(--icons-search,url(icons/search.svg))] dark:invert"
         ></button>
 
-          {%- elif header_button == "translations_select" and page.translations %}
+          {%- elif header_button == "translations_select" and page.translations is array and (page.translations | length) > 1 %}
         <details name="header_button">
           <summary
             title="{{ <_str key=`act_show_translations` /> }} [Alt + ;]" accesskey=";"
