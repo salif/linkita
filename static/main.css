@@ -788,6 +788,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .cursor-progress {
+    cursor: progress;
+  }
   .scroll-pt-14 {
     scroll-padding-top: calc(var(--spacing) * 14);
   }

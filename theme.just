@@ -17,6 +17,7 @@ build_css:
 
 [group('dev')]
 build_js:
+    @# see _scripts.html
     pnpm run build:js
 
 [group('dev')]

@@ -1,3 +1,4 @@
+updateNotifier: false
 allowBuilds:
   '@parcel/watcher': true
   puppeteer: true

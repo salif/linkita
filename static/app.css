@@ -1,5 +1,6 @@
 @import "tailwindcss" source("../templates");
 @source "../../../templates";
+@source inline("cursor-progress");
 @plugin "@tailwindcss/typography";
 @custom-variant dark (&:where(.dark, .dark *));
 

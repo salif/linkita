@@ -4,6 +4,7 @@ zolaTheme.search = {
     this.SearchFiles = scripts
     this.ElWrapper = document.querySelector(arg.w)
     this.ElResults = document.querySelector(arg.r)
+    this.CursorWait = false
   },
 
   toggle: function () {
@@ -16,6 +17,10 @@ zolaTheme.search = {
     }
 
     if ("undefined" === typeof (searchIndex) && "undefined" === typeof (elasticlunr)) {
+      if (!this.CursorWait) {
+        document.body.classList.add("cursor-progress")
+        this.CursorWait = true
+      }
       this.ElResults.innerHTML = "<li>Search: Please wait...</li>"
       this.SearchFiles.reduce(
         (promise, src) => promise.then(() => this.loadScript(src)),
@@ -23,6 +28,10 @@ zolaTheme.search = {
       )
         .catch((error) => {
           this.showError("<li>Search file not found: <code>" + error + "</code></li>")
+          if (this.CursorWait) {
+            document.body.classList.remove("cursor-progress")
+            this.CursorWait = false
+          }
         })
         .then((t) => {
           this.index = elasticlunr.Index.load(window.searchIndex)
@@ -49,6 +58,10 @@ zolaTheme.search = {
       this.showError("<li>No search results for <code>" + this.myEscape(q) + "</code>.</li>")
     }
     this.ElResults.scrollIntoViewIfNeeded()
+    if (this.CursorWait) {
+      document.body.classList.remove("cursor-progress")
+      this.CursorWait = false
+    }
   },
 
   showError: function (err) {
