@@ -1,0 +1,98 @@
+{
+  "word_translations": {
+    "value": "Übersetzungen"
+  },
+  "taxonomy_tags": {
+    "value": "Tags"
+  },
+  "taxonomy_categories": {
+    "value": "Kategorien"
+  },
+  "taxonomy_authors": {
+    "value": "Autoren"
+  },
+  "act_go_to_home": {
+    "value": "Zur Startseite"
+  },
+  "act_switch_color_scheme": {
+    "value": "Farb-Schema wechseln"
+  },
+  "act_switch_to_light": {
+    "value": "Zum hellen Modus wechseln"
+  },
+  "act_switch_to_dark": {
+    "value": "Zum dunklen Modus wechseln"
+  },
+  "act_reset_color_scheme": {
+    "value": "Farb-Schema zurücksetzen"
+  },
+  "act_search": {
+    "value": "Suche öffnen"
+  },
+  "act_go_to_translation": {
+    "value": "Zu Übersetzungen gehen"
+  },
+  "act_show_translations": {
+    "value": "Seite der Übersetzung anzeigen"
+  },
+  "act_menu": {
+    "value": "Menü öffnen / schließen"
+  },
+  "footer_made_with": {
+    "value": "Made with Zola"
+  },
+  "footer_built_with": {
+    "value": "Built with Zola"
+  },
+  "footer_theme_name": {
+    "value": "Linkita"
+  },
+  "title_page": {
+    "value": "Seite $NUM"
+  },
+  "word_prev_page": {
+    "value": "Vorherige Seite"
+  },
+  "word_next_page": {
+    "value": "Nächste Seite"
+  },
+  "word_toc": {
+    "value": "Inhaltsverzeichnis"
+  },
+  "word_minute": {
+    "value": "min"
+  },
+  "word_minutes": {
+    "value": "min"
+  },
+  "word_words": {
+    "value": "Worte"
+  },
+  "word_more": {
+    "value": "Mehr &raquo;"
+  },
+  "left_arrow": {
+    "value": "&lsaquo;"
+  },
+  "right_arrow": {
+    "value": "&rsaquo;"
+  },
+  "hellip": {
+    "value": "&hellip;"
+  },
+  "error_not_found": {
+    "value": "404: Seite nicht gefunden"
+  },
+  "future_search_input": {
+    "value": "Diese Seite durchsuchen. Treffer erscheinen beim Tippen."
+  },
+  "future_back_to_top": {
+    "value": "Zurück nach oben"
+  },
+  "future_copy": {
+    "value": "Kopieren"
+  },
+  "future_copied": {
+    "value": "kopiert!"
+  }
+}
