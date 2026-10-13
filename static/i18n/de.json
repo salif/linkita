@@ -1,98 +1,162 @@
 {
   "word_translations": {
-    "value": "Übersetzungen"
+    "value": "Übersetzungen",
+    "fallback": "Translations",
+    "needs_edit": ""
   },
   "taxonomy_tags": {
-    "value": "Tags"
+    "value": "Tags",
+    "fallback": "Tags",
+    "needs_edit": ""
   },
   "taxonomy_categories": {
-    "value": "Kategorien"
+    "value": "Kategorien",
+    "fallback": "Categories",
+    "needs_edit": ""
   },
   "taxonomy_authors": {
-    "value": "Autoren"
+    "value": "Autoren",
+    "fallback": "Authors",
+    "needs_edit": ""
   },
   "act_go_to_home": {
-    "value": "Zur Startseite"
+    "value": "Zur Startseite",
+    "fallback": "Go to home page",
+    "needs_edit": ""
   },
   "act_switch_color_scheme": {
-    "value": "Farb-Schema wechseln"
+    "value": "Farb-Schema wechseln",
+    "fallback": "Switch color scheme",
+    "needs_edit": ""
   },
   "act_switch_to_light": {
-    "value": "Zum hellen Modus wechseln"
+    "value": "Zum hellen Modus wechseln",
+    "fallback": "Switch to light mode",
+    "needs_edit": ""
   },
   "act_switch_to_dark": {
-    "value": "Zum dunklen Modus wechseln"
+    "value": "Zum dunklen Modus wechseln",
+    "fallback": "Switch to dark mode",
+    "needs_edit": ""
   },
   "act_reset_color_scheme": {
-    "value": "Farb-Schema zurücksetzen"
+    "value": "Farb-Schema zurücksetzen",
+    "fallback": "Reset color scheme",
+    "needs_edit": ""
   },
   "act_search": {
-    "value": "Suche öffnen"
+    "value": "Suche öffnen",
+    "fallback": "Open search",
+    "needs_edit": ""
   },
   "act_go_to_translation": {
-    "value": "Zu Übersetzungen gehen"
+    "value": "Zu Übersetzungen gehen",
+    "fallback": "Go to page translation",
+    "needs_edit": ""
   },
   "act_show_translations": {
-    "value": "Seite der Übersetzung anzeigen"
+    "value": "Seite der Übersetzung anzeigen",
+    "fallback": "Show page translations",
+    "needs_edit": ""
   },
   "act_menu": {
-    "value": "Menü öffnen / schließen"
+    "value": "Menü öffnen / schließen",
+    "fallback": "Toggle menu",
+    "needs_edit": ""
   },
   "footer_made_with": {
-    "value": "Made with Zola"
+    "value": "Made with Zola",
+    "fallback": "Made with Zola",
+    "needs_edit": ""
   },
   "footer_built_with": {
-    "value": "Built with Zola"
+    "value": "Built with Zola",
+    "fallback": "Built with Zola",
+    "needs_edit": ""
   },
   "footer_theme_name": {
-    "value": "Linkita"
+    "value": "Linkita",
+    "fallback": "Linkita",
+    "needs_edit": ""
   },
   "title_page": {
-    "value": "Seite $NUM"
+    "value": "Seite $NUM",
+    "fallback": "Page $NUM",
+    "needs_edit": ""
   },
   "word_prev_page": {
-    "value": "Vorherige Seite"
+    "value": "Vorherige Seite",
+    "fallback": "Prev Page",
+    "needs_edit": ""
   },
   "word_next_page": {
-    "value": "Nächste Seite"
+    "value": "Nächste Seite",
+    "fallback": "Next Page",
+    "needs_edit": ""
   },
   "word_toc": {
-    "value": "Inhaltsverzeichnis"
+    "value": "Inhaltsverzeichnis",
+    "fallback": "Table of Contents",
+    "needs_edit": ""
   },
   "word_minute": {
-    "value": "min"
+    "value": "min",
+    "fallback": "min",
+    "needs_edit": ""
   },
   "word_minutes": {
-    "value": "min"
+    "value": "min",
+    "fallback": "min",
+    "needs_edit": ""
   },
   "word_words": {
-    "value": "Worte"
+    "value": "Worte",
+    "fallback": "words",
+    "needs_edit": ""
   },
   "word_more": {
-    "value": "Mehr &raquo;"
+    "value": "Mehr &raquo;",
+    "fallback": "More &raquo;",
+    "needs_edit": ""
   },
   "left_arrow": {
-    "value": "&lsaquo;"
+    "value": "&lsaquo;",
+    "fallback": "&lsaquo;",
+    "needs_edit": ""
   },
   "right_arrow": {
-    "value": "&rsaquo;"
+    "value": "&rsaquo;",
+    "fallback": "&rsaquo;",
+    "needs_edit": ""
   },
   "hellip": {
-    "value": "&hellip;"
+    "value": "&hellip;",
+    "fallback": "&hellip;",
+    "needs_edit": ""
   },
   "error_not_found": {
-    "value": "404: Seite nicht gefunden"
+    "value": "404: Seite nicht gefunden",
+    "fallback": "404: Page not found",
+    "needs_edit": ""
   },
   "future_search_input": {
-    "value": "Diese Seite durchsuchen. Treffer erscheinen beim Tippen."
+    "value": "Diese Seite durchsuchen. Treffer erscheinen beim Tippen.",
+    "fallback": "Search this site. Results will load as you type.",
+    "needs_edit": ""
   },
   "future_back_to_top": {
-    "value": "Zurück nach oben"
+    "value": "Zurück nach oben",
+    "fallback": "Back to Top",
+    "needs_edit": ""
   },
   "future_copy": {
-    "value": "Kopieren"
+    "value": "Kopieren",
+    "fallback": "copy",
+    "needs_edit": ""
   },
   "future_copied": {
-    "value": "kopiert!"
+    "value": "kopiert!",
+    "fallback": "copied!",
+    "needs_edit": ""
   }
 }
