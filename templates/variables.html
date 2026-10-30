@@ -1,4 +1,5 @@
-{#- Rename section to page #}
+{#- Merge 'page' and 'section' into 'page' so that 'page' is always defined.
+    Create a 'page' for the 404.html template and taxonomy/term pages. #}
 {%- if section is defined and page is defined %}
   {{- throw(message="both section and page are defined") }}
 {%- elif section is undefined and page is defined %}
@@ -16,7 +17,8 @@
   {%- set page = { "lang": lang, "extra": {} } %}
 {%- endif %}
 
-{#- For relative links #}
+{#- Group global variables to easily pass them to components.
+    page.* do not need optional chaining. #}
 {%- set ctx = {
   ...ctx,
   "lang": page.lang,
@@ -52,15 +54,15 @@
 {%- endif %}
 
 {%- if page.extra.profile is string %}
-  {%- set ctx = {...ctx, "profile": page.extra.profile} %}
+  {%- set ctx = {...ctx, "profile_username": page.extra.profile} %}
 {%- elif taxonomy?.name is string and taxonomy.name == "authors" and term?.name is string %}
-  {%- set ctx = {...ctx, "profile": term.name} %}
+  {%- set ctx = {...ctx, "profile_username": term.name} %}
 {%- endif %}
-{%- if ctx.profile %}
-  {%- if config.extra.profiles?[ctx.profile] %}
-    {%- set _g_profile = config.extra.profiles[ctx.profile] %}
+{%- if ctx.profile_username %}
+  {%- if config.extra.profiles?[ctx.profile_username] %}
+    {%- set _g_profile = config.extra.profiles[ctx.profile_username] %}
   {%- else %}
-    {%- set _g_profile = {"name": ctx.profile} %}
+    {%- set _g_profile = {"name": ctx.profile_username} %}
   {%- endif %}
 {%- else %}
   {%- set _g_profile = {} %}

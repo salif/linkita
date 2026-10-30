@@ -54,14 +54,6 @@ sync_gc:
 
 [group('update_assets')]
 [script]
-sync_instantpage:
-    cd node_modules/instant.page/
-    pnpm run minify
-    cd -
-    cp node_modules/instant.page/instantpage.min.js static/js/instantpage.min.js
-
-[group('update_assets')]
-[script]
 sync_katex:
     rm -rf static/katex
     mkdir static/katex static/katex/fonts static/katex/contrib

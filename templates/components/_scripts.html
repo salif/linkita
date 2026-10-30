@@ -1,5 +1,6 @@
 {% component _scripts(@ctx: map) %}
   {%- if ctx.is_mode_serve %}
+  {#- On `zola serve` #}
   <script src="{{ <_link_static path=`js/theme/color.js` cachebust={false} /> }}"></script>
   <script src="{{ <_link_static path=`js/theme/analytics.js` cachebust={false} /> }}"></script>
   <script src="{{ <_link_static path=`js/theme/katex.js` cachebust={false} /> }}"></script>
@@ -8,6 +9,7 @@
   <script src="{{ <_link_static path=`js/theme/search.js` cachebust={false} /> }}"></script>
   <script src="{{ <_link_static path=`js/theme/trans.js` cachebust={false} /> }}"></script>
   {%- else %}
+  {#- On `zola build` #}
   <script src="{{ <_link_static path=`js/zola-theme.min.js` /> }}"></script>
   {%- endif %}
 {%- endcomponent %}
