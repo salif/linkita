@@ -2,7 +2,7 @@
 title = "مهاجرت به Zola 0.23.4"
 description = "چگونگی ارتقا و مهاجرت سایت لینکیتا به Zola v0.23.4"
 date = 2026-09-12
-path = "fa/update-2"
+template = "pages.html"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]

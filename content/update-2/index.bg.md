@@ -2,7 +2,7 @@
 title = "Преминаване към Зола 0.23.4"
 description = "Как да мигрирате към Зола 0.23.4"
 date = 2026-09-12
-path = "bg/update-2"
+template = "pages.html"
 [taxonomies]
 tags = ["мета"]
 authors = ["salif"]

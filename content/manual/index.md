@@ -2,7 +2,7 @@
 title = "Create Content Pages"
 description = "A guide to manually creating pages and sections"
 date = 2026-09-11
-path = "manual"
+template = "pages.html"
 [taxonomies]
 tags = ["meta"]
 authors = ["salif"]
