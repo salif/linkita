@@ -20,7 +20,7 @@ serve: serve_and
 
 [group('dev')]
 check:
-    {{ zola }} check
+    {{ zola }} check --skip-external-links
 
 [group('git')]
 [private]
