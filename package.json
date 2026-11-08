@@ -9,12 +9,12 @@
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
-    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/cli": "^4.3.5",
     "@tailwindcss/typography": "^0.5.20",
     "katex": "^0.19.1",
     "puppeteer": "^25.16.0",
-    "simple-icons": "^16.36.0",
-    "tailwindcss": "^4.3.3",
+    "simple-icons": "^16.37.0",
+    "tailwindcss": "^4.3.5",
     "terser": "^5.51.2"
   }
 }
